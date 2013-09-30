@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{743CCB25-39B0-44C0-AED0-167F208452E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TextbookManage.Design</RootNamespace>
+    <AssemblyName>TextbookManage.Design</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Approval.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApprovalType.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookSeller.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataSign.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeclarationApproval.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeclarationType.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Discount.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackApproval.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InStock.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutStock.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReleaseRecord.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="School.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockRecord.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Storage.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDeclaration.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentRelease.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherDeclaration.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherRelease.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeachingTask.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Term.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Textbook.cs">
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookManageV3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextbookManageV3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookManageV3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextbookManageV3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookManageV3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextbookManageV3.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="TextbookManageV3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TextbookManageV3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TextbookManageV3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TextbookManageV3.edmx</DependentUpon>
+      <LastGenOutput>TextbookManageV3.Context.cs</LastGenOutput>
+    </None>
+    <None Include="TextbookManageV3.edmx.diagram">
+      <DependentUpon>TextbookManageV3.edmx</DependentUpon>
+    </None>
+    <None Include="TextbookManageV3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TextbookManageV3.edmx</DependentUpon>
+      <LastGenOutput>TextbookManageV3.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

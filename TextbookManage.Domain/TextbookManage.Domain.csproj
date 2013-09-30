@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TextbookManage.Domain</RootNamespace>
+    <AssemblyName>TextbookManage.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainService.cs" />
+    <Compile Include="IRepositories\IBooksellerRepository.cs" />
+    <Compile Include="IRepositories\IDeclarationRepository.cs" />
+    <Compile Include="IRepositories\IStudentReleaseRecordRepository.cs" />
+    <Compile Include="IRepositories\IStorageRepository.cs" />
+    <Compile Include="IRepositories\IStudentDeclarationRepository.cs" />
+    <Compile Include="IRepositories\ITeacherDeclarationRepository.cs" />
+    <Compile Include="IRepositories\ITeacherReleaseRecordRepository.cs" />
+    <Compile Include="IRepositories\ITextbookRepository.cs" />
+    <Compile Include="IRepositories\Jw\IDataSignRepository.cs" />
+    <Compile Include="IRepositories\Jw\IDepartmentRepository.cs" />
+    <Compile Include="IRepositories\Jw\ISchoolRepository.cs" />
+    <Compile Include="IRepositories\Jw\IStudentClassRepository.cs" />
+    <Compile Include="IRepositories\Jw\IStudentRepository.cs" />
+    <Compile Include="IRepositories\Jw\ITeacherRepository.cs" />
+    <Compile Include="IRepositories\Jw\ITeachingTaskRepository.cs" />
+    <Compile Include="IRepositories\Jw\ITermRepository.cs" />
+    <Compile Include="Models\ApprovalState.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\FeedbackApproval.cs" />
+    <Compile Include="Gender.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\ISql.cs" />
+    <Compile Include="Models\ApprovalTarget.cs" />
+    <Compile Include="Models\Approval.cs" />
+    <Compile Include="Models\DeclarationApproval.cs" />
+    <Compile Include="Models\Bookseller.cs" />
+    <Compile Include="Models\BooksellerStaff.cs" />
+    <Compile Include="Models\Declaration.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\FeedbackState.cs" />
+    <Compile Include="Models\InStockRecord.cs" />
+    <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\ReleaseRecord.cs" />
+    <Compile Include="Models\StudentClass.cs" />
+    <Compile Include="Models\StudentReleaseRecord.cs" />
+    <Compile Include="Models\TeacherReleaseRecord.cs" />
+    <Compile Include="Models\OutStockRecord.cs" />
+    <Compile Include="Models\StockRecord.cs" />
+    <Compile Include="Models\Storage.cs" />
+    <Compile Include="Models\Subscription.cs" />
+    <Compile Include="Models\Textbook.cs" />
+    <Compile Include="Models\RecipientType.cs" />
+    <Compile Include="Models\DataSign.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\School.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TeachingTask.cs" />
+    <Compile Include="Models\Term.cs" />
+    <Compile Include="Models\TextbookApproval.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\StudentDeclaration.cs" />
+    <Compile Include="Models\TeacherDeclaration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
+      <Project>{e0ed7b9f-272b-43d7-81aa-8e4a58dfa708}</Project>
+      <Name>TextbookManage.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

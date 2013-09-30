@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="教务系统对象">
+    <Position X="11.542" Y="2.705" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="库存与发放">
+    <Position X="7.687" Y="2.387" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="申报与审核">
+    <Position X="3.515" Y="2.683" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="TextbookManage.Domain.Models.Approval" Collapsed="true">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAACAAAAAAABAAAAAAAQAAgAAAgQA=</HashCode>
+      <FileName>Models\Approval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Bookseller" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACQAAAAQAAAAAAAEAAIAEAAAAAEA=</HashCode>
+      <FileName>Models\Bookseller.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.BooksellerStaff" Collapsed="true">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAACABBCAA=</HashCode>
+      <FileName>Models\BooksellerStaff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Course" Collapsed="true">
+    <Position X="15.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.DataSign" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DataSign.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Declaration" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAABAEACAAAAgABAAAACAEKIEAABEgAA=</HashCode>
+      <FileName>Models\Declaration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.DeclarationApproval" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DeclarationApproval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Department" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAABAAAAAAAgAAAAAAAAAQAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Department.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Feedback" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAhAAAAABAAAAAAAAAAAAAAAAAAACAAEAAAAAQA=</HashCode>
+      <FileName>Models\Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.FeedbackApproval" Collapsed="true">
+    <Position X="2.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FeedbackApproval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.InStockRecord" Collapsed="true">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InStockRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Inventory" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAABAAAAAAAAAEACAAAAABAAAAAEAAAAAAgAAAgA=</HashCode>
+      <FileName>Models\Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.OutStockRecord" Collapsed="true">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\OutStockRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.ReleaseRecord" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YCgABAAAIQEIAAAAiEABAgQgAwAAQAAAUoAARAABAAA=</HashCode>
+      <FileName>Models\ReleaseRecord.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.School" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\School.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.StockRecord" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgIgAAAAAACAAAAAAAAAAAAEAAAAAgQAIAA=</HashCode>
+      <FileName>Models\StockRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Storage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAEAAAAAAAAAAQAAAAAAAACAAAACAABAAA=</HashCode>
+      <FileName>Models\Storage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Student" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAACACAAACAAEAAAAAAAAAIAAAAACAAAAECAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.StudentClass" Collapsed="true">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAACACAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\StudentClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.StudentDeclaration" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\StudentDeclaration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.StudentReleaseRecord" Collapsed="true">
+    <Position X="4.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAABAAAAACAAACAAEAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\StudentReleaseRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Subscription" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACABBQAAEAAAAEACCAAAAAAAAAAAAEAAQCAABAAA=</HashCode>
+      <FileName>Models\Subscription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Teacher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAAAAAAAACAEAAACAAAIAAIAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Teacher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.TeacherDeclaration" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TeacherDeclaration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.TeacherReleaseRecord" Collapsed="true">
+    <Position X="7" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAACAEAAECAAAAIAAAAAAAQAAAAAAgAA=</HashCode>
+      <FileName>Models\TeacherReleaseRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.TeachingTask" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACCCAAAQACAAAAAEEEACAAAAAAAABCAEQAAAAAAgAA=</HashCode>
+      <FileName>Models\TeachingTask.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Term" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Term.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TextbookManage.Domain.Models.Textbook" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoAAAAAQQAAAAAAiEABAAQAAwAAQAAAQgAERAAAAAA=</HashCode>
+      <FileName>Models\Textbook.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="TextbookManage.Domain.IAggregateRoot" Collapsed="true">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAggregateRoot.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.IRepository&lt;TAggregateRoot&gt;" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIAAAAAAAAQAAAAAABASAAAAIAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.ISql" Collapsed="true">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\ISql.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.IDataSignRepository" Collapsed="true">
+    <Position X="13" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\IDataSignRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.IDepartmentRepository" Collapsed="true">
+    <Position X="16.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\IDepartmentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.ISchoolRepository" Collapsed="true">
+    <Position X="14.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\ISchoolRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.IStudentRepository" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\IStudentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.ITeacherRepository" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\ITeacherRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.ITeachingTaskRepository" Collapsed="true">
+    <Position X="13" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\ITeachingTaskRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TextbookManage.Domain.IRepositories.Jw.ITermRepository" Collapsed="true">
+    <Position X="13" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepositories\Jw\ITermRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TextbookManage.Domain.Gender" Collapsed="true">
+    <Position X="5.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAABA=</HashCode>
+      <FileName>Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TextbookManage.Domain.Models.ApprovalState" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgCIECAAABAAAAAAABAAAAAAgAAAAAAAAAAAAACBA=</HashCode>
+      <FileName>Models\ApprovalState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TextbookManage.Domain.Models.ApprovalTarget" Collapsed="true">
+    <Position X="2.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApprovalTarget.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TextbookManage.Domain.Models.FeedbackState" Collapsed="true">
+    <Position X="4" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAABAAAAAAAAAAQAABBA=</HashCode>
+      <FileName>Models\FeedbackState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TextbookManage.Domain.Models.RecipientType" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RecipientType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

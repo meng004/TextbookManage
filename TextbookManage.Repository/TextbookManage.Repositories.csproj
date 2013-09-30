@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{620CDAB0-581D-4669-9D82-E11E35ABCB7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TextbookManage.Repositories</RootNamespace>
+    <AssemblyName>TextbookManage.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BooksellerRepository.cs" />
+    <Compile Include="DeclarationRepository.cs" />
+    <Compile Include="Jw\DataSignRepository.cs" />
+    <Compile Include="Jw\DepartmentRepository.cs" />
+    <Compile Include="Jw\StudentClassRepository.cs" />
+    <Compile Include="Jw\StudentRepository.cs" />
+    <Compile Include="Jw\TeacherRepository.cs" />
+    <Compile Include="Jw\TeachingTaskRepository.cs" />
+    <Compile Include="Jw\TermRepository.cs" />
+    <Compile Include="Mapping\DataSignMap.cs" />
+    <Compile Include="Mapping\DepartmentMap.cs" />
+    <Compile Include="Mapping\SchoolMap.cs" />
+    <Compile Include="Mapping\StudentClassMap.cs" />
+    <Compile Include="Mapping\StudentMap.cs" />
+    <Compile Include="Mapping\TeacherMap.cs" />
+    <Compile Include="Mapping\TeachingTaskMap.cs" />
+    <Compile Include="Mapping\TermMap.cs" />
+    <Compile Include="JwUnitOfWork.cs" />
+    <Compile Include="Jw\SchoolRepository.cs" />
+    <Compile Include="Mapping\TextbookApprovalMap.cs" />
+    <Compile Include="StorageRepository.cs" />
+    <Compile Include="StudentDeclarationRepository.cs" />
+    <Compile Include="StudentReleaseRecordRepository.cs" />
+    <Compile Include="TbMisUnitOfWork.cs" />
+    <Compile Include="Mapping\DeclarationApprovalMap.cs" />
+    <Compile Include="Mapping\ApprovalMap.cs" />
+    <Compile Include="Mapping\BooksellerMap.cs" />
+    <Compile Include="Mapping\BooksellerStaffMap.cs" />
+    <Compile Include="Mapping\DeclarationMap.cs" />
+    <Compile Include="Mapping\FeedbackApprovalMap.cs" />
+    <Compile Include="Mapping\FeedbackMap.cs" />
+    <Compile Include="Mapping\InventoryMap.cs" />
+    <Compile Include="Mapping\ReleaseRecordMap.cs" />
+    <Compile Include="Mapping\StockRecordMap.cs" />
+    <Compile Include="Mapping\StorageMap.cs" />
+    <Compile Include="Mapping\StudentReleaseRecordMap.cs" />
+    <Compile Include="Mapping\SubscriptionMap.cs" />
+    <Compile Include="Mapping\TeacherReleaseRecordMap.cs" />
+    <Compile Include="Mapping\TextbookMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="TeacherDeclarationRepository.cs" />
+    <Compile Include="TeacherReleaseRecordRepository.cs" />
+    <Compile Include="TextbookRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
+      <Project>{e1c0ecbd-2870-49c6-b4f5-536fcc67f38c}</Project>
+      <Name>TextbookManage.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
+      <Project>{e0ed7b9f-272b-43d7-81aa-8e4a58dfa708}</Project>
+      <Name>TextbookManage.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

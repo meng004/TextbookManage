@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6201ec9988dc4ec7b9d93307b3e00e6c" Name="关系图1" >
+        <EntityTypeShape EntityType="TextbookManageV3.Teacher" Width="1.5" PointX="3.125" PointY="1.375" IsExpanded="false" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="TextbookManageV3.TeachingTask" Width="1.5" PointX="5.125" PointY="0.5" IsExpanded="false" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="TextbookManageV3.Term" Width="1.5" PointX="1.5" PointY="0.5" IsExpanded="false" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="TextbookManageV3.DataSign" Width="1.5" PointX="7.5" PointY="0.5" IsExpanded="false" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="TextbookManageV3.Declaration" Width="1.5" PointX="5" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.TeacherDeclaration" Width="1.75" PointX="3" PointY="3.25" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.TeacherDeclaration" />
+        <EntityTypeShape EntityType="TextbookManageV3.StudentDeclaration" Width="1.75" PointX="3" PointY="4.25" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.StudentDeclaration" />
+        <EntityTypeShape EntityType="TextbookManageV3.Subscription" Width="1.5" PointX="5" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.Textbook" Width="1.5" PointX="7.375" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.Discount" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.Approval" Width="1.5" PointX="0.625" PointY="4.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.DeclarationApproval" Width="1.875" PointX="0.5" PointY="2.5" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.DeclarationApproval" />
+        <EntityTypeShape EntityType="TextbookManageV3.BookSeller" Width="1.5" PointX="5" PointY="5.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.Storage" Width="1.5" PointX="7.625" PointY="5.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.Inventory" Width="1.5" PointX="7.625" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.StockRecord" Width="1.5" PointX="10.25" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.InStock" Width="1.5" PointX="9.5" PointY="5.25" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.InStock" />
+        <EntityTypeShape EntityType="TextbookManageV3.OutStock" Width="1.5" PointX="11.125" PointY="5.25" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.OutStock" />
+        <EntityTypeShape EntityType="TextbookManageV3.ReleaseRecord" Width="1.5" PointX="10.25" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.StudentRelease" Width="1.625" PointX="11.125" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="TextbookManageV3.TeacherRelease" Width="1.75" PointX="9.25" PointY="2" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.TeacherRelease" />
+        <InheritanceConnector EntityType="TextbookManageV3.StudentRelease" />
+        <InheritanceConnector EntityType="TextbookManageV3.DeclarationApproval" />
+        <AssociationConnector Association="TextbookManageV3.TermTeachingTask" />
+        <AssociationConnector Association="TextbookManageV3.DataSignTeachingTask" />
+        <AssociationConnector Association="TextbookManageV3.TeacherTeachingTask" />
+        <AssociationConnector Association="TextbookManageV3.TeachingTaskDeclaration" />
+        <AssociationConnector Association="TextbookManageV3.TextbookDeclaration" />
+        <AssociationConnector Association="TextbookManageV3.TextbookDiscount" />
+        <AssociationConnector Association="TextbookManageV3.SubscriptionDeclaration" />
+        <AssociationConnector Association="TextbookManageV3.BookSellerSubscription" />
+        <AssociationConnector Association="TextbookManageV3.BookSellerStorage" />
+        <AssociationConnector Association="TextbookManageV3.StorageInventory" />
+        <AssociationConnector Association="TextbookManageV3.TextbookInventory" />
+        <AssociationConnector Association="TextbookManageV3.InventoryStockRecord" />
+        <AssociationConnector Association="TextbookManageV3.StockRecordReleaseRecord" />
+        <InheritanceConnector EntityType="TextbookManageV3.TeacherDeclaration" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="TextbookManageV3.StudentDeclaration" />
+        <AssociationConnector Association="TextbookManageV3.TermSubscription" />
+        <EntityTypeShape EntityType="TextbookManageV3.Feedback" Width="1.5" PointX="2.875" PointY="5.875" IsExpanded="false" />
+        <AssociationConnector Association="TextbookManageV3.FeedbackSubscription" />
+        <AssociationConnector Association="TextbookManageV3.TextbookSubscription" />
+        <AssociationConnector Association="TextbookManageV3.TeacherDeclaration1" />
+        <AssociationConnector Association="TextbookManageV3.DeclarationDeclarationApproval" />
+        <EntityTypeShape EntityType="TextbookManageV3.FeedbackApproval" Width="1.75" PointX="0.5" PointY="5.875" IsExpanded="false" />
+        <InheritanceConnector EntityType="TextbookManageV3.FeedbackApproval" />
+        <AssociationConnector Association="TextbookManageV3.FeedbackFeedbackApproval" />
+        <EntityTypeShape EntityType="TextbookManageV3.Student" Width="1.5" PointX="9.875" PointY="0.5" IsExpanded="false" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="TextbookManageV3.School" Width="1.5" PointX="11.625" PointY="0.5" IsExpanded="false" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="TextbookManageV3.Department" Width="1.5" PointX="13.25" PointY="0.5" IsExpanded="false" FillColor="255, 128, 0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

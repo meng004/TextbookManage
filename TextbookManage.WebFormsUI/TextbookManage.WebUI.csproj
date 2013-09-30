@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D7CA2C3-39D3-4BDD-9FA9-5BA7365EA785}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TextbookManage.WebUI</RootNamespace>
+    <AssemblyName>TextbookManage.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\packages\Telerik\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\packages\Telerik\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Declaration\ApprovalDeclaration.aspx" />
+    <Content Include="Declaration\DepartmentProgress.aspx" />
+    <Content Include="Declaration\QueryDeclaration.aspx" />
+    <Content Include="Declaration\SchoolProgress.aspx" />
+    <Content Include="Declaration\StudentTextbookDeclaration.aspx" />
+    <Content Include="Declaration\TeacherTextbookDeclaration.aspx" />
+    <Content Include="Feedback\BooksellerFeedBack.aspx" />
+    <Content Include="Feedback\QuerySubscriptionPlan.aspx" />
+    <Content Include="PopWindow\ApprovalRecordDetail.aspx" />
+    <Content Include="PopWindow\DeclarationsForTeachingClass.aspx" />
+    <Content Include="PopWindow\FeedbackForDeclaration.aspx" />
+    <Content Include="PopWindow\FeedbackForSubscriptionPlan.aspx" />
+    <Content Include="PopWindow\TeachingClassDetail.aspx" />
+    <Content Include="PopWindow\TextbookDetailMessage.aspx" />
+    <Content Include="Subscription\OrderBySchool.aspx" />
+    <Content Include="Subscription\OrderByTextbook.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Declaration\ApprovalDeclaration.aspx.cs">
+      <DependentUpon>ApprovalDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\ApprovalDeclaration.aspx.designer.cs">
+      <DependentUpon>ApprovalDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\DepartmentProgress.aspx.cs">
+      <DependentUpon>DepartmentProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\DepartmentProgress.aspx.designer.cs">
+      <DependentUpon>DepartmentProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\QueryDeclaration.aspx.cs">
+      <DependentUpon>QueryDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\QueryDeclaration.aspx.designer.cs">
+      <DependentUpon>QueryDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\SchoolProgress.aspx.cs">
+      <DependentUpon>SchoolProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\SchoolProgress.aspx.designer.cs">
+      <DependentUpon>SchoolProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\StudentTextbookDeclaration.aspx.cs">
+      <DependentUpon>StudentTextbookDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\StudentTextbookDeclaration.aspx.designer.cs">
+      <DependentUpon>StudentTextbookDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\TeacherTextbookDeclaration.aspx.cs">
+      <DependentUpon>TeacherTextbookDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Declaration\TeacherTextbookDeclaration.aspx.designer.cs">
+      <DependentUpon>TeacherTextbookDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback\BooksellerFeedBack.aspx.cs">
+      <DependentUpon>BooksellerFeedBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback\BooksellerFeedBack.aspx.designer.cs">
+      <DependentUpon>BooksellerFeedBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback\QuerySubscriptionPlan.aspx.cs">
+      <DependentUpon>QuerySubscriptionPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback\QuerySubscriptionPlan.aspx.designer.cs">
+      <DependentUpon>QuerySubscriptionPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\ApprovalRecordDetail.aspx.cs">
+      <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\ApprovalRecordDetail.aspx.designer.cs">
+      <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\DeclarationsForTeachingClass.aspx.cs">
+      <DependentUpon>DeclarationsForTeachingClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopWindow\DeclarationsForTeachingClass.aspx.designer.cs">
+      <DependentUpon>DeclarationsForTeachingClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\FeedbackForDeclaration.aspx.cs">
+      <DependentUpon>FeedbackForDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\FeedbackForDeclaration.aspx.designer.cs">
+      <DependentUpon>FeedbackForDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\FeedbackForSubscriptionPlan.aspx.cs">
+      <DependentUpon>FeedbackForSubscriptionPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\FeedbackForSubscriptionPlan.aspx.designer.cs">
+      <DependentUpon>FeedbackForSubscriptionPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\TeachingClassDetail.aspx.cs">
+      <DependentUpon>TeachingClassDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\TeachingClassDetail.aspx.designer.cs">
+      <DependentUpon>TeachingClassDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\TextbookDetailMessage.aspx.cs">
+      <DependentUpon>TextbookDetailMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopWindow\TextbookDetailMessage.aspx.designer.cs">
+      <DependentUpon>TextbookDetailMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subscription\OrderBySchool.aspx.cs">
+      <DependentUpon>OrderBySchool.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription\OrderBySchool.aspx.designer.cs">
+      <DependentUpon>OrderBySchool.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription\OrderByTextbook.aspx.cs">
+      <DependentUpon>OrderByTextbook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription\OrderByTextbook.aspx.designer.cs">
+      <DependentUpon>OrderByTextbook.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.WebClient\TextbookManage.WebClient.csproj">
+      <Project>{682daaa7-14dd-4f33-87f5-914808dcd71a}</Project>
+      <Name>TextbookManage.WebClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.WebControls\TextbookManage.WebControls.csproj">
+      <Project>{a2d8a100-a86f-4972-9bbf-1007901a7682}</Project>
+      <Name>TextbookManage.WebControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3659/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

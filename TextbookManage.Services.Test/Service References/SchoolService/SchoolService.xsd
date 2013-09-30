@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/TextbookManage.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TextbookManage.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3647/Jw/SchoolService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfSchool">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="School" nillable="true" type="tns:School" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchool" nillable="true" type="tns:ArrayOfSchool" />
+  <xs:complexType name="School">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Num" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchoolID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="School" nillable="true" type="tns:School" />
+</xs:schema>
