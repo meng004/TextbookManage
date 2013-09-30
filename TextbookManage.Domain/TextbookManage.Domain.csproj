@@ -56,8 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainService.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="IRepositories\IBooksellerRepository.cs" />
     <Compile Include="IRepositories\IDeclarationRepository.cs" />
+    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\IRepositoryContext.cs" />
     <Compile Include="IRepositories\IStudentReleaseRecordRepository.cs" />
     <Compile Include="IRepositories\IStorageRepository.cs" />
     <Compile Include="IRepositories\IStudentDeclarationRepository.cs" />
@@ -72,12 +75,14 @@
     <Compile Include="IRepositories\Jw\ITeacherRepository.cs" />
     <Compile Include="IRepositories\Jw\ITeachingTaskRepository.cs" />
     <Compile Include="IRepositories\Jw\ITermRepository.cs" />
+    <Compile Include="IRepositories\Repository.cs" />
+    <Compile Include="IRepositories\RepositoryContext.cs" />
     <Compile Include="Models\ApprovalState.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\FeedbackApproval.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="IAggregateRoot.cs" />
-    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\IRepository1.cs" />
     <Compile Include="IRepositories\ISql.cs" />
     <Compile Include="Models\ApprovalTarget.cs" />
     <Compile Include="Models\Approval.cs" />
