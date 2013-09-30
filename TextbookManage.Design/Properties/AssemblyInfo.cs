@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("TextbookManage")]
+[assembly: AssemblyTitle("TextbookManage.Design")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TextbookManage")]
+[assembly: AssemblyProduct("TextbookManage.Design")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("511513f2-bb1f-4152-8157-1e0316415d54")]
+[assembly: Guid("1a10504c-0693-4bbc-b1eb-64c44c71fe1b")]
 
 // 程序集的版本信息由下面四个值组成:
 //

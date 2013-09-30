@@ -4,18 +4,21 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1CE88D38-0E50-4646-B6C8-7A72C9885A1C}</ProjectGuid>
+    <ProjectGuid>{E86E7F7E-7237-47AE-9B8E-4AE4AF439E30}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TextbookManage</RootNamespace>
-    <AssemblyName>TextbookManage</AssemblyName>
+    <RootNamespace>TextbookManage.IApplications</RootNamespace>
+    <AssemblyName>TextbookManage.IApplications</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,7 +28,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,7 +36,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,7 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IApprovalDeclaration.cs" />
+    <Compile Include="IBookseller.cs" />
+    <Compile Include="ICourse.cs" />
+    <Compile Include="IDataSign.cs" />
+    <Compile Include="IDeclaration.cs" />
+    <Compile Include="IDepartment.cs" />
+    <Compile Include="IFeedback.cs" />
+    <Compile Include="IGetModelsAndCheckParams.cs" />
+    <Compile Include="IProgress.cs" />
+    <Compile Include="ISchool.cs" />
+    <Compile Include="ISubscriptionPlan.cs" />
+    <Compile Include="ITerm.cs" />
+    <Compile Include="ITextbook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.ViewModels\TextbookManage.ViewModels.csproj">
+      <Project>{a60747b1-6d92-4995-9ae3-7ada668291d7}</Project>
+      <Name>TextbookManage.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

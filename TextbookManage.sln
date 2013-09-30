@@ -32,57 +32,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.IServices", "TextbookManage.IServices\TextbookManage.IServices.csproj", "{4996F44B-A7AF-4DD1-A40D-391A45F30261}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 16
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://210.43.118.193:8080/tfs/%E6%95%99%E6%9D%90%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = TextbookManage.Infrastructure\\TextbookManage.Infrastructure.csproj
-		SccProjectName1 = TextbookManage.Infrastructure
-		SccLocalPath1 = TextbookManage.Infrastructure
-		SccProjectUniqueName2 = TextbookManage.Domain\\TextbookManage.Domain.csproj
-		SccProjectName2 = TextbookManage.Domain
-		SccLocalPath2 = TextbookManage.Domain
-		SccProjectUniqueName3 = TextbookManage.WebClient\\TextbookManage.WebClient.csproj
-		SccProjectName3 = TextbookManage.WebClient
-		SccLocalPath3 = TextbookManage.WebClient
-		SccProjectUniqueName4 = TextbookManage.WebControls\\TextbookManage.WebControls.csproj
-		SccProjectName4 = TextbookManage.WebControls
-		SccLocalPath4 = TextbookManage.WebControls
-		SccProjectUniqueName5 = TextbookManage.ViewModels\\TextbookManage.ViewModels.csproj
-		SccProjectName5 = TextbookManage.ViewModels
-		SccLocalPath5 = TextbookManage.ViewModels
-		SccProjectUniqueName6 = TextbookManage.Service\\TextbookManage.Services.csproj
-		SccProjectName6 = TextbookManage.Service
-		SccLocalPath6 = TextbookManage.Service
-		SccProjectUniqueName7 = TextbookManage.IApplication\\TextbookManage.IApplications.csproj
-		SccProjectName7 = TextbookManage.IApplication
-		SccLocalPath7 = TextbookManage.IApplication
-		SccProjectUniqueName8 = TextbookManage.Application\\TextbookManage.Applications.csproj
-		SccProjectName8 = TextbookManage.Application
-		SccLocalPath8 = TextbookManage.Application
-		SccProjectUniqueName9 = TextbookManage.Repository\\TextbookManage.Repositories.csproj
-		SccProjectName9 = TextbookManage.Repository
-		SccLocalPath9 = TextbookManage.Repository
-		SccProjectUniqueName10 = TextbookManage.Design\\TextbookManage.Design.csproj
-		SccProjectName10 = TextbookManage.Design
-		SccLocalPath10 = TextbookManage.Design
-		SccProjectUniqueName11 = TextbookManage.Infrastructure.Test\\TextbookManage.Infrastructure.Test.csproj
-		SccProjectName11 = TextbookManage.Infrastructure.Test
-		SccLocalPath11 = TextbookManage.Infrastructure.Test
-		SccProjectUniqueName12 = TextbookManage.Repositories.Test\\TextbookManage.Repositories.Test.csproj
-		SccProjectName12 = TextbookManage.Repositories.Test
-		SccLocalPath12 = TextbookManage.Repositories.Test
-		SccProjectUniqueName13 = TextbookManage.Services.Test\\TextbookManage.Services.Test.csproj
-		SccProjectName13 = TextbookManage.Services.Test
-		SccLocalPath13 = TextbookManage.Services.Test
-		SccProjectUniqueName14 = TextbookManage.IServices\\TextbookManage.IServices.csproj
-		SccProjectName14 = TextbookManage.IServices
-		SccLocalPath14 = TextbookManage.IServices
-		SccProjectUniqueName15 = TextbookManage.WebFormsUI\\TextbookManage.WebUI.csproj
-		SccProjectName15 = TextbookManage.WebFormsUI
-		SccLocalPath15 = TextbookManage.WebFormsUI
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -151,8 +100,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal
