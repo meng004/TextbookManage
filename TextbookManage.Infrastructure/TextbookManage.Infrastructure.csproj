@@ -81,6 +81,7 @@
     <Compile Include="Cache\ICacheProvider.cs" />
     <Compile Include="InterceptionBehaviors\CacheBehavior.cs" />
     <Compile Include="InterceptionBehaviors\ExceptionLoggerBehavior.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Log4netLogger.cs" />
     <Compile Include="ServiceLocators\ServiceLocator.cs" />
