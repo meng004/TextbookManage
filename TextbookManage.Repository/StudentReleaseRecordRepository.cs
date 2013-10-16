@@ -1,13 +1,14 @@
 ﻿using TextbookManage.Domain.IRepositories;
-using TextbookManage.Infrastructure.UnitOfWork;
+using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Repositories
 {
-    public class StudentReleaseRecordRepository : Repository<StudentReleaseRecord>, IStudentReleaseRecordRepository
+    public class StudentReleaseRecordRepository : EntityFrameworkRepository<StudentReleaseRecord>, IStudentReleaseRecordRepository
     {
-        public StudentReleaseRecordRepository(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
+
+        public StudentReleaseRecordRepository(IRepositoryContext context)
+            : base(context)
         {
             
         }

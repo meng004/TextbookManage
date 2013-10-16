@@ -2,23 +2,25 @@
 {
 
     using System.Runtime.Serialization;
+    using System;
 
     /// <summary>
     /// 领用人类型View
     /// </summary>
     [DataContract]
-    public class RecipientTypeView : ViewModelBase
+    [Serializable]
+    public class RecipientTypeView : BaseViewModel
     {
         /// <summary>
         /// 领用人ID
         /// </summary>
         [DataMember]
-        public string RecipientTypeId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// 领用人类型
         /// </summary>
         [DataMember]
-        public string RecipientName { get; set; }
+        public string Name { get; set; }
     }
 }

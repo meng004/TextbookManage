@@ -1,64 +1,29 @@
-namespace TextbookManage.ViewModels
+锘縩amespace TextbookManage.ViewModels
 {
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class StudentView : ViewModelBase
+    public class StudentView : BaseViewModel
     {
         /// <summary>
-        /// 学生ID
+        /// 瀛︾睄ID
         /// </summary>
         [DataMember]
-        public string StudentID { get; set; }
+        public string StudentId { get; set; }
         /// <summary>
-        /// 学生编号
+        /// 瀛﹀彿
         /// </summary>
         [DataMember]
-        public string StudentNum { get; set; }
+        public string Num { get; set; }
         /// <summary>
-        /// 学生姓名
+        /// 瀛︾敓濮撳悕
         /// </summary>
         [DataMember]
-        public string StudentName { get; set; }
+        public string Name { get; set; }
         /// <summary>
-        /// 性别
+        /// 鎬у埆
         /// </summary>
         [DataMember]
         public string Gender { get; set; }
-        /// <summary>
-        /// 班级ID
-        /// </summary>
-        [DataMember]
-        public string Class_ID { get; set; }
-        /// <summary>
-        /// 班级编号
-        /// </summary>
-        [DataMember]
-        public string ClassNum { get; set; }
-        /// <summary>
-        /// 班级名称
-        /// </summary>
-        [DataMember]
-        public string ClassName { get; set; }
-        /// <summary>
-        /// 年级
-        /// </summary>
-        [DataMember]
-        public string Grade { get; set; }
-        /// <summary>
-        /// 学院ID
-        /// </summary>
-        [DataMember]
-        public string School_ID { get; set; }
-        /// <summary>
-        /// 学院编号
-        /// </summary>
-        [DataMember]
-        public string SchoolNum { get; set; }
-        /// <summary>
-        /// 学院名称
-        /// </summary>
-        [DataMember]
-        public string SchoolName { get; set; }
     }
 }

@@ -1,19 +1,25 @@
-ï»¿using System;
+using System;
+
 
 namespace TextbookManage.Domain.Models
 {
     /// <summary>
-    /// é¢†ç”¨äººç±»å‹
+    /// ÁìÓÃÈËÀàĞÍ
     /// </summary>
-    public enum RecipientType
+    public enum RecipientType : int
     {
+        È«²¿,
         /// <summary>
-        /// å­¦ç”Ÿ
+        /// Ñ§Éú
         /// </summary>
-        Student,
+        //Student,
+        Ñ§Éú,
         /// <summary>
-        /// æ•™å¸ˆ
+        /// ½ÌÊ¦
         /// </summary>
-        Teacher
+        //Teacher
+        ½ÌÊ¦
+        
+
     }
 }

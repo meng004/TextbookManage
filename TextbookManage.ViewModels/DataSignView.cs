@@ -1,21 +1,17 @@
-namespace TextbookManage.ViewModels
+锘縩amespace TextbookManage.ViewModels
 {
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// 数据标识
-    /// </summary>
     [DataContract]
-    public class DataSignView:ViewModelBase 
+    public class DataSignView : BaseViewModel
     {
-        //public int DataSignID { get; set; }
         /// <summary>
-        /// 编号
+        /// 鏁版嵁鏍囪瘑Id
         /// </summary>
         [DataMember]
-        public string Num { get; set; }
+        public string DataSignId { get; set; }
         /// <summary>
-        /// 名称
+        /// 鏁版嵁鏍囪瘑鍚嶇О
         /// </summary>
         [DataMember]
         public string Name { get; set; }

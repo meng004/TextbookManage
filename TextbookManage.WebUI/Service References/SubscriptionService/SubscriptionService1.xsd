@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2726/SubscriptionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+  <xs:element name="GetBookseller">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBooksellerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetBooksellerResult" nillable="true" type="q1:ArrayOfBooksellerView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSubscriptionByTextbook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="textbookName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isbn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSubscriptionByTextbookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="CreateSubscriptionByTextbookResult" nillable="true" type="q2:ArrayOfSubscriptionForSubmitView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchoolWithNotSub">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchoolWithNotSubResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSchoolWithNotSubResult" nillable="true" type="q3:ArrayOfSchoolView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSubscriptionBySchoolId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schoolId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSubscriptionBySchoolIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="CreateSubscriptionBySchoolIdResult" nillable="true" type="q4:ArrayOfSubscriptionForSubmitView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="subscriptions" nillable="true" type="q5:ArrayOfSubscriptionForSubmitView" />
+        <xs:element minOccurs="0" name="booksellerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="spareCount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="SubmitSubscriptionResult" nillable="true" type="q6:ResponseView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

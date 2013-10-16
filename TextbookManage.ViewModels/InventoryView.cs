@@ -1,50 +1,29 @@
+ï»¿using System.Runtime.Serialization;
+
 namespace TextbookManage.ViewModels
 {
-    using System.Runtime.Serialization;
-
-    
-    /// <summary>
-    /// ¿â´æ
-    /// </summary>
     [DataContract]
-    public class InventoryView:ViewModelBase
+    public class InventoryView : TextbookView
     {
-
         /// <summary>
-        /// ¿â´æID
+        /// åº“å­˜Id
         /// </summary>
         [DataMember]
-        public string InventoryID { get; set; }
+        public string InventoryId { get; set; }
         /// <summary>
-        /// ²Ö¿âID
+        /// ä»“åº“ID
         /// </summary>
         [DataMember]
-        public string Storage_ID { get; set; }
+        public string StorageId { get; set; }
         /// <summary>
-        /// ½Ì²ÄID
+        /// åº“å­˜æ•°é‡
         /// </summary>
         [DataMember]
-        public string Textbook_ID { get; set; }
+        public int InventoryCount { get; set; }
         /// <summary>
-        /// ¼ÜÎ»ºÅ
+        /// æ¶ä½å·
         /// </summary>
         [DataMember]
         public string ShelfNumber { get; set; }
-        /// <summary>
-        /// ¿â´æÊıÁ¿
-        /// </summary>
-        [DataMember]
-        public string InventoryCount { get; set; }
-
-        /// <summary>
-        /// ²Ö¿â
-        /// </summary>
-        [DataMember]
-        public virtual string StorageName { get; set; }
-        /// <summary>
-        /// ½Ì²Ä
-        /// </summary>
-        [DataMember]
-        public virtual string TextbookName { get; set; }
     }
 }

@@ -1,0 +1,611 @@
+﻿/*全局属性设置*//*定义页面属性*/
+html, body
+{
+    margin: 0; /*清除默认边界*/
+    padding: 0; /*清除补白默认值*/
+    text-align: left; /*居左*/ /*overflow: auto; */
+    font-size: 12px; /*预定义字体大小*/
+    font-family: 宋体,微软雅黑,Arial,Sans-Serif /*预定义字体系列*/;
+    background-color: #F5F7FC;
+    _overflow-x: hidden;
+}
+
+
+div, form, img, ul, ol, li, dl, dt, dd, hr, table, tr, td, span, input
+{
+    margin: 0; /*清除默认边界*/
+    padding: 0; /*清除补白默认值*/
+    border: 0;
+}
+
+/*解决Grid使其他地方出现滚动条问题*/
+.rgDataDiv
+{
+    position: relative;
+}
+.GridDataDiv
+{
+    overflow: hidden;
+    position: relative;
+}
+.rpText
+{
+    text-align: left;
+    vertical-align: middle;
+    margin-top: 3px;
+}
+span
+{
+    margin: 0; /*清除默认边界*/
+    padding: 0; /*清除补白默认值*/
+    border: 0;
+    text-align: right;
+}
+ul
+{
+    line-height:22px;
+    }
+/*fieldset的边框颜色的设置*/
+fieldset
+{
+    padding: 0px 0px 1px 0px;;
+    margin:1px 0px 2px 2px;
+    border: #9EBFDB solid 1px;
+}
+
+hr /*底部div中水平分割线的样式*/
+{
+    width: 100%;
+    border-bottom: 1px dotted #BFD3EB; /*定义列表项边框为点线*/
+    height: 1px;
+    border: 0;
+    margin: 0;
+}
+ul, li
+{
+    list-style: none; /*不显示列表项前的空白符*/
+    vertical-align: text-bottom;
+    padding: 0;
+    margin: 0;
+}
+#main /*最外层div定义*/
+{
+    min-width: 800px;
+    height: auto;
+}
+
+#main h1 /*主框架中标题*/
+{
+    background-image: url(/Img/Header.gif);
+    height: 24px;
+    font-size: 12pt;
+    font-weight: bold;
+    letter-spacing: normal;
+    white-space: nowrap; /*让文本不换行*/
+    text-align: left; /*让文本居左显示*/
+    background-repeat: repeat-x; /*图片在水平方向拉伸*/
+    vertical-align: middle; /*文字垂直居中*/
+}
+div .left
+{
+    margin: 0px;
+    float: left;
+    width: auto;
+}
+div .pop
+{
+    margin: 0px;
+    text-align: center;
+    width: auto;
+}
+
+div .foot /*底部div的样式，该div主要放置底部按钮*/
+{
+    padding: 3px 0px 3px 0px;
+    text-align: center;
+    clear: both; /*清除浮动*/
+}
+div.pop ul 
+{
+    display: block;
+    list-style: none; /*不显示列表项前的空白符*/
+    list-style-position: inside; /*在容器内部显示*/
+    vertical-align: text-bottom;
+    text-align: center;
+}
+ul.tbul
+{
+    display: block;
+    list-style: none; /*不显示列表项前的空白符*/
+    list-style-position: inside; /*在容器内部显示*/
+    vertical-align: text-bottom;
+    text-align: center;
+    width: 100%;
+}
+ul.tbul li
+{
+    display: inline-block;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    white-space: nowrap; /*不换行*/
+    text-align: center;
+    height: 22px;
+}
+
+
+div.pop li
+{
+    display: inline-block;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    white-space: nowrap; /*不换行*/
+    text-align: center;
+}
+div.query
+{
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    width: 515px;
+    height: 130px;
+}
+div.query .left
+{
+    text-align: left;
+    width: 195px;
+    float: left;
+}
+div.query .middle
+{
+    text-align: left;
+    float: left;
+    width: 95px;
+    display: block;
+    padding-left:3px;
+    margin-left:1px;
+}
+div.query .right
+{
+    float: right;
+    text-align: left;
+    width: 210px;
+    display: block;
+    margin-left: 1px;
+    padding-left: 1px;
+    padding-right: 0;
+    margin-right: 0;
+}
+ul.ulqueryleft
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 193px;
+}
+ul.ulqueryleft li
+{
+    list-style: none;
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    height: 22px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    width: 193px;
+    float: left;
+}
+
+ul.ulquerymiddle li
+{
+    list-style: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    height: 31px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    width: 90px;
+    float: left;
+}
+
+div .simpleQuery /*简单查询控件样式*/
+{
+    margin: 0px;
+    padding-bottom: 5px;
+    text-align: left;
+    width: 500px;
+    height: 25px;
+}
+/*import控件css定义*/
+
+div.importmain
+{
+    width: 795px;
+    padding: 0px;
+    margin: 0px;
+    height: 530px;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #8D9396;
+}
+div.import
+{
+    width: 795px;
+    padding: 0px;
+    margin: 0px;
+    height: 485px;
+    border: 0px;
+    float: left;
+    text-align: left;
+}
+div.import .left
+{
+    width: 485px;
+    padding: 0px;
+    margin: 0px;
+    height: 485px;
+    text-align: left;
+    float: left;
+}
+
+
+
+
+div.import .right
+{
+    width: 285px;
+    padding: 0px;
+    margin-left: 10px;
+    height: 485px;
+    float: left;
+}
+
+div.import .bottom
+{
+    width: 795px;
+    padding: 0px;
+    margin: 0px;
+    height: 45px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: left;
+}
+
+ul.ulimportselectfile /*没有用到*/ /*没有用到*/
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 490px;
+}
+
+ul.ulimportselectfile li /*没有用到*/
+{
+    list-style: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    height: 22px;
+    font-size: 12px;
+    width: 490px;
+    float: left;
+}
+ul.ulimportresult /*没有用到*/
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.ulimportresult li /*没有用到*/
+{
+    list-style: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: middle; /*防止产生空白行距*/
+    height: 22px;
+    font-size: 12px;
+    float: left;
+}
+
+ul.ulimporttype /*没有用到*/
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 290px;
+}
+
+ul.ulimporttype li /*没有用到*/
+{
+    list-style: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    height: 22px;
+    font-size: 12px;
+    width: 290px;
+    float: left;
+}
+table.chosefile
+{
+    width: 480px;
+    height: 22px;
+}
+
+table.importtype
+{
+    width: 280px;
+    height: 22px;
+}
+table.importresult
+{
+    width: 790px;
+    height: 22px;
+}
+fieldset.importinfo
+{
+    width: 490px;
+    float: left;
+    text-align: center;
+}
+
+/* 通用导出*/
+div.exporthole
+{
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    width: 790px;
+    height: 550px;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #8D9396;
+}
+div.export
+{
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    width: 790px;
+    height: 125px;
+}
+
+div.export .left
+{
+    text-align: left;
+    width: 190px;
+    float: left;
+}
+div.export .middle
+{
+    text-align: center;
+    float: left;
+    width: 95px;
+    display: block;
+    margin-left: 5px;
+    padding-right: 3px;
+    margin-left: 1px;
+}
+div.export .right
+{
+    padding: 0px;
+    float: left;
+    text-align: left;
+    width: 210px;
+    display: block;
+    margin-left: 1px;
+    padding-left: 1px;
+}
+ul.ulexportleft
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 190px;
+}
+ul.ulexportleft li
+{
+    list-style: none;
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    width: 190px;
+    float: left;
+    text-align: center;
+}
+
+
+ul.ulexportmiddle li
+{
+    list-style: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    height: 49px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    width: 90px;
+    float: left;
+    text-align: center;
+}
+
+
+div.export .exportcondition
+{
+    float: left;
+    text-align: left;
+    width: 260px;
+    display: block;
+    margin-left: 1px;
+    padding-left: 5px;
+}
+ul.ulexportcondition
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 260px;
+}
+ul.ulexportcondition li
+{
+    list-style: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 0px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    height: 31px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    width: 260px;
+    float: left;
+    text-align: center;
+}
+
+.input_middle input /*CheckboxList样式*/
+{
+    vertical-align: middle;
+}
+
+.cb td
+{
+    width: 150px;
+    height: 32px;
+}
+
+.cb label
+{
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+div.baseinfo
+{
+    width: 260px;
+    float: left;
+}
+
+table.brief
+{
+    border: 1px solid Black;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 15px;
+}
+table.brief td
+{
+    padding-left: 5px;
+}
+table.course
+{
+    border: 1px solid #BFD3EB;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 12px;
+}
+/* 学生学籍样式设置主要设置ul的属性 */
+.studentInfo
+{
+    margin: 0px;
+    text-align: center;
+    width: auto;
+}
+
+.studentInfo ul
+{
+    display: block;
+    list-style: none; /*不显示列表项前的空白符*/
+    list-style-position: inside; /*在容器内部显示*/
+    vertical-align: text-bottom;
+    text-align: center;
+    width: 260px;
+}
+.studentInfo li
+{
+    display: inline-block;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    vertical-align: text-bottom; /*防止产生空白行距*/
+    border-bottom-style: dotted; /*定义列表项边框为点线*/
+    border-bottom-width: 1px;
+    font-size: 12px;
+    border-bottom-color: #8D9396;
+    white-space: nowrap; /*不换行*/
+    text-align: center;
+    width: 260px;
+    float: left;
+    height: 23px;
+}
+
+
+
+element.style
+{
+    background-color: #ECE9D8;
+    background-image: url("/Reserved.ReportViewerWebControl.axd?OpType=BackImage&Version=10.0.30319.1&Color=%23ECE9D8&Name=Microsoft.Reporting.WebForms.Icons.toolbar_bk.png");
+    border-bottom: 1px solid #CCCCCC;
+    font-family: Verdana;
+    font-size: 8pt;
+    float: left;
+    text-align: left;
+}
+

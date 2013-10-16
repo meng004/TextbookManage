@@ -11,7 +11,7 @@
         /// <summary>
         /// 教材ID
         /// </summary>
-        public int Textbook_ID { get; set; }
+        public System.Guid Textbook_Id { get; set; }
         /// <summary>
         /// 教材
         /// </summary>

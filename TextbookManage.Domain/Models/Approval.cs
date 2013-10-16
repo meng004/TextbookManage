@@ -5,7 +5,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// …Û∫Àº«¬ºID
         /// </summary>
-        public int ApprovalID { get; set; }
+        public int ApprovalId { get; set; }
         /// <summary>
         /// …Û∫À≤ø√≈
         /// </summary>

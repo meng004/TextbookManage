@@ -1,10 +1,22 @@
 ﻿namespace TextbookManage.ViewModels
 {
+    using System;
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class TextbookView : ViewModelBase
+    public class TextbookView : BaseViewModel
     {
+
+        /// <summary>
+        /// 教材ID
+        /// </summary>
+        [DataMember]
+        public string TextbookId { get; set; }
+        /// <summary>
+        /// 编号
+        /// </summary>
+        [DataMember]
+        public string Num { get; set; }
         /// <summary>
         /// 教材名称
         /// </summary>
@@ -20,6 +32,11 @@
         /// </summary>
         [DataMember]
         public string Author { get; set; }
+        /// <summary>
+        /// 出版社ID
+        /// </summary>
+        [DataMember]
+        public string PressId { get; set; }
         /// <summary>
         /// 出版社
         /// </summary>
@@ -44,12 +61,12 @@
         /// 出版日期
         /// </summary>
         [DataMember]
-        public string PublishDate { get; set; }
+        public DateTime PublishDate { get; set; }
         /// <summary>
         /// 定价
         /// </summary>
         [DataMember]
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         /// <summary>
         /// 教材类型
         /// </summary>
@@ -65,30 +82,7 @@
         /// </summary>
         [DataMember]
         public string PageCount { get; set; }
-        /// <summary>
-        /// 申报人
-        /// </summary>
-        [DataMember]
-        public string Teacher { get; set; }
-        /// <summary>
-        /// 申报日期
-        /// </summary>
-        [DataMember]
-        public string DeclarationDate { get; set; }
-        /// <summary>
-        /// 审核状态
-        /// </summary>
-        [DataMember]
-        public string ApprovalState { get; set; }
-        /// <summary>
-        /// 折扣率
-        /// </summary>
-        [DataMember]
-        public string Discount { get; set; }
-        /// <summary>
-        /// 折后价
-        /// </summary>
-        [DataMember]
-        public string DiscountPrice { get; set; }
+
+
     }
 }

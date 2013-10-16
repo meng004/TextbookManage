@@ -1,0 +1,171 @@
+﻿
+<%--默认皮肤，分页，每页80行--%>
+<utm:UTMisGrid  runat="server" AutoGenerateColumns="False" AllowMultiRowSelection="true" AllowPaging="True" GridLines="Both">        
+    <MasterTableView ShowHeader="true"   CommandItemDisplay="Bottom"  EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示"  TableLayout="Fixed"   PageSize="80" >
+        <PagerStyle Position="Bottom" Mode="NextPrevNumericAndAdvanced" PagerTextFormat="{4}第{0}页，共{1}页 共{5}条记录"/>
+        <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+         <CommandItemSettings 
+            ShowExportToWordButton="true"   ShowExportToExcelButton="true"     ShowExportToPdfButton="true"                
+            ShowAddNewRecordButton="False"  ShowRefreshButton="false" RefreshText="刷新"
+            ExportToWordText="导出到Word"   ExportToPdfText="导出到PDF"
+            ExportToCsvText="导出到CVS"     ExportToExcelText="导出到Excel" >
+        </CommandItemSettings>
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"/>
+        <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true"   />
+    </ClientSettings>
+</utm:UTMisGrid> 
+
+<%--自动分页，数字分页，没有导出--%>
+<utm:UTMisGrid SkinID="NoPaging" runat="server" AutoGenerateColumns="False" AllowMultiRowEdit="True" AllowMultiRowSelection="true" AllowPaging="false" GridLines="Both">        
+     <MasterTableView ShowHeader="true" CommandItemDisplay="Bottom" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示"  TableLayout="Fixed"  >
+        <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <CommandItemSettings 
+            ShowExportToWordButton="true"   ShowExportToExcelButton="true"     ShowExportToPdfButton="true"                
+            ShowAddNewRecordButton="False"  ShowRefreshButton="false" RefreshText="刷新"
+            ExportToWordText="导出到Word"   ExportToPdfText="导出到PDF"
+            ExportToCsvText="导出到CVS"     ExportToExcelText="导出到Excel" >
+        </CommandItemSettings>
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"/>       
+    </ClientSettings>
+</utm:UTMisGrid>
+<%--自动分页，数字分页，没有导出--%>
+<utm:UTMisGrid SkinID="AutoPages" runat="server" AutoGenerateColumns="False" AllowMultiRowSelection="true" AllowPaging="True" GridLines="Both">        
+    <MasterTableView ShowHeader="true" CommandItemDisplay="None" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示"  TableLayout="Fixed"  PageSize="20">
+        <PagerStyle Mode="NumericPages" PagerTextFormat="{4}第{0}页 共{1}页" PageButtonCount="4" />
+        <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+         <CommandItemSettings 
+            ShowExportToWordButton="true"   ShowExportToExcelButton="true"     ShowExportToPdfButton="true"                
+            ShowAddNewRecordButton="False"  ShowRefreshButton="false" RefreshText="刷新"
+            ExportToWordText="导出到Word"   ExportToPdfText="导出到PDF"
+            ExportToCsvText="导出到CVS"     ExportToExcelText="导出到Excel" >
+        </CommandItemSettings>
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"/>        
+    </ClientSettings>
+</utm:UTMisGrid>
+<%--导入控件显示上传数据的专用皮肤--%>
+<utm:UTMisGrid SkinID="ImportUpload" runat="server" AutoGenerateColumns="true" AllowMultiRowEdit="True" AllowMultiRowSelection="true" AllowPaging="true">        
+    <MasterTableView ShowHeader="true" CommandItemDisplay="None" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示"  TableLayout="Fixed" GridLines="Both"  PageSize="15">
+        <PagerStyle Position="Bottom" Mode="NextPrev" PagerTextFormat="{4}第{0}页，共{1}页 共{5}条记录" />                 
+        <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />        
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"/>
+        <Scrolling AllowScroll="True"  SaveScrollPosition="true" />        
+    </ClientSettings>
+</utm:UTMisGrid>
+<%--导入控件显示上传数据的专用皮肤--%>
+<utm:UTMisGrid SkinID="ImportField" runat="server" AutoGenerateColumns="False" AllowMultiRowEdit="True" AllowMultiRowSelection="true" AllowPaging="false" GridLines="Both">        
+    <MasterTableView ShowHeader="true" CommandItemDisplay="None" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示"  TableLayout="Fixed"  >
+        <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" /> 
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"/> 
+        <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" />      
+    </ClientSettings>
+</utm:UTMisGrid>
+
+<%--主页新闻皮肤--%>
+<utm:UTMisGrid SkinID="News" runat="server" AutoGenerateColumns="False" AllowMultiRowEdit="false" AllowMultiRowSelection="true" GridLines="Both">        
+    <MasterTableView ShowHeader="false" CommandItemDisplay="None" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示"  TableLayout="Fixed"  >
+        <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center"  />
+        <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" /> 
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"/> 
+        <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" />      
+    </ClientSettings>
+</utm:UTMisGrid>
+
+<%-- 没有导出项，不分页,用于可以占用控件比较小的grid --%>
+<utm:UTMisGrid  runat="server" SkinID="Calendar" AutoGenerateColumns="False" AllowAutomaticUpdates="False" AllowMultiRowEdit="True" AllowPaging="False" AllowMultiRowSelection="true">
+    <MasterTableView ShowHeader="true" ShowFooter="false" ShowGroupFooter="false" EnableNoRecordsTemplate="False" GridLines="Both"  TableLayout="Fixed" AutoGenerateColumns="False" >
+    <HeaderStyle Height="18px" VerticalAlign="Middle" HorizontalAlign="Center" />
+    <ItemStyle Height="30px" VerticalAlign="Middle" HorizontalAlign="Center" />
+    <AlternatingItemStyle  Height="30px" VerticalAlign="Middle" HorizontalAlign="Center" />
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" />
+        <Scrolling AllowScroll="false" UseStaticHeaders="True" />
+    </ClientSettings>
+</utm:UTMisGrid>
+   <%-- 没有导出项，不分页,用于可以占用控件比较小的grid --%>
+<utm:UTMisGrid  runat="server" SkinID="NoExport" AutoGenerateColumns="False" AllowAutomaticUpdates="False" AllowMultiRowEdit="True" AllowPaging="False" AllowMultiRowSelection="true">
+    <MasterTableView ShowHeader="true" ShowFooter="false" ShowGroupFooter="false" EnableNoRecordsTemplate="False" GridLines="Both"  TableLayout="Fixed" AutoGenerateColumns="False" >
+    <HeaderStyle Height="18px" VerticalAlign="Middle" HorizontalAlign="Center" />
+    <ItemStyle Height="18px" VerticalAlign="Middle" HorizontalAlign="Center" />
+    <AlternatingItemStyle  Height="18px" VerticalAlign="Middle" HorizontalAlign="Center" />
+    </MasterTableView>
+    <ClientSettings EnableRowHoverStyle="true">
+        <Selecting AllowRowSelect="true" />
+        <Resizing AllowColumnResize="false" />
+        <Scrolling AllowScroll="true" UseStaticHeaders="True" />
+    </ClientSettings>
+</utm:UTMisGrid> 
+     <%--使grid高度自动扩充，不分页，可以导出，用于需要自动扩展的页面--%>
+    <utm:UTMisGrid  runat="server" SkinID="AutoHeight" AutoGenerateColumns="False"
+        AllowAutomaticUpdates="false" AllowMultiRowEdit="True" AllowMultiRowSelection="true"
+        AllowPaging="false" GridLines="Horizontal">
+        <ExportSettings ExportOnlyData="True" IgnorePaging="true" OpenInNewWindow="true">
+        </ExportSettings>
+        <MasterTableView AllowPaging="false" ShowHeader="true" CommandItemDisplay="Top" EnableNoRecordsTemplate="False"
+            GridLines="Both" NoMasterRecordsText="没有数据可以显示" TableLayout="Fixed" AutoGenerateColumns="false">
+            <CommandItemSettings 
+            ShowExportToWordButton="true"   ShowExportToExcelButton="true"     ShowExportToPdfButton="true"                
+            ShowAddNewRecordButton="False"  ShowRefreshButton="false" RefreshText="刷新"
+            ExportToWordText="导出到Word"   ExportToPdfText="导出到PDF"
+            ExportToCsvText="导出到CVS"     ExportToExcelText="导出到Excel" >
+        </CommandItemSettings>
+            <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+            <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+            <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        </MasterTableView>
+        <ClientSettings EnableRowHoverStyle="true">
+            <Selecting AllowRowSelect="false" />
+            <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"
+                EnableRealTimeResize="true" ResizeGridOnColumnResize="true" />
+            <Scrolling AllowScroll="false" />
+        </ClientSettings>
+    </utm:UTMisGrid>
+      <%--使grid高度自动扩充，不分页，可以导出，用于需要自动扩展的页面--%>
+    <utm:UTMisGrid  runat="server" SkinID="Enroll" AutoGenerateColumns="False"
+        AllowAutomaticUpdates="false" AllowMultiRowEdit="True" AllowMultiRowSelection="true"
+        AllowPaging="false" GridLines="Both">       
+        <MasterTableView AllowPaging="false" ShowHeader="true" EnableNoRecordsTemplate="False"
+            GridLines="Both" NoMasterRecordsText="没有数据可以显示" TableLayout="Fixed" AutoGenerateColumns="false">            
+            <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+            <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+            <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
+        </MasterTableView>
+        <ClientSettings EnableRowHoverStyle="true">
+            <Selecting AllowRowSelect="false" />
+            <Resizing AllowColumnResize="false" ClipCellContentOnResize="true" AllowRowResize="false"
+                EnableRealTimeResize="true" ResizeGridOnColumnResize="true" />
+            <Scrolling AllowScroll="false" />
+        </ClientSettings>
+    </utm:UTMisGrid>
+    
+    

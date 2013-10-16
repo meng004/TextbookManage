@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReleaseClassBookService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+      <xsd:import schemaLocation="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReleaseClassBookAppl_GetSchoolByLoginName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolByLoginName" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetSchoolByLoginName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolByLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetGradeBySchoolId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGradeBySchoolId" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetGradeBySchoolId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGradeBySchoolIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetClassBySchoolId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassBySchoolId" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetClassBySchoolId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassBySchoolIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetStorages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorages" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetStorages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoragesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetStudentNameByStudentNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentNameByStudentNum" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetStudentNameByStudentNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentNameByStudentNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetInventoriesByClassId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoriesByClassId" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetInventoriesByClassId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoriesByClassIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetNotReleaseStudents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotReleaseStudents" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_GetNotReleaseStudents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotReleaseStudentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_SubmitReleaseClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitReleaseClass" />
+  </wsdl:message>
+  <wsdl:message name="IReleaseClassBookAppl_SubmitReleaseClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitReleaseClassResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReleaseClassBookAppl">
+    <wsdl:operation name="GetSchoolByLoginName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetSchoolByLoginName" message="tns:IReleaseClassBookAppl_GetSchoolByLoginName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetSchoolByLoginNameResponse" message="tns:IReleaseClassBookAppl_GetSchoolByLoginName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradeBySchoolId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetGradeBySchoolId" message="tns:IReleaseClassBookAppl_GetGradeBySchoolId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetGradeBySchoolIdResponse" message="tns:IReleaseClassBookAppl_GetGradeBySchoolId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClassBySchoolId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetClassBySchoolId" message="tns:IReleaseClassBookAppl_GetClassBySchoolId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetClassBySchoolIdResponse" message="tns:IReleaseClassBookAppl_GetClassBySchoolId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetStorages" message="tns:IReleaseClassBookAppl_GetStorages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetStoragesResponse" message="tns:IReleaseClassBookAppl_GetStorages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentNameByStudentNum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetStudentNameByStudentNum" message="tns:IReleaseClassBookAppl_GetStudentNameByStudentNum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetStudentNameByStudentNumResponse" message="tns:IReleaseClassBookAppl_GetStudentNameByStudentNum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoriesByClassId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetInventoriesByClassId" message="tns:IReleaseClassBookAppl_GetInventoriesByClassId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetInventoriesByClassIdResponse" message="tns:IReleaseClassBookAppl_GetInventoriesByClassId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotReleaseStudents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetNotReleaseStudents" message="tns:IReleaseClassBookAppl_GetNotReleaseStudents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/GetNotReleaseStudentsResponse" message="tns:IReleaseClassBookAppl_GetNotReleaseStudents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitReleaseClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/SubmitReleaseClass" message="tns:IReleaseClassBookAppl_SubmitReleaseClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReleaseClassBookAppl/SubmitReleaseClassResponse" message="tns:IReleaseClassBookAppl_SubmitReleaseClass_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReleaseClassBookAppl" type="tns:IReleaseClassBookAppl">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSchoolByLoginName">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetSchoolByLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGradeBySchoolId">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetGradeBySchoolId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClassBySchoolId">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetClassBySchoolId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorages">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetStorages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentNameByStudentNum">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetStudentNameByStudentNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoriesByClassId">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetInventoriesByClassId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotReleaseStudents">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/GetNotReleaseStudents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitReleaseClass">
+      <soap:operation soapAction="http://tempuri.org/IReleaseClassBookAppl/SubmitReleaseClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReleaseClassBookService">
+    <wsdl:port name="BasicHttpBinding_IReleaseClassBookAppl" binding="tns:BasicHttpBinding_IReleaseClassBookAppl">
+      <soap:address location="http://localhost:2726/ReleaseClassBookService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

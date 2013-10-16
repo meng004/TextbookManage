@@ -24,7 +24,7 @@
 
         public CacheProvider()
         {
-            _cache = new MemoryCache("TextbookManage");
+            _cache = MemoryCache.Default;
             _defaultPolicy = new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 1, 0) };
         }
 

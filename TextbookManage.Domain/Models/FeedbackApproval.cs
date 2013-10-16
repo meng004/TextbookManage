@@ -10,7 +10,7 @@
         /// <summary>
         /// 回告ID
         /// </summary>
-        public int Feedback_ID { get; set; }
+        public int Feedback_Id { get; set; }
         /// <summary>
         /// 回告
         /// </summary>

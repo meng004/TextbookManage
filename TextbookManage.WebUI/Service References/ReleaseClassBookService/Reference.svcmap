@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1c1872fd-745e-40fd-8379-578158c9c102" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2726/ReleaseClassBookService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ReleaseClassBookService.xsd" MetadataType="Schema" ID="e3cc60d5-87db-418b-9ad2-36d4271b2a39" SourceId="1" SourceUrl="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReleaseClassBookService1.xsd" MetadataType="Schema" ID="44f931a7-4128-4cf9-91e6-b116c7892fc0" SourceId="1" SourceUrl="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ReleaseClassBookService2.xsd" MetadataType="Schema" ID="dc0d9160-02c4-4bda-aa80-e767d27d46f2" SourceId="1" SourceUrl="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ReleaseClassBookService3.xsd" MetadataType="Schema" ID="36b91454-1644-4842-9fa1-9f6cae1d8650" SourceId="1" SourceUrl="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ReleaseClassBookService.disco" MetadataType="Disco" ID="75f40211-ffc6-488a-8153-e8329a8f44ee" SourceId="1" SourceUrl="http://localhost:2726/ReleaseClassBookService.svc?disco" />
+    <MetadataFile FileName="ReleaseClassBookService.wsdl" MetadataType="Wsdl" ID="990f4f57-c9d8-483c-8692-22b118d92493" SourceId="1" SourceUrl="http://localhost:2726/ReleaseClassBookService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

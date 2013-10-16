@@ -3,7 +3,7 @@ namespace TextbookManage.ViewModels
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class TeacherReleaseRecordView : ViewModelBase
+    public class TeacherReleaseRecordView : BaseViewModel
     {
 
         //public System.Guid ReleaseRecordID { get; set; }
@@ -11,7 +11,7 @@ namespace TextbookManage.ViewModels
         /// 系教研室ID
         /// </summary>
         [DataMember]
-        public string Department_ID { get; set; }
+        public string DepartmentId { get; set; }
         /// <summary>
         /// 系教研室名称
         /// </summary>
@@ -21,7 +21,7 @@ namespace TextbookManage.ViewModels
         /// 教师ID
         /// </summary>
         [DataMember]
-        public string Teacher_ID { get; set; }
+        public string TeacherId { get; set; }
         /// <summary>
         /// 教师姓名
         /// </summary>
@@ -47,6 +47,15 @@ namespace TextbookManage.ViewModels
         /// </summary>
         [DataMember]
         public string Barcode { get; set; }
-        //public virtual ReleaseRecord ReleaseRecord { get; set; }
+        /// <summary>
+        /// 领用人姓名
+        /// </summary>
+        [DataMember]
+        public string RecipientName { get; set; }
+        /// <summary>
+        /// 领用人电话
+        /// </summary>
+        [DataMember]
+        public string RecipientPhone { get; set; }
     }
 }

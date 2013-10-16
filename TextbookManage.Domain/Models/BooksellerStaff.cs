@@ -1,28 +1,32 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TextbookManage.Domain.Models
 {
+    /// <summary>
+    /// 涔﹀晢鍛樺伐
+    /// </summary>
     public class BooksellerStaff
     {
         /// <summary>
-        /// 员工ID
+        /// 鍛樺伐ID
         /// </summary>
-        public int BooksellerStaffID { get; set; }
+        public Guid BooksellerStaffId { get; set; }
         /// <summary>
-        /// 书商ID
+        /// 涔﹀晢ID
         /// </summary>
-        public int Bookseller_ID { get; set; }
+        public Guid Bookseller_Id { get; set; }
         /// <summary>
-        /// 姓名
+        /// 濮撳悕
         /// </summary>
         public string StaffName { get; set; }
         /// <summary>
-        /// 性别
+        /// 鎬у埆
         /// </summary>
-        public string Sex { get; set; }
+        public Gender Gender { get; set; }
         /// <summary>
-        /// 书商
+        /// 涔﹀晢
         /// </summary>
         public virtual Bookseller Bookseller { get; set; }
     }

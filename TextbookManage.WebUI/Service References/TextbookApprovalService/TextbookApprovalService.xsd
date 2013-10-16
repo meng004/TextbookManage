@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfSchoolView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchoolView" nillable="true" type="tns:SchoolView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchoolView" nillable="true" type="tns:ArrayOfSchoolView" />
+  <xs:complexType name="SchoolView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SchoolId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SchoolView" nillable="true" type="tns:SchoolView" />
+  <xs:complexType name="BaseViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeleteFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseViewModel" nillable="true" type="tns:BaseViewModel" />
+  <xs:complexType name="ArrayOfTextbookForQueryView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TextbookForQueryView" nillable="true" type="tns:TextbookForQueryView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTextbookForQueryView" nillable="true" type="tns:ArrayOfTextbookForQueryView" />
+  <xs:complexType name="TextbookForQueryView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TextbookView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovalState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Declarant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeclarationDate" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextbookForQueryView" nillable="true" type="tns:TextbookForQueryView" />
+  <xs:complexType name="TextbookView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Edition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsSelfCompile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Isbn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Num" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PageCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Press" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PressAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PrintCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PublishDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TextbookId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TextbookType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextbookView" nillable="true" type="tns:TextbookView" />
+  <xs:complexType name="ResponseView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseView" nillable="true" type="tns:ResponseView" />
+</xs:schema>

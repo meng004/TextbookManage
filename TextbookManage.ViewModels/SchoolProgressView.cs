@@ -3,18 +3,19 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class SchoolProgressView : ViewModelBase
+    public class SchoolProgressView : BaseViewModel
     {
-        /// <summary>
-        /// 学院名称
-        /// </summary>
-        [DataMember]
-        public string SchoolName { get; set; }
+ 
         /// <summary>
         /// 学院Id
         /// </summary>
         [DataMember]
-        public string SchoolId { get; set; }
+        public string SchoolId { get; set; }        
+        /// <summary>
+        /// 学院名称
+        /// </summary>
+        [DataMember]
+        public string Name { get; set; }
         /// <summary>
         /// 教学任务总数
         /// </summary>

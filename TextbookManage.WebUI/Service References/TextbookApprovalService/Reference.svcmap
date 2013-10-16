@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c3158495-a332-48af-9c48-09bcf3d3b000" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2726/TextbookApprovalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TextbookApprovalService.xsd" MetadataType="Schema" ID="97a2aab9-6387-44b7-9ccd-7a39c81f98d4" SourceId="1" SourceUrl="http://localhost:2726/TextbookApprovalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TextbookApprovalService.disco" MetadataType="Disco" ID="16b414c5-f4ad-4f58-88d9-af94031f3ca0" SourceId="1" SourceUrl="http://localhost:2726/TextbookApprovalService.svc?disco" />
+    <MetadataFile FileName="TextbookApprovalService1.xsd" MetadataType="Schema" ID="9a77483d-0704-4c9f-8e95-b99be4c76262" SourceId="1" SourceUrl="http://localhost:2726/TextbookApprovalService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TextbookApprovalService.wsdl" MetadataType="Wsdl" ID="2b8a8714-8323-437c-8b3d-45ff10814ee8" SourceId="1" SourceUrl="http://localhost:2726/TextbookApprovalService.svc?wsdl" />
+    <MetadataFile FileName="TextbookApprovalService2.xsd" MetadataType="Schema" ID="56e95450-09d7-4c43-a379-4c1d2c48d375" SourceId="1" SourceUrl="http://localhost:2726/TextbookApprovalService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

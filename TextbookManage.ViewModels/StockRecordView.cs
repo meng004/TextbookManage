@@ -1,49 +1,35 @@
+ï»¿using System.Runtime.Serialization;
+
 namespace TextbookManage.ViewModels
 {
-    using System.Runtime.Serialization;
-
     [DataContract]
-    public class StockRecordView:ViewModelBase
+    public class StockRecordView : TextbookView
     {
         /// <summary>
-        /// ¿â´æ±ä¸ü¼ÇÂ¼ID
+        /// å…¥åº“ID
         /// </summary>
         [DataMember]
-        public string StockRecordID { get; set; }
+        public string StockRecordId { get; set; }
         /// <summary>
-        /// ¿â´æID
-        /// </summary>
-        [DataMember]
-        public string Inventory_ID { get; set; }
-        /// <summary>
-        /// ±ä¸üÊıÁ¿
+        /// å…¥åº“æ•°é‡
         /// </summary>
         [DataMember]
         public string StockCount { get; set; }
         /// <summary>
-        /// ±ä¸üÈÕÆÚ
+        /// å…¥åº“æ—¥æœŸ
         /// </summary>
         [DataMember]
         public string StockDate { get; set; }
         /// <summary>
-        /// ²Ù×÷ÈË
+        /// å…¥åº“äºº
         /// </summary>
         [DataMember]
         public string Operator { get; set; }
         /// <summary>
-        /// ±ä¸üÀàĞÍ£¬³ö¿âfalse »ò Èë¿âtrue
+        /// æ¶ä½å·
         /// </summary>
         [DataMember]
-        public string StockType { get; set; }
-        /// <summary>
-        /// ²Ö¿âÃû³Æ
-        /// </summary>
-        [DataMember]
-        public string StorageName { get; set; }
-        /// <summary>
-        /// ½Ì²ÄÃû³Æ
-        /// </summary>
-        [DataMember]
-        public string TextbookName { get; set; }
+        public string ShelfNumber { get; set; }
+
     }
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDataSignView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataSignView" nillable="true" type="tns:DataSignView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataSignView" nillable="true" type="tns:ArrayOfDataSignView" />
+  <xs:complexType name="DataSignView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataSignId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataSignView" nillable="true" type="tns:DataSignView" />
+  <xs:complexType name="BaseViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeleteFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseViewModel" nillable="true" type="tns:BaseViewModel" />
+  <xs:complexType name="ArrayOfSchoolProgressView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchoolProgressView" nillable="true" type="tns:SchoolProgressView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchoolProgressView" nillable="true" type="tns:ArrayOfSchoolProgressView" />
+  <xs:complexType name="SchoolProgressView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FinishedCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Proportion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RestCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SchoolId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalCount" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SchoolProgressView" nillable="true" type="tns:SchoolProgressView" />
+  <xs:complexType name="ArrayOfDepartmentView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentView" nillable="true" type="tns:DepartmentView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentView" nillable="true" type="tns:ArrayOfDepartmentView" />
+  <xs:complexType name="DepartmentView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DepartmentView" nillable="true" type="tns:DepartmentView" />
+  <xs:complexType name="ArrayOfDepartmentProgressView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentProgressView" nillable="true" type="tns:DepartmentProgressView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentProgressView" nillable="true" type="tns:ArrayOfDepartmentProgressView" />
+  <xs:complexType name="DepartmentProgressView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SchoolProgressView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DataSignName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DepartmentProgressView" nillable="true" type="tns:DepartmentProgressView" />
+</xs:schema>

@@ -1,24 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FED70C4A-8F65-4CD5-8F66-E5309398AB6E}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TextbookManage.Applications</RootNamespace>
     <AssemblyName>TextbookManage.Applications</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -42,30 +39,39 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,40 +80,55 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdapterProfile\AutoMapperProfile.cs" />
-    <Compile Include="DeclarationAppl.cs" />
-    <Compile Include="Jw\DataSignServiceImpl.cs" />
-    <Compile Include="Jw\DepartmentServiceImpl.cs" />
-    <Compile Include="Jw\StudentClassServiceImpl.cs" />
-    <Compile Include="Jw\StudentServiceImpl.cs" />
-    <Compile Include="Jw\TeacherServiceImpl.cs" />
-    <Compile Include="Jw\TeachingTaskServiceImpl.cs" />
-    <Compile Include="Jw\TermServiceImpl.cs" />
+    <Compile Include="AdapterProfile\ProfessionalClassesConvert.cs" />
+    <Compile Include="Impl\BooksellerAppl.cs" />
+    <Compile Include="Impl\CasMapperAppl.cs" />
+    <Compile Include="Impl\CourseAppl.cs" />
+    <Compile Include="Impl\DataSignAppl.cs" />
+    <Compile Include="Impl\DeclarationAppl.cs" />
+    <Compile Include="Impl\DeclarationApprovalAppl.cs" />
+    <Compile Include="Impl\DeclarationProgressAppl.cs" />
+    <Compile Include="Impl\DeclarationQueryAppl.cs" />
+    <Compile Include="Impl\DepartmentAppl.cs" />
+    <Compile Include="Impl\DropClassBookAppl.cs" />
+    <Compile Include="Impl\DropStudentBookAppl.cs" />
+    <Compile Include="Impl\FeedbackAppl.cs" />
+    <Compile Include="Impl\InventoryAppl.cs" />
+    <Compile Include="Impl\FeedbackApprovalAppl.cs" />
+    <Compile Include="Impl\ProfessionalClassAppl.cs" />
+    <Compile Include="Impl\ReleaseClassBookAppl.cs" />
+    <Compile Include="Impl\ReleaseStudentBookAppl.cs" />
+    <Compile Include="Impl\ReleaseTextbookForQueryAppl.cs" />
+    <Compile Include="Impl\SchoolAppl.cs" />
+    <Compile Include="Impl\StorageAppl.cs" />
+    <Compile Include="Impl\StudentAppl.cs" />
+    <Compile Include="Impl\SubscriptionAppl.cs" />
+    <Compile Include="Impl\TbmisUserAppl.cs" />
+    <Compile Include="Impl\TermAppl.cs" />
+    <Compile Include="Impl\TextbookAppl.cs" />
+    <Compile Include="Impl\TextbookApprovalAppl.cs" />
+    <Compile Include="Impl\TextbookFeeAppl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Jw\SchoolServiceImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
-      <Project>{e1c0ecbd-2870-49c6-b4f5-536fcc67f38c}</Project>
+      <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
       <Name>TextbookManage.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TextbookManage.IApplication\TextbookManage.IApplications.csproj">
-      <Project>{e86e7f7e-7237-47ae-9b8e-4ae4af439e30}</Project>
+    <ProjectReference Include="..\TextbookManage.IApplications\TextbookManage.IApplications.csproj">
+      <Project>{01885be2-55da-4c10-a747-a276af4f706b}</Project>
       <Name>TextbookManage.IApplications</Name>
     </ProjectReference>
     <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
-      <Project>{e0ed7b9f-272b-43d7-81aa-8e4a58dfa708}</Project>
+      <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
       <Name>TextbookManage.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TextbookManage.IServices\TextbookManage.IServices.csproj">
-      <Project>{4996f44b-a7af-4dd1-a40d-391a45f30261}</Project>
-      <Name>TextbookManage.IServices</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TextbookManage.Repository\TextbookManage.Repositories.csproj">
-      <Project>{620cdab0-581d-4669-9d82-e11e35abcb7f}</Project>
+      <Project>{bd9a5ce9-d0d6-4fb4-85d4-c1a8ab63c8a0}</Project>
       <Name>TextbookManage.Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\TextbookManage.ViewModels\TextbookManage.ViewModels.csproj">
-      <Project>{a60747b1-6d92-4995-9ae3-7ada668291d7}</Project>
+      <Project>{e90bd2fa-796e-46c6-ad7e-a47f84941146}</Project>
       <Name>TextbookManage.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>

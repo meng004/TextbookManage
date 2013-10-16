@@ -1,0 +1,36 @@
+﻿<utm:UTMisTextBox  runat="server"  Width="157px" style=" margin-left:3px;"  />
+<utm:UTMisTextBox  runat="server"  Width="57px"  SkinID="txt60"    style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="67px"  SkinID="txt70"    style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="77px"  SkinID="txt80"    style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="87px"  SkinID="txt90"    style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="97px"  SkinID="txt100"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="107px" SkinID="txt110"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="117px" SkinID="txt120"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="130px" SkinID="txt130"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="137px" SkinID="txt140"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="147px" SkinID="txt150"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="177px" SkinID="txt180"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="187px" SkinID="txt190"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="197px" SkinID="txt200"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="207px" SkinID="txt210"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="217px" SkinID="txt220"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="227px" SkinID="txt230"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="237px" SkinID="txt240"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="247px" SkinID="txt250"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  Width="257px" SkinID="txt260"   style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  TextMode="MultiLine" Font-Size="12pt" SkinID="Multi"  style=" margin-left:3px;"/>
+<utm:UTMisTextBox  runat="server"  SkinID="Changeable"  style=" margin-left:3px; vertical-align: middle;" />
+<%-- 表格中与combox适应的皮肤--%>
+<utm:UTMisTextBox  runat="server"  SkinID="AutoSize" />
+<utm:UTMisTextBox  runat="server"  SkinID="tb60"  Width="56px"  /> 
+<utm:UTMisTextBox  runat="server"  SkinID="tb70"  Width="66px"  /> 
+<utm:UTMisTextBox  runat="server"  SkinID="tb80"  Width="76px"  /> 
+<utm:UTMisTextBox runat="server"   SkinID="tb100" Width="96px"/>
+<utm:UTMisTextBox runat="server"   SkinID="tb120" Width="116px"/>
+<utm:UTMisTextBox runat="server"   SkinID="tb130" Width="126px"/>
+<utm:UTMisTextBox runat="server"   SkinID="tb160" Width="156px"/>
+<utm:UTMisTextBox runat="server"   SkinID="tb180" Width="176px"/>
+<utm:UTMisTextBox runat="server"   SkinID="tb200" Width="196px"/>
+
+
+

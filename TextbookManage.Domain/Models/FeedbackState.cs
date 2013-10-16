@@ -1,32 +1,34 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace TextbookManage.Domain.Models
 {
-    public enum FeedbackState
+    public enum FeedbackState : int
     {
+
         /// <summary>
-        /// æœªå¾è®¢
+        /// Î´Õ÷¶©
         /// </summary>
-        NotSubscription,
+        //NotSubscription,
+        Î´Õ÷¶©,
         /// <summary>
-        /// å¾è®¢ä¸­
+        /// Õ÷¶©ÖĞ
         /// </summary>
-        OnSubscription,
+        //OnSubscription,
+        Õ÷¶©ÖĞ,
         /// <summary>
-        /// å¾è®¢æˆåŠŸ
+        /// Õ÷¶©³É¹¦
         /// </summary>
-        SubscriptionSuccess,
+        //Success,
+        Õ÷¶©³É¹¦,
         /// <summary>
-        /// å¾è®¢å¤±è´¥
+        /// Õ÷¶©Ê§°Ü
         /// </summary>
-        SubscriptionFail,
+        //Fail,
+        Õ÷¶©Ê§°Ü,
         /// <summary>
-        /// æœªçŸ¥
+        /// Î´Öª
         /// </summary>
-        UnKnown
+        //UnKnown
+        Î´Öª×´Ì¬
     }
 }

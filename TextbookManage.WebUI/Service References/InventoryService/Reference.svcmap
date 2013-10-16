@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9ce2a501-9d60-471a-b516-b4631564347b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2726/InventoryService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InventoryService.disco" MetadataType="Disco" ID="13c916c0-5cb5-49d5-8b5b-085109eca206" SourceId="1" SourceUrl="http://localhost:2726/InventoryService.svc?disco" />
+    <MetadataFile FileName="InventoryService.xsd" MetadataType="Schema" ID="11e5a56c-23e8-429e-a1f0-7b0616abd8fe" SourceId="1" SourceUrl="http://localhost:2726/InventoryService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InventoryService.wsdl" MetadataType="Wsdl" ID="e76775a6-1e79-4507-a6c9-76afe8e5d33e" SourceId="1" SourceUrl="http://localhost:2726/InventoryService.svc?wsdl" />
+    <MetadataFile FileName="InventoryService1.xsd" MetadataType="Schema" ID="20ae8277-406a-4b18-ba6b-cde208596599" SourceId="1" SourceUrl="http://localhost:2726/InventoryService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InventoryService2.xsd" MetadataType="Schema" ID="09f2bca4-fa2c-4367-9119-3849453edd31" SourceId="1" SourceUrl="http://localhost:2726/InventoryService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

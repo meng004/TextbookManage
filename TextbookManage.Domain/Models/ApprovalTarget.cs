@@ -5,7 +5,7 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// 审核目标
     /// </summary>
-    public enum ApprovalTarget
+    public enum ApprovalTarget:int
     {
         /// <summary>
         /// 用书申报

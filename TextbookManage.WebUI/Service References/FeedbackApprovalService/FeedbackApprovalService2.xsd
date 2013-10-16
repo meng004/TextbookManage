@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBooksellerView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BooksellerView" nillable="true" type="tns:BooksellerView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBooksellerView" nillable="true" type="tns:ArrayOfBooksellerView" />
+  <xs:complexType name="BooksellerView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BooksellerId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BooksellerView" nillable="true" type="tns:BooksellerView" />
+  <xs:complexType name="BaseViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeleteFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseViewModel" nillable="true" type="tns:BaseViewModel" />
+  <xs:complexType name="ArrayOfFeedbackForApprovalView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FeedbackForApprovalView" nillable="true" type="tns:FeedbackForApprovalView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeedbackForApprovalView" nillable="true" type="tns:ArrayOfFeedbackForApprovalView" />
+  <xs:complexType name="FeedbackForApprovalView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FeedbackView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Isbn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriptionCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TextbookId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TextbookName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TextbookNum" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FeedbackForApprovalView" nillable="true" type="tns:FeedbackForApprovalView" />
+  <xs:complexType name="FeedbackView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BooksellerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FeedbackDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FeedbackId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FeedbackState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FeedbackView" nillable="true" type="tns:FeedbackView" />
+  <xs:complexType name="ResponseView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseView" nillable="true" type="tns:ResponseView" />
+</xs:schema>

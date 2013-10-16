@@ -5,52 +5,63 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// 审核状态
     /// </summary>
-    public enum ApprovalState
+    public enum ApprovalState : int
     {
         /// <summary>
         /// 未提交
         /// </summary>
-        ReadyToSubmit,
+        //ReadyToSubmit,
+        未提交,
         /// <summary>
         /// 教研室审核中
         /// </summary>
-        DepartmentApproving,
+        //DepartmentApproving,
+        教研室审核中,
         /// <summary>
         /// 教研室审核未通过
         /// </summary>
-        DepartmentNotPass,
+        //DepartmentNotPass,
+        教研室审核未通过,
         /// <summary>
         /// 学院审核中
         /// </summary>
-        SchoolApproving,
+        //SchoolApproving,
+        学院审核中,
         /// <summary>
         /// 学院审核未通过
         /// </summary>
-        SchoolNotPass,
+        //SchoolNotPass,
+        学院审核未通过,
         /// <summary>
         /// 教材科审核中
         /// </summary>
-        TextbookDivisionApproving,
+        //TextbookDivisionApproving,
+        教材科审核中,
         /// <summary>
         /// 教材科审核未通过
         /// </summary>
-        TextbookDivisionNotPass,
+        //TextbookDivisionNotPass,
+        教材科审核未通过,
         /// <summary>
         /// 教务处审核中
         /// </summary>
-        DeanApproving,
+        //DeanApproving,
+        教务处审核中,
         /// <summary>
         /// 教务处审核未通过
         /// </summary>
-        DeanNotPass,
+        //DeanNotPass,
+        教务处审核未通过,
         /// <summary>
         /// 终审通过
         /// </summary>
-        Passed,
+        //Passed,
+        终审通过,
         /// <summary>
         /// 未知状态
         /// </summary>
-        Unknown
+        //Unknown
+        未知状态
 
     }
 }

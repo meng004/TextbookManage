@@ -1,0 +1,10 @@
+﻿<utm:UTMisToolBar  runat="server"  Width="800px">            
+</utm:UTMisToolBar>
+<telerik:RadToolBarButton   runat="server"  ImagePosition="Left">
+</telerik:RadToolBarButton>
+<utm:UTMisToolBar  runat="server"  Width="1000px" SkinID="Long">
+</utm:UTMisToolBar>   
+<utm:UTMisToolBar  runat="server" SkinID="Auto">   
+</utm:UTMisToolBar>
+       
+ 

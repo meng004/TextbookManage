@@ -1,0 +1,29 @@
+﻿<%--
+默认的外观模板。以下外观仅作为示例提供。
+
+1. 命名的控件外观。SkinId 的定义应唯一，因为在同一主题中不允许一个控件类型有重复的 SkinId。
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. 默认外观。未定义 SkinId。在同一主题中每个控件类型只允许有一个默认的控件外观。
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+<utm:UTMisComboBox  Width="160px" runat="server" />
+<utm:UTMisComboBox  Width="60px"  runat="server"  SkinID="cmb60"/>
+<utm:UTMisComboBox  Width="65px"  runat="server"  SkinID="cmb65"/>
+<utm:UTMisComboBox  Width="80px"  runat="server"  SkinID="cmb80"/>
+<utm:UTMisComboBox  Width="90px"  runat="server"  SkinID="cmb90"/>
+<utm:UTMisComboBox  Width="100px" runat="server"  SkinID="cmb100"/>
+<utm:UTMisComboBox  Width="120px" runat="server"  SkinID="cmb120"/>   
+<utm:UTMisComboBox  Width="130px" runat="server"  SkinID="cmb130"/>  
+<utm:UTMisComboBox  Width="160px" runat="server"  SkinID="cmb160"/>  
+<utm:UTMisComboBox  Width="170px" runat="server"  SkinID="cmb170"/>  
+<utm:UTMisComboBox  Width="180px" runat="server"  SkinID="cmb180"/>  
+<utm:UTMisComboBox  Width="200px" runat="server"  SkinID="cmb200"/>  
+<utm:UTMisComboBox  Width="250px" runat="server"  SkinID="cmb250"/>  
+<utm:UTMisComboBox  Width="300px" runat="server"  SkinID="cmb300"/>  
+<utm:UTMisComboBox  runat="server"  SkinID="Changeable" />
+

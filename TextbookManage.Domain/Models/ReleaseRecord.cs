@@ -6,20 +6,24 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// 发放记录
     /// </summary>
-    public class ReleaseRecord : IAggregateRoot
+    public class ReleaseRecord : AggregateRoot
     {
         /// <summary>
         /// 发放记录ID
         /// </summary>
-        public System.Guid ReleaseRecordID { get; set; }
+        public System.Guid ReleaseRecordId { get; set; }
         /// <summary>
         /// 库存变更记录ID
         /// </summary>
-        public int StockRecord_ID { get; set; }
+        public int? StockRecord_Id { get; set; }
         /// <summary>
         /// 教材ID
         /// </summary>
-        public int TextbookID { get; set; }
+        public Guid Textbook_Id { get; set; }
+        /// <summary>
+        /// 教材编号
+        /// </summary>
+        public int Num { get; set; }
         /// <summary>
         /// 教材名称
         /// </summary>
@@ -79,7 +83,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 学院ID
         /// </summary>
-        public System.Guid School_ID { get; set; }
+        public System.Guid School_Id { get; set; }
         /// <summary>
         /// 学院名称
         /// </summary>
@@ -97,13 +101,9 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public int ReleaseCount { get; set; }
         /// <summary>
-        /// 联系电话
-        /// </summary>
-        public string Telephone { get; set; }
-        /// <summary>
         /// 书商ID
         /// </summary>
-        public int Bookseller_ID { get; set; }
+        public Guid Bookseller_Id { get; set; }
         /// <summary>
         /// 书商名称
         /// </summary>
@@ -115,8 +115,8 @@ namespace TextbookManage.Domain.Models
         //public virtual StudentReleaseRecord ReleaseRecord_Student { get; set; }
         //public virtual TeacherReleaseRecord ReleaseRecord_Teacher { get; set; }
         /// <summary>
-        /// 库存变更记录
+        /// 出库记录
         /// </summary>
-        public virtual StockRecord StockRecord { get; set; }
+        public virtual OutStockRecord OutStockRecord { get; set; }
     }
 }

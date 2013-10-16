@@ -1,39 +1,25 @@
-namespace TextbookManage.ViewModels
+ï»¿namespace TextbookManage.ViewModels
 {
-    using System.Runtime.Serialization;
 
+    using System.Runtime.Serialization;
+    /// <summary>
+    /// æ•™ç ”å®¤View
+    /// </summary>
     [DataContract]
-    public class DepartmentView:ViewModelBase 
+    public class DepartmentView : BaseViewModel
     {
         /// <summary>
-        /// Ïµ½ÌÑĞÊÒID
+        /// æ•™ç ”å®¤ID
         /// </summary>
         [DataMember]
-        public string DepartmentID { get; set; }
+        public string DepartmentId { get; set; }
+
         /// <summary>
-        /// Ïµ½ÌÑĞÊÒ±àºÅ
-        /// </summary>
-        [DataMember]
-        public string Num { get; set; }
-        /// <summary>
-        /// Ãû³Æ
+        /// æ•™ç ”å®¤åç§°
         /// </summary>
         [DataMember]
         public string Name { get; set; }
-        /// <summary>
-        /// ËùÊôÑ§ÔºID
-        /// </summary>
-        [DataMember]
-        public string School_ID { get; set; }
-        /// <summary>
-        /// Ñ§Ôº±àºÅ
-        /// </summary>
-        [DataMember]
-        public string SchoolNum { get; set; }
-        /// <summary>
-        /// Ñ§ÔºÃû³Æ
-        /// </summary>
-        [DataMember]
-        public string SchoolName { get; set; }
+
+
     }
 }

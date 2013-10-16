@@ -1,21 +1,13 @@
-﻿using ByteartRetail.Infrastructure;
-using System;
+﻿using System;
 
-namespace ByteartRetail.Domain.Repositories
+namespace TextbookManage.Domain.IRepositories
 {
-    /// <summary>
-    /// 表示实现该接口的类型是仓储上下文。
-    /// </summary>
     public interface IRepositoryContext : IUnitOfWork, IDisposable
     {
-        #region Properties
         /// <summary>
         /// 获取仓储上下文的ID。
         /// </summary>
         Guid ID { get; }
-        #endregion
-
-        #region Methods
         /// <summary>
         /// 将指定的聚合根标注为“新建”状态。
         /// </summary>
@@ -37,6 +29,5 @@ namespace ByteartRetail.Domain.Repositories
         /// <param name="obj">需要标注状态的聚合根。</param>
         void RegisterDeleted<TAggregateRoot>(TAggregateRoot obj)
             where TAggregateRoot : class, IAggregateRoot;
-        #endregion
     }
 }

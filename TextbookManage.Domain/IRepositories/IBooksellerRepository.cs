@@ -2,5 +2,6 @@
 {
     public interface IBooksellerRepository : IRepository<Models.Bookseller>
     {
+
     }
 }

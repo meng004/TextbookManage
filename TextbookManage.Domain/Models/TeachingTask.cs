@@ -1,90 +1,187 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TextbookManage.Domain.Models
 {
-    public class TeachingTask : IAggregateRoot
+    public class TeachingTask : AggregateRoot
     {
-        //public int TeachingTaskID { get; set; }
+        public TeachingTask()
+        {
+            Declarations = new List<Declaration>();
+            ProfessionalClasses = new List<ProfessionalClass>();
+            Teachers = new List<Teacher>();
+        }
+
+        #region 属性
+
         /// <summary>
         /// 教学班编号
         /// </summary>
         public string TeachingTaskNum { get; set; }
         /// <summary>
-        /// 学年学期
+        /// 课程ID
         /// </summary>
-        public string Term 
+        public Guid Course_Id { get; set; }
+        /// <summary>
+        /// 开课教研室ID
+        /// </summary>
+        public Guid Department_Id { get; set; }
+        /// <summary>
+        /// 转换教务的学年学期，格式"2010-2011-1"
+        /// 空则返回string.empty
+        /// </summary>
+        public string Term
         {
             get
             {
-                return string.Format("{0}-{1}", XN, XQ);
+                if (string.IsNullOrWhiteSpace(XNXQ.XN) || string.IsNullOrWhiteSpace(XNXQ.XQ))
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return string.Format("{0}-{1}", XNXQ.XN, XNXQ.XQ);
+                }
             }
         }
         /// <summary>
-        /// 学年
+        /// 用于与教务的学年学期匹配
         /// </summary>
-        public string XN { get; set; }
+        public XNXQ XNXQ { get; set; }
         /// <summary>
-        /// 学期
+        /// 数据标识ID
         /// </summary>
-        public string XQ { get; set; }
+        public string DataSign_Id { get; set; }
         /// <summary>
-        /// 课程ID
+        /// 总人数
+        /// 计划人数+上抛人数
         /// </summary>
-        public System.Guid Course_ID { get; set; }
+        public int? ZRS { get; set; }
         /// <summary>
-        /// 课程编号
+        /// 用于与教务的责任教师匹配
         /// </summary>
-        public string CourseNum { get; set; }
+        public ResponsibilityTeacher ResponsibilityTeacher { get; set; }
         /// <summary>
-        /// 课程名称
+        /// 课程
         /// </summary>
-        public string CourseName { get; set; }
+        public virtual Course Course { get; set; }
+        /// <summary>
+        /// 用书申报集合
+        /// </summary>
+        public virtual ICollection<Declaration> Declarations { get; set; }
+        /// <summary>
+        /// 行政班集合
+        /// </summary>
+        public virtual ICollection<ProfessionalClass> ProfessionalClasses { get; set; }
+        /// <summary>
+        /// 授课教师集合
+        /// 理论、实验、实践教师
+        /// </summary>
+        public virtual ICollection<Teacher> Teachers { get; set; }
+        /// <summary>
+        /// 开课教研室
+        /// </summary>
+        public virtual Department Department { get; set; }
         /// <summary>
         /// 数据标识
+        /// 区分本部、船山、成教、国际学院
         /// </summary>
-        public string DataSign { get; set; }
+        public virtual DataSign DataSign { get; set; }
+        #endregion
+
+        #region 业务规则
+
         /// <summary>
-        /// 开课学院ID
+        /// 教学班总人数
         /// </summary>
-        public Nullable<System.Guid> SchoolID { get; set; }
-        //public string SchoolNum { get; set; }
+        public int StudentCount
+        {
+            get
+            {
+               return ZRS != null ? (int)ZRS : RealStudentCount;
+             }
+        }
+
         /// <summary>
-        /// 开课学院名称
+        /// 学生用书申报状态
         /// </summary>
-        public string SchoolName { get; set; }
+        public DeclarationState DeclarationState
+        {
+            get
+            {
+                foreach (var item in Declarations)
+                {
+                    if (item.RecipientType == RecipientType.学生)
+                    {
+                        return DeclarationState.已申报学生用书;
+                    }
+                }
+                return DeclarationState.未申报学生用书;
+            }
+        }
+
         /// <summary>
-        /// 开课系教研室ID
+        /// 教学班实有人数
         /// </summary>
-        public Nullable<System.Guid> Department_ID { get; set; }
-        //public string DepartmentNum { get; set; }
+        /// <param name="teachingClass"></param>
+        /// <returns></returns>
+        public int RealStudentCount
+        {
+            get
+            {
+                return ProfessionalClasses.Sum(t => t.StudentCount);
+            }
+        }
+
         /// <summary>
-        /// 开课系教研室名称
+        /// 已领书学生人数
         /// </summary>
-        public string DepartmentName { get; set; }
+        /// <returns></returns>
+        public int StudentCountOfTextbook(Guid textbookId)
+        {
+            return ProfessionalClasses.Sum(t => t.StudentCountOfTextbook(textbookId));
+        }
+
         /// <summary>
-        /// 责任教师姓名
+        /// 是否存在相同申报
+        /// 教材相同，领用人类型为学生
         /// </summary>
-        public string ResponsibleTeacher { get; set; }
+        /// <param name="textbook"></param>
+        /// <returns></returns>
+        public bool IsSameDeclaration(Guid textbookId)
+        {
+            var result = Declarations.FirstOrDefault(t =>
+                t.Textbook_Id == textbookId &&
+                t.RecipientType == RecipientType.学生
+                );
+            return result == null ? false : true;
+        }
+
         /// <summary>
-        /// 理论教师ID
+        /// 是否已发放
+        /// 已领教材学生人数大于总人数的30%
         /// </summary>
-        public Nullable<System.Guid> Teacher_ID { get; set; }
-        /// <summary>
-        /// 理论教师姓名
-        /// </summary>
-        public string TeacherName { get; set; }
-        /// <summary>
-        /// 学生班级ID
-        /// </summary>
-        public Nullable<System.Guid> Class_ID { get; set; }
-        /// <summary>
-        /// 学生班级名称
-        /// </summary>
-        public string ClassName { get; set; }
-        /// <summary>
-        /// 学生总数
-        /// </summary>
-        public int StudentCount { get; set; }
+        /// <param name="teachingTask">教学任务</param>
+        /// <param name="textbook">教材</param>
+        /// <returns></returns>
+        public bool IsReleased(Guid textbookId)
+        {
+            //是否存在相同教材的申报
+            //已领教材学生人数是否超过总人数30%
+            //如果学生人数为0，则该规则失效，返回false
+            if (StudentCount == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return StudentCountOfTextbook(textbookId) >= (StudentCount * 0.3);
+            }
+        }
+
+
+        #endregion
+
     }
 }

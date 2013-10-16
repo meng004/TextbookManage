@@ -1,13 +1,13 @@
 ﻿using TextbookManage.Domain.IRepositories;
-using TextbookManage.Infrastructure.UnitOfWork;
+using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Repositories
 {
-    public class BooksellerRepository : Repository<Bookseller>, IBooksellerRepository
+    public class BooksellerRepository : EntityFrameworkRepository<Bookseller>, IBooksellerRepository
     {
-        public BooksellerRepository(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
+        public BooksellerRepository(IRepositoryContext context)
+            : base(context)
         {
             
         }

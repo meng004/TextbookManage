@@ -1,24 +1,26 @@
-namespace TextbookManage.ViewModels
+锘縩amespace TextbookManage.ViewModels
 {
+
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// 瀛﹂櫌View
+    /// </summary>
     [DataContract]
-    public class SchoolView : ViewModelBase
-    {
-        /// <summary>
-        /// 学院ID
-        /// </summary>
-       [DataMember]
-        public string SchoolID { get; set; }
-        /// <summary>
-        /// 学院编号
-        /// </summary>
-        [DataMember]
-        public string Num { get; set; }
-        /// <summary>
-        /// 学院名称
-        /// </summary>
-        [DataMember]
-        public string Name { get; set; }
+    public class SchoolView : BaseViewModel
+    {   
+         /// <summary>
+         /// 瀛﹂櫌ID
+         /// </summary>
+        [DataMember] 
+        public string SchoolId { set; get; }
+
+         /// <summary>
+         /// 瀛﹂櫌鍚嶇О
+         /// </summary>
+        [DataMember] 
+        public string Name { set; get; }
+
+       
     }
 }

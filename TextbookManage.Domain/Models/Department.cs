@@ -3,31 +3,49 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public class Department : IAggregateRoot
+    public class Department : AggregateRoot
     {
+        public Department()
+        {
+            this.Courses = new List<Course>();
+            this.Teachers = new List<Teacher>();
+            this.TeachingTasks = new List<TeachingTask>();
+        }
+
+        #region 属性
+
         /// <summary>
-        /// 系教研室ID
+        /// 部门ID
         /// </summary>
-        public System.Guid DepartmentID { get; set; }
+        public System.Guid DepartmentId { get; set; }
         /// <summary>
-        /// 系教研室编号
+        /// 部门编号
         /// </summary>
         public string Num { get; set; }
         /// <summary>
-        /// 名称
+        /// 部门名称
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// 所属学院ID
+        /// 院系所ID
         /// </summary>
-        public Nullable<System.Guid> School_ID { get; set; }
+        public System.Guid School_Id { get; set; }
         /// <summary>
-        /// 学院编号
+        /// 院系所
         /// </summary>
-        public string SchoolNum { get; set; }
+        public virtual School School { get; set; }
         /// <summary>
-        /// 学院名称
+        /// 课程集合
         /// </summary>
-        public string SchoolName { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
+        /// <summary>
+        /// 教师集合
+        /// </summary>
+        public virtual ICollection<Teacher> Teachers { get; set; }
+        /// <summary>
+        /// 教学任务集合
+        /// </summary>
+        public virtual ICollection<TeachingTask> TeachingTasks { get; set; }
+        #endregion
     }
 }

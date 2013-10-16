@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TextbookManage.Services.DropClassBookService" CodeBehind="DropClassBookService.svc.cs" %>

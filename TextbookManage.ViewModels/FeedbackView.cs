@@ -1,35 +1,43 @@
-namespace TextbookManage.ViewModels
+ï»¿namespace TextbookManage.ViewModels
 {
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// å›å‘ŠView
+    /// </summary>
     [DataContract]
-    public  class FeedbackView:ViewModelBase
+    public class FeedbackView : BaseViewModel
     {
         /// <summary>
-        /// »Ø¸æID
+        /// å›å‘Šid
         /// </summary>
         [DataMember]
-        public string Feedback_ID { get; set; }
+        public string FeedbackId { get; set; }
         /// <summary>
-        /// »Ø¸æÈË
+        /// ä¹¦å•†åç§°
         /// </summary>
         [DataMember]
-        public string Person { get; set; }
+        public string BooksellerName { get; set; }
         /// <summary>
-        /// »Ø¸æÈÕÆÚ
+        /// å›å‘Šäºº
         /// </summary>
         [DataMember]
-        public string FeedbackDate { get; set; }
+        public string Person { set; get; }
         /// <summary>
-        /// »Ø¸æ×´Ì¬£¬Õ÷¶©³É¹¦¡¢Ê§°Ü£¬Î´Öª£¬Î´»Ø¸æ
+        /// å›å‘Šæ—¶é—´
         /// </summary>
         [DataMember]
-        public string FeedbackState { get; set; }
+        public string FeedbackDate { set; get; }
         /// <summary>
-        /// ±¸×¢
+        /// å›å‘ŠçŠ¶æ€
         /// </summary>
         [DataMember]
-        public string Remark { get; set; }
+        public string FeedbackState { set; get; }
+        /// <summary>
+        /// å¤‡æ³¨
+        /// </summary>
+        [DataMember] 
+        public string Remark { set; get; }
 
     }
 }

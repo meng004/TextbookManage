@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeclarationQueryService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2726/DeclarationQueryService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2726/DeclarationQueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2726/DeclarationQueryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeclarationQueryAppl_GetSchoolByLoginName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolByLoginName" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetSchoolByLoginName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolByLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetDepartmentBySchoolId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentBySchoolId" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetDepartmentBySchoolId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentBySchoolIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetTerm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerm" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetTerm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetRecipientType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecipientType" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetRecipientType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecipientTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetCourseByDepartmentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseByDepartmentId" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetCourseByDepartmentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseByDepartmentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetDeclarationByCourseId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeclarationByCourseId" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetDeclarationByCourseId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeclarationByCourseIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetDeclarationApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeclarationApproval" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetDeclarationApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeclarationApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetFeedbackByDeclarationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackByDeclarationId" />
+  </wsdl:message>
+  <wsdl:message name="IDeclarationQueryAppl_GetFeedbackByDeclarationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackByDeclarationIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDeclarationQueryAppl">
+    <wsdl:operation name="GetSchoolByLoginName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetSchoolByLoginName" message="tns:IDeclarationQueryAppl_GetSchoolByLoginName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetSchoolByLoginNameResponse" message="tns:IDeclarationQueryAppl_GetSchoolByLoginName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentBySchoolId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetDepartmentBySchoolId" message="tns:IDeclarationQueryAppl_GetDepartmentBySchoolId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetDepartmentBySchoolIdResponse" message="tns:IDeclarationQueryAppl_GetDepartmentBySchoolId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetTerm" message="tns:IDeclarationQueryAppl_GetTerm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetTermResponse" message="tns:IDeclarationQueryAppl_GetTerm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecipientType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetRecipientType" message="tns:IDeclarationQueryAppl_GetRecipientType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetRecipientTypeResponse" message="tns:IDeclarationQueryAppl_GetRecipientType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseByDepartmentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetCourseByDepartmentId" message="tns:IDeclarationQueryAppl_GetCourseByDepartmentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetCourseByDepartmentIdResponse" message="tns:IDeclarationQueryAppl_GetCourseByDepartmentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeclarationByCourseId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetDeclarationByCourseId" message="tns:IDeclarationQueryAppl_GetDeclarationByCourseId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetDeclarationByCourseIdResponse" message="tns:IDeclarationQueryAppl_GetDeclarationByCourseId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeclarationApproval">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetDeclarationApproval" message="tns:IDeclarationQueryAppl_GetDeclarationApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetDeclarationApprovalResponse" message="tns:IDeclarationQueryAppl_GetDeclarationApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackByDeclarationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetFeedbackByDeclarationId" message="tns:IDeclarationQueryAppl_GetFeedbackByDeclarationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeclarationQueryAppl/GetFeedbackByDeclarationIdResponse" message="tns:IDeclarationQueryAppl_GetFeedbackByDeclarationId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDeclarationQueryAppl" type="tns:IDeclarationQueryAppl">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSchoolByLoginName">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetSchoolByLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentBySchoolId">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetDepartmentBySchoolId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerm">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecipientType">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetRecipientType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseByDepartmentId">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetCourseByDepartmentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeclarationByCourseId">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetDeclarationByCourseId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeclarationApproval">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetDeclarationApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackByDeclarationId">
+      <soap:operation soapAction="http://tempuri.org/IDeclarationQueryAppl/GetFeedbackByDeclarationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeclarationQueryService">
+    <wsdl:port name="BasicHttpBinding_IDeclarationQueryAppl" binding="tns:BasicHttpBinding_IDeclarationQueryAppl">
+      <soap:address location="http://localhost:2726/DeclarationQueryService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

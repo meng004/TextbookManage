@@ -3,21 +3,23 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public class Storage : IAggregateRoot
+    public class Storage : AggregateRoot
     {
         public Storage()
         {
             this.Inventories = new List<Inventory>();
         }
 
+        #region  Ù–‘
+
         /// <summary>
         /// ≤÷ø‚ID
         /// </summary>
-        public int StorageID { get; set; }
+        public int StorageId { get; set; }
         /// <summary>
         ///  È…ÃID
         /// </summary>
-        public int Bookseller_ID { get; set; }
+        public Guid Bookseller_Id { get; set; }
         /// <summary>
         /// ≤÷ø‚√˚≥∆
         /// </summary>
@@ -34,5 +36,6 @@ namespace TextbookManage.Domain.Models
         /// ø‚¥Ê
         /// </summary>
         public virtual ICollection<Inventory> Inventories { get; set; }
+        #endregion
     }
 }

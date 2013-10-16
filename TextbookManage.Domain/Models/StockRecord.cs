@@ -3,21 +3,26 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public class StockRecord
+    /// <summary>
+    /// 库存异动记录
+    /// </summary>
+    public class StockRecord : AggregateRoot
     {
         public StockRecord()
         {
-            this.ReleaseRecords = new List<ReleaseRecord>();
+
         }
+
+        #region 属性
 
         /// <summary>
         /// 库存变更记录ID
         /// </summary>
-        public int StockRecordID { get; set; }
+        public int StockRecordId { get; set; }
         /// <summary>
         /// 库存ID
         /// </summary>
-        public int Inventory_ID { get; set; }
+        public int Inventory_Id { get; set; }
         /// <summary>
         /// 变更数量
         /// </summary>
@@ -33,14 +38,14 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 变更类型，出库false 或 入库true
         /// </summary>
-        public bool StockType { get; set; }
+        public bool IsInStock { get; set; }
         /// <summary>
         /// 库存
         /// </summary>
         public virtual Inventory Inventory { get; set; }
-        /// <summary>
-        /// 发放记录
-        /// </summary>
-        public virtual ICollection<ReleaseRecord> ReleaseRecords { get; set; }
+
+        #endregion
+
+
     }
 }

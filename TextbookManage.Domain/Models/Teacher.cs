@@ -3,44 +3,56 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public class Teacher : IAggregateRoot
+    public class Teacher : AggregateRoot
     {
+        public Teacher()
+        {
+            this.Declarations = new List<Declaration>();
+            this.Departments = new List<Department>();
+            this.TeachingTasks = new List<TeachingTask>();
+            this.Textbooks = new List<Textbook>();
+            ReleaseRecords = new List<TeacherReleaseRecord>();
+        }
+
+        #region 属性
+
         /// <summary>
         /// 教师ID
         /// </summary>
-        public System.Guid TeacherID { get; set; }
+        public System.Guid TeacherId { get; set; }
         /// <summary>
         /// 教师编号
         /// </summary>
-        public string TeacherNum { get; set; }
+        public string Num { get; set; }
         /// <summary>
         /// 教师姓名
         /// </summary>
-        public string TeacherName { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 性别
         /// </summary>
         public string Gender { get; set; }
         /// <summary>
-        /// 学院ID
+        /// 用书申报集合
         /// </summary>
-        public Nullable<System.Guid> School_ID { get; set; }
+        public virtual ICollection<Declaration> Declarations { get; set; }
         /// <summary>
-        /// 学院编号
+        /// 部门集合
         /// </summary>
-        public string SchoolNum { get; set; }
+        public virtual ICollection<Department> Departments { get; set; }
         /// <summary>
-        /// 学院名称
+        /// 教学任务集合
         /// </summary>
-        public string SchoolName { get; set; }
+        public virtual ICollection<TeachingTask> TeachingTasks { get; set; }
         /// <summary>
-        /// 系教研室ID
+        /// 申报的教材集合
         /// </summary>
-        public Nullable<System.Guid> Department_ID { get; set; }
-        //public string DepartmentNum { get; set; }
+        public virtual ICollection<Textbook> Textbooks { get; set; }
         /// <summary>
-        /// 系教研室名称
+        /// 教材领用集合
         /// </summary>
-        public string DepartmentName { get; set; }
+        public virtual ICollection<TeacherReleaseRecord> ReleaseRecords { get; set; }
+        #endregion
+
     }
 }

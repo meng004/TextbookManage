@@ -1,24 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TextbookManage.Domain</RootNamespace>
     <AssemblyName>TextbookManage.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,13 +38,35 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,80 +74,110 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DomainService.cs" />
+    <Compile Include="ApprovalService.cs" />
+    <Compile Include="Comparer\TextbookComparer.cs" />
+    <Compile Include="Comparer\SchoolComparer.cs" />
+    <Compile Include="IAggregateRoot.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="IRepositories\IBooksellerRepository.cs" />
+    <Compile Include="InventoryService.cs" />
+    <Compile Include="IRepositories\ICasMapperRepository.cs" />
     <Compile Include="IRepositories\IDeclarationRepository.cs" />
+    <Compile Include="IRepositories\IDepartmentRepository.cs" />
+    <Compile Include="IRepositories\IFeedbackRepository.cs" />
+    <Compile Include="IRepositories\IInStockRecordRepository.cs" />
+    <Compile Include="IRepositories\IInventoryRepository.cs" />
+    <Compile Include="IRepositories\IOutStockRecordRepository.cs" />
+    <Compile Include="IRepositories\IPressRepository.cs" />
+    <Compile Include="IRepositories\IProfessionalClassRepository.cs" />
+    <Compile Include="IRepositories\IReleaseRecordRepository.cs" />
     <Compile Include="IRepositories\IRepository.cs" />
-    <Compile Include="IRepositories\IRepository1.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="IRepositories\IRepositoryContext.cs" />
-    <Compile Include="IRepositories\IStudentReleaseRecordRepository.cs" />
+    <Compile Include="IRepositories\ISql.cs" />
     <Compile Include="IRepositories\IStorageRepository.cs" />
     <Compile Include="IRepositories\IStudentDeclarationRepository.cs" />
+    <Compile Include="IRepositories\IStudentReleaseRecordRepository.cs" />
+    <Compile Include="IRepositories\IStudentRepository.cs" />
+    <Compile Include="IRepositories\ITbmisUserRepository.cs" />
     <Compile Include="IRepositories\ITeacherDeclarationRepository.cs" />
     <Compile Include="IRepositories\ITeacherReleaseRecordRepository.cs" />
-    <Compile Include="IRepositories\ITextbookRepository.cs" />
-    <Compile Include="IRepositories\Jw\IDataSignRepository.cs" />
-    <Compile Include="IRepositories\Jw\IDepartmentRepository.cs" />
-    <Compile Include="IRepositories\Jw\ISchoolRepository.cs" />
-    <Compile Include="IRepositories\Jw\IStudentClassRepository.cs" />
-    <Compile Include="IRepositories\Jw\IStudentRepository.cs" />
-    <Compile Include="IRepositories\Jw\ITeacherRepository.cs" />
-    <Compile Include="IRepositories\Jw\ITeachingTaskRepository.cs" />
-    <Compile Include="IRepositories\Jw\ITermRepository.cs" />
+    <Compile Include="IRepositories\ITeacherRepository.cs" />
+    <Compile Include="IRepositories\ITeachingTaskRepository.cs" />
     <Compile Include="IRepositories\Repository.cs" />
     <Compile Include="IRepositories\RepositoryContext.cs" />
-    <Compile Include="Models\ApprovalState.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\FeedbackApproval.cs" />
-    <Compile Include="Gender.cs" />
-    <Compile Include="IAggregateRoot.cs" />
-    <Compile Include="IRepositories\ISql.cs" />
-    <Compile Include="Models\ApprovalTarget.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Models\AggregateRoot.cs" />
     <Compile Include="Models\Approval.cs" />
+    <Compile Include="Models\ApprovalState.cs" />
+    <Compile Include="Models\ApprovalTarget.cs" />
+    <Compile Include="DeclarationService.cs" />
+    <Compile Include="Models\CasMapper.cs" />
     <Compile Include="Models\DeclarationApproval.cs" />
+    <Compile Include="Models\DeclarationClass.cs" />
+    <Compile Include="Models\DeclarationState.cs" />
+    <Compile Include="Models\DiscountStrategyByName.cs" />
+    <Compile Include="Models\FeedbackApproval.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="IRepositories\IBooksellerRepository.cs" />
+    <Compile Include="IRepositories\IDataSignRepository.cs" />
+    <Compile Include="IRepositories\ISchoolRepository.cs" />
+    <Compile Include="IRepositories\ISubscriptionRepository.cs" />
+    <Compile Include="IRepositories\ITermRepository.cs" />
+    <Compile Include="IRepositories\ITextbookRepository.cs" />
     <Compile Include="Models\Bookseller.cs" />
     <Compile Include="Models\BooksellerStaff.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\DataSign.cs" />
     <Compile Include="Models\Declaration.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DepartmentProgress.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\FeedbackState.cs" />
+    <Compile Include="Models\IDCardType.cs" />
+    <Compile Include="Models\IDiscountStrategy.cs" />
     <Compile Include="Models\InStockRecord.cs" />
     <Compile Include="Models\Inventory.cs" />
-    <Compile Include="Models\ReleaseRecord.cs" />
-    <Compile Include="Models\StudentClass.cs" />
-    <Compile Include="Models\StudentReleaseRecord.cs" />
-    <Compile Include="Models\TeacherReleaseRecord.cs" />
     <Compile Include="Models\OutStockRecord.cs" />
+    <Compile Include="Models\Press.cs" />
+    <Compile Include="Models\ProfessionalClass.cs" />
+    <Compile Include="Models\RecipientType.cs" />
+    <Compile Include="Models\ReleaseRecord.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\School.cs" />
+    <Compile Include="Models\SchoolProgress.cs" />
     <Compile Include="Models\StockRecord.cs" />
     <Compile Include="Models\Storage.cs" />
-    <Compile Include="Models\Subscription.cs" />
-    <Compile Include="Models\Textbook.cs" />
-    <Compile Include="Models\RecipientType.cs" />
-    <Compile Include="Models\DataSign.cs" />
-    <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\School.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentDeclaration.cs" />
+    <Compile Include="Models\StudentReleaseRecord.cs" />
+    <Compile Include="Models\Subscription.cs" />
+    <Compile Include="Models\TbmisUser.cs" />
+    <Compile Include="Models\TbmisUserType.cs" />
     <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TeacherDeclaration.cs" />
+    <Compile Include="Models\TeacherReleaseRecord.cs" />
     <Compile Include="Models\TeachingTask.cs" />
     <Compile Include="Models\Term.cs" />
+    <Compile Include="Models\Textbook.cs" />
     <Compile Include="Models\TextbookApproval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\StudentDeclaration.cs" />
-    <Compile Include="Models\TeacherDeclaration.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
-      <Project>{e0ed7b9f-272b-43d7-81aa-8e4a58dfa708}</Project>
-      <Name>TextbookManage.Infrastructure</Name>
-    </ProjectReference>
+    <Compile Include="ReleaseBookService.cs" />
+    <Compile Include="SubscriptionService.cs" />
+    <Compile Include="Models\XNXQ.cs" />
+    <Compile Include="Models\ResponsibilityTeacher.cs" />
+    <Compile Include="TextbookService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
+      <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
+      <Name>TextbookManage.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

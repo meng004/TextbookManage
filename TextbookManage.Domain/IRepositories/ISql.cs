@@ -23,7 +23,7 @@
         /// Enumerable results 
         /// </returns>
         IEnumerable<TEntity> ExecuteQuery<TEntity>(string sqlQuery, params object[] parameters)
-            where TEntity : class,TextbookManage.Infrastructure.UnitOfWork.IEntity;
+            where TEntity : class,IEntity;
 
         /// <summary>
         /// 执行sql命令

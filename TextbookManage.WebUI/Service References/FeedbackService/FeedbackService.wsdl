@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FeedbackService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2726/FeedbackService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2726/FeedbackService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2726/FeedbackService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFeedbackAppl_GetSubscriptionWithNotFeedback_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriptionWithNotFeedback" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetSubscriptionWithNotFeedback_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriptionWithNotFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_SubmitFeedback_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitFeedback" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_SubmitFeedback_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetBookseller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookseller" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetBookseller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooksellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetFeedbackState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackState" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetFeedbackState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetSubscriptionByBooksellerId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriptionByBooksellerId" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetSubscriptionByBooksellerId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriptionByBooksellerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetFeedbackBySubscriptionId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackBySubscriptionId" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetFeedbackBySubscriptionId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackBySubscriptionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetFeedbackPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackPerson" />
+  </wsdl:message>
+  <wsdl:message name="IFeedbackAppl_GetFeedbackPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedbackPersonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFeedbackAppl">
+    <wsdl:operation name="GetSubscriptionWithNotFeedback">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/GetSubscriptionWithNotFeedback" message="tns:IFeedbackAppl_GetSubscriptionWithNotFeedback_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/GetSubscriptionWithNotFeedbackResponse" message="tns:IFeedbackAppl_GetSubscriptionWithNotFeedback_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFeedback">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/SubmitFeedback" message="tns:IFeedbackAppl_SubmitFeedback_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/SubmitFeedbackResponse" message="tns:IFeedbackAppl_SubmitFeedback_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookseller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/GetBookseller" message="tns:IFeedbackAppl_GetBookseller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/GetBooksellerResponse" message="tns:IFeedbackAppl_GetBookseller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/GetFeedbackState" message="tns:IFeedbackAppl_GetFeedbackState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/GetFeedbackStateResponse" message="tns:IFeedbackAppl_GetFeedbackState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriptionByBooksellerId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/GetSubscriptionByBooksellerId" message="tns:IFeedbackAppl_GetSubscriptionByBooksellerId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/GetSubscriptionByBooksellerIdResponse" message="tns:IFeedbackAppl_GetSubscriptionByBooksellerId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackBySubscriptionId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/GetFeedbackBySubscriptionId" message="tns:IFeedbackAppl_GetFeedbackBySubscriptionId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/GetFeedbackBySubscriptionIdResponse" message="tns:IFeedbackAppl_GetFeedbackBySubscriptionId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackAppl/GetFeedbackPerson" message="tns:IFeedbackAppl_GetFeedbackPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackAppl/GetFeedbackPersonResponse" message="tns:IFeedbackAppl_GetFeedbackPerson_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFeedbackAppl" type="tns:IFeedbackAppl">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSubscriptionWithNotFeedback">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/GetSubscriptionWithNotFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFeedback">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/SubmitFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookseller">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/GetBookseller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackState">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/GetFeedbackState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriptionByBooksellerId">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/GetSubscriptionByBooksellerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackBySubscriptionId">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/GetFeedbackBySubscriptionId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackPerson">
+      <soap:operation soapAction="http://tempuri.org/IFeedbackAppl/GetFeedbackPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FeedbackService">
+    <wsdl:port name="BasicHttpBinding_IFeedbackAppl" binding="tns:BasicHttpBinding_IFeedbackAppl">
+      <soap:address location="http://localhost:2726/FeedbackService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

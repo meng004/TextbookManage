@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+  <xs:import schemaLocation="http://localhost:2726/ReleaseClassBookService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetSchoolByLoginName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchoolByLoginNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSchoolByLoginNameResult" nillable="true" type="q1:ArrayOfSchoolView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeBySchoolId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schoolId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeBySchoolIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetGradeBySchoolIdResult" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClassBySchoolId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schoolId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="grade" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClassBySchoolIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetClassBySchoolIdResult" nillable="true" type="q3:ArrayOfProfessionalClassBaseView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStoragesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetStoragesResult" nillable="true" type="q4:ArrayOfStorageView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStudentNameByStudentNum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="studentNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStudentNameByStudentNumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetStudentNameByStudentNumResult" nillable="true" type="q5:ResponseView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoriesByClassId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="classId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storageId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoriesByClassIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetInventoriesByClassIdResult" nillable="true" type="q6:ArrayOfInventoryForReleaseClassView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotReleaseStudents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="classId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="textbookId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotReleaseStudentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetNotReleaseStudentsResult" nillable="true" type="q7:ArrayOfStudentView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitReleaseClass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="inventoryViews" nillable="true" type="q8:ArrayOfInventoryForReleaseClassView" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="releaseView" nillable="true" type="q9:ReleaseBookForClassView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitReleaseClassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="SubmitReleaseClassResult" nillable="true" type="q10:ResponseView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

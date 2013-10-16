@@ -6,25 +6,27 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// ø‚¥Ê
     /// </summary>
-    public class Inventory
+    public class Inventory:AggregateRoot
     {
         public Inventory()
         {
             this.StockRecords = new List<StockRecord>();
         }
 
+        #region  Ù–‘
+
         /// <summary>
         /// ø‚¥ÊID
         /// </summary>
-        public int InventoryID { get; set; }
+        public int InventoryId { get; set; }
         /// <summary>
         /// ≤÷ø‚ID
         /// </summary>
-        public int Storage_ID { get; set; }
+        public int Storage_Id { get; set; }
         /// <summary>
         /// ΩÃ≤ƒID
         /// </summary>
-        public int Textbook_ID { get; set; }
+        public Guid Textbook_Id { get; set; }
         /// <summary>
         /// º‹Œª∫≈
         /// </summary>
@@ -45,5 +47,7 @@ namespace TextbookManage.Domain.Models
         /// ΩÃ≤ƒ
         /// </summary>
         public virtual Textbook Textbook { get; set; }
+        #endregion
+
     }
 }

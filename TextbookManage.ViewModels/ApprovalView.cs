@@ -3,16 +3,17 @@ namespace TextbookManage.ViewModels
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class ApprovalView : ViewModelBase
+    public class ApprovalView : BaseViewModel
     {
         /// <summary>
         /// …Û∫Àº«¬ºID
         /// </summary>
         [DataMember]
-        public string ApprovalID { get; set; }
+        public string ApprovalId { get; set; }
         /// <summary>
         /// …Û∫À≤ø√≈
         /// </summary>
+        [DataMember]
         public string Division { get; set; }
         /// <summary>
         /// …Û∫À»À

@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Text;
     using TextbookManage.Infrastructure.Cache;
-
+    using TextbookManage.Infrastructure.ServiceLocators;
 
     public class CacheBehavior : IInterceptionBehavior
     {
@@ -16,7 +16,7 @@
         /// <summary>
         /// 缓存对象
         /// </summary>
-        readonly ICacheProvider _cache = ServiceLocators.ServiceLocator.Current.GetInstance<ICacheProvider>();
+        readonly ICacheProvider _cache = ServiceLocator.Current.GetInstance<ICacheProvider>();
 
         #endregion
 
@@ -54,7 +54,14 @@
                 var sb = new StringBuilder();
                 for (int i = 0; i < input.Arguments.Count; i++)
                 {
-                    sb.Append(input.Arguments[i].ToString());
+                    if (input.Arguments[i]!=null)
+                    {
+                        sb.Append(input.Arguments[i].ToString());
+                    }
+                    else
+                    {
+                        sb.Append("NULL");
+                    }
                     if (i != input.Arguments.Count - 1)
                         sb.Append("_");
                 }
@@ -93,7 +100,10 @@
                 else
                 {
                     var methodReturn = getNext().Invoke(input, getNext);
-                    _cache.Add(key, valKey, methodReturn.ReturnValue);
+                    if (methodReturn.ReturnValue != null)
+                    {
+                        _cache.Add(key, valKey, methodReturn.ReturnValue);
+                    }
                     return methodReturn;
                 }
             }

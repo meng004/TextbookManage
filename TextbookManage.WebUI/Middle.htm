@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <style>  
+            html, body
+            { 
+                padding: 0; 
+                margin: 0; 
+            }  
+            img
+            { 
+                margin-top: 200px; 
+            }  
+        </style>  
+        <script language="javascript">
+            function isShowNav() {  
+                if (window.parent.document.getElementById("main").cols == "210,11,*"){
+                    window.parent.document.getElementById("main").cols = "0,11,*";  
+                }
+                else{
+                    window.parent.document.getElementById("main").cols = "210,11,*";  
+                }  
+            }  
+        </script>  
+    </head>
+    <body>
+        <img src="Img/click.jpg" onclick="isShowNav()" />
+    </body>
+</html>

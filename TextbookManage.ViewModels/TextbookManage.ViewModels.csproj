@@ -4,21 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A60747B1-6D92-4995-9AE3-7ADA668291D7}</ProjectGuid>
+    <ProjectGuid>{E90BD2FA-796E-46C6-AD7E-A47F84941146}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TextbookManage.ViewModels</RootNamespace>
     <AssemblyName>TextbookManage.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,6 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -49,35 +63,80 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApprovalView.cs" />
-    <Compile Include="BooksellerStaffView.cs" />
+    <Compile Include="BooksellerReleaseDetailView.cs" />
     <Compile Include="BooksellerView.cs" />
+    <Compile Include="CasMapperView.cs" />
+    <Compile Include="ClassReleaseDetailView.cs" />
     <Compile Include="CourseView.cs" />
     <Compile Include="DataSignView.cs" />
+    <Compile Include="DeclarationBaseView.cs" />
+    <Compile Include="DeclarationForApprovalView.cs" />
+    <Compile Include="DeclarationForQueryView.cs" />
+    <Compile Include="DeclarationForTeachingTaskView.cs" />
     <Compile Include="DeclarationView.cs" />
     <Compile Include="DepartmentProgressView.cs" />
     <Compile Include="DepartmentView.cs" />
+    <Compile Include="DorpBookForClassQueryView.cs" />
+    <Compile Include="DropBookForStudentQueryView.cs" />
+    <Compile Include="DropBookView.cs" />
+    <Compile Include="DropClassBookSubmitView.cs" />
+    <Compile Include="DropStudentBookSubmitView.cs" />
+    <Compile Include="FeedbackStateView.cs" />
     <Compile Include="FeedbackView.cs" />
+    <Compile Include="PressView.cs" />
+    <Compile Include="ProfessionalClassBaseView.cs" />
+    <Compile Include="StockRecordView.cs" />
     <Compile Include="InventoryView.cs" />
+    <Compile Include="ProfessionalClassView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipientTypeView.cs" />
+    <Compile Include="ReleaseBookForClassQueryView.cs" />
+    <Compile Include="ReleaseBookForStudentQueryView.cs" />
+    <Compile Include="ReleaseBookForTeacherQueryView.cs" />
+    <Compile Include="ReleaseBookForClassView.cs" />
+    <Compile Include="ReleaseBookSubmitForStudentView.cs" />
+    <Compile Include="ReleaseBookView.cs" />
     <Compile Include="ReleaseRecordView.cs" />
+    <Compile Include="ResponseView.cs" />
     <Compile Include="SchoolProgressView.cs" />
     <Compile Include="SchoolView.cs" />
-    <Compile Include="StockRecordView.cs" />
     <Compile Include="StorageView.cs" />
-    <Compile Include="StudentClassView.cs" />
+    <Compile Include="StudentForRecipientsView.cs" />
+    <Compile Include="StudentReleaseDetailView.cs" />
     <Compile Include="StudentReleaseRecordView.cs" />
     <Compile Include="StudentView.cs" />
+    <Compile Include="FeedbackForApprovalView.cs" />
+    <Compile Include="SubscriptionForFeedbackView.cs" />
+    <Compile Include="SubscriptionForSubmitView.cs" />
     <Compile Include="SubscriptionView.cs" />
+    <Compile Include="TbmisUserView.cs" />
     <Compile Include="TeacherReleaseRecordView.cs" />
-    <Compile Include="TeacherView.cs" />
     <Compile Include="TeachingTaskView.cs" />
     <Compile Include="TermView.cs" />
+    <Compile Include="TextbookForInventoryView.cs" />
+    <Compile Include="TextbookFeeForBooksellerProfessionClassView.cs" />
+    <Compile Include="TextbookFeeForProfessionalClassView.cs" />
+    <Compile Include="TextbookFeeForStudentView.cs" />
+    <Compile Include="TextbookForQueryView.cs" />
+    <Compile Include="TextbookForDeclarationView.cs" />
+    <Compile Include="InventoryForReleaseClassView.cs" />
+    <Compile Include="TextbookForReleaseView.cs" />
     <Compile Include="TextbookView.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Jw\" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
+      <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
+      <Name>TextbookManage.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
+      <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
+      <Name>TextbookManage.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

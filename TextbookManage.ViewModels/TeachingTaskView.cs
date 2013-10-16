@@ -1,97 +1,38 @@
-namespace TextbookManage.ViewModels
+ï»¿namespace TextbookManage.ViewModels
 {
-    using System.Runtime.Serialization;
 
+    using System.Runtime.Serialization;
+    /// <summary>
+    /// æ•™å­¦ä»»åŠ¡View
+    /// </summary>
     [DataContract]
-    public class TeachingTaskView : ViewModelBase
+    public class TeachingTaskView : BaseViewModel
     {
-        //public int TeachingTaskID { get; set; }
         /// <summary>
-        /// ½ÌÑ§°à±àºÅ
+        /// æ•™å­¦ç­ç¼–å·
         /// </summary>
         [DataMember]
-        public string TeachingTaskNum { get; set; }
+        public string TeachingTaskNum { set; get; }
         /// <summary>
-        /// Ñ§ÄêÑ§ÆÚ
+        /// ä»»è¯¾æ•™å¸ˆå§“å
         /// </summary>
         [DataMember]
-        public string Term { get; set; }
+        public string TeacherName { set; get; }
         /// <summary>
-        /// ¿Î³ÌID
+        /// æ•™å­¦ç­äººæ•°
         /// </summary>
         [DataMember]
-        public string Course_ID { get; set; }
+        public string StudentCount { set; get; }
         /// <summary>
-        /// ¿Î³Ì±àºÅ
-        /// </summary>
-        [DataMember]
-        public string CourseNum { get; set; }
-        /// <summary>
-        /// ¿Î³ÌÃû³Æ
-        /// </summary>
-        [DataMember]
-        public string CourseName { get; set; }
-        /// <summary>
-        /// Êı¾İ±êÊ¶
-        /// </summary>
-        [DataMember]
-        public string DataSign { get; set; }
-        /// <summary>
-        /// ¿ª¿ÎÑ§ÔºID
-        /// </summary>
-        [DataMember]
-        public string SchoolID { get; set; }
-        //public string SchoolNum { get; set; }
-        /// <summary>
-        /// ¿ª¿ÎÑ§ÔºÃû³Æ
-        /// </summary>
-        [DataMember]
-        public string SchoolName { get; set; }
-        /// <summary>
-        /// ¿ª¿ÎÏµ½ÌÑĞÊÒID
-        /// </summary>
-        [DataMember]
-        public string Department_ID { get; set; }
-        //public string DepartmentNum { get; set; }
-        /// <summary>
-        /// ¿ª¿ÎÏµ½ÌÑĞÊÒÃû³Æ
-        /// </summary>
-        [DataMember]
-        public string DepartmentName { get; set; }
-        /// <summary>
-        /// ÔğÈÎ½ÌÊ¦ĞÕÃû
-        /// </summary>
-        [DataMember]
-        public string ResponsibleTeacher { get; set; }
-        /// <summary>
-        /// ÀíÂÛ½ÌÊ¦ID
-        /// </summary>
-        [DataMember]
-        public string Teacher_ID { get; set; }
-        /// <summary>
-        /// ÀíÂÛ½ÌÊ¦ĞÕÃû
-        /// </summary>
-        [DataMember]
-        public string TeacherName { get; set; }
-        /// <summary>
-        /// Ñ§Éú°à¼¶ID
-        /// </summary>
-        [DataMember]
-        public string Class_ID { get; set; }
-        /// <summary>
-        /// Ñ§Éú°à¼¶Ãû³Æ
-        /// </summary>
-        [DataMember]
-        public string ClassName { get; set; }
-        /// <summary>
-        /// Ñ§Éú×ÜÊı
-        /// </summary>
-        [DataMember]
-        public string StudentCount { get; set; }
-        /// <summary>
-        /// Ñ§ÉúÓÃÊéÉê±¨×´Ì¬
+        /// å­¦ç”Ÿç”¨ä¹¦ç”³æŠ¥çŠ¶æ€
         /// </summary>
         [DataMember]
         public string DeclarationState { get; set; }
+        /// <summary>
+        /// æ•°æ®æ ‡è¯†åç§°
+        /// </summary>
+        [DataMember]
+        public string DataSignName { set; get; }
+
     }
 }

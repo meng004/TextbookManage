@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2726/FeedbackService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+  <xs:element name="GetSubscriptionWithNotFeedback">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscriptionWithNotFeedbackResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSubscriptionWithNotFeedbackResult" nillable="true" type="q1:ArrayOfSubscriptionForFeedbackView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFeedback">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="subscriptions" nillable="true" type="q2:ArrayOfSubscriptionForFeedbackView" />
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="feedbackState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFeedbackResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="SubmitFeedbackResult" nillable="true" type="q3:ResponseView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookseller">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBooksellerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetBooksellerResult" nillable="true" type="q4:ArrayOfBooksellerView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFeedbackState">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFeedbackStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetFeedbackStateResult" nillable="true" type="q5:ArrayOfFeedbackStateView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscriptionByBooksellerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="booksellerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="feedbackStateName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscriptionByBooksellerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSubscriptionByBooksellerIdResult" nillable="true" type="q6:ArrayOfSubscriptionForFeedbackView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFeedbackBySubscriptionId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="subscriptionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFeedbackBySubscriptionIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetFeedbackBySubscriptionIdResult" nillable="true" type="q7:FeedbackView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFeedbackPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFeedbackPersonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFeedbackPersonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

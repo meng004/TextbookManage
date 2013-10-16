@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public class Bookseller : IAggregateRoot
+    public class Bookseller : AggregateRoot
     {
         public Bookseller()
         {
@@ -15,7 +15,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         ///  È…ÃID
         /// </summary>
-        public int BooksellerID { get; set; }
+        public Guid BooksellerId { get; set; }
         /// <summary>
         /// √˚≥∆
         /// </summary>

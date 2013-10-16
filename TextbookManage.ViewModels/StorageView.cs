@@ -4,18 +4,18 @@ namespace TextbookManage.ViewModels
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class StorageView : ViewModelBase
+    public class StorageView : BaseViewModel
     {
         /// <summary>
         /// ≤÷ø‚ID
         /// </summary>
         [DataMember]
-        public string StorageID { get; set; }
+        public string StorageId { get; set; }
         /// <summary>
         ///  È…ÃID
         /// </summary>
         [DataMember]
-        public string Bookseller_ID { get; set; }
+        public string BooksellerId { get; set; }
         /// <summary>
         /// ≤÷ø‚√˚≥∆
         /// </summary>

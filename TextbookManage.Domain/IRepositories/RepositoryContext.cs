@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using ByteartRetail.Infrastructure;
 using System.Threading;
-using System.Transactions;
-using ByteartRetail.Domain.Events;
-using ByteartRetail.Events;
+using TextbookManage.Infrastructure;
 
-namespace ByteartRetail.Domain.Repositories
+namespace TextbookManage.Domain.IRepositories
 {
-    /// <summary>
-    /// Represents the base class for repository contexts.
-    /// </summary>
     public abstract class RepositoryContext : DisposableObject, IRepositoryContext
     {
         #region Private Fields
@@ -20,14 +13,6 @@ namespace ByteartRetail.Domain.Repositories
         private readonly ThreadLocal<Dictionary<Guid, object>> localModifiedCollection = new ThreadLocal<Dictionary<Guid, object>>(() => new Dictionary<Guid, object>());
         private readonly ThreadLocal<Dictionary<Guid, object>> localDeletedCollection = new ThreadLocal<Dictionary<Guid, object>>(() => new Dictionary<Guid, object>());
         private readonly ThreadLocal<bool> localCommitted = new ThreadLocal<bool>(() => true);
-        private readonly ThreadLocal<Dictionary<IAggregateRoot, List<IEvent>>> pendingEvents = new ThreadLocal<Dictionary<IAggregateRoot, List<IEvent>>>(() => new Dictionary<IAggregateRoot, List<IEvent>>());
-        private readonly object sync = new object();
-        #endregion
-
-        #region Ctor
-        public RepositoryContext()
-        {
-        }
         #endregion
 
         #region Protected Methods
@@ -41,11 +26,7 @@ namespace ByteartRetail.Domain.Repositories
             this.localModifiedCollection.Value.Clear();
             this.localDeletedCollection.Value.Clear();
         }
-        /// <summary>
-        /// Disposes the object.
-        /// </summary>
-        /// <param name="disposing">A <see cref="System.Boolean"/> value which indicates whether
-        /// the object should be disposed explicitly.</param>
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -56,8 +37,6 @@ namespace ByteartRetail.Domain.Repositories
                 this.localNewCollection.Dispose();
             }
         }
-
-        protected abstract void DoCommit();
         #endregion
 
         #region Protected Properties
@@ -152,10 +131,6 @@ namespace ByteartRetail.Domain.Repositories
 
         #region IUnitOfWork Members
         /// <summary>
-        /// 获得一个<see cref="System.Boolean"/>值，该值表示当前的Unit Of Work是否支持Microsoft分布式事务处理机制。
-        /// </summary>
-        public abstract bool DistributedTransactionSupported { get; }
-        /// <summary>
         /// Gets a <see cref="System.Boolean"/> value which indicates whether the UnitOfWork
         /// was committed.
         /// </summary>
@@ -167,10 +142,7 @@ namespace ByteartRetail.Domain.Repositories
         /// <summary>
         /// Commits the UnitOfWork.
         /// </summary>
-        public virtual void Commit()
-        {
-            this.DoCommit();
-        }
+        public abstract void Commit();
         /// <summary>
         /// Rolls-back the UnitOfWork.
         /// </summary>

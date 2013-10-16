@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="40a53f95-0660-4a89-ace0-d07dd31cd73f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2726/TextbookService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TextbookService.xsd" MetadataType="Schema" ID="a0fd02c9-fd53-494c-8218-f9c8ac02c726" SourceId="1" SourceUrl="http://localhost:2726/TextbookService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TextbookService.disco" MetadataType="Disco" ID="1037f0dc-102f-441c-b7f2-25b9e13df81b" SourceId="1" SourceUrl="http://localhost:2726/TextbookService.svc?disco" />
+    <MetadataFile FileName="TextbookService1.xsd" MetadataType="Schema" ID="063d62b6-c3bd-4910-86e8-7949ba48f411" SourceId="1" SourceUrl="http://localhost:2726/TextbookService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TextbookService2.xsd" MetadataType="Schema" ID="ce6781e9-c2f9-4a6e-8944-6bdb74de204f" SourceId="1" SourceUrl="http://localhost:2726/TextbookService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TextbookService.wsdl" MetadataType="Wsdl" ID="f5f6f344-de4e-4404-90d6-04f8c12edc50" SourceId="1" SourceUrl="http://localhost:2726/TextbookService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

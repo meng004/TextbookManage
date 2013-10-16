@@ -3,18 +3,20 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public  class Feedback
+    public class Feedback : AggregateRoot
     {
         public Feedback()
         {
-            this.Subscriptions = new List<Subscription>();
-            this.FeedbackApprovals = new List<FeedbackApproval>();
+            Subscriptions = new List<Subscription>();
+            Approvals = new List<FeedbackApproval>();
         }
+
+        #region 属性
 
         /// <summary>
         /// 回告ID
         /// </summary>
-        public int Feedback_ID { get; set; }
+        public int FeedbackId { get; set; }
         /// <summary>
         /// 回告人
         /// </summary>
@@ -32,12 +34,37 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public string Remark { get; set; }
         /// <summary>
+        /// 审核状态
+        /// </summary>
+        public ApprovalState ApprovalState { get; set; }
+        /// <summary>
         /// 订单
         /// </summary>
         public virtual ICollection<Subscription> Subscriptions { get; set; }
         /// <summary>
         /// 回告审核记录
         /// </summary>
-        public virtual ICollection<FeedbackApproval> FeedbackApprovals { get; set; }
+        public virtual ICollection<FeedbackApproval> Approvals { get; set; }
+        #endregion
+
+        #region 业务规则
+
+        /// <summary>
+        /// 修改审核状态
+        /// </summary>
+        /// <param name="approvalSuggestion">审核意见</param>
+        public void Approval(bool approvalSuggestion)
+        {
+            if (approvalSuggestion)
+            {
+                ApprovalState = ApprovalState.终审通过;
+            }
+            else
+            {
+                ApprovalState = ApprovalState.教材科审核未通过;
+            }
+        }
+        #endregion
+
     }
 }

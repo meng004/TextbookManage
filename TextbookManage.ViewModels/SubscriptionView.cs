@@ -3,28 +3,28 @@ namespace TextbookManage.ViewModels
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class SubscriptionView:ViewModelBase
+    public class SubscriptionView : BaseViewModel
     {
         /// <summary>
         /// 订单ID
         /// </summary>
         [DataMember]
-        public string SubscriptionID { get; set; }
+        public string SubscriptionId { get; set; }
         /// <summary>
         /// 书商ID
         /// </summary>
         [DataMember]
-        public string Bookseller_ID { get; set; }
+        public string BooksellerId { get; set; }
         /// <summary>
         /// 教材ID
         /// </summary>
         [DataMember]
-        public string Textbook_ID { get; set; }
+        public string TextbookId { get; set; }
         /// <summary>
         /// 回告ID
         /// </summary>
         [DataMember]
-        public string Feedback_ID { get; set; }
+        public string FeedbackId { get; set; }
         /// <summary>
         /// 学年学期
         /// </summary>

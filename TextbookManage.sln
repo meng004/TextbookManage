@@ -1,104 +1,143 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Infrastructure", "TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj", "{E0ED7B9F-272B-43D7-81AA-8E4A58DFA708}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Design", "TextbookManage.Design\TextbookManage.Design.csproj", "{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain", "TextbookManage.Domain\TextbookManage.Domain.csproj", "{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain", "TextbookManage.Domain\TextbookManage.Domain.csproj", "{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories", "TextbookManage.Repository\TextbookManage.Repositories.csproj", "{620CDAB0-581D-4669-9D82-E11E35ABCB7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories", "TextbookManage.Repository\TextbookManage.Repositories.csproj", "{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.WebClient", "TextbookManage.WebClient\TextbookManage.WebClient.csproj", "{682DAAA7-14DD-4F33-87F5-914808DCD71A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Applications", "TextbookManage.Application\TextbookManage.Applications.csproj", "{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.WebControls", "TextbookManage.WebControls\TextbookManage.WebControls.csproj", "{A2D8A100-A86F-4972-9BBF-1007901A7682}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.WebUI", "TextbookManage.WebUI\TextbookManage.WebUI.csproj", "{931413E7-2EF4-468C-911F-37D655B8184B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED3FA37C-4A9E-49B2-9210-E19760A650CD} = {ED3FA37C-4A9E-49B2-9210-E19760A650CD}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Applications", "TextbookManage.Application\TextbookManage.Applications.csproj", "{FED70C4A-8F65-4CD5-8F66-E5309398AB6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Infrastructure", "TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj", "{E901854E-A721-4E21-98E9-AF2C963CF07B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.IApplications", "TextbookManage.IApplication\TextbookManage.IApplications.csproj", "{E86E7F7E-7237-47AE-9B8E-4AE4AF439E30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.ViewModels", "TextbookManage.ViewModels\TextbookManage.ViewModels.csproj", "{E90BD2FA-796E-46C6-AD7E-A47F84941146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Services", "TextbookManage.Service\TextbookManage.Services.csproj", "{163005B1-8B9B-46E1-928B-2A59FF94D5EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.IApplications", "TextbookManage.IApplications\TextbookManage.IApplications.csproj", "{01885BE2-55DA-4C10-A747-A276AF4F706B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.WebUI", "TextbookManage.WebFormsUI\TextbookManage.WebUI.csproj", "{2D7CA2C3-39D3-4BDD-9FA9-5BA7365EA785}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.Test", "TextbookManage.Domain.Test\TextbookManage.Domain.Test.csproj", "{2F967978-F0DF-4A3F-83BA-7919F5A92F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.ViewModels", "TextbookManage.ViewModels\TextbookManage.ViewModels.csproj", "{A60747B1-6D92-4995-9AE3-7ADA668291D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories.Test", "TextbookManage.Repositories.Test\TextbookManage.Repositories.Test.csproj", "{152755D8-3C26-4BCA-9DD6-D2EABA52745D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Design", "TextbookManage.Design\TextbookManage.Design.csproj", "{743CCB25-39B0-44C0-AED0-167F208452E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Applicaiton.Test", "TextbookManage.Applicaiton.Test\TextbookManage.Applicaiton.Test.csproj", "{489E101B-391C-4E3E-AFC1-FFB921F63F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Infrastructure.Test", "TextbookManage.Infrastructure.Test\TextbookManage.Infrastructure.Test.csproj", "{16EC38C9-F63E-43E9-B08A-CFA28B37CB9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Services", "TextbookManage.Services\TextbookManage.Services.csproj", "{ED3FA37C-4A9E-49B2-9210-E19760A650CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories.Test", "TextbookManage.Repositories.Test\TextbookManage.Repositories.Test.csproj", "{35D78434-53BB-485E-A21D-5F2F7B8D3A9F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Services.Test", "TextbookManage.Services.Test\TextbookManage.Services.Test.csproj", "{403ADCB0-8D4F-4C53-B682-876549C3A96A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.IServices", "TextbookManage.IServices\TextbookManage.IServices.csproj", "{4996F44B-A7AF-4DD1-A40D-391A45F30261}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasClientValidate", "CasClientValidate\CasClientValidate.csproj", "{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://210.43.118.193:8080/tfs/%E6%95%99%E6%9D%90%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TextbookManage.Design\\TextbookManage.Design.csproj
+		SccProjectName1 = TextbookManage.Design
+		SccLocalPath1 = TextbookManage.Design
+		SccProjectUniqueName2 = TextbookManage.Domain\\TextbookManage.Domain.csproj
+		SccProjectName2 = TextbookManage.Domain
+		SccLocalPath2 = TextbookManage.Domain
+		SccProjectUniqueName3 = TextbookManage.WebUI\\TextbookManage.WebUI.csproj
+		SccProjectName3 = TextbookManage.WebUI
+		SccLocalPath3 = TextbookManage.WebUI
+		SccProjectUniqueName4 = TextbookManage.Infrastructure\\TextbookManage.Infrastructure.csproj
+		SccProjectName4 = TextbookManage.Infrastructure
+		SccLocalPath4 = TextbookManage.Infrastructure
+		SccProjectUniqueName5 = TextbookManage.Repository\\TextbookManage.Repositories.csproj
+		SccProjectName5 = TextbookManage.Repository
+		SccLocalPath5 = TextbookManage.Repository
+		SccProjectUniqueName6 = TextbookManage.ViewModels\\TextbookManage.ViewModels.csproj
+		SccProjectName6 = TextbookManage.ViewModels
+		SccLocalPath6 = TextbookManage.ViewModels
+		SccProjectUniqueName7 = TextbookManage.IApplications\\TextbookManage.IApplications.csproj
+		SccProjectName7 = TextbookManage.IApplications
+		SccLocalPath7 = TextbookManage.IApplications
+		SccProjectUniqueName8 = TextbookManage.Domain.Test\\TextbookManage.Domain.Test.csproj
+		SccProjectName8 = TextbookManage.Domain.Test
+		SccLocalPath8 = TextbookManage.Domain.Test
+		SccProjectUniqueName9 = TextbookManage.Repositories.Test\\TextbookManage.Repositories.Test.csproj
+		SccProjectName9 = TextbookManage.Repositories.Test
+		SccLocalPath9 = TextbookManage.Repositories.Test
+		SccProjectUniqueName10 = TextbookManage.Applicaiton.Test\\TextbookManage.Applicaiton.Test.csproj
+		SccProjectName10 = TextbookManage.Applicaiton.Test
+		SccLocalPath10 = TextbookManage.Applicaiton.Test
+		SccProjectUniqueName11 = TextbookManage.Application\\TextbookManage.Applications.csproj
+		SccProjectName11 = TextbookManage.Application
+		SccLocalPath11 = TextbookManage.Application
+		SccProjectUniqueName12 = TextbookManage.Services\\TextbookManage.Services.csproj
+		SccProjectName12 = TextbookManage.Services
+		SccLocalPath12 = TextbookManage.Services
+		SccProjectUniqueName13 = CasClientValidate\\CasClientValidate.csproj
+		SccProjectName13 = CasClientValidate
+		SccLocalPath13 = CasClientValidate
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0ED7B9F-272B-43D7-81AA-8E4A58DFA708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0ED7B9F-272B-43D7-81AA-8E4A58DFA708}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0ED7B9F-272B-43D7-81AA-8E4A58DFA708}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0ED7B9F-272B-43D7-81AA-8E4A58DFA708}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1C0ECBD-2870-49C6-B4F5-536FCC67F38C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{620CDAB0-581D-4669-9D82-E11E35ABCB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{620CDAB0-581D-4669-9D82-E11E35ABCB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{620CDAB0-581D-4669-9D82-E11E35ABCB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{620CDAB0-581D-4669-9D82-E11E35ABCB7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{682DAAA7-14DD-4F33-87F5-914808DCD71A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{682DAAA7-14DD-4F33-87F5-914808DCD71A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{682DAAA7-14DD-4F33-87F5-914808DCD71A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{682DAAA7-14DD-4F33-87F5-914808DCD71A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2D8A100-A86F-4972-9BBF-1007901A7682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2D8A100-A86F-4972-9BBF-1007901A7682}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2D8A100-A86F-4972-9BBF-1007901A7682}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2D8A100-A86F-4972-9BBF-1007901A7682}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FED70C4A-8F65-4CD5-8F66-E5309398AB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FED70C4A-8F65-4CD5-8F66-E5309398AB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FED70C4A-8F65-4CD5-8F66-E5309398AB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FED70C4A-8F65-4CD5-8F66-E5309398AB6E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E86E7F7E-7237-47AE-9B8E-4AE4AF439E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E86E7F7E-7237-47AE-9B8E-4AE4AF439E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E86E7F7E-7237-47AE-9B8E-4AE4AF439E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E86E7F7E-7237-47AE-9B8E-4AE4AF439E30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{163005B1-8B9B-46E1-928B-2A59FF94D5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{163005B1-8B9B-46E1-928B-2A59FF94D5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{163005B1-8B9B-46E1-928B-2A59FF94D5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{163005B1-8B9B-46E1-928B-2A59FF94D5EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D7CA2C3-39D3-4BDD-9FA9-5BA7365EA785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D7CA2C3-39D3-4BDD-9FA9-5BA7365EA785}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D7CA2C3-39D3-4BDD-9FA9-5BA7365EA785}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D7CA2C3-39D3-4BDD-9FA9-5BA7365EA785}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A60747B1-6D92-4995-9AE3-7ADA668291D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A60747B1-6D92-4995-9AE3-7ADA668291D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A60747B1-6D92-4995-9AE3-7ADA668291D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A60747B1-6D92-4995-9AE3-7ADA668291D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{743CCB25-39B0-44C0-AED0-167F208452E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{743CCB25-39B0-44C0-AED0-167F208452E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{743CCB25-39B0-44C0-AED0-167F208452E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{743CCB25-39B0-44C0-AED0-167F208452E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16EC38C9-F63E-43E9-B08A-CFA28B37CB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16EC38C9-F63E-43E9-B08A-CFA28B37CB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16EC38C9-F63E-43E9-B08A-CFA28B37CB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16EC38C9-F63E-43E9-B08A-CFA28B37CB9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35D78434-53BB-485E-A21D-5F2F7B8D3A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35D78434-53BB-485E-A21D-5F2F7B8D3A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35D78434-53BB-485E-A21D-5F2F7B8D3A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35D78434-53BB-485E-A21D-5F2F7B8D3A9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{403ADCB0-8D4F-4C53-B682-876549C3A96A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{403ADCB0-8D4F-4C53-B682-876549C3A96A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{403ADCB0-8D4F-4C53-B682-876549C3A96A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{403ADCB0-8D4F-4C53-B682-876549C3A96A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4996F44B-A7AF-4DD1-A40D-391A45F30261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4996F44B-A7AF-4DD1-A40D-391A45F30261}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4996F44B-A7AF-4DD1-A40D-391A45F30261}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4996F44B-A7AF-4DD1-A40D-391A45F30261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{931413E7-2EF4-468C-911F-37D655B8184B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931413E7-2EF4-468C-911F-37D655B8184B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931413E7-2EF4-468C-911F-37D655B8184B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931413E7-2EF4-468C-911F-37D655B8184B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E901854E-A721-4E21-98E9-AF2C963CF07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E901854E-A721-4E21-98E9-AF2C963CF07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E901854E-A721-4E21-98E9-AF2C963CF07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E901854E-A721-4E21-98E9-AF2C963CF07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90BD2FA-796E-46C6-AD7E-A47F84941146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90BD2FA-796E-46C6-AD7E-A47F84941146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90BD2FA-796E-46C6-AD7E-A47F84941146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90BD2FA-796E-46C6-AD7E-A47F84941146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01885BE2-55DA-4C10-A747-A276AF4F706B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01885BE2-55DA-4C10-A747-A276AF4F706B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01885BE2-55DA-4C10-A747-A276AF4F706B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01885BE2-55DA-4C10-A747-A276AF4F706B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F967978-F0DF-4A3F-83BA-7919F5A92F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F967978-F0DF-4A3F-83BA-7919F5A92F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F967978-F0DF-4A3F-83BA-7919F5A92F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F967978-F0DF-4A3F-83BA-7919F5A92F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{152755D8-3C26-4BCA-9DD6-D2EABA52745D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{152755D8-3C26-4BCA-9DD6-D2EABA52745D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{152755D8-3C26-4BCA-9DD6-D2EABA52745D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{152755D8-3C26-4BCA-9DD6-D2EABA52745D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489E101B-391C-4E3E-AFC1-FFB921F63F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489E101B-391C-4E3E-AFC1-FFB921F63F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489E101B-391C-4E3E-AFC1-FFB921F63F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489E101B-391C-4E3E-AFC1-FFB921F63F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED3FA37C-4A9E-49B2-9210-E19760A650CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED3FA37C-4A9E-49B2-9210-E19760A650CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED3FA37C-4A9E-49B2-9210-E19760A650CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED3FA37C-4A9E-49B2-9210-E19760A650CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

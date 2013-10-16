@@ -1,24 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{620CDAB0-581D-4669-9D82-E11E35ABCB7F}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TextbookManage.Repositories</RootNamespace>
     <AssemblyName>TextbookManage.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,15 +38,31 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.Interception.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,113 +71,80 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooksellerRepository.cs" />
+    <Compile Include="CasMapperRepository.cs" />
+    <Compile Include="DataSignRepository.cs" />
     <Compile Include="DeclarationRepository.cs" />
-    <Compile Include="EntityFramework\ByteartRetailDbContext.cs" />
-    <Compile Include="EntityFramework\ByteartRetailDbContextInitailizer.cs" />
-    <Compile Include="EntityFramework\CategorizationRepository.cs" />
-    <Compile Include="EntityFramework\CategoryRepository.cs" />
+    <Compile Include="DepartmentRepository.cs" />
     <Compile Include="EntityFramework\EntityFrameworkRepository.cs" />
     <Compile Include="EntityFramework\EntityFrameworkRepositoryContext.cs" />
     <Compile Include="EntityFramework\IEntityFrameworkRepositoryContext.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\CategorizationTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\CategoryTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\ProductTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\RoleTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\SalesLineTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\SalesOrderTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\ShoppingCartItemTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\ShoppingCartTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\UserRoleTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ModelConfigurations\UserTypeConfiguration.cs" />
-    <Compile Include="EntityFramework\ProductRepository.cs" />
-    <Compile Include="EntityFramework\RoleRepository.cs" />
-    <Compile Include="EntityFramework\SalesOrderRepository.cs" />
-    <Compile Include="EntityFramework\ShoppingCartItemRepository.cs" />
-    <Compile Include="EntityFramework\ShoppingCartRepository.cs" />
-    <Compile Include="EntityFramework\SortByExtension.cs" />
-    <Compile Include="EntityFramework\UserRepository.cs" />
-    <Compile Include="EntityFramework\UserRoleRepository.cs" />
-    <Compile Include="Jw\DataSignRepository.cs" />
-    <Compile Include="Jw\DepartmentRepository.cs" />
-    <Compile Include="Jw\StudentClassRepository.cs" />
-    <Compile Include="Jw\StudentRepository.cs" />
-    <Compile Include="Jw\TeacherRepository.cs" />
-    <Compile Include="Jw\TeachingTaskRepository.cs" />
-    <Compile Include="Jw\TermRepository.cs" />
-    <Compile Include="Mapping\DataSignMap.cs" />
-    <Compile Include="Mapping\DepartmentMap.cs" />
-    <Compile Include="Mapping\SchoolMap.cs" />
-    <Compile Include="Mapping\StudentClassMap.cs" />
-    <Compile Include="Mapping\StudentMap.cs" />
-    <Compile Include="Mapping\TeacherMap.cs" />
-    <Compile Include="Mapping\TeachingTaskMap.cs" />
-    <Compile Include="Mapping\TermMap.cs" />
-    <Compile Include="JwUnitOfWork.cs" />
-    <Compile Include="Jw\SchoolRepository.cs" />
-    <Compile Include="Mapping\TextbookApprovalMap.cs" />
-    <Compile Include="MongoDB\CategorizationRepository.cs" />
-    <Compile Include="MongoDB\CategoryRepository.cs" />
-    <Compile Include="MongoDB\GuidIDGeneratorConvention.cs" />
-    <Compile Include="MongoDB\IMongoDBRepositoryContext.cs" />
-    <Compile Include="MongoDB\IMongoDBRepositoryContextSettings.cs" />
-    <Compile Include="MongoDB\MongoDBBootstrapper.cs" />
-    <Compile Include="MongoDB\MongoDBRepository.cs" />
-    <Compile Include="MongoDB\MongoDBRepositoryContext.cs" />
-    <Compile Include="MongoDB\MongoDBRepositoryContextSettings.cs" />
-    <Compile Include="MongoDB\ProductRepository.cs" />
-    <Compile Include="MongoDB\RoleRepository.cs" />
-    <Compile Include="MongoDB\SalesOrderRepository.cs" />
-    <Compile Include="MongoDB\ShoppingCartItemRepository.cs" />
-    <Compile Include="MongoDB\ShoppingCartRepository.cs" />
-    <Compile Include="MongoDB\SortExpressionHelper.cs" />
-    <Compile Include="MongoDB\UserLocalDateTimeConvention.cs" />
-    <Compile Include="MongoDB\UserRepository.cs" />
-    <Compile Include="MongoDB\UserRoleRepository.cs" />
+    <Compile Include="EntityFramework\TbMisDbContext.cs" />
+    <Compile Include="FeedbackRepository.cs" />
+    <Compile Include="InStockRecordRepository.cs" />
+    <Compile Include="InventoryRepository.cs" />
+    <Compile Include="EntityFramework\Mapping\ApprovalMap.cs" />
+    <Compile Include="EntityFramework\Mapping\BooksellerMap.cs" />
+    <Compile Include="EntityFramework\Mapping\BooksellerStaffMap.cs" />
+    <Compile Include="EntityFramework\Mapping\CasMapperMap.cs" />
+    <Compile Include="EntityFramework\Mapping\CourseMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DataSignMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DeclarationApprovalMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DeclarationClassMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DeclarationMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DepartmentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\FeedbackApprovalMap.cs" />
+    <Compile Include="EntityFramework\Mapping\FeedbackMap.cs" />
+    <Compile Include="EntityFramework\Mapping\InventoryMap.cs" />
+    <Compile Include="EntityFramework\Mapping\PressMap.cs" />
+    <Compile Include="EntityFramework\Mapping\ProfessionalClassMap.cs" />
+    <Compile Include="EntityFramework\Mapping\ReleaseRecordMap.cs" />
+    <Compile Include="EntityFramework\Mapping\RoleMap.cs" />
+    <Compile Include="EntityFramework\Mapping\SchoolMap.cs" />
+    <Compile Include="EntityFramework\Mapping\StockRecordMap.cs" />
+    <Compile Include="EntityFramework\Mapping\StorageMap.cs" />
+    <Compile Include="EntityFramework\Mapping\StudentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\StudentReleaseRecordMap.cs" />
+    <Compile Include="EntityFramework\Mapping\SubscriptionMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TbmisUserMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeacherMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeacherReleaseRecordMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeachingTaskMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TermMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TextbookApprovalMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TextbookMap.cs" />
+    <Compile Include="OutStockRecordRepository.cs" />
+    <Compile Include="PressRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReleaseRecordRepository.cs" />
+    <Compile Include="SchoolRepository.cs" />
     <Compile Include="StorageRepository.cs" />
+    <Compile Include="ProfessionalClassRepository.cs" />
     <Compile Include="StudentDeclarationRepository.cs" />
     <Compile Include="StudentReleaseRecordRepository.cs" />
-    <Compile Include="TbMisUnitOfWork.cs" />
-    <Compile Include="Mapping\DeclarationApprovalMap.cs" />
-    <Compile Include="Mapping\ApprovalMap.cs" />
-    <Compile Include="Mapping\BooksellerMap.cs" />
-    <Compile Include="Mapping\BooksellerStaffMap.cs" />
-    <Compile Include="Mapping\DeclarationMap.cs" />
-    <Compile Include="Mapping\FeedbackApprovalMap.cs" />
-    <Compile Include="Mapping\FeedbackMap.cs" />
-    <Compile Include="Mapping\InventoryMap.cs" />
-    <Compile Include="Mapping\ReleaseRecordMap.cs" />
-    <Compile Include="Mapping\StockRecordMap.cs" />
-    <Compile Include="Mapping\StorageMap.cs" />
-    <Compile Include="Mapping\StudentReleaseRecordMap.cs" />
-    <Compile Include="Mapping\SubscriptionMap.cs" />
-    <Compile Include="Mapping\TeacherReleaseRecordMap.cs" />
-    <Compile Include="Mapping\TextbookMap.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="StudentRepository.cs" />
+    <Compile Include="SubscriptionRepository.cs" />
+    <Compile Include="TbmisUserRepository.cs" />
     <Compile Include="TeacherDeclarationRepository.cs" />
     <Compile Include="TeacherReleaseRecordRepository.cs" />
+    <Compile Include="TeacherRepository.cs" />
+    <Compile Include="TeachingTaskRepository.cs" />
+    <Compile Include="TermRepository.cs" />
     <Compile Include="TextbookRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
-      <Project>{e1c0ecbd-2870-49c6-b4f5-536fcc67f38c}</Project>
+      <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
       <Name>TextbookManage.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
-      <Project>{e0ed7b9f-272b-43d7-81aa-8e4a58dfa708}</Project>
+      <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
       <Name>TextbookManage.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

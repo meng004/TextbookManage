@@ -1,31 +1,25 @@
-namespace TextbookManage.ViewModels
+锘縩amespace TextbookManage.ViewModels
 {
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// 涔﹀晢View 
+    /// </summary>
     [DataContract]
-    public class BooksellerView : ViewModelBase
+    public class BooksellerView : BaseViewModel
     {
 
         /// <summary>
-        /// 书商ID
+        /// 涔﹀晢ID
         /// </summary>
         [DataMember]
-        public string BooksellerID { get; set; }
+        public string BooksellerId { get; set; }
+
         /// <summary>
-        /// 名称
+        /// 涔﹀晢鍚嶇О
         /// </summary>
         [DataMember]
         public string Name { get; set; }
-        /// <summary>
-        /// 联系人
-        /// </summary>
-        [DataMember]
-        public string Contact { get; set; }
-        /// <summary>
-        /// 联系电话
-        /// </summary>
-        [DataMember]
-        public string Telephone { get; set; }
 
     }
 }

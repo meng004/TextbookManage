@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2726/DeclarationProgressService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+  <xs:element name="GetDataSign">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataSignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetDataSignResult" nillable="true" type="q1:ArrayOfDataSignView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchoolProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataSignId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchoolProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSchoolProgressResult" nillable="true" type="q2:ArrayOfSchoolProgressView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schoolId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetDepartmentsResult" nillable="true" type="q3:ArrayOfDepartmentView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataSignId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetDepartmentProgressResult" nillable="true" type="q4:ArrayOfDepartmentProgressView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f3534f5-bd13-4085-8388-43ddfd79caaf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2726/SubscriptionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SubscriptionService.xsd" MetadataType="Schema" ID="6f69973a-a99b-43f5-b24d-11996cf470e9" SourceId="1" SourceUrl="http://localhost:2726/SubscriptionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SubscriptionService.disco" MetadataType="Disco" ID="3ec32fee-2d8c-4e8e-abff-acb05b6fde55" SourceId="1" SourceUrl="http://localhost:2726/SubscriptionService.svc?disco" />
+    <MetadataFile FileName="SubscriptionService.wsdl" MetadataType="Wsdl" ID="e814eb8e-545d-4238-98c9-1b7f479d304d" SourceId="1" SourceUrl="http://localhost:2726/SubscriptionService.svc?wsdl" />
+    <MetadataFile FileName="SubscriptionService1.xsd" MetadataType="Schema" ID="f0abe424-cd01-40f0-a75f-65ded7d68264" SourceId="1" SourceUrl="http://localhost:2726/SubscriptionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SubscriptionService2.xsd" MetadataType="Schema" ID="1a2a7bc6-bde2-4d79-8fc5-e7357ccfb2e0" SourceId="1" SourceUrl="http://localhost:2726/SubscriptionService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

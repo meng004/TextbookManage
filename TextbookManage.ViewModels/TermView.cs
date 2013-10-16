@@ -1,20 +1,27 @@
-namespace TextbookManage.ViewModels
+锘縩amespace TextbookManage.ViewModels
 {
+
     using System.Runtime.Serialization;
 
+
+    /// <summary>
+    /// 瀛﹀勾瀛︽湡View
+    /// </summary>
     [DataContract]
-    public class TermView : ViewModelBase
+    public class TermView : BaseViewModel
     {
-        //public int TermID { get; set; }
         /// <summary>
-        /// 学年学期
+        /// 瀛﹀勾瀛︽湡
         /// </summary>
         [DataMember]
-        public string Name { get; set; }
+        public string YearTerm { set; get; }
+
         /// <summary>
-        /// 是否当前学年学期
+        /// 褰撳墠瀛﹀勾瀛︽湡
         /// </summary>
         [DataMember]
-        public string IsValid { get; set; }
+        public string IsCurrent { set; get; }
+
+
     }
 }

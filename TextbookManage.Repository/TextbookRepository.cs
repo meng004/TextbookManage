@@ -1,15 +1,16 @@
 ﻿using TextbookManage.Domain.IRepositories;
-using TextbookManage.Infrastructure.UnitOfWork;
+using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Repositories
 {
-    public class TextbookRepository : Repository<Textbook>, ITextbookRepository
+    public class TextbookRepository : EntityFrameworkRepository<Textbook>, ITextbookRepository
     {
-        public TextbookRepository(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
+        public TextbookRepository(IRepositoryContext context)
+            : base(context)
         {
             
         }
+
     }
 }

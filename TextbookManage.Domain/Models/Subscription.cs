@@ -3,29 +3,31 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models
 {
-    public class Subscription
+    public class Subscription : AggregateRoot
     {
         public Subscription()
         {
-            this.Declarations = new List<Declaration>();
+            Declarations = new List<Declaration>();
         }
+
+        #region 属性
 
         /// <summary>
         /// 订单ID
         /// </summary>
-        public int SubscriptionID { get; set; }
+        public Guid SubscriptionId { get; set; }
         /// <summary>
         /// 书商ID
         /// </summary>
-        public int Bookseller_ID { get; set; }
+        public Guid Bookseller_Id { get; set; }
         /// <summary>
         /// 教材ID
         /// </summary>
-        public int Textbook_ID { get; set; }
+        public Guid Textbook_Id { get; set; }
         /// <summary>
         /// 回告ID
         /// </summary>
-        public int Feedback_ID { get; set; }
+        public int? Feedback_Id { get; set; }
         /// <summary>
         /// 学年学期
         /// </summary>
@@ -58,5 +60,29 @@ namespace TextbookManage.Domain.Models
         /// 用书申报
         /// </summary>
         public virtual ICollection<Declaration> Declarations { get; set; }
+        #endregion
+
+        #region 业务规则
+
+        /// <summary>
+        /// 订单的回告状态
+        /// </summary>
+        /// <returns></returns>
+        public FeedbackState FeedbackState
+        {
+            get
+            {
+                if (Feedback == null || Feedback.ApprovalState != ApprovalState.终审通过)
+                {
+                    return FeedbackState.征订中;
+                }
+                else
+                {
+                    return Feedback.FeedbackState;
+                }
+            }
+        }
+        #endregion
+
     }
 }

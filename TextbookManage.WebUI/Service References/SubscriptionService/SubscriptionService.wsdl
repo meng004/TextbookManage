@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SubscriptionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2726/SubscriptionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2726/SubscriptionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2726/SubscriptionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISubscriptionAppl_GetBookseller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookseller" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_GetBookseller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooksellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_CreateSubscriptionByTextbook_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionByTextbook" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_CreateSubscriptionByTextbook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionByTextbookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_GetSchoolWithNotSub_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolWithNotSub" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_GetSchoolWithNotSub_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolWithNotSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_CreateSubscriptionBySchoolId_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionBySchoolId" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_CreateSubscriptionBySchoolId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionBySchoolIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_SubmitSubscription_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitSubscription" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_SubmitSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISubscriptionAppl">
+    <wsdl:operation name="GetBookseller">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetBookseller" message="tns:ISubscriptionAppl_GetBookseller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetBooksellerResponse" message="tns:ISubscriptionAppl_GetBookseller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscriptionByTextbook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionByTextbook" message="tns:ISubscriptionAppl_CreateSubscriptionByTextbook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionByTextbookResponse" message="tns:ISubscriptionAppl_CreateSubscriptionByTextbook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolWithNotSub">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetSchoolWithNotSub" message="tns:ISubscriptionAppl_GetSchoolWithNotSub_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetSchoolWithNotSubResponse" message="tns:ISubscriptionAppl_GetSchoolWithNotSub_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscriptionBySchoolId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionBySchoolId" message="tns:ISubscriptionAppl_CreateSubscriptionBySchoolId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionBySchoolIdResponse" message="tns:ISubscriptionAppl_CreateSubscriptionBySchoolId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSubscription">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/SubmitSubscription" message="tns:ISubscriptionAppl_SubmitSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/SubmitSubscriptionResponse" message="tns:ISubscriptionAppl_SubmitSubscription_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISubscriptionAppl" type="tns:ISubscriptionAppl">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBookseller">
+      <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/GetBookseller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscriptionByTextbook">
+      <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionByTextbook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolWithNotSub">
+      <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/GetSchoolWithNotSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscriptionBySchoolId">
+      <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionBySchoolId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSubscription">
+      <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/SubmitSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubscriptionService">
+    <wsdl:port name="BasicHttpBinding_ISubscriptionAppl" binding="tns:BasicHttpBinding_ISubscriptionAppl">
+      <soap:address location="http://localhost:2726/SubscriptionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

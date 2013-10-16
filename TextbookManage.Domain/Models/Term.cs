@@ -1,18 +1,61 @@
 using System;
 using System.Collections.Generic;
+using TextbookManage.Infrastructure;
+
 
 namespace TextbookManage.Domain.Models
 {
-    public class Term : IAggregateRoot
+    public class Term : AggregateRoot
     {
-        //public int TermID { get; set; }
+
+        #region 属性
+
         /// <summary>
         /// 学年学期
         /// </summary>
-        public string Name { get; set; }
+        public string YearTerm { get; set; }
+        /// <summary>
+        /// 当前学年学期标志
+        /// 1为当前，0为非当前
+        /// </summary>
+        public string dqxnxqbz { get; set; }
         /// <summary>
         /// 是否当前学年学期
+        /// 将字符串类型的当前学年学期标志转换为bool
+        /// 可接受字符为true\yes\y\1\ok\是
         /// </summary>
-        public string IsValid { get; set; }
+        public bool IsCurrent
+        {
+            get
+            {
+                return dqxnxqbz.ConvertToBool();
+            }
+            set
+            {
+                dqxnxqbz = value ? "1" : "0";
+            }
+        }
+        #endregion
+
+        #region 业务方法
+
+        /// <summary>
+        /// 将合体的学年学期分离
+        /// 格式由2011-2012-2变身2011-2012，2
+        /// </summary>
+        public XNXQ SplitTerm
+        {
+            get
+            {
+                XNXQ result = new XNXQ
+                {
+                    XN = YearTerm.Substring(0, 9),
+                    XQ = YearTerm.Substring(10, 1)
+                };
+                return result;
+            }
+        }
+        #endregion
+
     }
 }

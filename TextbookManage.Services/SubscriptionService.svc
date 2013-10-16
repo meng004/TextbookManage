@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TextbookManage.Services.SubscriptionService" CodeBehind="SubscriptionService.svc.cs" %>

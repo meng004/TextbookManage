@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TextbookManage.ViewModels.BooksellerView" Collapsed="true">
+    <Position X="40.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BooksellerView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.ApprovalView" Collapsed="true">
+    <Position X="53.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAABAAAACAAQAAAAAAgQA=</HashCode>
+      <FileName>ApprovalView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.ViewModelBase" Collapsed="true">
+    <Position X="32.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQAQAAA=</HashCode>
+      <FileName>ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.CourseView" Collapsed="true">
+    <Position X="44.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CourseView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DataSignView" Collapsed="true">
+    <Position X="56" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSignView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DeclarationBaseView" Collapsed="true">
+    <Position X="49.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAABAAACAAAAAAAAAAEAAAGAgAAIAAAA=</HashCode>
+      <FileName>DeclarationBaseView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DeclarationForApprovalView" Collapsed="true">
+    <Position X="51.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAEQAAAAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>DeclarationForApprovalView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DeclarationForQueryView" Collapsed="true">
+    <Position X="49.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DeclarationForQueryView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DeclarationForTeachingTaskView" Collapsed="true">
+    <Position X="47" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAgAAAAAAAAQAAQAAAQAAAQAAAAAA=</HashCode>
+      <FileName>DeclarationForTeachingTaskView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DeclarationView" Collapsed="true">
+    <Position X="31.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACgAAACAAABAAAAACAAgABAAAACAEeAAAAAAAAA=</HashCode>
+      <FileName>DeclarationView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DepartmentProgressView" Collapsed="true">
+    <Position X="33.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAEQAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>DepartmentProgressView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.DepartmentView" Collapsed="true">
+    <Position X="38" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DepartmentView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.FeedbackStateView" Collapsed="true">
+    <Position X="60.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FeedbackStateView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.FeedbackView" Collapsed="true">
+    <Position X="42.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAgAIAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>FeedbackView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.ProfessionalClassView" Collapsed="true">
+    <Position X="58.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProfessionalClassView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.RecipientTypeView" Collapsed="true">
+    <Position X="35.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RecipientTypeView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.ReleaseRecordView" Collapsed="true">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAIAAIgIAAAAAAAgAgAAAAAAAAEIAAQAAAAEA=</HashCode>
+      <FileName>ReleaseRecordView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.ResponseView" Collapsed="true">
+    <Position X="29" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>ResponseView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.SchoolProgressView" Collapsed="true">
+    <Position X="33.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAAAAhAAAQAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SchoolProgressView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.SchoolView" Collapsed="true">
+    <Position X="62.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SchoolView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.StockRecordView" Collapsed="true">
+    <Position X="22.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAIAAAAAAAAAAAAAAAAAEAGAAAAYAIAA=</HashCode>
+      <FileName>StockRecordView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.StorageView" Collapsed="true">
+    <Position X="26.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAEAAAAAAAAAAQAAAAAAAACAAAAAAAAAEA=</HashCode>
+      <FileName>StorageView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.StudentReleaseRecordView" Collapsed="true">
+    <Position X="20" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAgAACAAACAAAAAAAAAAAAAAAAAACAAAAACAAA=</HashCode>
+      <FileName>StudentReleaseRecordView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.StudentView" Collapsed="true">
+    <Position X="24.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StudentView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.SubscriptionView" Collapsed="true">
+    <Position X="2.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACCgBMAAEAAAAAAAIAAAAAAAAAAAAEAAAAAIAAEA=</HashCode>
+      <FileName>SubscriptionView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.SubscriptionForSubmitView" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAUAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubscriptionForSubmitView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.SubscriptionForFeedbackView" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubscriptionForFeedbackView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TeacherReleaseRecordView" Collapsed="true">
+    <Position X="17.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAgACAEAAECAAAAIAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>TeacherReleaseRecordView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TeachingTaskView" Collapsed="true">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAEAAAEAABAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TeachingTaskView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TermView" Collapsed="true">
+    <Position X="15.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TermView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TextbookForDeclarationView" Collapsed="true">
+    <Position X="9.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAACAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextbookForDeclarationView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TextbookForQueryView" Collapsed="true">
+    <Position X="4.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>TextbookForQueryView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TextbookForReleaseView" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>TextbookForReleaseView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextbookManage.ViewModels.TextbookView" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAACAAAQAAAAAAiEABAAQAAQAAQAAAQAAARAAAAAA=</HashCode>
+      <FileName>TextbookView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

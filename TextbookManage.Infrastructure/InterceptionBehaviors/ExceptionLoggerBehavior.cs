@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using Microsoft.Practices.Unity.InterceptionExtension;
-    using TextbookManage.Infrastructure.Logger;    
-
+    using TextbookManage.Infrastructure.Logger;
+    using TextbookManage.Infrastructure.ServiceLocators;
 
     /// <summary>
     /// 异常日志行为
@@ -17,7 +17,7 @@
         /// <summary>
         /// 日志配置节为ExceptionLogger
         /// </summary>
-        readonly ILogger _log = ServiceLocators.ServiceLocator.Current.GetInstance<ILogger>("ExceptionLogger");
+        readonly ILogger _log = ServiceLocator.Current.GetInstance<ILogger>("ExceptionLogger");
 
         #endregion
 

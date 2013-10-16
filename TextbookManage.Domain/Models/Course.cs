@@ -1,24 +1,34 @@
-锘縰sing System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TextbookManage.Domain.Models
 {
-    public class Course
+    public class Course 
     {
+        public Course()
+        {
+            TeachingTasks = new List<TeachingTask>();
+            Departments = new List<Department>();
+        }
         /// <summary>
-        /// 璇剧▼ID
+        /// 课程ID
         /// </summary>
-        public Guid CourseID { get; set; }
+        public Guid CourseId { get; set; }
         /// <summary>
-        /// 璇剧▼缂栧彿
+        /// 课程编号
         /// </summary>
         public string Num { get; set; }
         /// <summary>
-        /// 璇剧▼鍚嶇О
+        /// 课程名称
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 教学任务集合
+        /// </summary>
+        public virtual ICollection<TeachingTask> TeachingTasks { get; set; }
+        /// <summary>
+        /// 教研室集合
+        /// </summary>
+        public virtual ICollection<Department> Departments { get; set; }
     }
 }

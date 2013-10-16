@@ -1,15 +1,16 @@
 ﻿using TextbookManage.Domain.IRepositories;
-using TextbookManage.Infrastructure.UnitOfWork;
 using TextbookManage.Domain.Models;
+using TextbookManage.Repositories.EntityFramework;
 
 namespace TextbookManage.Repositories
 {
-    public class StudentDeclarationRepository : Repository<StudentDeclaration>, IStudentDeclarationRepository
+    public class StudentDeclarationRepository : EntityFrameworkRepository<StudentDeclaration>, IStudentDeclarationRepository
     {
-        public StudentDeclarationRepository(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
+        public StudentDeclarationRepository(IRepositoryContext context)
+            : base(context)
         {
             
         }
+
     }
 }

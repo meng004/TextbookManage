@@ -1,14 +1,19 @@
-﻿using ByteartRetail.Domain.Model;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Threading;
+using TextbookManage.Domain.IRepositories;
 
-namespace ByteartRetail.Domain.Repositories.EntityFramework
+namespace TextbookManage.Repositories.EntityFramework
 {
-    public class EntityFrameworkRepositoryContext : RepositoryContext, IEntityFrameworkRepositoryContext
+    public class EntityFrameworkRepositoryContext : RepositoryContext,
+        IEntityFrameworkRepositoryContext
     {
-        private readonly ThreadLocal<ByteartRetailDbContext> localCtx = new ThreadLocal<ByteartRetailDbContext>(() => new ByteartRetailDbContext());
 
-        public EntityFrameworkRepositoryContext() { }
+        #region 私有变量
+
+        private readonly ThreadLocal<TbMisDbContext> localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
+        #endregion
+
+        #region 重写父类方法
 
         public override void RegisterDeleted<TAggregateRoot>(TAggregateRoot obj)
         {
@@ -27,18 +32,11 @@ namespace ByteartRetail.Domain.Repositories.EntityFramework
             localCtx.Value.Set<TAggregateRoot>().Add(obj);
             Committed = false;
         }
+        #endregion
 
-        public override bool DistributedTransactionSupported
-        {
-            get { return true; }
-        }
+        #region 实现RepositoryContex
 
-        public override void Rollback()
-        {
-            Committed = false;
-        }
-
-        protected override void DoCommit()
+        public override void Commit()
         {
             if (!Committed)
             {
@@ -47,6 +45,14 @@ namespace ByteartRetail.Domain.Repositories.EntityFramework
                 Committed = true;
             }
         }
+
+        public override void Rollback()
+        {
+            Committed = false;
+        }
+        #endregion
+
+        #region 重写Dispose
 
         protected override void Dispose(bool disposing)
         {
@@ -59,6 +65,7 @@ namespace ByteartRetail.Domain.Repositories.EntityFramework
                 base.Dispose(disposing);
             }
         }
+        #endregion
 
         #region IEntityFrameworkRepositoryContext Members
 
@@ -68,5 +75,6 @@ namespace ByteartRetail.Domain.Repositories.EntityFramework
         }
 
         #endregion
+
     }
 }

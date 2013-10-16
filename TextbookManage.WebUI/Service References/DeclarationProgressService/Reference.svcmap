@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="deaf62f5-8dce-406a-b6ce-af78e4da878e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2726/DeclarationProgressService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DeclarationProgressService.xsd" MetadataType="Schema" ID="625ffa87-9425-45cc-a127-ae2b5f5a8ac5" SourceId="1" SourceUrl="http://localhost:2726/DeclarationProgressService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DeclarationProgressService.disco" MetadataType="Disco" ID="98cd472f-2756-4633-b936-225543ec60e9" SourceId="1" SourceUrl="http://localhost:2726/DeclarationProgressService.svc?disco" />
+    <MetadataFile FileName="DeclarationProgressService1.xsd" MetadataType="Schema" ID="895de032-962b-49aa-8b02-5ff877d2553e" SourceId="1" SourceUrl="http://localhost:2726/DeclarationProgressService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DeclarationProgressService2.xsd" MetadataType="Schema" ID="1812a5f9-9467-49d7-b3b7-c80204915aaf" SourceId="1" SourceUrl="http://localhost:2726/DeclarationProgressService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DeclarationProgressService.wsdl" MetadataType="Wsdl" ID="696cabd1-ce7c-438f-bcfc-ef6cd3bbb828" SourceId="1" SourceUrl="http://localhost:2726/DeclarationProgressService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

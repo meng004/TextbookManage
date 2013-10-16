@@ -3,12 +3,14 @@
     using System;
 
     /// <summary>
-    /// 表示由此特性所描述的方法，能够获得来自Byteart Retail基础结构层所提供的缓存功能。
+    /// 表示由此特性所描述的方法，能够获得来自基础结构层所提供的缓存功能。
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class CacheAttribute : Attribute
     {
-        #region Ctor
+
+        #region 构造函数
+
         /// <summary>
         /// 初始化一个新的<c>CachingAttribute</c>类型。
         /// </summary>
@@ -17,6 +19,7 @@
         {
             Method = method;
         }
+
         /// <summary>
         /// 初始化一个新的<c>CachingAttribute</c>类型。
         /// </summary>
@@ -29,7 +32,8 @@
         }
         #endregion
 
-        #region Public Properties
+        #region 公共属性
+
         /// <summary>
         /// 获取或设置缓存方式。
         /// </summary>
@@ -39,6 +43,8 @@
         /// 获取或设置与当前缓存方式相关的方法名称。注：此参数仅在缓存方式为Remove时起作用。
         /// </summary>
         public string[] CorrespondingMethodNames { get; set; }
+
         #endregion
+
     }
 }
