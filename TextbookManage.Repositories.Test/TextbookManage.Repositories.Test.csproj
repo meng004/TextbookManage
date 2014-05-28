@@ -90,7 +90,7 @@
       <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
       <Name>TextbookManage.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TextbookManage.Repository\TextbookManage.Repositories.csproj">
+    <ProjectReference Include="..\TextbookManage.Repositories\TextbookManage.Repositories.csproj">
       <Project>{bd9a5ce9-d0d6-4fb4-85d4-c1a8ab63c8a0}</Project>
       <Name>TextbookManage.Repositories</Name>
     </ProjectReference>
