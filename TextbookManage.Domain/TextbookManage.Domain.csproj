@@ -104,7 +104,6 @@
     <Compile Include="IRepositories\ITeachingTaskRepository.cs" />
     <Compile Include="IRepositories\Repository.cs" />
     <Compile Include="IRepositories\RepositoryContext.cs" />
-    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Models\AggregateRoot.cs" />
     <Compile Include="Models\Approval.cs" />
     <Compile Include="Models\ApprovalState.cs" />

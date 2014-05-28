@@ -1,4 +1,5 @@
 ﻿using System;
+using TextbookManage.Infrastructure;
 
 namespace TextbookManage.Domain.IRepositories
 {
