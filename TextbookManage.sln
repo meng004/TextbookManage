@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Design", "TextbookManage.Design\TextbookManage.Design.csproj", "{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain", "TextbookManage.Domain\TextbookManage.Domain.csproj", "{9F0B3334-5E6E-4B48-A1DC-1F65B186A21D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories", "TextbookManage.Repository\TextbookManage.Repositories.csproj", "{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories", "TextbookManage.Repositories\TextbookManage.Repositories.csproj", "{BD9A5CE9-D0D6-4FB4-85D4-C1A8AB63C8A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Applications", "TextbookManage.Application\TextbookManage.Applications.csproj", "{55A9ECBC-B25E-47A4-A914-AEDF859D62DB}"
 EndProject
@@ -30,52 +32,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Services", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasClientValidate", "CasClientValidate\CasClientValidate.csproj", "{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.JiaoWu", "TextbookManage.Domain.JiaoWu\TextbookManage.Domain.JiaoWu.csproj", "{DC665444-41D2-41E9-9361-4E98F42CA5BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories.JiaoWu", "TextbookManage.Repositories.JiaoWu\TextbookManage.Repositories.JiaoWu.csproj", "{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 14
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://210.43.118.193:8080/tfs/%E6%95%99%E6%9D%90%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = TextbookManage.Design\\TextbookManage.Design.csproj
-		SccProjectName1 = TextbookManage.Design
-		SccLocalPath1 = TextbookManage.Design
-		SccProjectUniqueName2 = TextbookManage.Domain\\TextbookManage.Domain.csproj
-		SccProjectName2 = TextbookManage.Domain
-		SccLocalPath2 = TextbookManage.Domain
-		SccProjectUniqueName3 = TextbookManage.WebUI\\TextbookManage.WebUI.csproj
-		SccProjectName3 = TextbookManage.WebUI
-		SccLocalPath3 = TextbookManage.WebUI
-		SccProjectUniqueName4 = TextbookManage.Infrastructure\\TextbookManage.Infrastructure.csproj
-		SccProjectName4 = TextbookManage.Infrastructure
-		SccLocalPath4 = TextbookManage.Infrastructure
-		SccProjectUniqueName5 = TextbookManage.Repository\\TextbookManage.Repositories.csproj
-		SccProjectName5 = TextbookManage.Repository
-		SccLocalPath5 = TextbookManage.Repository
-		SccProjectUniqueName6 = TextbookManage.ViewModels\\TextbookManage.ViewModels.csproj
-		SccProjectName6 = TextbookManage.ViewModels
-		SccLocalPath6 = TextbookManage.ViewModels
-		SccProjectUniqueName7 = TextbookManage.IApplications\\TextbookManage.IApplications.csproj
-		SccProjectName7 = TextbookManage.IApplications
-		SccLocalPath7 = TextbookManage.IApplications
-		SccProjectUniqueName8 = TextbookManage.Domain.Test\\TextbookManage.Domain.Test.csproj
-		SccProjectName8 = TextbookManage.Domain.Test
-		SccLocalPath8 = TextbookManage.Domain.Test
-		SccProjectUniqueName9 = TextbookManage.Repositories.Test\\TextbookManage.Repositories.Test.csproj
-		SccProjectName9 = TextbookManage.Repositories.Test
-		SccLocalPath9 = TextbookManage.Repositories.Test
-		SccProjectUniqueName10 = TextbookManage.Applicaiton.Test\\TextbookManage.Applicaiton.Test.csproj
-		SccProjectName10 = TextbookManage.Applicaiton.Test
-		SccLocalPath10 = TextbookManage.Applicaiton.Test
-		SccProjectUniqueName11 = TextbookManage.Application\\TextbookManage.Applications.csproj
-		SccProjectName11 = TextbookManage.Application
-		SccLocalPath11 = TextbookManage.Application
-		SccProjectUniqueName12 = TextbookManage.Services\\TextbookManage.Services.csproj
-		SccProjectName12 = TextbookManage.Services
-		SccLocalPath12 = TextbookManage.Services
-		SccProjectUniqueName13 = CasClientValidate\\CasClientValidate.csproj
-		SccProjectName13 = CasClientValidate
-		SccLocalPath13 = CasClientValidate
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -133,6 +94,14 @@ Global
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
