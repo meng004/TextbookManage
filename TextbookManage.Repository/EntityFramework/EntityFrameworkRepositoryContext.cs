@@ -4,13 +4,15 @@ using TextbookManage.Domain.IRepositories;
 
 namespace TextbookManage.Repositories.EntityFramework
 {
-    public class EntityFrameworkRepositoryContext : RepositoryContext,
+    public class EntityFrameworkRepositoryContext<TDbContext> : RepositoryContext,
         IEntityFrameworkRepositoryContext
+        where TDbContext : DbContext, new()
     {
 
         #region 私有变量
 
-        private readonly ThreadLocal<TbMisDbContext> localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
+        //private readonly ThreadLocal<TbMisDbContext> localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
+        private readonly ThreadLocal<TDbContext> localCtx = new ThreadLocal<TDbContext>(() => new TDbContext());
         #endregion
 
         #region 重写父类方法
@@ -23,7 +25,7 @@ namespace TextbookManage.Repositories.EntityFramework
 
         public override void RegisterModified<TAggregateRoot>(TAggregateRoot obj)
         {
-            localCtx.Value.Entry<TAggregateRoot>(obj).State = System.Data.EntityState.Modified;
+            localCtx.Value.Entry<TAggregateRoot>(obj).State = System.Data.Entity.EntityState.Modified;
             Committed = false;
         }
 

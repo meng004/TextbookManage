@@ -1,4 +1,4 @@
-﻿namespace TextbookManage.Domain
+﻿namespace TextbookManage.Infrastructure
 {
 
     /// <summary>
