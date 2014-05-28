@@ -35,7 +35,7 @@
         }
 
         /// <summary>
-        /// 字符串转换为数值
+        /// 字符串转换为Decimal
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -43,6 +43,18 @@
         {
             decimal result = 0;
             decimal.TryParse(str, out result);
+            return result;
+        }
+
+        /// <summary>
+        /// 字符串转换为Double
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static double ConvertToDouble(this string str)
+        {
+            double result = 0;
+            double.TryParse(str, out result);
             return result;
         }
 
