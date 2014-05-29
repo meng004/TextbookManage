@@ -558,8 +558,8 @@
           <EntitySet Name="ProfessionalClass" EntityType="TbmisV2Model1.ProfessionalClass" />
           <EntitySet Name="School" EntityType="TbmisV2Model1.School" />
           <EntitySet Name="Student" EntityType="TbmisV2Model1.Student" />
-          <EntitySet Name="StudentReleaseDetail" EntityType="TbmisV2Model1.StudentReleaseDetail" />
-          <EntitySet Name="SubscriptionPlan" EntityType="TbmisV2Model1.SubscriptionPlan" />
+          <EntitySet Name="StudentReleaseDetail" EntityType="TbmisV2Model1.StudentReleaseRecord" />
+          <EntitySet Name="SubscriptionPlan" EntityType="TbmisV2Model1.Subscription" />
           <EntitySet Name="Teacher" EntityType="TbmisV2Model1.Teacher" />
           <EntitySet Name="TeachingTask" EntityType="TbmisV2Model1.TeachingTask" />
           <EntitySet Name="Term" EntityType="TbmisV2Model1.Term" />
@@ -759,7 +759,7 @@
           <NavigationProperty Name="ProfessionalClass" Relationship="TbmisV2Model1.FK_ProfessionalClassStudent" FromRole="Student" ToRole="ProfessionalClass" />
           <NavigationProperty Name="StudentReleaseDetail" Relationship="TbmisV2Model1.StudentStudentReleaseDetail" FromRole="Student" ToRole="StudentReleaseDetail" />
         </EntityType>
-        <EntityType Name="StudentReleaseDetail">
+        <EntityType Name="StudentReleaseRecord">
           <Key>
             <PropertyRef Name="StudentReleaseDetailID" />
           </Key>
@@ -790,7 +790,7 @@
           <Property Name="Telphone" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Student" Relationship="TbmisV2Model1.StudentStudentReleaseDetail" FromRole="StudentReleaseDetail" ToRole="Student" />
         </EntityType>
-        <EntityType Name="SubscriptionPlan">
+        <EntityType Name="Subscription">
           <Key>
             <PropertyRef Name="SubscriptionPlanID" />
           </Key>
@@ -860,7 +860,7 @@
         </EntityType>
         <Association Name="FK_BooksellerSubscriptionPlan">
           <End Role="Bookseller" Type="TbmisV2Model1.Bookseller" Multiplicity="1" />
-          <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="*" />
+          <End Role="SubscriptionPlan" Type="TbmisV2Model1.Subscription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bookseller">
               <PropertyRef Name="BookSellerID" />
@@ -895,7 +895,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SubscriptionPlanDeclaration">
-          <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="1" />
+          <End Role="SubscriptionPlan" Type="TbmisV2Model1.Subscription" Multiplicity="1" />
           <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SubscriptionPlan">
@@ -919,8 +919,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FeedbackSubscriptionPlan">
-          <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="1" />
-          <End Role="Feedback" Type="TbmisV2Model1.Feedback" Multiplicity="*" />
+          <End Role="SubscriptionPlan" Type="TbmisV2Model1.Subscription" Multiplicity="*" />
+          <End Role="Feedback" Type="TbmisV2Model1.Feedback" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="SubscriptionPlan">
               <PropertyRef Name="SubscriptionPlanID" />
@@ -956,7 +956,7 @@
         </Association>
         <Association Name="FK_SubscriptionPlanTextbook">
           <End Role="Textbook" Type="TbmisV2Model1.Textbook" Multiplicity="1" />
-          <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="*" />
+          <End Role="SubscriptionPlan" Type="TbmisV2Model1.Subscription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Textbook">
               <PropertyRef Name="TextbookID" />
@@ -968,7 +968,7 @@
         </Association>
         <Association Name="DepartmentCourse">
           <End Role="Course" Type="TbmisV2Model1.Course" Multiplicity="*" />
-          <End Role="Department" Type="TbmisV2Model1.Department" Multiplicity="1" />
+          <End Role="Department" Type="TbmisV2Model1.Department" Multiplicity="*" />
         </Association>
         <Association Name="DepartmentTeacher">
           <End Role="Department" Type="TbmisV2Model1.Department" Multiplicity="*" />
@@ -996,7 +996,7 @@
         </Association>
         <Association Name="StudentStudentReleaseDetail">
           <End Type="TbmisV2Model1.Student" Role="Student" Multiplicity="1" />
-          <End Type="TbmisV2Model1.StudentReleaseDetail" Role="StudentReleaseDetail" Multiplicity="*" />
+          <End Type="TbmisV2Model1.StudentReleaseRecord" Role="StudentReleaseDetail" Multiplicity="*" />
         </Association>
         <Association Name="DeclarationCourse">
           <End Type="TbmisV2Model1.Declaration" Role="Declaration" Multiplicity="*" />
@@ -1128,7 +1128,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StudentReleaseDetail">
-            <EntityTypeMapping TypeName="TbmisV2Model1.StudentReleaseDetail">
+            <EntityTypeMapping TypeName="TbmisV2Model1.StudentReleaseRecord">
               <MappingFragment StoreEntitySet="StudentReleaseDetail">
                 <ScalarProperty Name="StudentReleaseDetailID" ColumnName="StudentReleaseDetailID" />
                 <ScalarProperty Name="Term" ColumnName="Term" />
@@ -1159,7 +1159,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubscriptionPlan">
-            <EntityTypeMapping TypeName="TbmisV2Model1.SubscriptionPlan">
+            <EntityTypeMapping TypeName="TbmisV2Model1.Subscription">
               <MappingFragment StoreEntitySet="SubscriptionPlan">
                 <ScalarProperty Name="SubscriptionPlanID" ColumnName="SubscriptionPlanID" />
                 <ScalarProperty Name="Num" ColumnName="Num" />
