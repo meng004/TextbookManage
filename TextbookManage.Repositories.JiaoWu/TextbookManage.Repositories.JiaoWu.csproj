@@ -48,7 +48,16 @@
   <ItemGroup>
     <Compile Include="EntityFramework\JiaoWuDbContext.cs" />
     <Compile Include="EntityFramework\JiaoWuEntityFrameworkRepositoryContext.cs" />
-    <Compile Include="EntityFramework\Mapping\DeclarationMap.cs" />
+    <Compile Include="EntityFramework\Mapping\CourseMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DataSignMap.cs" />
+    <Compile Include="EntityFramework\Mapping\DepartmentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\ProfessionalClassMap.cs" />
+    <Compile Include="EntityFramework\Mapping\SchoolMap.cs" />
+    <Compile Include="EntityFramework\Mapping\StudentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeacherMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeachingTaskMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TermMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TextbookMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
