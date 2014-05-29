@@ -9,6 +9,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
     {
         public TeachingTask()
         {
+            Teachers = new List<Teacher>();
             ProfessionalClasses = new List<ProfessionalClass>();
         }
 
@@ -71,6 +72,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 区分本部、船山、成教、国际学院
         /// </summary>
         public virtual DataSign DataSign { get; set; }
+        /// <summary>
+        /// 授课教师集合
+        /// 理论教师、实验教师等
+        /// </summary>
+        public virtual ICollection<Teacher> Teachers { get; set; }
         /// <summary>
         /// 行政班集合
         /// </summary>
