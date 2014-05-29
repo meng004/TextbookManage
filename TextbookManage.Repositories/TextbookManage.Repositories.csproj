@@ -91,7 +91,6 @@
     <Compile Include="EntityFramework\Mapping\CasMapperMap.cs" />
     <Compile Include="EntityFramework\Mapping\DeclarationApprovalMap.cs" />
     <Compile Include="EntityFramework\Mapping\DeclarationClassMap.cs" />
-    <Compile Include="EntityFramework\Mapping\DeclarationMap.cs" />
     <Compile Include="EntityFramework\Mapping\FeedbackApprovalMap.cs" />
     <Compile Include="EntityFramework\Mapping\FeedbackMap.cs" />
     <Compile Include="EntityFramework\Mapping\InventoryMap.cs" />
