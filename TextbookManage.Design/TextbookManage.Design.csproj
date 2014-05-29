@@ -84,6 +84,7 @@
       <LastGenOutput>TextbookV3.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.config" />
+    <None Include="Documents\3详细设计说明书-订单管理.doc" />
     <None Include="Documents\仓储层和基础层接口说明.doc" />
     <None Include="Documents\调整后的ViewModel说明.doc" />
     <None Include="Documents\页面对应接口及ViewModel.docx" />
