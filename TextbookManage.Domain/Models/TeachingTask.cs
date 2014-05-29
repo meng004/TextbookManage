@@ -35,20 +35,20 @@ namespace TextbookManage.Domain.Models
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(XNXQ.XN) || string.IsNullOrWhiteSpace(XNXQ.XQ))
+                if (string.IsNullOrWhiteSpace(XNXQ.Year) || string.IsNullOrWhiteSpace(XNXQ.Term))
                 {
                     return string.Empty;
                 }
                 else
                 {
-                    return string.Format("{0}-{1}", XNXQ.XN, XNXQ.XQ);
+                    return string.Format("{0}-{1}", XNXQ.Year, XNXQ.Term);
                 }
             }
         }
         /// <summary>
         /// 用于与教务的学年学期匹配
         /// </summary>
-        public XNXQ XNXQ { get; set; }
+        public SchoolYearTerm XNXQ { get; set; }
         /// <summary>
         /// 数据标识ID
         /// </summary>

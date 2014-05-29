@@ -49,8 +49,8 @@ namespace TextbookManage.Applications.Impl
                     ).SelectMany(t =>
                         t.TeachingTasks
                         ).Where(t =>
-                            t.XNXQ.XN == term.SplitTerm.XN &&
-                            t.XNXQ.XQ == term.SplitTerm.XQ &&
+                            t.XNXQ.Year == term.SchoolYearTerm.Year &&
+                            t.XNXQ.Term == term.SchoolYearTerm.Term &&
                             t.DataSign_Id == dataSignId
                             );
 
@@ -84,8 +84,8 @@ namespace TextbookManage.Applications.Impl
                 t.DepartmentId == id
                 ).TeachingTasks
                     .Where(t =>
-                        t.XNXQ.XN == term.SplitTerm.XN &&
-                        t.XNXQ.XQ == term.SplitTerm.XQ &&
+                        t.XNXQ.Year == term.SchoolYearTerm.Year &&
+                        t.XNXQ.Term == term.SchoolYearTerm.Term &&
                         t.DataSign_Id == dataSignId
                         );
             //创建系教研室进度

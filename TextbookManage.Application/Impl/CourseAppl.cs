@@ -38,8 +38,8 @@ namespace TextbookManage.Applications.Impl
 
             //构造学年学期，与教务匹配
             var courses = _teachingTaskRepo.Find(t =>
-                t.XNXQ.XN == currentTerm.SplitTerm.XN &&
-                t.XNXQ.XQ == currentTerm.SplitTerm.XQ &&
+                t.XNXQ.Year == currentTerm.SchoolYearTerm.Year &&
+                t.XNXQ.Term == currentTerm.SchoolYearTerm.Term &&
                 t.Department_Id == departmentId
                 ).Select(t =>
                     t.Course

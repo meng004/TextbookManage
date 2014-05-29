@@ -74,8 +74,8 @@ namespace TextbookManage.Applications.Impl
             var courId = courseId.ConvertToGuid();
 
             var teachingTask = _teachingTaskRepo.Find(t =>
-                t.XNXQ.XN == term.SplitTerm.XN &&
-                t.XNXQ.XQ == term.SplitTerm.XQ &&
+                t.XNXQ.Year == term.SchoolYearTerm.Year &&
+                t.XNXQ.Term == term.SchoolYearTerm.Term &&
                 t.Department_Id == depaId &&
                 t.Course_Id == courId
                 );

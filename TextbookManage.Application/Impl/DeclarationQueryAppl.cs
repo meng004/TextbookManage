@@ -125,8 +125,8 @@ namespace TextbookManage.Applications.Impl
             Enum.TryParse(recipientTypeName, out type);
 
             var declarations = _teachingTaskRepo.Find(t =>
-                t.XNXQ.XN == term.Substring(0, 9) &&
-                t.XNXQ.XQ == term.Substring(10, 1) &&
+                t.XNXQ.Year == term.Substring(0, 9) &&
+                t.XNXQ.Term == term.Substring(10, 1) &&
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 ).SelectMany(t =>

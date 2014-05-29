@@ -5,6 +5,10 @@ using TextbookManage.Infrastructure;
 
 namespace TextbookManage.Domain.Models
 {
+    /// <summary>
+    /// 实体类学年学期
+    /// 用于从数据库映射
+    /// </summary>
     public class Term : AggregateRoot
     {
 
@@ -15,10 +19,14 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public string YearTerm { get; set; }
         /// <summary>
+        /// 说明
+        /// </summary>
+        public string Description { get; set; }
+        /// <summary>
         /// 当前学年学期标志
         /// 1为当前，0为非当前
         /// </summary>
-        public string dqxnxqbz { get; set; }
+        public string DqXnXqBz { get; set; }
         /// <summary>
         /// 是否当前学年学期
         /// 将字符串类型的当前学年学期标志转换为bool
@@ -28,11 +36,11 @@ namespace TextbookManage.Domain.Models
         {
             get
             {
-                return dqxnxqbz.ConvertToBool();
+                return DqXnXqBz.ConvertToBool();
             }
             set
             {
-                dqxnxqbz = value ? "1" : "0";
+                DqXnXqBz = value ? "1" : "0";
             }
         }
         #endregion
@@ -43,14 +51,14 @@ namespace TextbookManage.Domain.Models
         /// 将合体的学年学期分离
         /// 格式由2011-2012-2变身2011-2012，2
         /// </summary>
-        public XNXQ SplitTerm
+        public SchoolYearTerm SchoolYearTerm
         {
             get
             {
-                XNXQ result = new XNXQ
+                var result = new SchoolYearTerm
                 {
-                    XN = YearTerm.Substring(0, 9),
-                    XQ = YearTerm.Substring(10, 1)
+                    Year = YearTerm.Substring(0, 9),
+                    Term = YearTerm.Substring(10, 1)
                 };
                 return result;
             }

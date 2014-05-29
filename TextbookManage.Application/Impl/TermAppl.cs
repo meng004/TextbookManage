@@ -31,7 +31,7 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         public Term GetCurrentTerm()
         {
-            var term = _repo.First(t => t.dqxnxqbz == "1");
+            var term = _repo.First(t => t.DqXnXqBz == "1");
             return term;
         }
 

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\DataSign.cs" />
     <Compile Include="Models\Declaration.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DiscountStrategyByName.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\TeacherDeclaration.cs" />
     <Compile Include="Models\TeachingTask.cs" />
+    <Compile Include="Models\Term.cs" />
     <Compile Include="Models\Textbook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

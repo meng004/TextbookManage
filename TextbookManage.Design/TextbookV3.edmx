@@ -6,7 +6,6 @@
     <edmx:StorageModels>
       <Schema Namespace="TbmisV2Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="TbmisV2Model1StoreContainer">
-          <EntitySet Name="ApprovalDeclaration" EntityType="TbmisV2Model1.Store.ApprovalDeclaration" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="Bookseller" EntityType="TbmisV2Model1.Store.Bookseller" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="Course" EntityType="TbmisV2Model1.Store.Course" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="Declaration" EntityType="TbmisV2Model1.Store.Declaration" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
@@ -16,7 +15,6 @@
           <EntitySet Name="Feedback" EntityType="TbmisV2Model1.Store.Feedback" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="ProfessionalClass" EntityType="TbmisV2Model1.Store.ProfessionalClass" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="ProfessionalClassTeachingTask" EntityType="TbmisV2Model1.Store.ProfessionalClassTeachingTask" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="RecipientType" EntityType="TbmisV2Model1.Store.RecipientType" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="School" EntityType="TbmisV2Model1.Store.School" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="Student" EntityType="TbmisV2Model1.Store.Student" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <EntitySet Name="StudentReleaseDetail" EntityType="TbmisV2Model1.Store.StudentReleaseDetail" store:Type="Tables" Schema="Textbook" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
@@ -33,10 +31,6 @@
           <AssociationSet Name="FK_CourseTeachingTask" Association="TbmisV2Model1.Store.FK_CourseTeachingTask">
             <End Role="Course" EntitySet="Course" />
             <End Role="TeachingTask" EntitySet="TeachingTask" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DeclarationApprovalDeclaration" Association="TbmisV2Model1.Store.FK_DeclarationApprovalDeclaration">
-            <End Role="Declaration" EntitySet="Declaration" />
-            <End Role="ApprovalDeclaration" EntitySet="ApprovalDeclaration" />
           </AssociationSet>
           <AssociationSet Name="FK_DeclarationTextbook" Association="TbmisV2Model1.Store.FK_DeclarationTextbook">
             <End Role="Textbook" EntitySet="Textbook" />
@@ -73,10 +67,6 @@
           <AssociationSet Name="FK_ProfessionalClassTeachingTask_Reference_TeachingTask" Association="TbmisV2Model1.Store.FK_ProfessionalClassTeachingTask_Reference_TeachingTask">
             <End Role="TeachingTask" EntitySet="TeachingTask" />
             <End Role="ProfessionalClassTeachingTask" EntitySet="ProfessionalClassTeachingTask" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RecipientTypeDeclaration" Association="TbmisV2Model1.Store.FK_RecipientTypeDeclaration">
-            <End Role="RecipientType" EntitySet="RecipientType" />
-            <End Role="Declaration" EntitySet="Declaration" />
           </AssociationSet>
           <AssociationSet Name="FK_SchoolDepartment" Association="TbmisV2Model1.Store.FK_SchoolDepartment">
             <End Role="School" EntitySet="School" />
@@ -115,18 +105,6 @@
             <End Role="SubscriptionPlan" EntitySet="SubscriptionPlan" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ApprovalDeclaration">
-          <Key>
-            <PropertyRef Name="ApprovalDeclarationID" />
-          </Key>
-          <Property Name="ApprovalDeclarationID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ApprovalDivision" Type="nvarchar" Nullable="false" MaxLength="200" />
-          <Property Name="ApprovalPerson" Type="nvarchar" Nullable="false" MaxLength="200" />
-          <Property Name="ApprovalDate" Type="datetime2" Nullable="false" />
-          <Property Name="ApprovalSuggestion" Type="bit" Nullable="false" />
-          <Property Name="Remark" Type="nvarchar" Nullable="false" MaxLength="2000" />
-          <Property Name="Declaration_DeclarationID" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
         <EntityType Name="Bookseller">
           <Key>
             <PropertyRef Name="BookSellerID" />
@@ -216,13 +194,6 @@
           </Key>
           <Property Name="ProfessionalClass_ProfessionalClassID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TeachingTask_TeachingClassNum" Type="nvarchar" Nullable="false" MaxLength="20" />
-        </EntityType>
-        <EntityType Name="RecipientType">
-          <Key>
-            <PropertyRef Name="RecipientTypeID" />
-          </Key>
-          <Property Name="RecipientTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
         </EntityType>
         <EntityType Name="School">
           <Key>
@@ -357,18 +328,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeclarationApprovalDeclaration">
-          <End Role="Declaration" Type="TbmisV2Model1.Store.Declaration" Multiplicity="1" />
-          <End Role="ApprovalDeclaration" Type="TbmisV2Model1.Store.ApprovalDeclaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Declaration">
-              <PropertyRef Name="DeclarationID" />
-            </Principal>
-            <Dependent Role="ApprovalDeclaration">
-              <PropertyRef Name="Declaration_DeclarationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DeclarationTextbook">
           <End Role="Textbook" Type="TbmisV2Model1.Store.Textbook" Multiplicity="1" />
           <End Role="Declaration" Type="TbmisV2Model1.Store.Declaration" Multiplicity="*" />
@@ -474,18 +433,6 @@
             </Principal>
             <Dependent Role="ProfessionalClassTeachingTask">
               <PropertyRef Name="TeachingTask_TeachingClassNum" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RecipientTypeDeclaration">
-          <End Role="RecipientType" Type="TbmisV2Model1.Store.RecipientType" Multiplicity="1" />
-          <End Role="Declaration" Type="TbmisV2Model1.Store.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RecipientType">
-              <PropertyRef Name="RecipientTypeID" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="RecipientType_RecipientTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -603,14 +550,12 @@
     <edmx:ConceptualModels>
       <Schema Namespace="TbmisV2Model1" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TbmisV2Entities1" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-          <EntitySet Name="ApprovalDeclaration" EntityType="TbmisV2Model1.ApprovalDeclaration" />
           <EntitySet Name="Bookseller" EntityType="TbmisV2Model1.Bookseller" />
           <EntitySet Name="Course" EntityType="TbmisV2Model1.Course" />
           <EntitySet Name="Declaration" EntityType="TbmisV2Model1.Declaration" />
           <EntitySet Name="Department" EntityType="TbmisV2Model1.Department" />
           <EntitySet Name="Feedback" EntityType="TbmisV2Model1.Feedback" />
           <EntitySet Name="ProfessionalClass" EntityType="TbmisV2Model1.ProfessionalClass" />
-          <EntitySet Name="RecipientType" EntityType="TbmisV2Model1.RecipientType" />
           <EntitySet Name="School" EntityType="TbmisV2Model1.School" />
           <EntitySet Name="Student" EntityType="TbmisV2Model1.Student" />
           <EntitySet Name="StudentReleaseDetail" EntityType="TbmisV2Model1.StudentReleaseDetail" />
@@ -619,10 +564,6 @@
           <EntitySet Name="TeachingTask" EntityType="TbmisV2Model1.TeachingTask" />
           <EntitySet Name="Term" EntityType="TbmisV2Model1.Term" />
           <EntitySet Name="Textbook" EntityType="TbmisV2Model1.Textbook" />
-          <AssociationSet Name="FK_DeclarationApprovalDeclaration" Association="TbmisV2Model1.FK_DeclarationApprovalDeclaration">
-            <End Role="Declaration" EntitySet="Declaration" />
-            <End Role="ApprovalDeclaration" EntitySet="ApprovalDeclaration" />
-          </AssociationSet>
           <AssociationSet Name="FK_BooksellerSubscriptionPlan" Association="TbmisV2Model1.FK_BooksellerSubscriptionPlan">
             <End Role="Bookseller" EntitySet="Bookseller" />
             <End Role="SubscriptionPlan" EntitySet="SubscriptionPlan" />
@@ -635,20 +576,8 @@
             <End Role="Textbook" EntitySet="Textbook" />
             <End Role="Declaration" EntitySet="Declaration" />
           </AssociationSet>
-          <AssociationSet Name="FK_RecipientTypeDeclaration" Association="TbmisV2Model1.FK_RecipientTypeDeclaration">
-            <End Role="RecipientType" EntitySet="RecipientType" />
-            <End Role="Declaration" EntitySet="Declaration" />
-          </AssociationSet>
           <AssociationSet Name="FK_SubscriptionPlanDeclaration" Association="TbmisV2Model1.FK_SubscriptionPlanDeclaration">
             <End Role="SubscriptionPlan" EntitySet="SubscriptionPlan" />
-            <End Role="Declaration" EntitySet="Declaration" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TeacherDeclaration" Association="TbmisV2Model1.FK_TeacherDeclaration">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Declaration" EntitySet="Declaration" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TeachingTaskDeclaration" Association="TbmisV2Model1.FK_TeachingTaskDeclaration">
-            <End Role="TeachingTask" EntitySet="TeachingTask" />
             <End Role="Declaration" EntitySet="Declaration" />
           </AssociationSet>
           <AssociationSet Name="FK_SchoolDepartment" Association="TbmisV2Model1.FK_SchoolDepartment">
@@ -671,10 +600,6 @@
             <End Role="Textbook" EntitySet="Textbook" />
             <End Role="SubscriptionPlan" EntitySet="SubscriptionPlan" />
           </AssociationSet>
-          <AssociationSet Name="FK_TermSubscriptionPlan" Association="TbmisV2Model1.FK_TermSubscriptionPlan">
-            <End Role="Term" EntitySet="Term" />
-            <End Role="SubscriptionPlan" EntitySet="SubscriptionPlan" />
-          </AssociationSet>
           <AssociationSet Name="DepartmentCourse" Association="TbmisV2Model1.DepartmentCourse">
             <End Role="Course" EntitySet="Course" />
             <End Role="Department" EntitySet="Department" />
@@ -691,20 +616,41 @@
             <End Role="TeachingTask" EntitySet="TeachingTask" />
             <End Role="Teacher" EntitySet="Teacher" />
           </AssociationSet>
+          <EntitySet Name="DataSignSet" EntityType="TbmisV2Model1.DataSign" />
+          <AssociationSet Name="DataSignTeachingTask" Association="TbmisV2Model1.DataSignTeachingTask">
+            <End Role="DataSign" EntitySet="DataSignSet" />
+            <End Role="TeachingTask" EntitySet="TeachingTask" />
+          </AssociationSet>
+          <AssociationSet Name="StudentStudentReleaseDetail" Association="TbmisV2Model1.StudentStudentReleaseDetail">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentReleaseDetail" EntitySet="StudentReleaseDetail" />
+          </AssociationSet>
+          <AssociationSet Name="DeclarationCourse" Association="TbmisV2Model1.DeclarationCourse">
+            <End Role="Declaration" EntitySet="Declaration" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="DeclarationDepartment" Association="TbmisV2Model1.DeclarationDepartment">
+            <End Role="Declaration" EntitySet="Declaration" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="DeclarationSchool" Association="TbmisV2Model1.DeclarationSchool">
+            <End Role="Declaration" EntitySet="Declaration" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="TeachingTaskDepartment" Association="TbmisV2Model1.TeachingTaskDepartment">
+            <End Role="TeachingTask" EntitySet="TeachingTask" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <EntitySet Name="TeacherReleaseRecordSet" EntityType="TbmisV2Model1.TeacherReleaseRecord" />
+          <AssociationSet Name="TeacherTeacherReleaseRecord" Association="TbmisV2Model1.TeacherTeacherReleaseRecord">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="TeacherReleaseRecord" EntitySet="TeacherReleaseRecordSet" />
+          </AssociationSet>
+          <AssociationSet Name="SchoolTeachingTask" Association="TbmisV2Model1.SchoolTeachingTask">
+            <End Role="School" EntitySet="School" />
+            <End Role="TeachingTask" EntitySet="TeachingTask" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ApprovalDeclaration">
-          <Key>
-            <PropertyRef Name="ApprovalDeclarationID" />
-          </Key>
-          <Property Name="ApprovalDeclarationID" Type="Guid" Nullable="false" />
-          <Property Name="ApprovalDivision" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="ApprovalPerson" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="ApprovalDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="ApprovalSuggestion" Type="Boolean" Nullable="false" />
-          <Property Name="Remark" Type="String" Nullable="false" MaxLength="2000" Unicode="true" FixedLength="false" />
-          <Property Name="Declaration_DeclarationID" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_DeclarationApprovalDeclaration" FromRole="ApprovalDeclaration" ToRole="Declaration" />
-        </EntityType>
         <EntityType Name="Bookseller">
           <Key>
             <PropertyRef Name="BookSellerID" />
@@ -725,6 +671,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.FK_CourseTeachingTask" FromRole="Course" ToRole="TeachingTask" />
           <NavigationProperty Name="Department" Relationship="TbmisV2Model1.DepartmentCourse" FromRole="Course" ToRole="Department" />
+          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.DeclarationCourse" FromRole="Course" ToRole="Declaration" />
         </EntityType>
         <EntityType Name="Declaration">
           <Key>
@@ -743,12 +690,11 @@
           <Property Name="TeachingClassNum" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="SubscriptionPlan_SubscriptionPlanID" Type="Guid" Nullable="false" />
           <Property Name="Textbook_TextbookID" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="ApprovalDeclaration" Relationship="TbmisV2Model1.FK_DeclarationApprovalDeclaration" FromRole="Declaration" ToRole="ApprovalDeclaration" />
           <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.FK_DeclarationTextbook" FromRole="Declaration" ToRole="Textbook" />
-          <NavigationProperty Name="RecipientType" Relationship="TbmisV2Model1.FK_RecipientTypeDeclaration" FromRole="Declaration" ToRole="RecipientType" />
           <NavigationProperty Name="SubscriptionPlan" Relationship="TbmisV2Model1.FK_SubscriptionPlanDeclaration" FromRole="Declaration" ToRole="SubscriptionPlan" />
-          <NavigationProperty Name="Teacher" Relationship="TbmisV2Model1.FK_TeacherDeclaration" FromRole="Declaration" ToRole="Teacher" />
-          <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.FK_TeachingTaskDeclaration" FromRole="Declaration" ToRole="TeachingTask" />
+          <NavigationProperty Name="Course" Relationship="TbmisV2Model1.DeclarationCourse" FromRole="Declaration" ToRole="Course" />
+          <NavigationProperty Name="Department" Relationship="TbmisV2Model1.DeclarationDepartment" FromRole="Declaration" ToRole="Department" />
+          <NavigationProperty Name="School" Relationship="TbmisV2Model1.DeclarationSchool" FromRole="Declaration" ToRole="School" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -761,6 +707,8 @@
           <NavigationProperty Name="School" Relationship="TbmisV2Model1.FK_SchoolDepartment" FromRole="Department" ToRole="School" />
           <NavigationProperty Name="Course" Relationship="TbmisV2Model1.DepartmentCourse" FromRole="Department" ToRole="Course" />
           <NavigationProperty Name="Teacher" Relationship="TbmisV2Model1.DepartmentTeacher" FromRole="Department" ToRole="Teacher" />
+          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.DeclarationDepartment" FromRole="Department" ToRole="Declaration" />
+          <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.TeachingTaskDepartment" FromRole="Department" ToRole="TeachingTask" />
         </EntityType>
         <EntityType Name="Feedback">
           <Key>
@@ -787,14 +735,6 @@
           <NavigationProperty Name="School" Relationship="TbmisV2Model1.FK_SchoolProfessionalClass" FromRole="ProfessionalClass" ToRole="School" />
           <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.ProfessionalClassTeachingTask" FromRole="ProfessionalClass" ToRole="TeachingTask" />
         </EntityType>
-        <EntityType Name="RecipientType">
-          <Key>
-            <PropertyRef Name="RecipientTypeID" />
-          </Key>
-          <Property Name="RecipientTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_RecipientTypeDeclaration" FromRole="RecipientType" ToRole="Declaration" />
-        </EntityType>
         <EntityType Name="School">
           <Key>
             <PropertyRef Name="SchoolID" />
@@ -804,6 +744,8 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Department" Relationship="TbmisV2Model1.FK_SchoolDepartment" FromRole="School" ToRole="Department" />
           <NavigationProperty Name="ProfessionalClass" Relationship="TbmisV2Model1.FK_SchoolProfessionalClass" FromRole="School" ToRole="ProfessionalClass" />
+          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.DeclarationSchool" FromRole="School" ToRole="Declaration" />
+          <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.SchoolTeachingTask" FromRole="School" ToRole="TeachingTask" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -815,6 +757,7 @@
           <Property Name="Sex" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="ProfessionalClass_ProfessionalClassID" Type="Guid" Nullable="false" />
           <NavigationProperty Name="ProfessionalClass" Relationship="TbmisV2Model1.FK_ProfessionalClassStudent" FromRole="Student" ToRole="ProfessionalClass" />
+          <NavigationProperty Name="StudentReleaseDetail" Relationship="TbmisV2Model1.StudentStudentReleaseDetail" FromRole="Student" ToRole="StudentReleaseDetail" />
         </EntityType>
         <EntityType Name="StudentReleaseDetail">
           <Key>
@@ -845,6 +788,7 @@
           <Property Name="ReleaseCount" Type="Int32" Nullable="false" />
           <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Telphone" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Student" Relationship="TbmisV2Model1.StudentStudentReleaseDetail" FromRole="StudentReleaseDetail" ToRole="Student" />
         </EntityType>
         <EntityType Name="SubscriptionPlan">
           <Key>
@@ -862,7 +806,6 @@
           <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_SubscriptionPlanDeclaration" FromRole="SubscriptionPlan" ToRole="Declaration" />
           <NavigationProperty Name="Feedback" Relationship="TbmisV2Model1.FK_FeedbackSubscriptionPlan" FromRole="SubscriptionPlan" ToRole="Feedback" />
           <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.FK_SubscriptionPlanTextbook" FromRole="SubscriptionPlan" ToRole="Textbook" />
-          <NavigationProperty Name="Term" Relationship="TbmisV2Model1.FK_TermSubscriptionPlan" FromRole="SubscriptionPlan" ToRole="Term" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -872,9 +815,9 @@
           <Property Name="Num" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="Sex" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_TeacherDeclaration" FromRole="Teacher" ToRole="Declaration" />
           <NavigationProperty Name="Department" Relationship="TbmisV2Model1.DepartmentTeacher" FromRole="Teacher" ToRole="Department" />
           <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.TeacherTeachingTask" FromRole="Teacher" ToRole="TeachingTask" />
+          <NavigationProperty Name="TeacherReleaseRecord" Relationship="TbmisV2Model1.TeacherTeacherReleaseRecord" FromRole="Teacher" ToRole="TeacherReleaseRecord" />
         </EntityType>
         <EntityType Name="TeachingTask">
           <Key>
@@ -884,9 +827,11 @@
           <Property Name="Course_CourseID" Type="Guid" Nullable="false" />
           <Property Name="Term" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Course" Relationship="TbmisV2Model1.FK_CourseTeachingTask" FromRole="TeachingTask" ToRole="Course" />
-          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_TeachingTaskDeclaration" FromRole="TeachingTask" ToRole="Declaration" />
           <NavigationProperty Name="ProfessionalClass" Relationship="TbmisV2Model1.ProfessionalClassTeachingTask" FromRole="TeachingTask" ToRole="ProfessionalClass" />
           <NavigationProperty Name="Teacher" Relationship="TbmisV2Model1.TeacherTeachingTask" FromRole="TeachingTask" ToRole="Teacher" />
+          <NavigationProperty Name="DataSign" Relationship="TbmisV2Model1.DataSignTeachingTask" FromRole="TeachingTask" ToRole="DataSign" />
+          <NavigationProperty Name="Department" Relationship="TbmisV2Model1.TeachingTaskDepartment" FromRole="TeachingTask" ToRole="Department" />
+          <NavigationProperty Name="School" Relationship="TbmisV2Model1.SchoolTeachingTask" FromRole="TeachingTask" ToRole="School" />
         </EntityType>
         <EntityType Name="Term">
           <Key>
@@ -894,7 +839,6 @@
           </Key>
           <Property Name="YearTerm" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="SubscriptionPlan" Relationship="TbmisV2Model1.FK_TermSubscriptionPlan" FromRole="Term" ToRole="SubscriptionPlan" />
         </EntityType>
         <EntityType Name="Textbook">
           <Key>
@@ -914,18 +858,6 @@
           <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_DeclarationTextbook" FromRole="Textbook" ToRole="Declaration" />
           <NavigationProperty Name="SubscriptionPlan" Relationship="TbmisV2Model1.FK_SubscriptionPlanTextbook" FromRole="Textbook" ToRole="SubscriptionPlan" />
         </EntityType>
-        <Association Name="FK_DeclarationApprovalDeclaration">
-          <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="1" />
-          <End Role="ApprovalDeclaration" Type="TbmisV2Model1.ApprovalDeclaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Declaration">
-              <PropertyRef Name="DeclarationID" />
-            </Principal>
-            <Dependent Role="ApprovalDeclaration">
-              <PropertyRef Name="Declaration_DeclarationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_BooksellerSubscriptionPlan">
           <End Role="Bookseller" Type="TbmisV2Model1.Bookseller" Multiplicity="1" />
           <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="*" />
@@ -962,18 +894,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RecipientTypeDeclaration">
-          <End Role="RecipientType" Type="TbmisV2Model1.RecipientType" Multiplicity="1" />
-          <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RecipientType">
-              <PropertyRef Name="RecipientTypeID" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="RecipientType_RecipientTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SubscriptionPlanDeclaration">
           <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="1" />
           <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
@@ -983,30 +903,6 @@
             </Principal>
             <Dependent Role="Declaration">
               <PropertyRef Name="SubscriptionPlan_SubscriptionPlanID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TeacherDeclaration">
-          <End Role="Teacher" Type="TbmisV2Model1.Teacher" Multiplicity="1" />
-          <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="TeacherID" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="Declarant_TeacherID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TeachingTaskDeclaration">
-          <End Role="TeachingTask" Type="TbmisV2Model1.TeachingTask" Multiplicity="1" />
-          <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TeachingTask">
-              <PropertyRef Name="TeachingClassNum" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="TeachingClassNum" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1070,21 +966,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TermSubscriptionPlan">
-          <End Role="Term" Type="TbmisV2Model1.Term" Multiplicity="1" />
-          <End Role="SubscriptionPlan" Type="TbmisV2Model1.SubscriptionPlan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Term">
-              <PropertyRef Name="YearTerm" />
-            </Principal>
-            <Dependent Role="SubscriptionPlan">
-              <PropertyRef Name="Term_TermYear" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="DepartmentCourse">
           <End Role="Course" Type="TbmisV2Model1.Course" Multiplicity="*" />
-          <End Role="Department" Type="TbmisV2Model1.Department" Multiplicity="*" />
+          <End Role="Department" Type="TbmisV2Model1.Department" Multiplicity="1" />
         </Association>
         <Association Name="DepartmentTeacher">
           <End Role="Department" Type="TbmisV2Model1.Department" Multiplicity="*" />
@@ -1098,25 +982,59 @@
           <End Role="TeachingTask" Type="TbmisV2Model1.TeachingTask" Multiplicity="*" />
           <End Role="Teacher" Type="TbmisV2Model1.Teacher" Multiplicity="*" />
         </Association>
+        <EntityType Name="DataSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="TeachingTask" Relationship="TbmisV2Model1.DataSignTeachingTask" FromRole="DataSign" ToRole="TeachingTask" />
+        </EntityType>
+        <Association Name="DataSignTeachingTask">
+          <End Type="TbmisV2Model1.DataSign" Role="DataSign" Multiplicity="1" />
+          <End Type="TbmisV2Model1.TeachingTask" Role="TeachingTask" Multiplicity="*" />
+        </Association>
+        <Association Name="StudentStudentReleaseDetail">
+          <End Type="TbmisV2Model1.Student" Role="Student" Multiplicity="1" />
+          <End Type="TbmisV2Model1.StudentReleaseDetail" Role="StudentReleaseDetail" Multiplicity="*" />
+        </Association>
+        <Association Name="DeclarationCourse">
+          <End Type="TbmisV2Model1.Declaration" Role="Declaration" Multiplicity="*" />
+          <End Type="TbmisV2Model1.Course" Role="Course" Multiplicity="1" />
+        </Association>
+        <Association Name="DeclarationDepartment">
+          <End Type="TbmisV2Model1.Declaration" Role="Declaration" Multiplicity="*" />
+          <End Type="TbmisV2Model1.Department" Role="Department" Multiplicity="1" />
+        </Association>
+        <Association Name="DeclarationSchool">
+          <End Type="TbmisV2Model1.Declaration" Role="Declaration" Multiplicity="*" />
+          <End Type="TbmisV2Model1.School" Role="School" Multiplicity="1" />
+        </Association>
+        <Association Name="TeachingTaskDepartment">
+          <End Type="TbmisV2Model1.TeachingTask" Role="TeachingTask" Multiplicity="*" />
+          <End Type="TbmisV2Model1.Department" Role="Department" Multiplicity="1" />
+        </Association>
+        <EntityType Name="TeacherReleaseRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Teacher" Relationship="TbmisV2Model1.TeacherTeacherReleaseRecord" FromRole="TeacherReleaseRecord" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="TeacherTeacherReleaseRecord">
+          <End Type="TbmisV2Model1.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="TbmisV2Model1.TeacherReleaseRecord" Role="TeacherReleaseRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="SchoolTeachingTask">
+          <End Type="TbmisV2Model1.School" Role="School" Multiplicity="1" />
+          <End Type="TbmisV2Model1.TeachingTask" Role="TeachingTask" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TbmisV2Model1StoreContainer" CdmEntityContainer="TbmisV2Entities1">
-          <EntitySetMapping Name="ApprovalDeclaration">
-            <EntityTypeMapping TypeName="TbmisV2Model1.ApprovalDeclaration">
-              <MappingFragment StoreEntitySet="ApprovalDeclaration">
-                <ScalarProperty Name="ApprovalDeclarationID" ColumnName="ApprovalDeclarationID" />
-                <ScalarProperty Name="ApprovalDivision" ColumnName="ApprovalDivision" />
-                <ScalarProperty Name="ApprovalPerson" ColumnName="ApprovalPerson" />
-                <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
-                <ScalarProperty Name="ApprovalSuggestion" ColumnName="ApprovalSuggestion" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Declaration_DeclarationID" ColumnName="Declaration_DeclarationID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Bookseller">
             <EntityTypeMapping TypeName="TbmisV2Model1.Bookseller">
               <MappingFragment StoreEntitySet="Bookseller">
@@ -1186,14 +1104,6 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
                 <ScalarProperty Name="School_SchoolID" ColumnName="School_SchoolID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecipientType">
-            <EntityTypeMapping TypeName="TbmisV2Model1.RecipientType">
-              <MappingFragment StoreEntitySet="RecipientType">
-                <ScalarProperty Name="RecipientTypeID" ColumnName="RecipientTypeID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

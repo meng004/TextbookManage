@@ -29,7 +29,7 @@
 
             //学年学期 
             Mapper.CreateMap<Term, TermView>()
-                .ForMember(v => v.IsCurrent, m => m.MapFrom(s => s.dqxnxqbz));
+                .ForMember(v => v.IsCurrent, m => m.MapFrom(s => s.DqXnXqBz));
 
             //书商
             Mapper.CreateMap<Bookseller, BooksellerView>();
