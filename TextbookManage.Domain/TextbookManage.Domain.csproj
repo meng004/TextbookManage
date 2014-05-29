@@ -138,10 +138,10 @@
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\Textbook.cs" />
     <Compile Include="Models\TextbookApproval.cs" />
+    <Compile Include="Models\SchoolYearTerm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReleaseBookService.cs" />
     <Compile Include="SubscriptionService.cs" />
-    <Compile Include="Models\SchoolYearTerm.cs" />
     <Compile Include="Models\ResponsibilityTeacher.cs" />
     <Compile Include="TextbookService.cs" />
   </ItemGroup>
