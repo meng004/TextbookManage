@@ -9,7 +9,6 @@ namespace TextbookManage.Domain.Models.JiaoWu
         public Textbook()
         {
             Declarations = new List<Declaration>();
-            Inventories = new List<Inventory>();
             Subscriptions = new List<Subscription>();            
         }
 
@@ -59,10 +58,6 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 用书申报
         /// </summary>
         public virtual ICollection<Declaration> Declarations { get; set; }
-        /// <summary>
-        /// 库存
-        /// </summary>
-        public virtual ICollection<Inventory> Inventories { get; set; }
         /// <summary>
         /// 订单
         /// </summary>

@@ -50,7 +50,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 数据标识
         /// A为本部，B为船山
         /// </summary>
-        public string DataSign { get; set; }
+        public string DataSign_Id { get; set; }
         /// <summary>
         /// 是否归档
         /// 表明当前记录的审核状态
@@ -80,6 +80,10 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 开课系教研室
         /// </summary>
         public virtual Department Department { get; set; }
+        /// <summary>
+        /// 数据标识
+        /// </summary>
+        public virtual DataSign DataSign { get; set; }
         /// <summary>
         /// 所属订单
         /// </summary>
