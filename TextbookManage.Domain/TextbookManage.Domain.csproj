@@ -134,7 +134,6 @@
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\TeacherDeclaration.cs" />
     <Compile Include="Models\TeacherReleaseRecord.cs" />
-    <Compile Include="Models\TeachingTask.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\Textbook.cs" />
     <Compile Include="Models\TextbookApproval.cs" />
