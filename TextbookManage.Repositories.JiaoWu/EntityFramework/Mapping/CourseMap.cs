@@ -13,11 +13,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             // Properties
             this.Property(t => t.Num)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(16);
 
             this.Property(t => t.Name)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(60);
 
             // Table & Column Mappings
             this.ToTable("JCSJ_KCXX", "dbo");

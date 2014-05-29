@@ -13,7 +13,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             // Properties
             this.Property(t => t.TeachingTaskNum)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(9);
 
             this.Property(t => t.DataSign_Id)
                 .IsRequired()

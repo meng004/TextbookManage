@@ -13,15 +13,15 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             // Properties
             this.Property(t => t.Num)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(10);
 
             this.Property(t => t.Name)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(20);
 
             this.Property(t => t.Grade)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(4);
 
             // Table & Column Mappings
             this.ToTable("V_JCSJ_YXSBJB", "dbo");

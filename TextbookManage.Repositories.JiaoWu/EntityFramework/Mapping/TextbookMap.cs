@@ -14,7 +14,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             // Properties
             this.Property(t => t.Name)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(500);
 
             this.Property(t => t.Isbn)
                 .IsRequired()
@@ -22,14 +22,26 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             this.Property(t => t.Author)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(50);
+
+            this.Property(t => t.PublishDate)
+                .HasMaxLength(20);
+
+            this.Property(t => t.Price)
+                .HasMaxLength(20);
+
+            this.Property(t => t.Edition)
+                .HasMaxLength(30);
+
+            this.Property(t => t.PrintCount)
+                .HasMaxLength(30);
 
             this.Property(t => t.Press)
-                .IsRequired();
+                .HasMaxLength(200);
 
             this.Property(t => t.TextbookType)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(10);
 
             // Table & Column Mappings
             this.ToTable("V_TextBook", "dbo");

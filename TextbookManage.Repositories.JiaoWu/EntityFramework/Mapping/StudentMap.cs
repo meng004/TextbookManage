@@ -17,11 +17,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             this.Property(t => t.Name)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(30);
 
             this.Property(t => t.Gender)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(4);
 
             // Table & Column Mappings
             this.ToTable("V_JCSJ_BJXSB", "dbo");
