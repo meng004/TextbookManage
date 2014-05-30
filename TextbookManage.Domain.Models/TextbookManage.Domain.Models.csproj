@@ -46,6 +46,8 @@
     <Compile Include="Bookseller.cs" />
     <Compile Include="BooksellerStaff.cs" />
     <Compile Include="CasMapper.cs" />
+    <Compile Include="Comparer\SchoolComparer.cs" />
+    <Compile Include="Comparer\TextbookComparer.cs" />
     <Compile Include="DeclarationApproval.cs" />
     <Compile Include="DeclarationClass.cs" />
     <Compile Include="DeclarationState.cs" />
