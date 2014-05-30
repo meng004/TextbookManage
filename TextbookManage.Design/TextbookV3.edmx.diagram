@@ -5,24 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7b62c9e2a38f4a6096450ff659c120b4" Name="关系图1" ZoomLevel="93">
-        <EntityTypeShape EntityType="TbmisV2Model1.Bookseller" Width="1.5" PointX="1.75" PointY="6.625" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Course" Width="1.5" PointX="7.75" PointY="4.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Declaration" Width="1.5" PointX="3" PointY="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Department" Width="1.5" PointX="5.625" PointY="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Feedback" Width="1.5" PointX="2.875" PointY="6" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.ProfessionalClass" Width="2" PointX="5.25" PointY="6" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.School" Width="1.5" PointX="5.625" PointY="5" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Student" Width="1.5" PointX="5.5" PointY="6.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.StudentReleaseRecord" Width="2" PointX="5.25" PointY="7.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Subscription" Width="1.625" PointX="1.75" PointY="4.375" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Teacher" Width="1.5" PointX="9" PointY="2" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.TeachingTask" Width="1.5" PointX="8.625" PointY="5.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Term" Width="1.5" PointX="2.75" PointY="7.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.Textbook" Width="1.5" PointX="1.875" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Bookseller" Width="1.5" PointX="2.75" PointY="1.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Course" Width="1.5" PointX="7.875" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Declaration" Width="1.5" PointX="5.75" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Department" Width="1.5" PointX="10" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Feedback" Width="1.5" PointX="3.125" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.ProfessionalClass" Width="2" PointX="12.625" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.School" Width="1.5" PointX="12.875" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Student" Width="1.5" PointX="12.875" PointY="5.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.StudentReleaseRecord" Width="2" PointX="12.625" PointY="6.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Subscription" Width="1.625" PointX="2.875" PointY="4.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Teacher" Width="1.5" PointX="10.125" PointY="1.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.TeachingTask" Width="1.5" PointX="10.125" PointY="5.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Term" Width="1.5" PointX="7.875" PointY="6.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Textbook" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_BooksellerSubscriptionPlan" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_CourseTeachingTask" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_DeclarationTextbook" ManuallyRouted="false" />
-        <AssociationConnector Association="TbmisV2Model1.FK_SubscriptionPlanDeclaration" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_SchoolDepartment" ManuallyRouted="false" >
         </AssociationConnector>
         <AssociationConnector Association="TbmisV2Model1.FK_FeedbackSubscriptionPlan" ManuallyRouted="false" />
@@ -33,17 +32,40 @@
         <AssociationConnector Association="TbmisV2Model1.DepartmentCourse" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.DepartmentTeacher" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.ProfessionalClassTeachingTask" ManuallyRouted="false" />
-        <AssociationConnector Association="TbmisV2Model1.TeacherTeachingTask" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="TbmisV2Model1.DataSign" Width="1.5" PointX="8.625" PointY="6.875" IsExpanded="false" />
+        <AssociationConnector Association="TbmisV2Model1.TeacherTeachingTask" ManuallyRouted="true" >
+          <ConnectorPoint PointX="11.306966081641045" PointY="5.9" />
+          <ConnectorPoint PointX="11.306966081641045" PointY="6.3041834836684245" />
+          <ConnectorPoint PointX="12.005442871069139" PointY="6.3041834836684245" />
+          <ConnectorPoint PointX="12.005442871069139" PointY="7.12479843535886" />
+          <ConnectorPoint PointX="14.731630916805099" PointY="7.12479843535886" />
+          <ConnectorPoint PointX="14.731630916805099" PointY="2.0913836443994316" />
+          <ConnectorPoint PointX="11.625" PointY="2.0913836443994316" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TbmisV2Model1.DataSign" Width="1.5" PointX="10.125" PointY="6.625" IsExpanded="false" />
         <AssociationConnector Association="TbmisV2Model1.DataSignTeachingTask" />
         <AssociationConnector Association="TbmisV2Model1.StudentStudentReleaseDetail" />
         <AssociationConnector Association="TbmisV2Model1.DeclarationCourse" />
         <AssociationConnector Association="TbmisV2Model1.DeclarationDepartment" />
         <AssociationConnector Association="TbmisV2Model1.DeclarationSchool" />
         <AssociationConnector Association="TbmisV2Model1.TeachingTaskDepartment" />
-        <EntityTypeShape EntityType="TbmisV2Model1.TeacherReleaseRecord" Width="2.125" PointX="5.5" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.TeacherReleaseRecord" Width="2.125" PointX="7.5" PointY="1.875" IsExpanded="false" />
         <AssociationConnector Association="TbmisV2Model1.TeacherTeacherReleaseRecord" />
         <AssociationConnector Association="TbmisV2Model1.SchoolTeachingTask" />
+        <EntityTypeShape EntityType="TbmisV2Model1.StudentDeclaration" Width="1.75" PointX="3.75" PointY="5.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.TeacherDeclaration" Width="1.875" PointX="2.75" PointY="6.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.StudentDeclarationJiaoWu" Width="2.375" PointX="4.75" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="TbmisV2Model1.TeacherDeclarationJiaoWu" Width="2.375" PointX="7.375" PointY="5.5" IsExpanded="false" />
+        <InheritanceConnector EntityType="TbmisV2Model1.TeacherDeclarationJiaoWu" />
+        <InheritanceConnector EntityType="TbmisV2Model1.StudentDeclarationJiaoWu" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.5" PointY="3.525" />
+          <ConnectorPoint PointX="6.5" PointY="4.1123432208251876" />
+          <ConnectorPoint PointX="5.9375" PointY="4.1123432208251876" />
+          <ConnectorPoint PointX="5.9375" PointY="4.375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="TbmisV2Model1.TeacherDeclaration" />
+        <InheritanceConnector EntityType="TbmisV2Model1.StudentDeclaration" />
+        <AssociationConnector Association="TbmisV2Model1.SubscriptionStudentDeclaration" />
+        <AssociationConnector Association="TbmisV2Model1.SubscriptionTeacherDeclaration" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

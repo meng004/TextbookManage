@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.JiaoW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories.JiaoWu", "TextbookManage.Repositories.JiaoWu\TextbookManage.Repositories.JiaoWu.csproj", "{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.Models", "TextbookManage.Domain.Models\TextbookManage.Domain.Models.csproj", "{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,6 +104,10 @@ Global
 		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

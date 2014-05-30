@@ -51,12 +51,14 @@
     <Compile Include="EntityFramework\Mapping\CourseMap.cs" />
     <Compile Include="EntityFramework\Mapping\DataSignMap.cs" />
     <Compile Include="EntityFramework\Mapping\DeclarationMap.cs" />
-    <Compile Include="EntityFramework\Mapping\TeacherDeclarationMap.cs" />
+    <Compile Include="EntityFramework\Mapping\StudentDeclarationJiaoWuMap.cs" />
     <Compile Include="EntityFramework\Mapping\StudentDeclarationMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeacherDeclarationJiaoWuMap.cs" />
     <Compile Include="EntityFramework\Mapping\DepartmentMap.cs" />
     <Compile Include="EntityFramework\Mapping\ProfessionalClassMap.cs" />
     <Compile Include="EntityFramework\Mapping\SchoolMap.cs" />
     <Compile Include="EntityFramework\Mapping\StudentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TeacherDeclarationMap.cs" />
     <Compile Include="EntityFramework\Mapping\TeacherMap.cs" />
     <Compile Include="EntityFramework\Mapping\TeachingTaskMap.cs" />
     <Compile Include="EntityFramework\Mapping\TermMap.cs" />
@@ -72,6 +74,10 @@
     <ProjectReference Include="..\TextbookManage.Domain.JiaoWu\TextbookManage.Domain.JiaoWu.csproj">
       <Project>{dc665444-41d2-41e9-9361-4e98f42ca5ba}</Project>
       <Name>TextbookManage.Domain.JiaoWu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Domain.Models\TextbookManage.Domain.Models.csproj">
+      <Project>{c1a65e1f-fcab-41f9-b81d-66340263e2f7}</Project>
+      <Name>TextbookManage.Domain.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\TextbookManage.Repositories\TextbookManage.Repositories.csproj">
       <Project>{bd9a5ce9-d0d6-4fb4-85d4-c1a8ab63c8a0}</Project>

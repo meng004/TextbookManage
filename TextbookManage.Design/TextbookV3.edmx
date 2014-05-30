@@ -576,10 +576,6 @@
             <End Role="Textbook" EntitySet="Textbook" />
             <End Role="Declaration" EntitySet="Declaration" />
           </AssociationSet>
-          <AssociationSet Name="FK_SubscriptionPlanDeclaration" Association="TbmisV2Model1.FK_SubscriptionPlanDeclaration">
-            <End Role="SubscriptionPlan" EntitySet="SubscriptionPlan" />
-            <End Role="Declaration" EntitySet="Declaration" />
-          </AssociationSet>
           <AssociationSet Name="FK_SchoolDepartment" Association="TbmisV2Model1.FK_SchoolDepartment">
             <End Role="School" EntitySet="School" />
             <End Role="Department" EntitySet="Department" />
@@ -650,6 +646,14 @@
             <End Role="School" EntitySet="School" />
             <End Role="TeachingTask" EntitySet="TeachingTask" />
           </AssociationSet>
+          <AssociationSet Name="SubscriptionStudentDeclaration" Association="TbmisV2Model1.SubscriptionStudentDeclaration">
+            <End Role="Subscription" EntitySet="SubscriptionPlan" />
+            <End Role="StudentDeclaration" EntitySet="Declaration" />
+          </AssociationSet>
+          <AssociationSet Name="SubscriptionTeacherDeclaration" Association="TbmisV2Model1.SubscriptionTeacherDeclaration">
+            <End Role="Subscription" EntitySet="SubscriptionPlan" />
+            <End Role="TeacherDeclaration" EntitySet="Declaration" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bookseller">
           <Key>
@@ -691,7 +695,6 @@
           <Property Name="SubscriptionPlan_SubscriptionPlanID" Type="Guid" Nullable="false" />
           <Property Name="Textbook_TextbookID" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.FK_DeclarationTextbook" FromRole="Declaration" ToRole="Textbook" />
-          <NavigationProperty Name="SubscriptionPlan" Relationship="TbmisV2Model1.FK_SubscriptionPlanDeclaration" FromRole="Declaration" ToRole="SubscriptionPlan" />
           <NavigationProperty Name="Course" Relationship="TbmisV2Model1.DeclarationCourse" FromRole="Declaration" ToRole="Course" />
           <NavigationProperty Name="Department" Relationship="TbmisV2Model1.DeclarationDepartment" FromRole="Declaration" ToRole="Department" />
           <NavigationProperty Name="School" Relationship="TbmisV2Model1.DeclarationSchool" FromRole="Declaration" ToRole="School" />
@@ -803,9 +806,10 @@
           <Property Name="Bookseller_BookSellerID" Type="Guid" Nullable="false" />
           <Property Name="Term_TermYear" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Bookseller" Relationship="TbmisV2Model1.FK_BooksellerSubscriptionPlan" FromRole="SubscriptionPlan" ToRole="Bookseller" />
-          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_SubscriptionPlanDeclaration" FromRole="SubscriptionPlan" ToRole="Declaration" />
           <NavigationProperty Name="Feedback" Relationship="TbmisV2Model1.FK_FeedbackSubscriptionPlan" FromRole="SubscriptionPlan" ToRole="Feedback" />
           <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.FK_SubscriptionPlanTextbook" FromRole="SubscriptionPlan" ToRole="Textbook" />
+          <NavigationProperty Name="StudentDeclaration" Relationship="TbmisV2Model1.SubscriptionStudentDeclaration" FromRole="Subscription" ToRole="StudentDeclaration" />
+          <NavigationProperty Name="TeacherDeclaration" Relationship="TbmisV2Model1.SubscriptionTeacherDeclaration" FromRole="Subscription" ToRole="TeacherDeclaration" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -891,18 +895,6 @@
             </Principal>
             <Dependent Role="Declaration">
               <PropertyRef Name="Textbook_TextbookID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubscriptionPlanDeclaration">
-          <End Role="SubscriptionPlan" Type="TbmisV2Model1.Subscription" Multiplicity="1" />
-          <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubscriptionPlan">
-              <PropertyRef Name="SubscriptionPlanID" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="SubscriptionPlan_SubscriptionPlanID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1029,6 +1021,28 @@
           <End Type="TbmisV2Model1.School" Role="School" Multiplicity="1" />
           <End Type="TbmisV2Model1.TeachingTask" Role="TeachingTask" Multiplicity="*" />
         </Association>
+        <EntityType Name="StudentDeclaration" BaseType="TbmisV2Model1.StudentDeclarationJiaoWu">
+          <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Subscription" Relationship="TbmisV2Model1.SubscriptionStudentDeclaration" FromRole="StudentDeclaration" ToRole="Subscription" />
+        </EntityType>
+        <EntityType Name="TeacherDeclaration" BaseType="TbmisV2Model1.TeacherDeclarationJiaoWu">
+          <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Subscription" Relationship="TbmisV2Model1.SubscriptionTeacherDeclaration" FromRole="TeacherDeclaration" ToRole="Subscription" />
+        </EntityType>
+        <EntityType Name="StudentDeclarationJiaoWu" BaseType="TbmisV2Model1.Declaration">
+          <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        </EntityType>
+        <EntityType Name="TeacherDeclarationJiaoWu" BaseType="TbmisV2Model1.Declaration">
+          <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        </EntityType>
+        <Association Name="SubscriptionStudentDeclaration">
+          <End Type="TbmisV2Model1.Subscription" Role="Subscription" Multiplicity="1" />
+          <End Type="TbmisV2Model1.StudentDeclaration" Role="StudentDeclaration" Multiplicity="*" />
+        </Association>
+        <Association Name="SubscriptionTeacherDeclaration">
+          <End Type="TbmisV2Model1.Subscription" Role="Subscription" Multiplicity="1" />
+          <End Type="TbmisV2Model1.TeacherDeclaration" Role="TeacherDeclaration" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1056,21 +1070,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Declaration">
-            <EntityTypeMapping TypeName="TbmisV2Model1.Declaration">
+            <EntityTypeMapping TypeName="IsTypeOf(TbmisV2Model1.Declaration)">
               <MappingFragment StoreEntitySet="Declaration">
                 <ScalarProperty Name="DeclarationID" ColumnName="DeclarationID" />
-                <ScalarProperty Name="Num" ColumnName="Num" />
-                <ScalarProperty Name="Declarant_TeacherID" ColumnName="Declarant_TeacherID" />
-                <ScalarProperty Name="RecipientType_RecipientTypeID" ColumnName="RecipientType_RecipientTypeID" />
-                <ScalarProperty Name="DeclarationCount" ColumnName="DeclarationCount" />
-                <ScalarProperty Name="DeclarationDate" ColumnName="DeclarationDate" />
-                <ScalarProperty Name="HomeTelphone" ColumnName="HomeTelphone" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="ApprovalState_ApprovalStateID" ColumnName="ApprovalState_ApprovalStateID" />
-                <ScalarProperty Name="IsLookedFeedback" ColumnName="IsLookedFeedback" />
-                <ScalarProperty Name="TeachingClassNum" ColumnName="TeachingClassNum" />
-                <ScalarProperty Name="SubscriptionPlan_SubscriptionPlanID" ColumnName="SubscriptionPlan_SubscriptionPlanID" />
                 <ScalarProperty Name="Textbook_TextbookID" ColumnName="Textbook_TextbookID" />
+                <ScalarProperty Name="SubscriptionPlan_SubscriptionPlanID" ColumnName="SubscriptionPlan_SubscriptionPlanID" />
+                <ScalarProperty Name="TeachingClassNum" ColumnName="TeachingClassNum" />
+                <ScalarProperty Name="IsLookedFeedback" ColumnName="IsLookedFeedback" />
+                <ScalarProperty Name="ApprovalState_ApprovalStateID" ColumnName="ApprovalState_ApprovalStateID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="HomeTelphone" ColumnName="HomeTelphone" />
+                <ScalarProperty Name="DeclarationDate" ColumnName="DeclarationDate" />
+                <ScalarProperty Name="DeclarationCount" ColumnName="DeclarationCount" />
+                <ScalarProperty Name="RecipientType_RecipientTypeID" ColumnName="RecipientType_RecipientTypeID" />
+                <ScalarProperty Name="Declarant_TeacherID" ColumnName="Declarant_TeacherID" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
