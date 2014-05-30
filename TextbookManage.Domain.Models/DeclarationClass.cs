@@ -1,4 +1,5 @@
-﻿namespace TextbookManage.Domain.Models
+﻿using TextbookManage.Domain.Models.JiaoWu;
+namespace TextbookManage.Domain.Models
 {
     /// <summary>
     /// 学生用书申报班级

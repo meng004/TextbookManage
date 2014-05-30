@@ -46,7 +46,6 @@
     <Compile Include="Bookseller.cs" />
     <Compile Include="BooksellerStaff.cs" />
     <Compile Include="CasMapper.cs" />
-    <Compile Include="Course.cs" />
     <Compile Include="DeclarationApproval.cs" />
     <Compile Include="DeclarationClass.cs" />
     <Compile Include="DeclarationState.cs" />
@@ -80,27 +79,21 @@
     <Compile Include="JiaoWu\Term.cs" />
     <Compile Include="JiaoWu\Textbook.cs" />
     <Compile Include="OutStockRecord.cs" />
-    <Compile Include="Press.cs" />
-    <Compile Include="ProfessionalClass.cs" />
+    <Compile Include="JiaoWu\Press.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipientType.cs" />
     <Compile Include="ReleaseRecord.cs" />
     <Compile Include="ResponsibilityTeacher.cs" />
     <Compile Include="Role.cs" />
-    <Compile Include="School.cs" />
     <Compile Include="SchoolProgress.cs" />
     <Compile Include="SchoolYearTerm.cs" />
     <Compile Include="StockRecord.cs" />
     <Compile Include="Storage.cs" />
-    <Compile Include="Student.cs" />
     <Compile Include="StudentReleaseRecord.cs" />
     <Compile Include="Subscription.cs" />
     <Compile Include="TbmisUser.cs" />
     <Compile Include="TbmisUserType.cs" />
-    <Compile Include="Teacher.cs" />
     <Compile Include="TeacherReleaseRecord.cs" />
-    <Compile Include="Term.cs" />
-    <Compile Include="Textbook.cs" />
     <Compile Include="TextbookApproval.cs" />
   </ItemGroup>
   <ItemGroup>

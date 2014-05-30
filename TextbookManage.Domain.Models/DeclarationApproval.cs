@@ -1,4 +1,5 @@
-﻿namespace TextbookManage.Domain.Models
+﻿using TextbookManage.Domain.Models.JiaoWu;
+namespace TextbookManage.Domain.Models
 {
     public class DeclarationApproval : Approval
     {

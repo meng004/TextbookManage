@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Domain.Models
 {

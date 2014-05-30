@@ -1,4 +1,5 @@
 ﻿
+using TextbookManage.Domain.Models.JiaoWu;
 namespace TextbookManage.Domain.Models
 {
     public class SchoolProgress 
