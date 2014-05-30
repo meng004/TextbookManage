@@ -4,15 +4,14 @@ using TextbookManage.Domain.IRepositories;
 
 namespace TextbookManage.Repositories.EntityFramework
 {
-    public class EntityFrameworkRepositoryContext<TDbContext> : RepositoryContext,
+    public class EntityFrameworkRepositoryContext : RepositoryContext,
         IEntityFrameworkRepositoryContext
-        where TDbContext : DbContext, new()
     {
 
         #region 私有变量
 
-        //private readonly ThreadLocal<TbMisDbContext> localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
-        private readonly ThreadLocal<TDbContext> localCtx = new ThreadLocal<TDbContext>(() => new TDbContext());
+        private readonly ThreadLocal<TbMisDbContext> localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
+
         #endregion
 
         #region 重写父类方法

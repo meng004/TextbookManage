@@ -31,13 +31,9 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// </summary>
         public Guid Department_Id { get; set; }
         /// <summary>
-        /// 学年
+        /// 学年学期
         /// </summary>
-        public string SchoolYear { get; set; }
-        /// <summary>
-        /// 学期
-        /// </summary>
-        public string SchoolTerm { get; set; }
+        public SchoolYearTerm Term  { get; set; }
         /// <summary>
         /// 申报数量
         /// </summary>

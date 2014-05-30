@@ -1,6 +1,7 @@
 ﻿using TextbookManage.Domain.IRepositories;
 using TextbookManage.Repositories.EntityFramework;
-using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 
 
 

@@ -32,11 +32,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Services", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasClientValidate", "CasClientValidate\CasClientValidate.csproj", "{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.JiaoWu", "TextbookManage.Domain.JiaoWu\TextbookManage.Domain.JiaoWu.csproj", "{DC665444-41D2-41E9-9361-4E98F42CA5BA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories.JiaoWu", "TextbookManage.Repositories.JiaoWu\TextbookManage.Repositories.JiaoWu.csproj", "{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.Models", "TextbookManage.Domain.Models\TextbookManage.Domain.Models.csproj", "{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.IRepositories.JiaoWu", "TextbookManage.Domain.IRepositories.JiaoWu\TextbookManage.Domain.IRepositories.JiaoWu.csproj", "{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,10 +96,6 @@ Global
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC665444-41D2-41E9-9361-4E98F42CA5BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -108,6 +104,10 @@ Global
 		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

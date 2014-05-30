@@ -3,6 +3,7 @@
 
     using System.Data.Entity;
     using TextbookManage.Domain.Models;
+    using TextbookManage.Domain.Models.JiaoWu;
     using TextbookManage.Repositories.Mapping;
 
     public class TbMisDbContext

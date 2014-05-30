@@ -572,10 +572,6 @@
             <End Role="Course" EntitySet="Course" />
             <End Role="TeachingTask" EntitySet="TeachingTask" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeclarationTextbook" Association="TbmisV2Model1.FK_DeclarationTextbook">
-            <End Role="Textbook" EntitySet="Textbook" />
-            <End Role="Declaration" EntitySet="Declaration" />
-          </AssociationSet>
           <AssociationSet Name="FK_SchoolDepartment" Association="TbmisV2Model1.FK_SchoolDepartment">
             <End Role="School" EntitySet="School" />
             <End Role="Department" EntitySet="Department" />
@@ -654,6 +650,19 @@
             <End Role="Subscription" EntitySet="SubscriptionPlan" />
             <End Role="TeacherDeclaration" EntitySet="Declaration" />
           </AssociationSet>
+          <EntitySet Name="PressSet" EntityType="TbmisV2Model1.Press" />
+          <AssociationSet Name="PressTextbook" Association="TbmisV2Model1.PressTextbook">
+            <End Role="Press" EntitySet="PressSet" />
+            <End Role="Textbook" EntitySet="Textbook" />
+          </AssociationSet>
+          <AssociationSet Name="TextbookStudentDeclarationJiaoWu" Association="TbmisV2Model1.TextbookStudentDeclarationJiaoWu">
+            <End Role="Textbook" EntitySet="Textbook" />
+            <End Role="StudentDeclarationJiaoWu" EntitySet="Declaration" />
+          </AssociationSet>
+          <AssociationSet Name="TextbookTeacherDeclarationJiaoWu" Association="TbmisV2Model1.TextbookTeacherDeclarationJiaoWu">
+            <End Role="Textbook" EntitySet="Textbook" />
+            <End Role="TeacherDeclarationJiaoWu" EntitySet="Declaration" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bookseller">
           <Key>
@@ -694,7 +703,6 @@
           <Property Name="TeachingClassNum" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="SubscriptionPlan_SubscriptionPlanID" Type="Guid" Nullable="false" />
           <Property Name="Textbook_TextbookID" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.FK_DeclarationTextbook" FromRole="Declaration" ToRole="Textbook" />
           <NavigationProperty Name="Course" Relationship="TbmisV2Model1.DeclarationCourse" FromRole="Declaration" ToRole="Course" />
           <NavigationProperty Name="Department" Relationship="TbmisV2Model1.DeclarationDepartment" FromRole="Declaration" ToRole="Department" />
           <NavigationProperty Name="School" Relationship="TbmisV2Model1.DeclarationSchool" FromRole="Declaration" ToRole="School" />
@@ -859,8 +867,10 @@
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="IsSelfCompile" Type="Boolean" Nullable="false" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Declaration" Relationship="TbmisV2Model1.FK_DeclarationTextbook" FromRole="Textbook" ToRole="Declaration" />
           <NavigationProperty Name="SubscriptionPlan" Relationship="TbmisV2Model1.FK_SubscriptionPlanTextbook" FromRole="Textbook" ToRole="SubscriptionPlan" />
+          <NavigationProperty Name="Press1" Relationship="TbmisV2Model1.PressTextbook" FromRole="Textbook" ToRole="Press" />
+          <NavigationProperty Name="StudentDeclarationJiaoWu" Relationship="TbmisV2Model1.TextbookStudentDeclarationJiaoWu" FromRole="Textbook" ToRole="StudentDeclarationJiaoWu" />
+          <NavigationProperty Name="TeacherDeclarationJiaoWu" Relationship="TbmisV2Model1.TextbookTeacherDeclarationJiaoWu" FromRole="Textbook" ToRole="TeacherDeclarationJiaoWu" />
         </EntityType>
         <Association Name="FK_BooksellerSubscriptionPlan">
           <End Role="Bookseller" Type="TbmisV2Model1.Bookseller" Multiplicity="1" />
@@ -883,18 +893,6 @@
             </Principal>
             <Dependent Role="TeachingTask">
               <PropertyRef Name="Course_CourseID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DeclarationTextbook">
-          <End Role="Textbook" Type="TbmisV2Model1.Textbook" Multiplicity="1" />
-          <End Role="Declaration" Type="TbmisV2Model1.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Textbook">
-              <PropertyRef Name="TextbookID" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="Textbook_TextbookID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1031,9 +1029,11 @@
         </EntityType>
         <EntityType Name="StudentDeclarationJiaoWu" BaseType="TbmisV2Model1.Declaration">
           <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.TextbookStudentDeclarationJiaoWu" FromRole="StudentDeclarationJiaoWu" ToRole="Textbook" />
         </EntityType>
         <EntityType Name="TeacherDeclarationJiaoWu" BaseType="TbmisV2Model1.Declaration">
           <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.TextbookTeacherDeclarationJiaoWu" FromRole="TeacherDeclarationJiaoWu" ToRole="Textbook" />
         </EntityType>
         <Association Name="SubscriptionStudentDeclaration">
           <End Type="TbmisV2Model1.Subscription" Role="Subscription" Multiplicity="1" />
@@ -1042,6 +1042,25 @@
         <Association Name="SubscriptionTeacherDeclaration">
           <End Type="TbmisV2Model1.Subscription" Role="Subscription" Multiplicity="1" />
           <End Type="TbmisV2Model1.TeacherDeclaration" Role="TeacherDeclaration" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Press">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Textbook" Relationship="TbmisV2Model1.PressTextbook" FromRole="Press" ToRole="Textbook" />
+        </EntityType>
+        <Association Name="PressTextbook">
+          <End Type="TbmisV2Model1.Press" Role="Press" Multiplicity="1" />
+          <End Type="TbmisV2Model1.Textbook" Role="Textbook" Multiplicity="*" />
+        </Association>
+        <Association Name="TextbookStudentDeclarationJiaoWu">
+          <End Type="TbmisV2Model1.Textbook" Role="Textbook" Multiplicity="1" />
+          <End Type="TbmisV2Model1.StudentDeclarationJiaoWu" Role="StudentDeclarationJiaoWu" Multiplicity="*" />
+        </Association>
+        <Association Name="TextbookTeacherDeclarationJiaoWu">
+          <End Type="TbmisV2Model1.Textbook" Role="Textbook" Multiplicity="1" />
+          <End Type="TbmisV2Model1.TeacherDeclarationJiaoWu" Role="TeacherDeclarationJiaoWu" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

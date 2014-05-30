@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
+    using TextbookManage.Domain.Models;
 
     /// <summary>
     /// 仓储的抽象基类

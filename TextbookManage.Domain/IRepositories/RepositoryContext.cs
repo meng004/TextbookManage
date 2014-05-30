@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using TextbookManage.Domain.Models;
 using TextbookManage.Infrastructure;
 
 namespace TextbookManage.Domain.IRepositories

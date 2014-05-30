@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Domain
 {
@@ -17,7 +18,7 @@ namespace TextbookManage.Domain
         /// <param name="planCount"></param>
         /// <param name="spareCount"></param>
         /// <returns></returns>
-        public static Subscription CreateSubscription(Guid subscriptionId, Guid textbookId, Guid booksellerId, string term, int planCount, int spareCount)
+        public static Subscription CreateSubscription(Guid subscriptionId, Guid textbookId, Guid booksellerId, SchoolYearTerm term, int planCount, int spareCount)
         {
             var sub = new Subscription
             {
@@ -35,9 +36,9 @@ namespace TextbookManage.Domain
         /// <summary>
         /// 对教材进行汇总
         /// </summary>
-        /// <param name="declarations">用书申报</param>
+        /// <param name="declarations">学生用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<Declaration> declarations)
+        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<StudentDeclarationJiaoWu> declarations)
         {
             //根据教材分组，统计申报数量
             //var result = from d in declarations
@@ -56,7 +57,7 @@ namespace TextbookManage.Domain
             //                };
 
             var result = declarations
-                .GroupBy(t => t.Textbook, new TextbookManage.Domain.Comparer.TextbookComparer())
+                .GroupBy(t => t.Textbook, new TextbookComparer())
                 //.GroupBy(t => t.Textbook)
                 .Select(m => new Subscription
                 {
@@ -67,7 +68,48 @@ namespace TextbookManage.Domain
                     PlanCount = m.Sum(s => s.DeclarationCount),
                     SpareCount = 0,
                     SubscriptionDate = DateTime.Now,
-                    Declarations = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList()
+                    StudentDeclarations = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList()
+                });
+
+            return result.ToList();
+        }
+
+        /// <summary>
+        /// 对教材进行汇总
+        /// </summary>
+        /// <param name="declarations">教师用书申报</param>
+        /// <returns></returns>
+        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<TeacherDeclarationJiaoWu> declarations)
+        {
+            //根据教材分组，统计申报数量
+            //var result = from d in declarations
+            //             group d by d.Textbook
+            //                 into g
+            //                 select new Subscription
+            //                {
+            //                    SubscriptionId = Guid.NewGuid(),
+            //                    Textbook = g.Key,
+            //                    Textbook_Id = g.Key.TextbookId,
+            //                    PlanCount = g.Sum(t => t.DeclarationCount),
+            //                    SpareCount = 0,
+            //                    SubscriptionDate = DateTime.Now,
+            //                    Term = declarations.FirstOrDefault().Term,
+            //                    Declarations = declarations.Where(t => t.Textbook_Id == g.Key.TextbookId).ToList()
+            //                };
+
+            var result = declarations
+                .GroupBy(t => t.Textbook, new TextbookComparer())
+                //.GroupBy(t => t.Textbook)
+                .Select(m => new Subscription
+                {
+                    SubscriptionId = Guid.NewGuid(),
+                    Textbook_Id = m.Key.TextbookId,
+                    Term = declarations.FirstOrDefault().Term,
+                    Textbook = m.Key,
+                    PlanCount = m.Sum(s => s.DeclarationCount),
+                    SpareCount = 0,
+                    SubscriptionDate = DateTime.Now,
+                    TeacherDeclarations = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList()
                 });
 
             return result.ToList();
@@ -105,37 +147,37 @@ namespace TextbookManage.Domain
         /// </summary>
         /// <param name="declarations">用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<School> GetSchoolsForStudent(IEnumerable<Declaration> declarations)
-        {
-            //var schools = (from d in declarations  //取用书申报
-            //               from p in d.TeachingTask.ProfessionalClasses  //取学生班级
-            //               select p.School).Distinct();
+        //public static IEnumerable<School> GetSchoolsForStudent(IEnumerable<Declaration> declarations)
+        //{
+        //    //var schools = (from d in declarations  //取用书申报
+        //    //               from p in d.TeachingTask.ProfessionalClasses  //取学生班级
+        //    //               select p.School).Distinct();
 
-            var schools = declarations
-                .SelectMany(t => t.TeachingTask.ProfessionalClasses)
-                .Select(p => p.School)
-                .Distinct().ToList();
+        //    var schools = declarations
+        //        .SelectMany(t => t.TeachingTask.ProfessionalClasses)
+        //        .Select(p => p.School)
+        //        .Distinct().ToList();
 
-            return schools;
-        }
+        //    return schools;
+        //}
 
         /// <summary>
         /// 获取开课学院，教材申报学院
         /// </summary>
         /// <param name="declarations">用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<School> GetSchoolsForTeacher(IEnumerable<Declaration> declarations)
-        {
-            //取开课学院
-            //var schools = (from d in declarations
-            //               select d.TeachingTask.Department.School).Distinct();
+        //public static IEnumerable<School> GetSchoolsForTeacher(IEnumerable<Declaration> declarations)
+        //{
+        //    //取开课学院
+        //    //var schools = (from d in declarations
+        //    //               select d.TeachingTask.Department.School).Distinct();
 
-            var schools = declarations
-                .Select(t => t.TeachingTask.Department.School)
-                .Distinct();
+        //    var schools = declarations
+        //        .Select(t => t.TeachingTask.Department.School)
+        //        .Distinct();
 
-            return schools.ToList();
-        }
+        //    return schools.ToList();
+        //}
         #endregion
 
     }

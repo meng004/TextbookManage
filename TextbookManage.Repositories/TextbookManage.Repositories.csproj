@@ -81,29 +81,27 @@
     <Compile Include="EntityFramework\EntityFrameworkRepositoryContext.cs" />
     <Compile Include="EntityFramework\IEntityFrameworkRepositoryContext.cs" />
     <Compile Include="EntityFramework\TbMisDbContext.cs" />
-    <Compile Include="EntityFramework\TbmisEntityFrameworkRepositoryContext.cs" />
     <Compile Include="FeedbackRepository.cs" />
     <Compile Include="InStockRecordRepository.cs" />
     <Compile Include="InventoryRepository.cs" />
-    <Compile Include="EntityFramework\Mapping\ApprovalMap.cs" />
-    <Compile Include="EntityFramework\Mapping\BooksellerMap.cs" />
-    <Compile Include="EntityFramework\Mapping\BooksellerStaffMap.cs" />
-    <Compile Include="EntityFramework\Mapping\CasMapperMap.cs" />
-    <Compile Include="EntityFramework\Mapping\DeclarationApprovalMap.cs" />
-    <Compile Include="EntityFramework\Mapping\DeclarationClassMap.cs" />
-    <Compile Include="EntityFramework\Mapping\FeedbackApprovalMap.cs" />
-    <Compile Include="EntityFramework\Mapping\FeedbackMap.cs" />
-    <Compile Include="EntityFramework\Mapping\InventoryMap.cs" />
-    <Compile Include="EntityFramework\Mapping\PressMap.cs" />
-    <Compile Include="EntityFramework\Mapping\ReleaseRecordMap.cs" />
-    <Compile Include="EntityFramework\Mapping\RoleMap.cs" />
-    <Compile Include="EntityFramework\Mapping\StockRecordMap.cs" />
-    <Compile Include="EntityFramework\Mapping\StorageMap.cs" />
-    <Compile Include="EntityFramework\Mapping\StudentReleaseRecordMap.cs" />
-    <Compile Include="EntityFramework\Mapping\SubscriptionMap.cs" />
-    <Compile Include="EntityFramework\Mapping\TbmisUserMap.cs" />
-    <Compile Include="EntityFramework\Mapping\TeacherReleaseRecordMap.cs" />
-    <Compile Include="EntityFramework\Mapping\TextbookApprovalMap.cs" />
+    <Compile Include="Mapping\ApprovalMap.cs" />
+    <Compile Include="Mapping\BooksellerMap.cs" />
+    <Compile Include="Mapping\BooksellerStaffMap.cs" />
+    <Compile Include="Mapping\CasMapperMap.cs" />
+    <Compile Include="Mapping\DeclarationApprovalMap.cs" />
+    <Compile Include="Mapping\DeclarationClassMap.cs" />
+    <Compile Include="Mapping\FeedbackApprovalMap.cs" />
+    <Compile Include="Mapping\FeedbackMap.cs" />
+    <Compile Include="Mapping\InventoryMap.cs" />
+    <Compile Include="Mapping\ReleaseRecordMap.cs" />
+    <Compile Include="Mapping\RoleMap.cs" />
+    <Compile Include="Mapping\StockRecordMap.cs" />
+    <Compile Include="Mapping\StorageMap.cs" />
+    <Compile Include="Mapping\StudentReleaseRecordMap.cs" />
+    <Compile Include="Mapping\SubscriptionMap.cs" />
+    <Compile Include="Mapping\TbmisUserMap.cs" />
+    <Compile Include="Mapping\TeacherReleaseRecordMap.cs" />
+    <Compile Include="Mapping\TextbookApprovalMap.cs" />
     <Compile Include="OutStockRecordRepository.cs" />
     <Compile Include="PressRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +122,14 @@
     <Compile Include="TextbookRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.Domain.IRepositories.JiaoWu\TextbookManage.Domain.IRepositories.JiaoWu.csproj">
+      <Project>{ae705252-6d26-4ff0-ace0-bcc5ea2a71ce}</Project>
+      <Name>TextbookManage.Domain.IRepositories.JiaoWu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Domain.Models\TextbookManage.Domain.Models.csproj">
+      <Project>{c1a65e1f-fcab-41f9-b81d-66340263e2f7}</Project>
+      <Name>TextbookManage.Domain.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
       <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
       <Name>TextbookManage.Domain</Name>

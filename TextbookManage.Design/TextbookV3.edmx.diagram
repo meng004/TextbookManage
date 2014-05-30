@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="TbmisV2Model1.Textbook" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_BooksellerSubscriptionPlan" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_CourseTeachingTask" ManuallyRouted="false" />
-        <AssociationConnector Association="TbmisV2Model1.FK_DeclarationTextbook" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.FK_SchoolDepartment" ManuallyRouted="false" >
         </AssociationConnector>
         <AssociationConnector Association="TbmisV2Model1.FK_FeedbackSubscriptionPlan" ManuallyRouted="false" />
@@ -33,13 +32,8 @@
         <AssociationConnector Association="TbmisV2Model1.DepartmentTeacher" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.ProfessionalClassTeachingTask" ManuallyRouted="false" />
         <AssociationConnector Association="TbmisV2Model1.TeacherTeachingTask" ManuallyRouted="true" >
-          <ConnectorPoint PointX="11.306966081641045" PointY="5.9" />
-          <ConnectorPoint PointX="11.306966081641045" PointY="6.3041834836684245" />
-          <ConnectorPoint PointX="12.005442871069139" PointY="6.3041834836684245" />
-          <ConnectorPoint PointX="12.005442871069139" PointY="7.12479843535886" />
-          <ConnectorPoint PointX="14.731630916805099" PointY="7.12479843535886" />
-          <ConnectorPoint PointX="14.731630916805099" PointY="2.0913836443994316" />
-          <ConnectorPoint PointX="11.625" PointY="2.0913836443994316" />
+          <ConnectorPoint PointX="11.59375" PointY="5.5" />
+          <ConnectorPoint PointX="11.59375" PointY="2.275" />
         </AssociationConnector>
         <EntityTypeShape EntityType="TbmisV2Model1.DataSign" Width="1.5" PointX="10.125" PointY="6.625" IsExpanded="false" />
         <AssociationConnector Association="TbmisV2Model1.DataSignTeachingTask" />
@@ -58,14 +52,18 @@
         <InheritanceConnector EntityType="TbmisV2Model1.TeacherDeclarationJiaoWu" />
         <InheritanceConnector EntityType="TbmisV2Model1.StudentDeclarationJiaoWu" ManuallyRouted="true" >
           <ConnectorPoint PointX="6.5" PointY="3.525" />
-          <ConnectorPoint PointX="6.5" PointY="4.1123432208251876" />
-          <ConnectorPoint PointX="5.9375" PointY="4.1123432208251876" />
+          <ConnectorPoint PointX="6.5" PointY="4" />
+          <ConnectorPoint PointX="5.9375" PointY="4" />
           <ConnectorPoint PointX="5.9375" PointY="4.375" />
         </InheritanceConnector>
         <InheritanceConnector EntityType="TbmisV2Model1.TeacherDeclaration" />
         <InheritanceConnector EntityType="TbmisV2Model1.StudentDeclaration" />
         <AssociationConnector Association="TbmisV2Model1.SubscriptionStudentDeclaration" />
         <AssociationConnector Association="TbmisV2Model1.SubscriptionTeacherDeclaration" />
+        <EntityTypeShape EntityType="TbmisV2Model1.Press" Width="1.5" PointX="4.875" PointY="1.75" IsExpanded="false" />
+        <AssociationConnector Association="TbmisV2Model1.PressTextbook" />
+        <AssociationConnector Association="TbmisV2Model1.TextbookStudentDeclarationJiaoWu" />
+        <AssociationConnector Association="TbmisV2Model1.TextbookTeacherDeclarationJiaoWu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

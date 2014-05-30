@@ -2,6 +2,7 @@
 {
 
     using System.Collections.Generic;
+    using TextbookManage.Domain.Models;
 
     /// <summary>
     /// 执行sql语句，操作数据
