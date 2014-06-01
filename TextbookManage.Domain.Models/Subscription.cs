@@ -8,8 +8,8 @@ namespace TextbookManage.Domain.Models
     {
         public Subscription()
         {
-            TeacherDeclarations = new List<TeacherDeclarationJiaoWu>();
-            StudentDeclarations = new List<StudentDeclarationJiaoWu>();
+            TeacherDeclarations = new List<TeacherDeclaration>();
+            StudentDeclarations = new List<StudentDeclaration>();
         }
 
         #region 属性
@@ -33,7 +33,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 学年学期
         /// </summary>
-        public SchoolYearTerm Term { get; set; }
+        public SchoolYearTerm SchoolYearTerm { get; set; }
         /// <summary>
         /// 计划数量
         /// </summary>
@@ -61,11 +61,11 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 教师用书申报
         /// </summary>
-        public virtual ICollection<TeacherDeclarationJiaoWu> TeacherDeclarations { get; set; }
+        public virtual ICollection<TeacherDeclaration> TeacherDeclarations { get; set; }
         /// <summary>
         /// 学生用书申报
         /// </summary>
-        public virtual ICollection<StudentDeclarationJiaoWu> StudentDeclarations { get; set; }
+        public virtual ICollection<StudentDeclaration> StudentDeclarations { get; set; }
         #endregion
 
         #region 业务规则

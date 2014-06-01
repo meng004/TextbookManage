@@ -33,7 +33,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 学年学期
         /// </summary>
-        public SchoolYearTerm Term  { get; set; }
+        public SchoolYearTerm SchoolYearTerm  { get; set; }
         /// <summary>
         /// 申报数量
         /// </summary>

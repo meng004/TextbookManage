@@ -52,7 +52,6 @@
     <Compile Include="DeclarationClass.cs" />
     <Compile Include="DeclarationState.cs" />
     <Compile Include="DepartmentProgress.cs" />
-    <Compile Include="DiscountStrategyByName.cs" />
     <Compile Include="Feedback.cs" />
     <Compile Include="FeedbackApproval.cs" />
     <Compile Include="FeedbackState.cs" />
@@ -67,8 +66,7 @@
     <Compile Include="JiaoWu\DataSign.cs" />
     <Compile Include="JiaoWu\Declaration.cs" />
     <Compile Include="JiaoWu\Department.cs" />
-    <Compile Include="JiaoWu\DiscountStrategyByName.cs" />
-    <Compile Include="JiaoWu\IDiscountStrategy.cs" />
+    <Compile Include="DiscountStrategyByName.cs" />
     <Compile Include="JiaoWu\ProfessionalClass.cs" />
     <Compile Include="JiaoWu\School.cs" />
     <Compile Include="JiaoWu\Student.cs" />

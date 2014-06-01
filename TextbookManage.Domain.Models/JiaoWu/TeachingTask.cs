@@ -20,13 +20,9 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// </summary>
         public string TeachingTaskNum { get; set; }
         /// <summary>
-        /// 学年
+        /// 学年学期
         /// </summary>
-        public string SchoolYear { get; set; }
-        /// <summary>
-        /// 学期
-        /// </summary>
-        public string SchoolTerm { get; set; }
+        public SchoolYearTerm SchoolYearTerm { get; set; }
         /// <summary>
         /// 总人数
         /// </summary>

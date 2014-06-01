@@ -7,6 +7,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// </summary>
     public class TeacherDeclaration : TeacherDeclarationJiaoWu
     {
+        public TeacherDeclaration()
+        {
+            HadViewFeedback = false;
+            ViewFeedbackDate = null;
+        }
 
         #region 属性
         /// <summary>

@@ -8,27 +8,31 @@ namespace TextbookManage.Domain.Models
     /// </summary>
     public class DiscountStrategyByName : IDiscountStrategy
     {
-        readonly List<string> _keys = new List<string> { "作业本", "英语作业本", "英语本", "实验报告本", "试验报告本", "马克思", "思想道德", "中国近现代史", "毛泽东" };
+        readonly List<string> _keys = new List<string> 
+        { 
+            "作业本", "英语作业本", "英语本", "实验报告本", 
+            "试验报告本", "马克思", "思想道德", "中国近现代史", "毛泽东" 
+        };
 
         public decimal GetDiscount(Textbook textbook)
         {
-            if (IsNoDiscount(textbook.Name))
+            if (IsDiscount(textbook.Name))
             {
-                return 1.0m;
+                return 0.9m;
             }
             else
             {
-                return 0.9M;                
+                return 1.0M;
             }
         }
 
 
         /// <summary>
-        /// 根据教材名称，判断是否没有折扣
+        /// 根据教材名称，判断是否有折扣
         /// </summary>
         /// <param name="textbookName"></param>
         /// <returns></returns>
-        private bool IsNoDiscount(string textbookName)
+        private bool IsDiscount(string textbookName)
         {
             bool result = false;
 
