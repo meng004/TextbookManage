@@ -49,6 +49,7 @@ namespace TextbookManage.Repositories.Mapping
             //this.HasRequired(t => t.ReleaseRecord)
             //    .WithOptional(t => t.ReleaseRecord_Teacher);
 
+            //教师：发放记录，1：N
             this.HasRequired(t => t.Teacher)
                 .WithMany(t => t.ReleaseRecords)
                 .HasForeignKey(t => t.Teacher_Id);

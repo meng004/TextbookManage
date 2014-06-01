@@ -27,15 +27,15 @@ namespace TextbookManage.Repositories.Mapping
             this.Property(t => t.SpareCount).HasColumnName("SpareCount");
             this.Property(t => t.SubscriptionDate).HasColumnName("SubscriptionDate");           
 
-            // Relationships
+            // 书商：书商订单，1：N
             this.HasRequired(t => t.Bookseller)
                 .WithMany(t => t.Subscriptions)
                 .HasForeignKey(d => d.Bookseller_Id);
-
+            //回告：书商订单，1：N
             this.HasRequired(t => t.Feedback)
                 .WithMany(t => t.Subscriptions)
                 .HasForeignKey(d => d.Feedback_Id);
-
+            //教材：书商订单，1：N
             this.HasRequired(t => t.Textbook)
                 .WithMany(t => t.Subscriptions)
                 .HasForeignKey(d => d.Textbook_Id);

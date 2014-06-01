@@ -5,6 +5,7 @@
     using TextbookManage.Domain.Models;
     using TextbookManage.Domain.Models.JiaoWu;
     using TextbookManage.Repositories.Mapping;
+    using TextbookManage.Repositories.Mapping.JiaoWu;
 
     public class TbMisDbContext
         : DbContext 
@@ -53,37 +54,44 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //教材对象映射
             modelBuilder.Configurations.Add(new ApprovalMap());
             modelBuilder.Configurations.Add(new BooksellerMap());
-            modelBuilder.Configurations.Add(new BooksellerStaffMap());
-            modelBuilder.Configurations.Add(new CourseMap());
-            modelBuilder.Configurations.Add(new CasMapperMap());
-            modelBuilder.Configurations.Add(new DataSignMap());
-            modelBuilder.Configurations.Add(new DeclarationApprovalMap());
-            modelBuilder.Configurations.Add(new DeclarationClassMap());
-            modelBuilder.Configurations.Add(new DeclarationMap());
-            modelBuilder.Configurations.Add(new DepartmentMap());
+            modelBuilder.Configurations.Add(new BooksellerStaffMap());        
+            modelBuilder.Configurations.Add(new CasMapperMap());            
+            //modelBuilder.Configurations.Add(new DeclarationApprovalMap());
             modelBuilder.Configurations.Add(new FeedbackApprovalMap());
             modelBuilder.Configurations.Add(new FeedbackMap());
             modelBuilder.Configurations.Add(new InventoryMap());
-            modelBuilder.Configurations.Add(new PressMap());
-            modelBuilder.Configurations.Add(new ProfessionalClassMap());
             modelBuilder.Configurations.Add(new ReleaseRecordMap());
             modelBuilder.Configurations.Add(new RoleMap());
-            modelBuilder.Configurations.Add(new SchoolMap());
             modelBuilder.Configurations.Add(new StockRecordMap());
-            modelBuilder.Configurations.Add(new StorageMap());
-            modelBuilder.Configurations.Add(new StudentMap());
-            
+            modelBuilder.Configurations.Add(new StorageMap());            
             modelBuilder.Configurations.Add(new StudentReleaseRecordMap());
             modelBuilder.Configurations.Add(new SubscriptionMap());
-            modelBuilder.Configurations.Add(new TeacherMap());
             modelBuilder.Configurations.Add(new TeacherReleaseRecordMap());
+            modelBuilder.Configurations.Add(new TbmisUserMap());
+
+            //教务对象映射
+            modelBuilder.Configurations.Add(new CourseMap());
+            modelBuilder.Configurations.Add(new DataSignMap());
+            //modelBuilder.Configurations.Add(new DeclarationClassMap());
+            //modelBuilder.Configurations.Add(new DeclarationMap());
+            modelBuilder.Configurations.Add(new DepartmentMap());
+            modelBuilder.Configurations.Add(new PressMap());
+            modelBuilder.Configurations.Add(new ProfessionalClassMap());            
+            modelBuilder.Configurations.Add(new SchoolMap());
+            modelBuilder.Configurations.Add(new StudentDeclarationJiaoWuMap());
+            modelBuilder.Configurations.Add(new StudentDeclarationMap());
+            modelBuilder.Configurations.Add(new StudentMap());
+            modelBuilder.Configurations.Add(new TeacherDeclarationJiaoWuMap());
+            modelBuilder.Configurations.Add(new TeacherDeclarationMap());
+            modelBuilder.Configurations.Add(new TeacherMap());
             modelBuilder.Configurations.Add(new TeachingTaskMap());
             modelBuilder.Configurations.Add(new TermMap());
-            modelBuilder.Configurations.Add(new TextbookApprovalMap());
+            //modelBuilder.Configurations.Add(new TextbookApprovalMap());
             modelBuilder.Configurations.Add(new TextbookMap());
-            modelBuilder.Configurations.Add(new TbmisUserMap());
+
         }
         #endregion
 
