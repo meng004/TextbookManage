@@ -10,7 +10,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             StudentDeclarations = new List<StudentDeclaration>();
             TeacherDeclarations = new List<TeacherDeclaration>();
-            Subscriptions = new List<Subscription>();            
+            Subscriptions = new List<Subscription>();
+            Inventories = new List<Inventory>();
         }
 
         #region 属性
@@ -67,6 +68,10 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 订单
         /// </summary>
         public virtual ICollection<Subscription> Subscriptions { get; set; }
+        /// <summary>
+        /// 库存
+        /// </summary>
+        public virtual ICollection<Inventory> Inventories { get; set; }
         #endregion
 
         #region 业务规则
