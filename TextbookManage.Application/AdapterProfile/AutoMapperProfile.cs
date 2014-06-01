@@ -7,6 +7,7 @@
     using TextbookManage.ViewModels;
     using TextbookManage.Infrastructure;
     using System.Collections.Generic;
+    using TextbookManage.Domain.Models.JiaoWu;
 
 
     /// <summary>
