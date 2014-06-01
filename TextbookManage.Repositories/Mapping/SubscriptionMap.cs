@@ -21,8 +21,8 @@ namespace TextbookManage.Repositories.Mapping
             this.Property(t => t.Bookseller_Id).HasColumnName("Bookseller_ID");
             this.Property(t => t.Textbook_Id).HasColumnName("Textbook_ID");
             this.Property(t => t.Feedback_Id).HasColumnName("Feedback_ID");
-            this.Property(t => t.Term.Year).HasColumnName("Year");
-            this.Property(t => t.Term.Term).HasColumnName("Term");
+            this.Property(t => t.SchoolYearTerm.Year).HasColumnName("Year");
+            this.Property(t => t.SchoolYearTerm.Term).HasColumnName("Term");
             this.Property(t => t.PlanCount).HasColumnName("PlanCount");
             this.Property(t => t.SpareCount).HasColumnName("SpareCount");
             this.Property(t => t.SubscriptionDate).HasColumnName("SubscriptionDate");           
