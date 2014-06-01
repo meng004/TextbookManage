@@ -28,7 +28,7 @@ namespace TextbookManage.Domain
                 SubscriptionDate = DateTime.Now,
                 SubscriptionId = subscriptionId,
                 Textbook_Id = textbookId,
-                Term = term
+                SchoolYearTerm = term
             };
             return sub;
         }
@@ -59,17 +59,41 @@ namespace TextbookManage.Domain
             var result = declarations
                 .GroupBy(t => t.Textbook, new TextbookComparer())
                 //.GroupBy(t => t.Textbook)
-                .Select(m => new Subscription
-                {
-                    SubscriptionId = Guid.NewGuid(),
-                    Textbook_Id = m.Key.TextbookId,
-                    Term = declarations.FirstOrDefault().Term,
-                    Textbook = m.Key,
-                    PlanCount = m.Sum(s => s.DeclarationCount),
-                    SpareCount = 0,
-                    SubscriptionDate = DateTime.Now,
-                    StudentDeclarations = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList()
-                });
+                .Select(m =>
+                    {
+                        var declarationJiaoWus = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList();
+                        var studentDeclarations = new List<StudentDeclaration>();
+                        var id = Guid.NewGuid();
+                        foreach (var item in declarationJiaoWus)
+                        {
+                            var studentDeclaration = new StudentDeclaration();
+
+                            studentDeclaration.Course_Id = item.Course_Id;
+                            studentDeclaration.DataSign_Id = item.DataSign_Id;
+                            studentDeclaration.DeclarationCount = item.DeclarationCount;
+                            studentDeclaration.DeclarationId = item.DeclarationId;
+                            studentDeclaration.Department_Id = item.Department_Id;
+                            studentDeclaration.School_Id = item.School_Id;
+                            studentDeclaration.SchoolYearTerm = item.SchoolYearTerm;
+                            studentDeclaration.Sfgd = item.Sfgd;
+                            studentDeclaration.Textbook_Id = item.Textbook_Id;
+                            studentDeclaration.Subscription_Id = id;
+
+                            studentDeclarations.Add(studentDeclaration);
+                        }
+                        var subscription = new Subscription
+                        {
+                            SubscriptionId = id,
+                            Textbook_Id = m.Key.TextbookId,
+                            SchoolYearTerm = declarations.FirstOrDefault().SchoolYearTerm,
+                            Textbook = m.Key,
+                            PlanCount = m.Sum(s => s.DeclarationCount),
+                            SpareCount = 0,
+                            SubscriptionDate = DateTime.Now,
+                            StudentDeclarations = studentDeclarations
+                        };
+                        return subscription;
+                    });
 
             return result.ToList();
         }
@@ -100,17 +124,41 @@ namespace TextbookManage.Domain
             var result = declarations
                 .GroupBy(t => t.Textbook, new TextbookComparer())
                 //.GroupBy(t => t.Textbook)
-                .Select(m => new Subscription
-                {
-                    SubscriptionId = Guid.NewGuid(),
-                    Textbook_Id = m.Key.TextbookId,
-                    Term = declarations.FirstOrDefault().Term,
-                    Textbook = m.Key,
-                    PlanCount = m.Sum(s => s.DeclarationCount),
-                    SpareCount = 0,
-                    SubscriptionDate = DateTime.Now,
-                    TeacherDeclarations = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList()
-                });
+                .Select(m => 
+                    {
+                        var declarationJiaoWus = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList();
+                        var teacherDeclarations = new List<TeacherDeclaration>();
+                        var id = Guid.NewGuid();
+                        foreach (var item in declarationJiaoWus)
+                        {
+                            var teacherDeclaration = new TeacherDeclaration();
+
+                            teacherDeclaration.Course_Id = item.Course_Id;
+                            teacherDeclaration.DataSign_Id = item.DataSign_Id;
+                            teacherDeclaration.DeclarationCount = item.DeclarationCount;
+                            teacherDeclaration.DeclarationId = item.DeclarationId;
+                            teacherDeclaration.Department_Id = item.Department_Id;
+                            teacherDeclaration.School_Id = item.School_Id;
+                            teacherDeclaration.SchoolYearTerm = item.SchoolYearTerm;
+                            teacherDeclaration.Sfgd = item.Sfgd;
+                            teacherDeclaration.Textbook_Id = item.Textbook_Id;
+                            teacherDeclaration.Subscription_Id = id;
+
+                            teacherDeclarations.Add(teacherDeclaration);
+                        }
+                        var subscription = new Subscription
+                        {
+                            SubscriptionId = id,
+                            Textbook_Id = m.Key.TextbookId,
+                            SchoolYearTerm = declarations.FirstOrDefault().SchoolYearTerm,
+                            Textbook = m.Key,
+                            PlanCount = m.Sum(s => s.DeclarationCount),
+                            SpareCount = 0,
+                            SubscriptionDate = DateTime.Now,
+                            TeacherDeclarations = teacherDeclarations
+                        };
+                        return subscription;
+                    });
 
             return result.ToList();
         }
