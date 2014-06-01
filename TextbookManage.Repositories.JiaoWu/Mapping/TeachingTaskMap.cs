@@ -22,14 +22,14 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             // Table & Column Mappings
             this.ToTable("V_KK_JXBXXB", "dbo");
             this.Property(t => t.TeachingTaskNum).HasColumnName("JXBBH");
-            this.Property(t => t.SchoolYear).HasColumnName("XN");
-            this.Property(t => t.SchoolTerm).HasColumnName("XQ");
+            this.Property(t => t.SchoolYearTerm.Year).HasColumnName("XN");
+            this.Property(t => t.SchoolYearTerm.Term).HasColumnName("XQ");
             this.Property(t => t.Course_Id).HasColumnName("KCID");
             this.Property(t => t.School_Id).HasColumnName("YXSID");
             this.Property(t => t.Department_Id).HasColumnName("KSID");
             this.Property(t => t.Teacher_Id).HasColumnName("ZRJS");
             this.Property(t => t.DataSign_Id).HasColumnName("SJBS");
-            this.Property(t => t.HeadCount).HasColumnName("ZRS"); 
+            this.Property(t => t.HeadCount).HasColumnName("ZRS");
 
             // Relationships
             //教学任务教师多对多映射
@@ -44,20 +44,36 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                         m.MapRightKey("ZGID");
                     });
 
+            //班级：教学任务，M：N
+            this.HasMany(t => t.ProfessionalClasses)
+                .WithMany(t => t.TeachingTasks)
+                .Map(m =>
+                {
+                    m.ToTable("KK_JXBBJB", "dbo");
+                    m.MapLeftKey("JXBBH");
+                    m.MapRightKey("BJID");
+                });
+
             //课程与教学任务，1对多
             this.HasRequired(t => t.Course)
                 .WithMany(t => t.TeachingTasks)
                 .HasForeignKey(d => d.Course_Id);
 
-            //教研室与教学任务，1对多
+            //部门与教学任务，1对多
             this.HasRequired(t => t.Department)
                 .WithMany(t => t.TeachingTasks)
                 .HasForeignKey(d => d.Department_Id);
 
-            //教学任务与数据标识,多对1
+            //学院:教学任务，1：N
+            this.HasRequired(t => t.School)
+                .WithMany(t => t.TeachingTasks)
+                .HasForeignKey(d => d.School_Id);
+
+            //数据标识：教学任务,1：N
             this.HasRequired(t => t.DataSign)
                 .WithMany(d => d.TeachingTasks)
                 .HasForeignKey(f => f.DataSign_Id);
+
 
         }
     }

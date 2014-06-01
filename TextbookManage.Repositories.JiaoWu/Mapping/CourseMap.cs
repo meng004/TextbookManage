@@ -26,7 +26,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.Name).HasColumnName("KCMC");
 
             // Relationships
-            //教研室课程多对多关系
+            //部门：课程，多对多关系
             this.HasMany(t => t.Departments)
                 .WithMany(t => t.Courses)
                 .Map(m =>
@@ -35,8 +35,6 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                         m.MapLeftKey("KCID");
                         m.MapRightKey("KSID");
                     });
-
-
         }
     }
 }

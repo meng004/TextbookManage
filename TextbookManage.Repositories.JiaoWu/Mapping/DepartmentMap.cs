@@ -37,7 +37,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                         m.MapRightKey("ZGID");
                     });
 
-
+            //学院：部门，1：N
             this.HasRequired(t => t.School)
                 .WithMany(t => t.Departments)
                 .HasForeignKey(d => d.School_Id);

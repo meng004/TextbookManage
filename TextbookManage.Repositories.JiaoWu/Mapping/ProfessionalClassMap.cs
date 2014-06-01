@@ -42,7 +42,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                         m.MapLeftKey("BJID");
                         m.MapRightKey("JXBBH");
                     });
-
+            //Ñ§Ôº:°à¼¶£¬1£ºN
             this.HasRequired(t => t.School)
                 .WithMany(t => t.ProfessionalClasses)
                 .HasForeignKey(d => d.School_Id);

@@ -32,7 +32,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.ProfessionalClass_Id).HasColumnName("BJID");
             this.Property(t => t.Zxf).HasColumnName("ZXF");
 
-            // Relationships
+            // °à¼¶£ºÑ§Éú£¬1£ºN
             this.HasRequired(t => t.ProfessionalClass)
                 .WithMany(t => t.Students)
                 .HasForeignKey(d => d.ProfessionalClass_Id);

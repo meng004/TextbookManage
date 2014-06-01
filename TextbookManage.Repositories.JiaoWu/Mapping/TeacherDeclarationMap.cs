@@ -18,7 +18,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             // 1对多关系
 
-            //订单：学生用书申报
+            //书商订单：教师用书申报
             this.HasRequired(t => t.Subscription)
                 .WithMany(t => t.TeacherDeclarations)
                 .HasForeignKey(d => d.Subscription_Id);
@@ -27,6 +27,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.HasRequired(t => t.Textbook)
                 .WithMany(t => t.TeacherDeclarations)
                 .HasForeignKey(d => d.Textbook_Id);
+
+            //部门：教师用书申报，1:N
+            this.HasRequired(t => t.Department)
+                .WithMany(t => t.TeacherDeclarations)
+                .HasForeignKey(d => d.Department_Id);
         }
     }
 }
