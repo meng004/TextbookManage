@@ -9,6 +9,9 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             this.Departments = new List<Department>();
             this.ProfessionalClasses = new List<ProfessionalClass>();
+            StudentDeclarationJiaoWus = new List<StudentDeclarationJiaoWu>();
+            TeacherDeclarationJiaoWus = new List<TeacherDeclarationJiaoWu>();
+            TeachingTasks = new List<TeachingTask>();
         }
 
         #region 属性
@@ -33,6 +36,18 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 班级集合
         /// </summary>
         public virtual ICollection<ProfessionalClass> ProfessionalClasses { get; set; }
+        /// <summary>
+        /// 教务学生用书申报
+        /// </summary>
+        public virtual ICollection<StudentDeclarationJiaoWu> StudentDeclarationJiaoWus { get; set; }
+        /// <summary>
+        /// 教务教师用书申报
+        /// </summary>
+        public virtual ICollection<TeacherDeclarationJiaoWu> TeacherDeclarationJiaoWus { get; set; }
+        /// <summary>
+        /// 教学任务
+        /// </summary>
+        public virtual ICollection<TeachingTask> TeachingTasks { get; set; }
         #endregion
 
     }

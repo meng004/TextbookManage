@@ -9,6 +9,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             TeachingTasks = new List<TeachingTask>();
             Departments = new List<Department>();
+            StudentDeclarationJiaoWus = new List<StudentDeclarationJiaoWu>();
+            TeacherDeclarationJiaoWus = new List<TeacherDeclarationJiaoWu>();
         }
         /// <summary>
         /// 课程ID
@@ -30,5 +32,13 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 教研室集合
         /// </summary>
         public virtual ICollection<Department> Departments { get; set; }
+        /// <summary>
+        /// 教务学生用书申报
+        /// </summary>
+        public virtual ICollection<StudentDeclarationJiaoWu> StudentDeclarationJiaoWus { get; set; }
+        /// <summary>
+        /// 教务教师用书申报
+        /// </summary>
+        public virtual ICollection<TeacherDeclarationJiaoWu> TeacherDeclarationJiaoWus { get; set; }
     }
 }
