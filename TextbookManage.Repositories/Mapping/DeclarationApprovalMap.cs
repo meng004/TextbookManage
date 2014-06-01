@@ -13,9 +13,9 @@ namespace TextbookManage.Repositories.Mapping
             //属性            
             Property(t => t.Declaration_Id).HasColumnName("Declaration_ID");
             //审核记录与申报的 多对1关系
-            HasRequired(t => t.Declaration)
-                .WithMany(d => d.Approvals)
-                .HasForeignKey(f => f.Declaration_Id);
+            //HasRequired(t => t.Declaration)
+            //    .WithMany(d => d.Approvals)
+            //    .HasForeignKey(f => f.Declaration_Id);
         }
     }
 }
