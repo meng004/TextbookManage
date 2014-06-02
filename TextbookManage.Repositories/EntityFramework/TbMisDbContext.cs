@@ -47,6 +47,11 @@
         public DbSet<TeachingTask> TeachingTasks { get; set; }
         public DbSet<Term> Terms { get; set; }
         public DbSet<TbmisUser> TbmisUsers { get; set; }
+
+        public DbSet<StudentDeclarationJiaoWu> StudentDeclarationJiaoWus { get; set; }
+        public DbSet<TeacherDeclarationJiaoWu> TeacherDeclarationJiaoWus { get; set; }
+        public DbSet<StudentDeclaration> StudentDeclarations { get; set; }
+        public DbSet<TeacherDeclaration> TeacherDeclarations { get; set; }
         
         #endregion
 

@@ -29,7 +29,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 回告ID
         /// </summary>
-        public int? Feedback_Id { get; set; }
+        public Guid? Feedback_Id { get; set; }
         /// <summary>
         /// 学年学期
         /// </summary>

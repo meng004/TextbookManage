@@ -19,11 +19,11 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// ¿â´æID
         /// </summary>
-        public int InventoryId { get; set; }
+        public Guid InventoryId { get; set; }
         /// <summary>
         /// ²Ö¿âID
         /// </summary>
-        public int Storage_Id { get; set; }
+        public Guid Storage_Id { get; set; }
         /// <summary>
         /// ½Ì²ÄID
         /// </summary>

@@ -95,11 +95,13 @@
     <Compile Include="SchoolRepository.cs" />
     <Compile Include="StorageRepository.cs" />
     <Compile Include="ProfessionalClassRepository.cs" />
+    <Compile Include="StudentDeclarationJiaoWuRepository.cs" />
     <Compile Include="StudentDeclarationRepository.cs" />
     <Compile Include="StudentReleaseRecordRepository.cs" />
     <Compile Include="StudentRepository.cs" />
     <Compile Include="SubscriptionRepository.cs" />
     <Compile Include="TbmisUserRepository.cs" />
+    <Compile Include="TeacherDeclarationJiaoWuRepository.cs" />
     <Compile Include="TeacherDeclarationRepository.cs" />
     <Compile Include="TeacherReleaseRecordRepository.cs" />
     <Compile Include="TeacherRepository.cs" />

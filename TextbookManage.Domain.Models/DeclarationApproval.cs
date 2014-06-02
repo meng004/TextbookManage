@@ -11,7 +11,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 用书申报ID
         /// </summary>
-        public int Declaration_Id { get; set; }
+        public System.Guid Declaration_Id { get; set; }
         /// <summary>
         /// 用书申报
         /// </summary>

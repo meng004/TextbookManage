@@ -18,11 +18,11 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 库存变更记录ID
         /// </summary>
-        public int StockRecordId { get; set; }
+        public Guid StockRecordId { get; set; }
         /// <summary>
         /// 库存ID
         /// </summary>
-        public int Inventory_Id { get; set; }
+        public Guid Inventory_Id { get; set; }
         /// <summary>
         /// 变更数量
         /// </summary>

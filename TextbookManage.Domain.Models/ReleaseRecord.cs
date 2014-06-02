@@ -15,7 +15,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 库存变更记录ID
         /// </summary>
-        public int? StockRecord_Id { get; set; }
+        public System.Guid? StockRecord_Id { get; set; }
         /// <summary>
         /// 教材ID
         /// </summary>

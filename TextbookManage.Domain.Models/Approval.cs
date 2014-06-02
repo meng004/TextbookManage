@@ -1,3 +1,4 @@
+using System;
 namespace TextbookManage.Domain.Models
 {
     public class Approval 
@@ -5,7 +6,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// …Û∫Àº«¬ºID
         /// </summary>
-        public int ApprovalId { get; set; }
+        public Guid ApprovalId { get; set; }
         /// <summary>
         /// …Û∫À≤ø√≈
         /// </summary>

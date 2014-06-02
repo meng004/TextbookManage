@@ -9,7 +9,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 申报ID
         /// </summary>
-        public int DeclarationId { get; set; }
+        public System.Guid DeclarationId { get; set; }
         /// <summary>
         /// 学生班级ID
         /// </summary>

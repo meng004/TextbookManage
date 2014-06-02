@@ -1,4 +1,5 @@
-﻿namespace TextbookManage.Domain.Models
+﻿using System;
+namespace TextbookManage.Domain.Models
 {
     public class FeedbackApproval : Approval
     {
@@ -10,7 +11,7 @@
         /// <summary>
         /// 回告ID
         /// </summary>
-        public int Feedback_Id { get; set; }
+        public Guid Feedback_Id { get; set; }
         /// <summary>
         /// 回告
         /// </summary>
