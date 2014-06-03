@@ -26,8 +26,8 @@ namespace TextbookManage.Repositories.Mapping
 
             this.Ignore(t => t.IsInStock);
             //”≥…‰◊”¿‡
-            this.Map<InStockRecord>(m => m.Requires("StockType").HasValue(true));
-            this.Map<OutStockRecord>(m => m.Requires("StockType").HasValue(false));
+            this.Map<InStockRecord>(m => m.Requires("IsInStock").HasValue(true));
+            this.Map<OutStockRecord>(m => m.Requires("IsInStock").HasValue(false));
 
 
             // Relationships
