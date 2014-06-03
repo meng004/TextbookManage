@@ -14,7 +14,17 @@ namespace TextbookManage.Repositories.Test
     [TestClass]
     public class SchoolRepositoryTest
     {
-
+        [TestMethod]
+        public void AddBookseller()
+        {
+            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
+            var repo = new BooksellerRepository(uow);
+            var bookseller = new Bookseller { Contact = "张三", Name = "测试", Telephone = "123456" };
+            repo.Add(bookseller);
+            repo.Context.Commit();
+            var result = repo.Single(t => t.Contact == bookseller.Contact && t.Name == bookseller.Name && t.Telephone == bookseller.Telephone);
+            Assert.IsNotNull(result.BooksellerId);
+        }
 
         [TestMethod]
         public void TeachingTaskIsReleased()

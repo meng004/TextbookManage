@@ -35,7 +35,7 @@ namespace TextbookManage.Repositories.EntityFramework
         }
         #endregion
 
-        #region 实现RepositoryContex
+        #region 实现RepositoryContext
 
         public override void Commit()
         {
