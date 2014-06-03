@@ -52,7 +52,7 @@ namespace TextbookManage.Domain
        /// </summary>
        /// <param name="stockRecordId"></param>
        /// <returns></returns>
-       public static InStockRecord CreateStockRecord(int stockRecordId)
+       public static InStockRecord CreateStockRecord(Guid stockRecordId)
        {
            var stockRecord = new InStockRecord() { StockRecordId = stockRecordId };
 
@@ -65,7 +65,7 @@ namespace TextbookManage.Domain
        /// <param name="inventoryId"></param>
        /// <param name="stockCount"></param>
        /// <returns></returns>
-       public static Inventory CreatInventoryAtRelease(int inventoryId,int stockCount)
+       public static Inventory CreatInventoryAtRelease(Guid inventoryId,int stockCount)
        {
            var inventoryRepo = ServiceLocator.Current.GetInstance<IInventoryRepository>();
            var inventory = new Inventory()
@@ -81,7 +81,7 @@ namespace TextbookManage.Domain
        /// <param name="inventoryId"></param>
        /// <param name="stockCount"></param>
        /// <returns></returns>
-       public static Inventory CreatInventoryAtDrop(int inventoryId, int stockCount)
+       public static Inventory CreatInventoryAtDrop(Guid inventoryId, int stockCount)
        {
            var inventoryRepo = ServiceLocator.Current.GetInstance<IInventoryRepository>();
            var inventory = new Inventory()
@@ -99,7 +99,7 @@ namespace TextbookManage.Domain
        /// <param name="releaseCount"></param>
        /// <param name="operatorPerson"></param>
        /// <returns></returns>
-       public static OutStockRecord CreateOutStockRecord(int inventoryId, int releaseCount,DateTime stockDate, string operatorPerson)
+       public static OutStockRecord CreateOutStockRecord(Guid inventoryId, int releaseCount,DateTime stockDate, string operatorPerson)
        {
            var outStockRecord=new OutStockRecord
                {
@@ -124,7 +124,7 @@ namespace TextbookManage.Domain
         /// <param name="classId"></param>
         /// <param name="student"></param>
         /// <returns></returns>
-       public static StudentReleaseRecord CreateReleaseRecord(Guid releaseRecordId,int stockRecordId,Guid textbookId,Guid booksellerId,Guid schoolId,int releaseCount,Guid studentId,Guid classId,Student student)
+       public static StudentReleaseRecord CreateReleaseRecord(Guid releaseRecordId,Guid stockRecordId,Guid textbookId,Guid booksellerId,Guid schoolId,int releaseCount,Guid studentId,Guid classId,Student student)
        {
            var releaseRecord = new StudentReleaseRecord
                {
