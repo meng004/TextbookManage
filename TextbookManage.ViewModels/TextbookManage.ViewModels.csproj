@@ -111,10 +111,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextbookManage.Domain.Models\TextbookManage.Domain.Models.csproj">
-      <Project>{c1a65e1f-fcab-41f9-b81d-66340263e2f7}</Project>
-      <Name>TextbookManage.Domain.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
       <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
       <Name>TextbookManage.Domain</Name>

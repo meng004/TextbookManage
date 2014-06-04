@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using TextbookManage.Domain;
 using TextbookManage.Domain.IRepositories;
-using TextbookManage.Domain.Models;
 
 
 namespace TextbookManage.Repositories.EntityFramework

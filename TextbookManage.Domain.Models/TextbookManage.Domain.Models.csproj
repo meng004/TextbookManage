@@ -86,7 +86,6 @@
     <Compile Include="ResponsibilityTeacher.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SchoolProgress.cs" />
-    <Compile Include="SchoolYearTerm.cs" />
     <Compile Include="StockRecord.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="StudentReleaseRecord.cs" />

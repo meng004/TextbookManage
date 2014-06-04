@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Design", "TextbookManage.Design\TextbookManage.Design.csproj", "{D3C3491B-FFC3-4413-B8E3-A41C5E72A6AB}"
 EndProject
@@ -31,12 +31,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Services", "TextbookManage.Services\TextbookManage.Services.csproj", "{ED3FA37C-4A9E-49B2-9210-E19760A650CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasClientValidate", "CasClientValidate\CasClientValidate.csproj", "{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Repositories.JiaoWu", "TextbookManage.Repositories.JiaoWu\TextbookManage.Repositories.JiaoWu.csproj", "{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.Models", "TextbookManage.Domain.Models\TextbookManage.Domain.Models.csproj", "{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextbookManage.Domain.IRepositories.JiaoWu", "TextbookManage.Domain.IRepositories.JiaoWu\TextbookManage.Domain.IRepositories.JiaoWu.csproj", "{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,23 +90,11 @@ Global
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FCF25F3-0329-4D4F-B1F5-795D09C5DB6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F84BBD7-A49E-4650-89F4-E08E3D6C2ECF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1A65E1F-FCAB-41F9-B81D-66340263E2F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE705252-6D26-4FF0-ACE0-BCC5EA2A71CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

@@ -112,6 +112,8 @@
     <Content Include="FeedbackApprovalService.svc" />
     <Content Include="FeedbackService.svc" />
     <Content Include="InventoryService.svc" />
+    <Content Include="Logs\ExceptionLog.txt" />
+    <Content Include="Logs\Log.txt" />
     <Content Include="ReleaseClassBookService.svc" />
     <Content Include="ReleaseStudentBookService.svc" />
     <Content Include="ReleaseTextbookForQueryServiec.svc" />
@@ -211,6 +213,9 @@
       <Project>{e90bd2fa-796e-46c6-ad7e-a47f84941146}</Project>
       <Name>TextbookManage.ViewModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
