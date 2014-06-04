@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TextbookManage.Domain.Models.JiaoWu
 {
-    public class Course 
+    public class Course : AggregateRoot
     {
         public Course()
         {

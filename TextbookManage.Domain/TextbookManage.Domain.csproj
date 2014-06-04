@@ -106,7 +106,6 @@
     <Compile Include="Models\CasMapper.cs" />
     <Compile Include="Models\Comparer\SchoolComparer.cs" />
     <Compile Include="Models\Comparer\TextbookComparer.cs" />
-    <Compile Include="Models\DeclarationApproval.cs" />
     <Compile Include="Models\DeclarationState.cs" />
     <Compile Include="Models\DepartmentProgress.cs" />
     <Compile Include="Models\DiscountStrategyByName.cs" />
@@ -138,7 +137,7 @@
     <Compile Include="Models\JiaoWu\Textbook.cs" />
     <Compile Include="Models\OutStockRecord.cs" />
     <Compile Include="Models\ReleaseRecord.cs" />
-    <Compile Include="Models\ResponsibilityTeacher.cs" />
+    <Compile Include="Models\TeachingTaskTeacher.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SchoolProgress.cs" />
     <Compile Include="Models\SchoolYearTerm.cs" />
@@ -149,7 +148,6 @@
     <Compile Include="Models\TbmisUser.cs" />
     <Compile Include="Models\TbmisUserType.cs" />
     <Compile Include="Models\TeacherReleaseRecord.cs" />
-    <Compile Include="Models\TextbookApproval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ReleaseBookService.cs" />
     <Compile Include="Services\SubscriptionService.cs" />
