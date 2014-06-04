@@ -19,7 +19,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 院系所ID
         /// </summary>
-        public System.Guid SchoolId { get; set; }
+        //public System.Guid SchoolId { get; set; }
         /// <summary>
         /// 院系所编号
         /// </summary>

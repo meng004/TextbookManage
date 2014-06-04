@@ -26,7 +26,7 @@ namespace TextbookManage.Domain
                 PlanCount = planCount,
                 SpareCount = spareCount,
                 SubscriptionDate = DateTime.Now,
-                SubscriptionId = subscriptionId,
+                ID = subscriptionId,
                 Textbook_Id = textbookId,
                 SchoolYearTerm = term
             };
@@ -61,7 +61,7 @@ namespace TextbookManage.Domain
                 //.GroupBy(t => t.Textbook)
                 .Select(m =>
                     {
-                        var declarationJiaoWus = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList();
+                        var declarationJiaoWus = declarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
                         var studentDeclarations = new List<StudentDeclaration>();
                         var id = Guid.NewGuid();
                         foreach (var item in declarationJiaoWus)
@@ -71,7 +71,7 @@ namespace TextbookManage.Domain
                             studentDeclaration.Course_Id = item.Course_Id;
                             studentDeclaration.DataSign_Id = item.DataSign_Id;
                             studentDeclaration.DeclarationCount = item.DeclarationCount;
-                            studentDeclaration.DeclarationId = item.DeclarationId;
+                            studentDeclaration.ID = item.ID;
                             studentDeclaration.Department_Id = item.Department_Id;
                             studentDeclaration.School_Id = item.School_Id;
                             studentDeclaration.SchoolYearTerm = item.SchoolYearTerm;
@@ -83,8 +83,8 @@ namespace TextbookManage.Domain
                         }
                         var subscription = new Subscription
                         {
-                            SubscriptionId = id,
-                            Textbook_Id = m.Key.TextbookId,
+                            ID = id,
+                            Textbook_Id = m.Key.ID,
                             SchoolYearTerm = declarations.FirstOrDefault().SchoolYearTerm,
                             Textbook = m.Key,
                             PlanCount = m.Sum(s => s.DeclarationCount),
@@ -126,7 +126,7 @@ namespace TextbookManage.Domain
                 //.GroupBy(t => t.Textbook)
                 .Select(m => 
                     {
-                        var declarationJiaoWus = declarations.Where(d => d.Textbook.TextbookId == m.Key.TextbookId).ToList();
+                        var declarationJiaoWus = declarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
                         var teacherDeclarations = new List<TeacherDeclaration>();
                         var id = Guid.NewGuid();
                         foreach (var item in declarationJiaoWus)
@@ -136,7 +136,7 @@ namespace TextbookManage.Domain
                             teacherDeclaration.Course_Id = item.Course_Id;
                             teacherDeclaration.DataSign_Id = item.DataSign_Id;
                             teacherDeclaration.DeclarationCount = item.DeclarationCount;
-                            teacherDeclaration.DeclarationId = item.DeclarationId;
+                            teacherDeclaration.ID = item.ID;
                             teacherDeclaration.Department_Id = item.Department_Id;
                             teacherDeclaration.School_Id = item.School_Id;
                             teacherDeclaration.SchoolYearTerm = item.SchoolYearTerm;
@@ -148,8 +148,8 @@ namespace TextbookManage.Domain
                         }
                         var subscription = new Subscription
                         {
-                            SubscriptionId = id,
-                            Textbook_Id = m.Key.TextbookId,
+                            ID = id,
+                            Textbook_Id = m.Key.ID,
                             SchoolYearTerm = declarations.FirstOrDefault().SchoolYearTerm,
                             Textbook = m.Key,
                             PlanCount = m.Sum(s => s.DeclarationCount),

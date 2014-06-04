@@ -13,7 +13,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// Éê±¨ID
         /// </summary>
-        public Guid DeclarationId { get; set; }
+        //public Guid DeclarationId { get; set; }
         /// <summary>
         /// ½Ì²ÄID
         /// </summary>

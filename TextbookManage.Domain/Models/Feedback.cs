@@ -16,7 +16,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 指御ID
         /// </summary>
-        public Guid FeedbackId { get; set; }
+        //public Guid FeedbackId { get; set; }
         /// <summary>
         /// 指御繁
         /// </summary>

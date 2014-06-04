@@ -15,7 +15,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// ≤÷ø‚ID
         /// </summary>
-        public Guid StorageId { get; set; }
+        //public Guid StorageId { get; set; }
         /// <summary>
         ///  È…ÃID
         /// </summary>

@@ -7,7 +7,7 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// ø‚¥Ê
     /// </summary>
-    public class Inventory:AggregateRoot
+    public class Inventory : AggregateRoot
     {
         public Inventory()
         {
@@ -19,7 +19,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// ø‚¥ÊID
         /// </summary>
-        public Guid InventoryId { get; set; }
+        //public Guid InventoryId { get; set; }
         /// <summary>
         /// ≤÷ø‚ID
         /// </summary>

@@ -19,13 +19,13 @@ namespace TextbookManage.Domain.Models.JiaoWu
             {
                 return false;
             }
-            return x.SchoolId == y.SchoolId;
+            return x.ID == y.ID;
         }
 
         public int GetHashCode(School obj)
         {
             if (object.ReferenceEquals(obj, null)) return 0;
-            return obj.SchoolId.GetHashCode();
+            return obj.ID.GetHashCode();
         }
     }
 }

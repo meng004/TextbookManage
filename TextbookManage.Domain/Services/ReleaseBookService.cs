@@ -22,7 +22,7 @@ namespace TextbookManage.Domain
        {
            var stuRel = new StudentReleaseRecord() 
            {
-               ReleaseRecordId=releaseRecordId,
+               ID=releaseRecordId,
                Class_Id = classId
            };
 
@@ -39,7 +39,7 @@ namespace TextbookManage.Domain
        {
            var stuRel = new StudentReleaseRecord()
            {
-               ReleaseRecordId = releaseRecordId,
+               ID = releaseRecordId,
                Student_Id = studentId
            };
 
@@ -54,7 +54,7 @@ namespace TextbookManage.Domain
        /// <returns></returns>
        public static InStockRecord CreateStockRecord(Guid stockRecordId)
        {
-           var stockRecord = new InStockRecord() { StockRecordId = stockRecordId };
+           var stockRecord = new InStockRecord() { ID = stockRecordId };
 
            return stockRecord;
        }
@@ -70,8 +70,8 @@ namespace TextbookManage.Domain
            var inventoryRepo = ServiceLocator.Current.GetInstance<IInventoryRepository>();
            var inventory = new Inventory()
                {
-                   InventoryId = inventoryId,
-                   InventoryCount = inventoryRepo.First(i => i.InventoryId == inventoryId).InventoryCount - stockCount
+                   ID = inventoryId,
+                   InventoryCount = inventoryRepo.First(i => i.ID == inventoryId).InventoryCount - stockCount
                };
            return inventory;
        }
@@ -86,8 +86,8 @@ namespace TextbookManage.Domain
            var inventoryRepo = ServiceLocator.Current.GetInstance<IInventoryRepository>();
            var inventory = new Inventory()
            {
-               InventoryId = inventoryId,
-               InventoryCount = inventoryRepo.First(i => i.InventoryId == inventoryId).InventoryCount + stockCount
+               ID = inventoryId,
+               InventoryCount = inventoryRepo.First(i => i.ID == inventoryId).InventoryCount + stockCount
            };
            return inventory;
        }
@@ -128,7 +128,7 @@ namespace TextbookManage.Domain
        {
            var releaseRecord = new StudentReleaseRecord
                {
-                   ReleaseRecordId = releaseRecordId,
+                   ID = releaseRecordId,
                    StockRecord_Id = stockRecordId,
                    Textbook_Id = textbookId,
                    Bookseller_Id = booksellerId,

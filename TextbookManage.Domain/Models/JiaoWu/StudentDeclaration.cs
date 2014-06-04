@@ -16,7 +16,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 申报ID
         /// </summary>
-        public Guid DeclarationId { get; set; }
+        //public Guid DeclarationId { get; set; }
         /// <summary>
         /// 订单ID
         /// </summary>

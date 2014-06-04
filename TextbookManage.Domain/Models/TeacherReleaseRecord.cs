@@ -8,7 +8,6 @@ namespace TextbookManage.Domain.Models
     {
         public TeacherReleaseRecord()
         {
-            RecipientType = RecipientType.ΩÃ ¶;
             IdCardType = IDCardType.IdentityCard;
         }
 

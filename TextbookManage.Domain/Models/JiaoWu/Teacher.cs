@@ -17,7 +17,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 教师ID
         /// </summary>
-        public System.Guid TeacherId { get; set; }
+        //public System.Guid TeacherId { get; set; }
         /// <summary>
         /// 教师编号
         /// </summary>

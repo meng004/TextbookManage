@@ -7,12 +7,12 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// 书商员工
     /// </summary>
-    public class BooksellerStaff
+    public class BooksellerStaff : AggregateRoot
     {
         /// <summary>
         /// 员工ID
         /// </summary>
-        public Guid BooksellerStaffId { get; set; }
+        //public Guid BooksellerStaffId { get; set; }
         /// <summary>
         /// 书商ID
         /// </summary>

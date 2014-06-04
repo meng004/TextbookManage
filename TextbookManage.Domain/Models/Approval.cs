@@ -1,12 +1,12 @@
 using System;
 namespace TextbookManage.Domain.Models
 {
-    public class Approval 
+    public class Approval : AggregateRoot
     {
         /// <summary>
         /// …Û∫Àº«¬ºID
         /// </summary>
-        public Guid ApprovalId { get; set; }
+        //public Guid ApprovalId { get; set; }
         /// <summary>
         /// …Û∫À≤ø√≈
         /// </summary>

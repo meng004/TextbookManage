@@ -19,7 +19,7 @@ namespace TextbookManage.Domain
         {
             var stockRecord = new T
             {           
-                Inventory_Id=inventory.InventoryId,
+                Inventory_Id=inventory.ID,
                 Operator = person,
                 StockCount = stockCount,
                 StockDate = DateTime.Now

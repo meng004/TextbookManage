@@ -11,7 +11,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 发放记录ID
         /// </summary>
-        public System.Guid ReleaseRecordId { get; set; }
+        //public System.Guid ReleaseRecordId { get; set; }
         /// <summary>
         /// 库存变更记录ID
         /// </summary>
@@ -41,10 +41,6 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public string Press { get; set; }
         /// <summary>
-        /// 出版社地址
-        /// </summary>
-        public string PressAddress { get; set; }
-        /// <summary>
         /// 版本
         /// </summary>
         public int Edition { get; set; }
@@ -73,14 +69,6 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public string TextbookType { get; set; }
         /// <summary>
-        /// 是否自编教材
-        /// </summary>
-        public bool IsSelfCompile { get; set; }
-        /// <summary>
-        /// 总页数
-        /// </summary>
-        public int PageCount { get; set; }
-        /// <summary>
         /// 学院ID
         /// </summary>
         public System.Guid School_Id { get; set; }
@@ -91,11 +79,11 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 学年学期
         /// </summary>
-        public string Term { get; set; }
+        public SchoolYearTerm SchoolYearTerm { get; set; }
         /// <summary>
         /// 发放日期
         /// </summary>
-        public System.DateTime ReleaseDate { get; set; }
+        public System.DateTime? ReleaseDate { get; set; }
         /// <summary>
         /// 发放数量
         /// </summary>
@@ -108,12 +96,6 @@ namespace TextbookManage.Domain.Models
         /// 书商名称
         /// </summary>
         public string BooksellerName { get; set; }
-        /// <summary>
-        /// 领用人类型
-        /// </summary>
-        public RecipientType RecipientType { get; set; }
-        //public virtual StudentReleaseRecord ReleaseRecord_Student { get; set; }
-        //public virtual TeacherReleaseRecord ReleaseRecord_Teacher { get; set; }
         /// <summary>
         /// 出库记录
         /// </summary>

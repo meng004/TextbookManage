@@ -9,10 +9,6 @@ namespace TextbookManage.Domain.Models
     /// </summary>
     public class StudentReleaseRecord : ReleaseRecord
     {
-        public StudentReleaseRecord()
-        {
-            this.RecipientType = RecipientType.学生;
-        }
 
         #region 属性
 
@@ -61,7 +57,7 @@ namespace TextbookManage.Domain.Models
         /// 学生
         /// </summary>
         public virtual Student Student { get; set; }
-        //public virtual ReleaseRecord ReleaseRecord { get; set; }
+        
         #endregion
     }
 }

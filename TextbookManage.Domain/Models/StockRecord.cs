@@ -8,17 +8,12 @@ namespace TextbookManage.Domain.Models
     /// </summary>
     public class StockRecord : AggregateRoot
     {
-        public StockRecord()
-        {
-
-        }
-
         #region 属性
 
         /// <summary>
         /// 库存变更记录ID
         /// </summary>
-        public Guid StockRecordId { get; set; }
+        //public Guid StockRecordId { get; set; }
         /// <summary>
         /// 库存ID
         /// </summary>

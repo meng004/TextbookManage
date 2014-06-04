@@ -21,7 +21,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// ½Ì²ÄID
         /// </summary>
-        public Guid TextbookId { get; set; }
+        //public Guid TextbookId { get; set; }
         /// <summary>
         /// ½Ì²ÄÃû³Æ
         /// </summary>

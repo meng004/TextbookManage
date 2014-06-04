@@ -17,7 +17,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// ∂©µ•ID
         /// </summary>
-        public Guid SubscriptionId { get; set; }
+        //public Guid SubscriptionId { get; set; }
         /// <summary>
         ///  È…ÃID
         /// </summary>

@@ -15,7 +15,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// ¿Î³ÌID
         /// </summary>
-        public Guid CourseId { get; set; }
+        //public Guid CourseId { get; set; }
         /// <summary>
         /// ¿Î³Ì±àºÅ
         /// </summary>

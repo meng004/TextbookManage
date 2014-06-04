@@ -21,7 +21,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 部门ID
         /// </summary>
-        public System.Guid DepartmentId { get; set; }
+        //public System.Guid DepartmentId { get; set; }
         /// <summary>
         /// 部门编号
         /// </summary>

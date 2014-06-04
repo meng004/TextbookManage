@@ -107,7 +107,6 @@
     <Compile Include="Models\Comparer\SchoolComparer.cs" />
     <Compile Include="Models\Comparer\TextbookComparer.cs" />
     <Compile Include="Models\DeclarationApproval.cs" />
-    <Compile Include="Models\DeclarationClass.cs" />
     <Compile Include="Models\DeclarationState.cs" />
     <Compile Include="Models\DepartmentProgress.cs" />
     <Compile Include="Models\DiscountStrategyByName.cs" />
@@ -138,7 +137,6 @@
     <Compile Include="Models\JiaoWu\Term.cs" />
     <Compile Include="Models\JiaoWu\Textbook.cs" />
     <Compile Include="Models\OutStockRecord.cs" />
-    <Compile Include="Models\RecipientType.cs" />
     <Compile Include="Models\ReleaseRecord.cs" />
     <Compile Include="Models\ResponsibilityTeacher.cs" />
     <Compile Include="Models\Role.cs" />

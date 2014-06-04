@@ -9,7 +9,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
     {
         public TeachingTask()
         {
-            Teachers = new List<Teacher>();
+            TeachingTaskTeachers = new List<TeachingTaskTeacher>();
             ProfessionalClasses = new List<ProfessionalClass>();
         }
 
@@ -72,7 +72,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 授课教师集合
         /// 理论教师、实验教师等
         /// </summary>
-        public virtual ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<TeachingTaskTeacher> TeachingTaskTeachers { get; set; }
         /// <summary>
         /// 行政班集合
         /// </summary>
