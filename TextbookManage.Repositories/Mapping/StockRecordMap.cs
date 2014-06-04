@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public StockRecordMap()
         {
             // Primary Key
-            this.HasKey(t => t.StockRecordId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Operator)
@@ -17,7 +17,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("StockRecord", "Textbook");
-            this.Property(t => t.StockRecordId).HasColumnName("StockRecordID");
+            this.Property(t => t.ID).HasColumnName("StockRecordID");
             this.Property(t => t.Inventory_Id).HasColumnName("Inventory_ID");
             this.Property(t => t.StockCount).HasColumnName("StockCount");
             this.Property(t => t.StockDate).HasColumnName("StockDate");

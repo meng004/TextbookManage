@@ -9,10 +9,10 @@ namespace TextbookManage.Repositories.Mapping
         public BooksellerStaffMap()
         {
             // Primary Key
-            this.HasKey(t => t.BooksellerStaffId);
+            this.HasKey(t => t.ID);
 
             // Properties
-            this.Property(t => t.BooksellerStaffId)
+            this.Property(t => t.ID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             this.Property(t => t.StaffName)
@@ -21,6 +21,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("BooksellerStaff", "Textbook");
+            this.Property(t => t.ID).HasColumnName("BooksellerStaffID");
             this.Property(t => t.Bookseller_Id).HasColumnName("BookSeller_ID");            
             this.Property(t => t.StaffName).HasColumnName("StaffName");
             this.Property(t => t.Gender).HasColumnName("Gender");

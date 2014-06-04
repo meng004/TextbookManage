@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public ApprovalMap()
         {
             // Primary Key
-            this.HasKey(t => t.ApprovalId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Division)
@@ -24,7 +24,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("Approval", "Textbook");
-            this.Property(t => t.ApprovalId).HasColumnName("ApprovalID");
+            this.Property(t => t.ID).HasColumnName("ApprovalID");
             this.Property(t => t.Division).HasColumnName("Division");
             this.Property(t => t.Auditor).HasColumnName("Auditor");
             this.Property(t => t.ApprovalDate).HasColumnName("ApprovalDate");

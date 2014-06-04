@@ -9,7 +9,7 @@ namespace TextbookManage.Repositories.Mapping
         public FeedbackMap()
         {
             // Primary Key
-            this.HasKey(t => t.FeedbackId);            
+            this.HasKey(t => t.ID);            
 
             // Properties
             this.Property(t => t.Person)
@@ -21,7 +21,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("Feedback", "Textbook");
-            this.Property(t => t.FeedbackId).HasColumnName("FeedbackID");
+            this.Property(t => t.ID).HasColumnName("FeedbackID");
             this.Property(t => t.Person).HasColumnName("Person");
             this.Property(t => t.FeedbackDate).HasColumnName("FeedbackDate");
             this.Property(t => t.FeedbackState).HasColumnName("FeedbackState");

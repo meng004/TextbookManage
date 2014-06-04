@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
         public CourseMap()
         {
             // Primary Key
-            this.HasKey(t => t.CourseId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Num)
@@ -21,7 +21,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             // Table & Column Mappings
             this.ToTable("JCSJ_KCXX", "dbo");
-            this.Property(t => t.CourseId).HasColumnName("KCID");
+            this.Property(t => t.ID).HasColumnName("KCID");
             this.Property(t => t.Num).HasColumnName("KCH");
             this.Property(t => t.Name).HasColumnName("KCMC");
 

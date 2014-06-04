@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
         public ProfessionalClassMap()
         {
             // Primary Key
-            this.HasKey(t => t.ProfessionalClassId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Num)
@@ -25,7 +25,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             // Table & Column Mappings
             this.ToTable("V_JCSJ_YXSBJB", "dbo");
-            this.Property(t => t.ProfessionalClassId).HasColumnName("BJID");
+            this.Property(t => t.ID).HasColumnName("BJID");
             this.Property(t => t.Num).HasColumnName("BH");
             this.Property(t => t.Name).HasColumnName("BJMC");
             this.Property(t => t.Grade).HasColumnName("NJ");

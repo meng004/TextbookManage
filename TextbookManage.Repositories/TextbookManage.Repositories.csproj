@@ -74,14 +74,11 @@
     <Compile Include="Mapping\BooksellerMap.cs" />
     <Compile Include="Mapping\BooksellerStaffMap.cs" />
     <Compile Include="Mapping\CasMapperMap.cs" />
-    <Compile Include="Mapping\DeclarationApprovalMap.cs" />
-    <Compile Include="Mapping\DeclarationClassMap.cs" />
     <Compile Include="Mapping\FeedbackApprovalMap.cs" />
     <Compile Include="Mapping\FeedbackMap.cs" />
     <Compile Include="Mapping\InventoryMap.cs" />
     <Compile Include="Mapping\JiaoWu\CourseMap.cs" />
     <Compile Include="Mapping\JiaoWu\DataSignMap.cs" />
-    <Compile Include="Mapping\JiaoWu\DeclarationMap.cs" />
     <Compile Include="Mapping\JiaoWu\DepartmentMap.cs" />
     <Compile Include="Mapping\JiaoWu\PressMap.cs" />
     <Compile Include="Mapping\JiaoWu\ProfessionalClassMap.cs" />
@@ -93,6 +90,7 @@
     <Compile Include="Mapping\JiaoWu\TeacherDeclarationMap.cs" />
     <Compile Include="Mapping\JiaoWu\TeacherMap.cs" />
     <Compile Include="Mapping\JiaoWu\TeachingTaskMap.cs" />
+    <Compile Include="Mapping\JiaoWu\TeachingTaskTeacherMap.cs" />
     <Compile Include="Mapping\JiaoWu\TermMap.cs" />
     <Compile Include="Mapping\JiaoWu\TextbookMap.cs" />
     <Compile Include="Mapping\ReleaseRecordMap.cs" />
@@ -103,7 +101,6 @@
     <Compile Include="Mapping\SubscriptionMap.cs" />
     <Compile Include="Mapping\TbmisUserMap.cs" />
     <Compile Include="Mapping\TeacherReleaseRecordMap.cs" />
-    <Compile Include="Mapping\TextbookApprovalMap.cs" />
     <Compile Include="OutStockRecordRepository.cs" />
     <Compile Include="PressRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

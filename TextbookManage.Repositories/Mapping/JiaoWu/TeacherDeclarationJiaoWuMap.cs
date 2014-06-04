@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
         public TeacherDeclarationJiaoWuMap()
         {
             // Primary Key
-            this.HasKey(t => t.DeclarationId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.DataSign_Id)
@@ -21,7 +21,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             // Table & Column Mappings
             this.ToTable("V_TextBook_TeacherTextBook", "dbo");
-            this.Property(t => t.DeclarationId).HasColumnName("JSKCYSID");
+            this.Property(t => t.ID).HasColumnName("JSKCYSID");
             this.Property(t => t.Textbook_Id).HasColumnName("JCID");
             this.Property(t => t.Course_Id).HasColumnName("KCID");            
             this.Property(t => t.School_Id).HasColumnName("YXSID");

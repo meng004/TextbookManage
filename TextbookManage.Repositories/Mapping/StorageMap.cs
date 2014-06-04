@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public StorageMap()
         {
             // Primary Key
-            this.HasKey(t => t.StorageId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Name)
@@ -20,7 +20,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("Storage", "Textbook");
-            this.Property(t => t.StorageId).HasColumnName("StorageID");
+            this.Property(t => t.ID).HasColumnName("StorageID");
             this.Property(t => t.Bookseller_Id).HasColumnName("Bookseller_ID");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Address).HasColumnName("Address");

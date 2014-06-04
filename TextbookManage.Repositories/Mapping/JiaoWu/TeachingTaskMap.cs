@@ -31,18 +31,22 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.DataSign_Id).HasColumnName("SJBS");
             this.Property(t => t.HeadCount).HasColumnName("ZRS");
 
+            this.Ignore(t => t.ID);
+
             // Relationships
             //教学任务教师多对多映射
             //这里只取理论教师
             //未处理实验教师、上机教师
-            this.HasMany(t => t.Teachers)
-                .WithMany(t => t.TeachingTasks)
-                .Map(m =>
-                    {
-                        m.ToTable("KK_JXBJSB", "dbo");
-                        m.MapLeftKey("JXBBH");
-                        m.MapRightKey("ZGID");
-                    });
+            //this.HasMany(t => t.TeachingTaskTeachers)
+            //    .WithMany(t => t.TeachingTasks)
+            //    .Map(m =>
+            //        {
+            //            m.ToTable("KK_JXBJSB", "dbo");
+            //            m.MapLeftKey("JXBBH");
+            //            m.MapRightKey("ZGID");
+            //        });
+
+            
 
             //班级：教学任务，M：N
             this.HasMany(t => t.ProfessionalClasses)

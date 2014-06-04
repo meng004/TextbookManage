@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public SubscriptionMap()
         {
             // Primary Key
-            this.HasKey(t => t.SubscriptionId);
+            this.HasKey(t => t.ID);
 
             // Properties
             //this.Property(t => t.Term)
@@ -17,12 +17,12 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("Subscription", "Textbook");
-            this.Property(t => t.SubscriptionId).HasColumnName("SubscriptionID");
+            this.Property(t => t.ID).HasColumnName("SubscriptionID");
             this.Property(t => t.Bookseller_Id).HasColumnName("Bookseller_ID");
             this.Property(t => t.Textbook_Id).HasColumnName("Textbook_ID");
             this.Property(t => t.Feedback_Id).HasColumnName("Feedback_ID");
-            this.Property(t => t.SchoolYearTerm.Year).HasColumnName("Year");
-            this.Property(t => t.SchoolYearTerm.Term).HasColumnName("Term");
+            this.Property(t => t.SchoolYearTerm.Year).HasColumnName("SchoolYear");
+            this.Property(t => t.SchoolYearTerm.Term).HasColumnName("SchoolTerm");
             this.Property(t => t.PlanCount).HasColumnName("PlanCount");
             this.Property(t => t.SpareCount).HasColumnName("SpareCount");
             this.Property(t => t.SubscriptionDate).HasColumnName("SubscriptionDate");           

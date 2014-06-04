@@ -3,7 +3,7 @@ using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Repositories.Mapping
 {
-    public class FeedbackApprovalMap:EntityTypeConfiguration<FeedbackApproval>
+    public class FeedbackApprovalMap : EntityTypeConfiguration<FeedbackApproval>
     {
         public FeedbackApprovalMap()
         {

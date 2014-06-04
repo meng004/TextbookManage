@@ -23,7 +23,7 @@ namespace TextbookManage.Repositories.Mapping
             this.Property(t => t.PreIsbn).HasColumnName("CBSBM");
             //this.Property(t => t.PressId).HasColumnName("PressID");
 
-
+            this.Ignore(t => t.ID);
         }
     }
 }

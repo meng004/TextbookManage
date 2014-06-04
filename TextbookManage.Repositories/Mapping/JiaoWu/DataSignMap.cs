@@ -17,6 +17,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.DataSignId).HasColumnName("SJBSID");
             this.Property(t => t.Name).HasColumnName("SJBSMC");
 
+            this.Ignore(t => t.ID);
         }
     }
 }

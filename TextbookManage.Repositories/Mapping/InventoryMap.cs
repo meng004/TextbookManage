@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public InventoryMap()
         {
             // Primary Key
-            this.HasKey(t => t.InventoryId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.ShelfNumber)
@@ -16,7 +16,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("Inventory", "Textbook");
-            this.Property(t => t.InventoryId).HasColumnName("InventoryID");
+            this.Property(t => t.ID).HasColumnName("InventoryID");
             this.Property(t => t.Storage_Id).HasColumnName("Storage_ID");
             this.Property(t => t.Textbook_Id).HasColumnName("Textbook_ID");
             this.Property(t => t.ShelfNumber).HasColumnName("ShelfNumber");

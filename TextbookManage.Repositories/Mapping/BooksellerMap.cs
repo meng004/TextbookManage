@@ -9,9 +9,9 @@ namespace TextbookManage.Repositories.Mapping
         public BooksellerMap()
         {
             // Primary Key
-            this.HasKey(t => t.BooksellerId);
+            this.HasKey(t => t.ID);
 
-            this.Property(t => t.BooksellerId)
+            this.Property(t => t.ID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             this.Property(t => t.Name)

@@ -22,6 +22,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.DqXnXqBz).HasColumnName("DQXNXQBZ");
             //²»Ó³ÉäIscurrentÊôÐÔ
             this.Ignore(t => t.IsCurrent);
+            this.Ignore(t => t.ID);
         }
     }
 }

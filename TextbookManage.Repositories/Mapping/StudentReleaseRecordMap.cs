@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public StudentReleaseRecordMap()
         {
             // Primary Key
-            this.HasKey(t => t.ReleaseRecordId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.ClassName)
@@ -41,7 +41,7 @@ namespace TextbookManage.Repositories.Mapping
 
             // Table & Column Mappings
             this.ToTable("ReleaseRecord_Student", "Textbook");
-            this.Property(t => t.ReleaseRecordId).HasColumnName("ReleaseRecordID");
+            this.Property(t => t.ID).HasColumnName("ReleaseRecordID");
             this.Property(t => t.Class_Id).HasColumnName("Class_ID");
             this.Property(t => t.ClassName).HasColumnName("ClassName");
             this.Property(t => t.Student_Id).HasColumnName("Student_ID");
