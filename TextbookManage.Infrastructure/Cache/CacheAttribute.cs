@@ -38,7 +38,10 @@
         /// 获取或设置缓存方式。
         /// </summary>
         public CacheMethod Method { get; set; }
-
+        /// <summary>
+        /// 获取或设置一个<see cref="Boolean"/>值，该值表示当缓存方式为Put时，是否强制将值写入缓存中。
+        /// </summary>
+        public bool Force { get; set; }
         /// <summary>
         /// 获取或设置与当前缓存方式相关的方法名称。注：此参数仅在缓存方式为Remove时起作用。
         /// </summary>

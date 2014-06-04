@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Runtime.Caching;
 
-    public class CacheProvider : ICacheProvider
+    public class MemoryCacheProvider : ICacheProvider
     {
 
         #region 属性与构造函数
@@ -22,7 +22,7 @@
         /// </summary>
         readonly CacheItemPolicy _defaultPolicy;
 
-        public CacheProvider()
+        public MemoryCacheProvider()
         {
             _cache = MemoryCache.Default;
             _defaultPolicy = new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 1, 0) };
@@ -32,13 +32,8 @@
 
         #region 实现接口
 
-        public void Add(string key, string valKey, object value, CacheItemPolicy policy = null)
+        public void Add(string key, string valKey, object value)
         {
-            if (policy == null)
-            {
-                policy = _defaultPolicy;
-            }
-
             //字典，保存输入参数与方法的返回值
             Dictionary<string, object> dict = null;
             //如果存在该方法的缓存项，则更新
@@ -53,7 +48,12 @@
                 dict.Add(valKey, value);
             }
 
-            _cache.Set(key, dict, policy);
+            _cache.Set(key, dict, _defaultPolicy);
+        }
+
+        public void Put(string key, string valKey, object value)
+        {
+            Add(key, valKey, value);
         }
 
         public object Get(string key, string valKey)
@@ -75,7 +75,7 @@
             _cache.Remove(key);
         }
 
-        public void RemoveByKey(string key)
+        public void RemoveAll(string key)
         {
             foreach (var item in _cache)
             {
@@ -106,6 +106,6 @@
             }
         }
         #endregion
-
+        
     }
 }

@@ -126,7 +126,7 @@
             {
                 //移除该拦截目标的全部缓存
                 var key = input.Target.ToString();
-                _cache.RemoveByKey(key);
+                _cache.Remove(key);
 
                 var methodReturn = getNext().Invoke(input, getNext);
                 return methodReturn;
