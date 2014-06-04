@@ -14,6 +14,13 @@ namespace TextbookManage.Repositories.Test
     [TestClass]
     public class SchoolRepositoryTest
     {
+        IRepositoryContext _context;
+        [TestInitialize]
+        public void Initialize()
+        {
+            _context = new EntityFrameworkRepositoryContext();
+        }
+
         [TestMethod]
         public void AddBookseller()
         {
@@ -24,6 +31,14 @@ namespace TextbookManage.Repositories.Test
             repo.Context.Commit();
             var result = repo.Single(t => t.Contact == bookseller.Contact && t.Name == bookseller.Name && t.Telephone == bookseller.Telephone);
             Assert.IsNotNull(result.BooksellerId);
+        }
+
+        [TestMethod]
+        public void GetStudentDeclarationJiaoWu()
+        {
+            var repo = new StudentDeclarationJiaoWuRepository(_context);
+            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            Assert.IsTrue(results.Count() > 0);
         }
 
         [TestMethod]
