@@ -8,17 +8,29 @@ using TextbookManage.Domain.Models;
 using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Domain.Models.JiaoWu;
+using System.Transactions;
 
 namespace TextbookManage.Repositories.Test
 {
     [TestClass]
     public class SchoolRepositoryTest
     {
+        //仓储上下文
         IRepositoryContext _context;
+        //事务
+        TransactionScope _trans;
         [TestInitialize]
         public void Initialize()
         {
             _context = new EntityFrameworkRepositoryContext();
+            _trans = new TransactionScope();
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            //回滚事务，清除对数据库的操作，如新建记录
+            _trans.Dispose();
         }
 
         [TestMethod]
@@ -30,7 +42,7 @@ namespace TextbookManage.Repositories.Test
             repo.Add(bookseller);
             repo.Context.Commit();
             var result = repo.Single(t => t.Contact == bookseller.Contact && t.Name == bookseller.Name && t.Telephone == bookseller.Telephone);
-            Assert.IsNotNull(result.BooksellerId);
+            Assert.IsNotNull(result.ID);
         }
 
         [TestMethod]
@@ -39,6 +51,39 @@ namespace TextbookManage.Repositories.Test
             var repo = new StudentDeclarationJiaoWuRepository(_context);
             var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
             Assert.IsTrue(results.Count() > 0);
+        }
+
+        [TestMethod]
+        public void GetTeacherDeclarationJiaoWu()
+        {
+            var repo = new TeacherDeclarationJiaoWuRepository(_context);
+            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            Assert.IsTrue(results.Count() > 0);
+        }
+
+        [TestMethod]
+        public void GetStudentDeclaration()
+        {
+            var repo = new StudentDeclarationRepository(_context);
+            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            Assert.IsTrue(results.Count() > 0);
+        }
+
+        [TestMethod]
+        public void GetDataSign()
+        {
+            var repo = new DataSignRepository(_context);
+            var results = repo.GetAll();
+            Assert.IsTrue(results.Count() > 0);
+        }
+
+        [TestMethod]
+        public void GetStudentDeclarationsOfDepartment()
+        {
+            var repo = new DepartmentRepository(_context);
+            var id = "B1D98237-5AB1-482A-BFC6-C2000E749962".ConvertToGuid();
+            var result = repo.Single(t => t.ID == id);
+            Assert.IsTrue(result.StudentDeclarations.Count > 0);
         }
 
         [TestMethod]
@@ -114,14 +159,6 @@ namespace TextbookManage.Repositories.Test
             Assert.IsTrue(result.Count() > 0);
         }
 
-        [TestMethod]
-        public void GetDataSign()
-        {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new DataSignRepository(uow);
-            var result = repo.GetAll();
-            Assert.IsTrue(result.Count() > 0);
-        }
 
         [TestMethod]
         public void GetDepartment()

@@ -11,7 +11,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             this.ToTable("TeacherDeclaration", "Textbook");
 
-            this.Property(t => t.ID).HasColumnName("DeclarationID");
+            this.Property(t => t.ID).HasColumnName("Declaration_ID");
             this.Property(t => t.Subscription_Id).HasColumnName("Subscription_ID");
             this.Property(t => t.HadViewFeedback).HasColumnName("HadViewFeedback");
             this.Property(t => t.ViewFeedbackDate).HasColumnName("ViewFeedbackDate");
@@ -24,14 +24,14 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                 .HasForeignKey(d => d.Subscription_Id);
 
             //教材：申报
-            this.HasRequired(t => t.Textbook)
-                .WithMany(t => t.TeacherDeclarations)
-                .HasForeignKey(d => d.Textbook_Id);
+            //this.HasRequired(t => t.Textbook)
+            //    .WithMany(t => t.TeacherDeclarations)
+            //    .HasForeignKey(d => d.Textbook_Id);
 
             //部门：教师用书申报，1:N
-            this.HasRequired(t => t.Department)
-                .WithMany(t => t.TeacherDeclarations)
-                .HasForeignKey(d => d.Department_Id);
+            //this.HasRequired(t => t.Department)
+            //    .WithMany(t => t.TeacherDeclarations)
+            //    .HasForeignKey(d => d.Department_Id);
         }
     }
 }

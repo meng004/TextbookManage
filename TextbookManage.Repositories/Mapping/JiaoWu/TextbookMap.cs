@@ -9,7 +9,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
         public TextbookMap()
         {
             // Primary Key
-            this.HasKey(t => t.TextbookId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Name)
@@ -45,7 +45,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             // Table & Column Mappings
             this.ToTable("V_TextBook", "dbo");
-            this.Property(t => t.TextbookId).HasColumnName("JCID");
+            this.Property(t => t.ID).HasColumnName("JCID");
             this.Property(t => t.Name).HasColumnName("JCMC");
             this.Property(t => t.Isbn).HasColumnName("ISBN");
             this.Property(t => t.Author).HasColumnName("ZZ");

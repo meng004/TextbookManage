@@ -26,11 +26,9 @@ namespace TextbookManage.Repositories.Mapping
                 .IsRequired()
                 .HasMaxLength(20);
 
-            this.Ignore(t => t.ID);
-
             // Table & Column Mappings
             this.ToTable("Bookseller", "Textbook");
-            this.Property(t => t.BooksellerId).HasColumnName("BookSellerID");
+            this.Property(t => t.ID).HasColumnName("BookSellerID");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Contact).HasColumnName("Contact");
             this.Property(t => t.Telephone).HasColumnName("Telephone");
