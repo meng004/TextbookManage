@@ -11,9 +11,9 @@ namespace TextbookManage.Domain.Models.JiaoWu
             this.Teachers = new List<Teacher>();
             this.TeachingTasks = new List<TeachingTask>();
             StudentDeclarationJiaoWus = new List<StudentDeclarationJiaoWu>();
-            StudentDeclarations = new List<StudentDeclaration>();
+            //StudentDeclarations = new List<StudentDeclaration>();
             TeacherDeclarationJiaoWus = new List<TeacherDeclarationJiaoWu>();
-            TeacherDeclarations = new List<TeacherDeclaration>();
+            //TeacherDeclarations = new List<TeacherDeclaration>();
         }
 
         #region 属性
@@ -61,11 +61,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 学生用书申报
         /// </summary>
-        public virtual ICollection<StudentDeclaration> StudentDeclarations { get; set; }
+        //public virtual ICollection<StudentDeclaration> StudentDeclarations { get; set; }
         /// <summary>
         /// 教师用书申报
         /// </summary>
-        public virtual ICollection<TeacherDeclaration> TeacherDeclarations { get; set; }
+        //public virtual ICollection<TeacherDeclaration> TeacherDeclarations { get; set; }
         #endregion
     }
 }

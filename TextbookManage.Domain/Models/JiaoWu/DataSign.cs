@@ -17,6 +17,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
             Name = "不区分";
 
             TeachingTasks = new List<TeachingTask>();
+            StudentDeclarationJiaoWus = new List<StudentDeclarationJiaoWu>();
+            TeacherDeclarationJiaoWus = new List<TeacherDeclarationJiaoWu>();
         }
         /// <summary>
         /// 数据标识ID
@@ -30,5 +32,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 教学任务集合
         /// </summary>
         public virtual ICollection<TeachingTask> TeachingTasks { get; set; }
+        public virtual ICollection<StudentDeclarationJiaoWu> StudentDeclarationJiaoWus { get; set; }
+        public virtual ICollection<TeacherDeclarationJiaoWu> TeacherDeclarationJiaoWus { get; set; }
     }
 }

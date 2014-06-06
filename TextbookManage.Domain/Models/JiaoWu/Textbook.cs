@@ -8,8 +8,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
     {
         public Textbook()
         {
-            StudentDeclarations = new List<StudentDeclaration>();
-            TeacherDeclarations = new List<TeacherDeclaration>();
+            //StudentDeclarations = new List<StudentDeclaration>();
+            //TeacherDeclarations = new List<TeacherDeclaration>();
             StudentDeclarationJiaoWus = new List<StudentDeclarationJiaoWu>();
             TeacherDeclarationJiaoWus = new List<TeacherDeclarationJiaoWu>();
             Subscriptions = new List<Subscription>();
@@ -61,11 +61,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 学生用书申报
         /// </summary>
-        public virtual ICollection<StudentDeclaration> StudentDeclarations { get; set; }
+        //public virtual ICollection<StudentDeclaration> StudentDeclarations { get; set; }
         /// <summary>
         /// 教师用书申报
         /// </summary>
-        public virtual ICollection<TeacherDeclaration> TeacherDeclarations { get; set; }
+        //public virtual ICollection<TeacherDeclaration> TeacherDeclarations { get; set; }
         /// <summary>
         /// 教务学生用书申报
         /// </summary>

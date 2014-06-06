@@ -7,11 +7,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// </summary>
     public class StudentDeclaration : StudentDeclarationJiaoWu
     {
-        public StudentDeclaration()
-        {
-            HadViewFeedback = false;
-            ViewFeedbackDate = null;
-        }
+        //public StudentDeclaration()
+        //{
+        //    HadViewFeedback = false;
+        //    ViewFeedbackDate = null;
+        //}
         #region 属性
         /// <summary>
         /// 申报ID

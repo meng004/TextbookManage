@@ -70,6 +70,14 @@ namespace TextbookManage.Repositories.Test
         }
 
         [TestMethod]
+        public void GetTeacherDeclaration()
+        {
+            var repo = new TeacherDeclarationRepository(_context);
+            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            Assert.IsTrue(results.Count() > 0);
+        }
+
+        [TestMethod]
         public void GetDataSign()
         {
             var repo = new DataSignRepository(_context);
@@ -232,14 +240,6 @@ namespace TextbookManage.Repositories.Test
             Assert.IsTrue(result.Count() == 0);
         }
 
-        [TestMethod]
-        public void GetTeacherDeclaration()
-        {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeacherDeclarationRepository(uow);
-            var result = repo.GetAll();
-            Assert.IsTrue(result.Count() > 0);
-        }
 
         [TestMethod]
         public void GetTeacherReleaseRecord()

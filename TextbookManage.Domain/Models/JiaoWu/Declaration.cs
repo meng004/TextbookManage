@@ -5,7 +5,7 @@ using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Domain.Models.JiaoWu
 {
-    public class Declaration : AggregateRoot
+    public abstract class Declaration : AggregateRoot
     {
 
         #region  Ù–‘
@@ -69,6 +69,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// </summary>
         public virtual DataSign DataSign { get; set; }
         #endregion
+
 
     }
 }
