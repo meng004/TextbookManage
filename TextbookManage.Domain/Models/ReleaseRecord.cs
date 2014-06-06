@@ -6,7 +6,7 @@ namespace TextbookManage.Domain.Models
     /// <summary>
     /// 发放记录
     /// </summary>
-    public class ReleaseRecord : AggregateRoot
+    public abstract class ReleaseRecord : AggregateRoot
     {
         /// <summary>
         /// 发放记录ID

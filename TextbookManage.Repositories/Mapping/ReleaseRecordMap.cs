@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using TextbookManage.Domain.Models;
 
@@ -11,6 +12,9 @@ namespace TextbookManage.Repositories.Mapping
             this.HasKey(t => t.ID);
 
             // Properties
+            this.Property(t => t.ID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
             this.Property(t => t.Num)
                 .IsRequired();
 
@@ -42,7 +46,7 @@ namespace TextbookManage.Repositories.Mapping
                 .HasMaxLength(200);
 
             // Table & Column Mappings
-            this.ToTable("ReleaseRecord", "Textbook");
+            //this.ToTable("ReleaseRecord", "Textbook");
             this.Property(t => t.ID).HasColumnName("ReleaseRecordID");
             this.Property(t => t.StockRecord_Id).HasColumnName("StockRecord_ID");
             this.Property(t => t.Textbook_Id).HasColumnName("Textbook_ID");
