@@ -53,6 +53,10 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.HasRequired(t => t.School)
                 .WithMany(t => t.StudentDeclarationJiaoWus)
                 .HasForeignKey(d => d.School_Id);
+            //数据标识:教务学生用书申报，1：N
+            this.HasRequired(t => t.DataSign)
+                .WithMany(t => t.StudentDeclarationJiaoWus)
+                .HasForeignKey(t => t.DataSign_Id);
         }
     }
 }

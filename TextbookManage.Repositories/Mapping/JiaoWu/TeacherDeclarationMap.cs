@@ -11,7 +11,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
             this.ToTable("TeacherDeclaration", "Textbook");
 
-            this.Property(t => t.ID).HasColumnName("Declaration_ID");
+            //this.Property(t => t.ID).HasColumnName("JSKCYSID");
             this.Property(t => t.Subscription_Id).HasColumnName("Subscription_ID");
             this.Property(t => t.HadViewFeedback).HasColumnName("HadViewFeedback");
             this.Property(t => t.ViewFeedbackDate).HasColumnName("ViewFeedbackDate");
