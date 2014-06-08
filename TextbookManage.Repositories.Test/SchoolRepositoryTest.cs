@@ -65,7 +65,7 @@ namespace TextbookManage.Repositories.Test
         public void GetStudentDeclaration()
         {
             var repo = new StudentDeclarationRepository(_context);
-            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            var results = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
             Assert.IsTrue(results.Count() > 0);
         }
 
@@ -73,9 +73,28 @@ namespace TextbookManage.Repositories.Test
         public void GetTeacherDeclaration()
         {
             var repo = new TeacherDeclarationRepository(_context);
-            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            var results = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
             Assert.IsTrue(results.Count() > 0);
         }
+
+        [TestMethod]
+        public void DeclarationCountOfStudentDeclaration()
+        {
+            var repo = new StudentDeclarationRepository(_context);
+            var decls = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
+            var result = decls.Sum(t => t.DeclarationCount);
+            Assert.IsTrue(result > 0);
+        }
+
+        [TestMethod]
+        public void DeclarationCountOfTeacherDeclaration()
+        {
+            var repo = new TeacherDeclarationRepository(_context);
+            var decls = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
+            var result = decls.Sum(t => t.DeclarationCount);
+            Assert.IsTrue(result > 0);
+        }
+
 
         [TestMethod]
         public void GetDataSign()
@@ -91,7 +110,7 @@ namespace TextbookManage.Repositories.Test
             var repo = new DepartmentRepository(_context);
             var id = "B1D98237-5AB1-482A-BFC6-C2000E749962".ConvertToGuid();
             var result = repo.Single(t => t.ID == id);
-            Assert.IsTrue(result.StudentDeclarations.Count > 0);
+            Assert.IsTrue(result.StudentDeclarationJiaoWus.Count > 0);
         }
 
         [TestMethod]
@@ -234,10 +253,9 @@ namespace TextbookManage.Repositories.Test
         [TestMethod]
         public void GetSubscription()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new SubscriptionRepository(uow);
-            var result = repo.GetAll();
-            Assert.IsTrue(result.Count() == 0);
+            var repo = new SubscriptionRepository(_context);
+            var result = repo.Find(t=>t.SchoolYearTerm.Year=="2013-2014" && t.SchoolYearTerm.Term=="2");
+            Assert.IsTrue(result.Count() > 0);
         }
 
 
