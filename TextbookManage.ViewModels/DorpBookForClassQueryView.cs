@@ -7,7 +7,7 @@ namespace TextbookManage.ViewModels
      /// 班级教材退还查询View
      /// </summary>
     [DataContract]
-   public class DorpBookForClassQueryView:DropBookView
+   public class DropBookForClassQueryView:DropBookView
     {
         /// <summary>
         /// 未领用名单

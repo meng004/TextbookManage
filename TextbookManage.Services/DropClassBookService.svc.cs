@@ -59,7 +59,7 @@ namespace TextbookManage.Services
         /// </summary>
         /// <param name="classId"></param>
         /// <returns></returns>
-        public IEnumerable<ViewModels.DorpBookForClassQueryView> GetClassDropBookByClassId(string classId)
+        public IEnumerable<ViewModels.DropBookForClassQueryView> GetClassDropBookByClassId(string classId)
         {
             return _impl.GetClassDropBookByClassId(classId);
         }
