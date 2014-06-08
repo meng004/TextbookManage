@@ -8,11 +8,6 @@ namespace TextbookManage.Domain.Models.JiaoWu
     public class TeacherDeclarationJiaoWu : Declaration
     {
         /// <summary>
-        /// 申报数量
-        /// </summary>
-        public int DeclarationCount { get; set; }
-
-        /// <summary>
         /// 教务系统的核定数量
         /// </summary>
         public string Hdsl

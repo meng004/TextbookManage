@@ -6,10 +6,6 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// </summary>
     public class StudentDeclarationJiaoWu : Declaration
     {
-        /// <summary>
-        /// 申报数量
-        /// 教务系统的征订数量
-        /// </summary>
-        public int DeclarationCount { get; set; }
+
     }
 }

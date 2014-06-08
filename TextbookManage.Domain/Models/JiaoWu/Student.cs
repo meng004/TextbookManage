@@ -33,7 +33,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// ÔÚÐ£·ñ
         /// </summary>
-        public string Zxf { get; set; }
+        public bool Zxf { get; set; }
         /// <summary>
         /// °à¼¶ID
         /// </summary>
@@ -58,7 +58,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             get
             {
-                return Zxf.ConvertToBool();
+                return Zxf;
             }
 
         }

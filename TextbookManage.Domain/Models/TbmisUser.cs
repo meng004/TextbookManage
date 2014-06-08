@@ -14,7 +14,7 @@
         /// 系统用户Id
         /// Membership
         /// </summary>
-        public System.Guid UserId { get; set; }
+        //public System.Guid UserId { get; set; }
         /// <summary>
         /// 登录用户名
         /// </summary>

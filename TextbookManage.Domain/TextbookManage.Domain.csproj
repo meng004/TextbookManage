@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\JiaoWu\RecipientType.cs" />
     <Compile Include="Services\ApprovalService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="IRepositories\ICasMapperRepository.cs" />

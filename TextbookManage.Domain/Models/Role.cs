@@ -15,7 +15,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 角色ID
         /// </summary>
-        public Guid RoleId { get; set; }
+        //public Guid RoleId { get; set; }
         /// <summary>
         /// 角色名称
         /// </summary>
