@@ -28,9 +28,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.Department_Id).HasColumnName("KSID");
             this.Property(t => t.SchoolYearTerm.Year).HasColumnName("XN");
             this.Property(t => t.SchoolYearTerm.Term).HasColumnName("XQ");
-            this.Property(t => t.DeclarationCount).HasColumnName("HDSL");
+            this.Property(t => t.Hdsl).HasColumnName("HDSL");
             this.Property(t => t.DataSign_Id).HasColumnName("SJBS");
             this.Property(t => t.Sfgd).HasColumnName("SFGD");
+
+            this.Ignore(t => t.DeclarationCount);
 
             //教材：教师用书申报教务，1:N
             this.HasRequired(t => t.Textbook)
