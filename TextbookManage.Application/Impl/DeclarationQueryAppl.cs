@@ -8,6 +8,8 @@ using TextbookManage.Infrastructure;
 using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -121,61 +123,134 @@ namespace TextbookManage.Applications.Impl
             var courId = courseId.ConvertToGuid();
             var depaId = departmentId.ConvertToGuid();
 
-            RecipientType type = RecipientType.学生;
+            RecipientType type = RecipientType.Student;
             Enum.TryParse(recipientTypeName, out type);
 
-            var declarations = _teachingTaskRepo.Find(t =>
-                t.XNXQ.Year == term.Substring(0, 9) &&
-                t.XNXQ.Term == term.Substring(10, 1) &&
-                t.Course_Id == courId &&
-                t.Department_Id == depaId
-                ).SelectMany(t =>
-                    t.Declarations
-                    ).Where(t =>
-                        t.RecipientType == type
-                        );
+            //var declarations = _teachingTaskRepo.Find(t =>
+            //    t.SchoolYearTerm.Year == term.Substring(0, 9) &&
+            //    t.SchoolYearTerm.Term == term.Substring(10, 1) &&
+            //    t.Course_Id == courId &&
+            //    t.Department_Id == depaId
+            //    ).SelectMany(t =>
+            //        t.Declarations
+            //        ).Where(t =>
+            //            t.RecipientType == type
+            //            );
+            var declarations = new List<Declaration>();
+
+            switch (type)
+            {
+                case RecipientType.Student:
+                    declarations = GetStudentDeclarations(courId, depaId, term);
+                    break;
+                case RecipientType.Teacher:
+                    declarations = GetTeacherDeclarations(courId, depaId, term);
+                    break;
+            }
+
             //排序
             //declarations = declarations.OrderByDescending(t => t.DeclarationDate);
-            declarations = declarations.OrderBy(t => t.TeachingTask_Num);
 
             var views = _adapter.Adapt<DeclarationForQueryView>(declarations);
             return views;
         }
+        /// <summary>
+        /// 取教师用书申报
+        /// </summary>
+        /// <param name="courId">课程ID</param>
+        /// <param name="depaId">部门ID</param>
+        /// <param name="term">学年学期</param>
+        /// <returns></returns>
+        private List<Declaration> GetTeacherDeclarations(Guid courId, Guid depaId, string term)
+        {
+            var yearTerm = new Term { YearTerm = term };
+            var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationJiaoWuRepository>();
+            var declarations = repo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.SchoolYearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.SchoolYearTerm.Term &&
+                t.Course_Id == courId &&
+                t.Department_Id == depaId
+                );
+            return (List<Declaration>)declarations;
+        }
+        /// <summary>
+        /// 取学生用书申报
+        /// </summary>
+        /// <param name="courId">课程ID</param>
+        /// <param name="depaId">部门ID</param>
+        /// <param name="term">学年学期</param>
+        /// <returns></returns>
+        private List<Declaration> GetStudentDeclarations(Guid courId, Guid depaId, string term)
+        {
+            var yearTerm = new Term { YearTerm = term };
+            var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationJiaoWuRepository>();
+            var declarations = repo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.SchoolYearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.SchoolYearTerm.Term &&
+                t.Course_Id == courId &&
+                t.Department_Id == depaId
+                );
+            return (List<Declaration>)declarations;
+        }
 
         public IEnumerable<ApprovalView> GetDeclarationApproval(string declarationId)
         {
-            var id = declarationId.ConvertToInt();
-            var approvals = _declarationRepo.First(t => 
-                t.DeclarationId == id
-                ).Approvals;
+            //var id = declarationId.ConvertToGuid();
+            //var approvals = _declarationRepo.First(t => 
+            //    t.ID == id
+            //    ).Approvals;
 
-            approvals = approvals.OrderByDescending(t => t.ApprovalDate).ToList();
-            return _adapter.Adapt<ApprovalView>(approvals);
+            //approvals = approvals.OrderByDescending(t => t.ApprovalDate).ToList();
+            //return _adapter.Adapt<ApprovalView>(approvals);
+            return new List<ApprovalView>();
         }
 
-        public FeedbackView GetFeedbackByDeclarationId(string declarationId)
+        public FeedbackView GetFeedbackByStudentDeclarationId(string declarationId)
         {
-            var id = declarationId.ConvertToInt();
-            var repo = ServiceLocator.Current.GetInstance<IDeclarationRepository>();
+            var id = declarationId.ConvertToGuid();
+            var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationRepository>();
 
-            var declaration = repo.First(t => t.DeclarationId == id);
-
-            //检查回告状态
-            if (declaration.FeedbackState == FeedbackState.征订中 || declaration.FeedbackState == FeedbackState.未征订 || declaration.FeedbackState == FeedbackState.未知状态)
+            var declaration = repo.First(t => t.ID == id);
+            //未下订单
+            if (declaration == null)
+                return new FeedbackView { Remark = FeedbackState.未征订.ToString() };
+            else
             {
-                return new FeedbackView { Remark = declaration.FeedbackState.ToString() };
+                //未查看过回告，修改状态
+                if (!declaration.HadViewFeedback)
+                {
+                    //查看公告
+                    declaration.ViewFeedback();
+                    //修改查看时间
+                    repo.Modify(declaration);
+                    repo.Context.Commit();
+                }
+                return _adapter.Adapt<FeedbackView>(declaration.Subscription.Feedback);
             }
-            //未查看过回告，修改状态
-            if (!declaration.HadViewFeedback)
-            {
-                //查看公告
-                declaration.ViewFeedback();
-                //修改查看时间
-                repo.Modify(declaration);
-                repo.Context.Commit();
-            }
-            return _adapter.Adapt<FeedbackView>(declaration.Subscription.Feedback);
+        }
 
+        public FeedbackView GetFeedbackByTeacherDeclarationId(string declarationId)
+        {
+            var id = declarationId.ConvertToGuid();
+            var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
+
+            var declaration = repo.First(t => t.ID == id);
+            //未下订单
+            if (declaration == null)
+                return new FeedbackView { Remark = FeedbackState.未征订.ToString() };
+            else
+            {
+                //未查看过回告，修改状态
+                if (!declaration.HadViewFeedback)
+                {
+                    //查看公告
+                    declaration.ViewFeedback();
+                    //修改查看时间
+                    repo.Modify(declaration);
+                    repo.Context.Commit();
+                }
+                return _adapter.Adapt<FeedbackView>(declaration.Subscription.Feedback);
+            }
         }
         #endregion
 

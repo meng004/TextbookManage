@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Infrastructure.ServiceLocators;
 
 namespace TextbookManage.Applications.Impl
@@ -30,7 +32,7 @@ namespace TextbookManage.Applications.Impl
             var user = tbmisUserAppl.GetUser();
 
             var departments = _teacherRepo.First(t =>
-                            t.TeacherId == user.TbmisUserId
+                            t.ID == user.TbmisUserId
                             ).Departments
                             .Where(d =>
                                 d.School_Id == schoolId
@@ -46,7 +48,7 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         public IEnumerable<Department> GetDepartmentBySchoolId(Guid schoolId)
         {
-            var departments = _schoolRepo.First(t => t.SchoolId == schoolId).Departments;
+            var departments = _schoolRepo.First(t => t.ID == schoolId).Departments;
 
             return departments;
         }

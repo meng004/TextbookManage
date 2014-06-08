@@ -6,6 +6,9 @@ using TextbookManage.ViewModels;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Infrastructure;
 using TextbookManage.Infrastructure.TypeAdapter;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -49,15 +52,17 @@ namespace TextbookManage.Applications.Impl
                     ).SelectMany(t =>
                         t.TeachingTasks
                         ).Where(t =>
-                            t.XNXQ.Year == term.SchoolYearTerm.Year &&
-                            t.XNXQ.Term == term.SchoolYearTerm.Term &&
+                            t.SchoolYearTerm.Year == term.SchoolYearTerm.Year &&
+                            t.SchoolYearTerm.Term == term.SchoolYearTerm.Term &&
                             t.DataSign_Id == dataSignId
                             );
 
             //创建学院进度
-            var result = Domain.DeclarationService.CreateSchoolProgress(teachingTasks);
+            //var result = Domain.DeclarationService.CreateSchoolProgress(teachingTasks);
+
+            var result = new List<SchoolProgress>();
             //按学院名称排序
-            result = result.OrderByDescending(t => t.School.Name);
+            result = result.OrderByDescending(t => t.School.Name).ToList();
 
             return _adapter.Adapt<SchoolProgressView>(result);
         }
@@ -69,7 +74,7 @@ namespace TextbookManage.Applications.Impl
             //显示全部教研室
             var departments = new DepartmentAppl().GetDepartmentBySchoolId(id);
             //排序
-            departments = departments.OrderBy(t => t.Name);
+            departments = departments.OrderBy<Department, string>(t => t.Name);
             return _adapter.Adapt<DepartmentView>(departments);
         }
 
@@ -81,17 +86,18 @@ namespace TextbookManage.Applications.Impl
             //取教学任务
             //因数据库中的学院或系教研室可能为空，所以入口为学院而不是教学任务
             var teachingTasks = _departRepo.First(t =>
-                t.DepartmentId == id
+                t.ID == id
                 ).TeachingTasks
                     .Where(t =>
-                        t.XNXQ.Year == term.SchoolYearTerm.Year &&
-                        t.XNXQ.Term == term.SchoolYearTerm.Term &&
+                        t.SchoolYearTerm.Year == term.SchoolYearTerm.Year &&
+                        t.SchoolYearTerm.Term == term.SchoolYearTerm.Term &&
                         t.DataSign_Id == dataSignId
                         );
             //创建系教研室进度
-            var result = Domain.DeclarationService.CreateDepartmentProgress(teachingTasks);
+            //var result = Domain.DeclarationService.CreateDepartmentProgress(teachingTasks);
+            var result = new List<DepartmentProgress>();
             //按课程名称排序
-            result = result.OrderBy(t => t.Course.Name);
+            result = result.OrderBy<DepartmentProgress, string>(t => t.Course.Name).ToList();
 
             return _adapter.Adapt<DepartmentProgressView>(result);
         }

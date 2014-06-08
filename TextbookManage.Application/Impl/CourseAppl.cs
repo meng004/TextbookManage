@@ -4,6 +4,8 @@ using System.Linq;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 
 namespace TextbookManage.Applications.Impl
@@ -38,8 +40,8 @@ namespace TextbookManage.Applications.Impl
 
             //构造学年学期，与教务匹配
             var courses = _teachingTaskRepo.Find(t =>
-                t.XNXQ.Year == currentTerm.SchoolYearTerm.Year &&
-                t.XNXQ.Term == currentTerm.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == currentTerm.SchoolYearTerm.Year &&
+                t.SchoolYearTerm.Term == currentTerm.SchoolYearTerm.Term &&
                 t.Department_Id == departmentId
                 ).Select(t =>
                     t.Course

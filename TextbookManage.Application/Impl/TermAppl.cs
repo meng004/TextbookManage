@@ -3,6 +3,8 @@ using System.Linq;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {

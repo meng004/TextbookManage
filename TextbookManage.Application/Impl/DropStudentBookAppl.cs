@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
 using TextbookManage.IApplications;
 using TextbookManage.Infrastructure;
@@ -14,61 +15,61 @@ namespace TextbookManage.Applications.Impl
 {
     public class DropStudentBookAppl : IDropStudentBookAppl
     {
-         private readonly IStudentReleaseRecordRepository  _studentReleaseRecordRepo;
-       
-       private readonly ITypeAdapter _typeAdapter;
-       private readonly IInventoryRepository _inventoryRepo;
-       private readonly IInStockRecordRepository _inStockRecordRepo;
+        private readonly IStudentReleaseRecordRepository _studentReleaseRecordRepo;
+
+        private readonly ITypeAdapter _typeAdapter;
+        private readonly IInventoryRepository _inventoryRepo;
+        private readonly IInStockRecordRepository _inStockRecordRepo;
         private readonly IBooksellerRepository _booksellerRepository;
         private readonly ITypeAdapter _adapter;
         private readonly IStudentRepository _stuRepo;
         private readonly IProfessionalClassRepository _classRepository;
-       public DropStudentBookAppl(IInventoryRepository inventoryRepo, IStudentReleaseRecordRepository studentReleaseRecordRepo, ITypeAdapter typeAdapter, IInStockRecordRepository inStockRecordRepo, IBooksellerRepository booksellerRepository, ITypeAdapter adapter, IProfessionalClassRepository classRepository, IStudentRepository stuRepo)
-       {
-           _inventoryRepo = inventoryRepo;
-           _studentReleaseRecordRepo = studentReleaseRecordRepo;
-           _typeAdapter = typeAdapter;
-           _inStockRecordRepo = inStockRecordRepo;
-           _booksellerRepository = booksellerRepository;
-           _adapter = adapter;
-           _classRepository = classRepository;
-           _stuRepo = stuRepo;
-       }
-       /// <summary>
-       /// 根据登录名取学院
-       /// </summary>
-       /// <param name="loginName"></param>
-       /// <returns></returns>
-       public IEnumerable<SchoolView> GetSchoolByLoginName(string loginName)
-       {
-           //取学院
-           var schools = new BooksellerAppl().GetSchoolByLoginName(loginName);
+        public DropStudentBookAppl(IInventoryRepository inventoryRepo, IStudentReleaseRecordRepository studentReleaseRecordRepo, ITypeAdapter typeAdapter, IInStockRecordRepository inStockRecordRepo, IBooksellerRepository booksellerRepository, ITypeAdapter adapter, IProfessionalClassRepository classRepository, IStudentRepository stuRepo)
+        {
+            _inventoryRepo = inventoryRepo;
+            _studentReleaseRecordRepo = studentReleaseRecordRepo;
+            _typeAdapter = typeAdapter;
+            _inStockRecordRepo = inStockRecordRepo;
+            _booksellerRepository = booksellerRepository;
+            _adapter = adapter;
+            _classRepository = classRepository;
+            _stuRepo = stuRepo;
+        }
+        /// <summary>
+        /// 根据登录名取学院
+        /// </summary>
+        /// <param name="loginName"></param>
+        /// <returns></returns>
+        public IEnumerable<SchoolView> GetSchoolByLoginName(string loginName)
+        {
+            //取学院
+            var schools = new BooksellerAppl().GetSchoolByLoginName(loginName);
 
-           return _adapter.Adapt<SchoolView>(schools);
+            return _adapter.Adapt<SchoolView>(schools);
 
-       }
-       /// <summary>
-       /// 根据学院ID取年级
-       /// </summary>
-       /// <param name="schoolId"></param>
-       /// <returns></returns>
-       public IEnumerable<string> GetGradeBySchoolId(string schoolId)
-       {
-           var id = schoolId.ConvertToGuid();
-           return _classRepository.Find(t => t.School_Id == id).Select(t => t.Grade).Distinct();
-       }
-       /// <summary>
-       /// 根据学院，年级取专业班级
-       /// </summary>
-       /// <param name="schoolId"></param>
-       /// <param name="grade"></param>
-       /// <returns></returns>
-       public IEnumerable<ProfessionalClassView> GetClassBySchoolId(string schoolId, string grade)
-       {
-           var classes = new ProfessionalClassAppl().GetBySchoolIdAndGrade(schoolId.ConvertToGuid(), grade);
+        }
+        /// <summary>
+        /// 根据学院ID取年级
+        /// </summary>
+        /// <param name="schoolId"></param>
+        /// <returns></returns>
+        public IEnumerable<string> GetGradeBySchoolId(string schoolId)
+        {
+            var id = schoolId.ConvertToGuid();
+            return _classRepository.Find(t => t.School_Id == id).Select(t => t.Grade).Distinct();
+        }
+        /// <summary>
+        /// 根据学院，年级取专业班级
+        /// </summary>
+        /// <param name="schoolId"></param>
+        /// <param name="grade"></param>
+        /// <returns></returns>
+        public IEnumerable<ProfessionalClassView> GetClassBySchoolId(string schoolId, string grade)
+        {
+            var classes = new ProfessionalClassAppl().GetBySchoolIdAndGrade(schoolId.ConvertToGuid(), grade);
 
-           return _adapter.Adapt<ProfessionalClassView>(classes);
-       }
+            return _adapter.Adapt<ProfessionalClassView>(classes);
+        }
         /// <summary>
         /// 根据班级ID，取学生
         /// </summary>
@@ -89,22 +90,25 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<DropBookForStudentQueryView> GetStudentDropBookByStudentId(string studentId)
         {
             var sId = studentId.ConvertToGuid();
-            var currentTerm = new TermAppl().GetCurrentTerm().ToString();
-            var dropStudentBook = _studentReleaseRecordRepo.Find(s => s.Student_Id == sId && s.Term == currentTerm)
-                                                           .Select(
-                                                               s =>
-                                                               new
-                                                               {
-                                                                   s.Term,
-                                                                   s.Name,
-                                                                   s.Textbook_Id,
-                                                                   s.ReleaseCount,
-                                                                   s.ReleaseDate,
-                                                                   s.OutStockRecord.Operator,
-                                                                   s.Recipient1Name,
-                                                                   s.Recipient1Phone,
-                                                                   s.ReleaseRecordId
-                                                               });
+            var currentTerm = new TermAppl().GetCurrentTerm();
+            var dropStudentBook = _studentReleaseRecordRepo.Find(s =>
+                s.Student_Id == sId &&
+                s.SchoolYearTerm.Year == currentTerm.SchoolYearTerm.Year &&
+                s.SchoolYearTerm.Term == currentTerm.SchoolYearTerm.Term
+                ).Select(s =>
+                    new 
+                    {
+                        YearTerm = s.SchoolYearTerm,
+                        TextbookName = s.Name,
+                        TextbookId = s.Textbook_Id,
+                        ReleaseCount = s.ReleaseCount,
+                        ReleaseDate = s.ReleaseDate,
+                        ReleasePerson = s.OutStockRecord.Operator,
+                        RecipientName = s.Recipient1Name,
+                        RecipientTelephone = s.Recipient1Phone,
+                        ReleaseRecordId = s.ID
+
+                    });
             return _typeAdapter.Adapt<DropBookForStudentQueryView>(dropStudentBook);
         }
         /// <summary>
@@ -123,17 +127,17 @@ namespace TextbookManage.Applications.Impl
             foreach (string recordId in releaseRecordeIds)
             {
                 var rId = recordId.ConvertToGuid();
-                var studentRel =_studentReleaseRecordRepo.First(s => s.Student_Id == stID && s.ReleaseRecordId == rId);
-                 dorpBookCountForStudent.Add(studentRel);
+                var studentRel = _studentReleaseRecordRepo.First(s => s.Student_Id == stID && s.ID == rId);
+                dorpBookCountForStudent.Add(studentRel);
             }
-           
+
             //根据发放记录Id,取对应的库存变更记录Id
             var stockRecordIds = new List<StudentReleaseRecord>();
 
             foreach (string recordId in releaseRecordeIds)
             {
                 var rId = recordId.ConvertToGuid();
-                var stockRecordId = _studentReleaseRecordRepo.First(s => s.ReleaseRecordId == rId);
+                var stockRecordId = _studentReleaseRecordRepo.First(s => s.ID == rId);
 
                 stockRecordIds.Add(stockRecordId);
             }
@@ -141,7 +145,7 @@ namespace TextbookManage.Applications.Impl
             var inventoryIds = new List<Domain.Models.InStockRecord>();
             foreach (StudentReleaseRecord id in stockRecordIds)
             {
-                var inventoryId = _inStockRecordRepo.First(i => i.StockRecordId == id.StockRecord_Id);
+                var inventoryId = _inStockRecordRepo.First(i => i.ID == id.StockRecord_Id);
 
                 inventoryIds.Add(inventoryId);
             }
@@ -159,7 +163,7 @@ namespace TextbookManage.Applications.Impl
             {
                 if (stockRecordId.StockRecord_Id != null)
                 {
-                    var stoockRecord = Domain.ReleaseBookService.CreateStockRecord((int) stockRecordId.StockRecord_Id);
+                    var stoockRecord = Domain.ReleaseBookService.CreateStockRecord(stockRecordId.StockRecord_Id.Value);
                     _inStockRecordRepo.Remove(stoockRecord);
                     _inStockRecordRepo.Context.Commit();
                 }
@@ -168,7 +172,7 @@ namespace TextbookManage.Applications.Impl
             //修改库存数量
             foreach (InStockRecord view in inventoryIds)
             {
-                var releaseCount = dorpBookCountForStudent.First(d => d.StockRecord_Id == view.StockRecordId).ReleaseCount;
+                var releaseCount = dorpBookCountForStudent.First(d => d.StockRecord_Id == view.ID).ReleaseCount;
                 var inventory = Domain.ReleaseBookService.CreatInventoryAtDrop(view.Inventory_Id,
                                                                         releaseCount);
                 _inventoryRepo.Modify(inventory);
@@ -180,7 +184,7 @@ namespace TextbookManage.Applications.Impl
             {
                 var studentRecord =
                     Domain.ReleaseBookService.CreateStudentDropReleaseRecord(
-                        view.ReleaseRecordId, stID);
+                        view.ID, stID);
                 _studentReleaseRecordRepo.Remove(studentRecord);
 
                 _studentReleaseRecordRepo.Context.Commit();

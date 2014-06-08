@@ -8,6 +8,8 @@ using TextbookManage.Infrastructure;
 using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -40,33 +42,33 @@ namespace TextbookManage.Applications.Impl
 
             IList<School> schools = new List<School>();
 
-            //如果是教务处或教材科，取全部学院
-            if (user.IsInRole("教务处"))
-            {
-                var school = _declRepo.Find(t =>
-                    t.Term == term &&
-                    t.ApprovalState == ApprovalState.教务处审核中
-                    ).Select(t =>
-                        t.TeachingTask.Department.School
-                        ).Distinct();
-                schools = school.ToList();
-            }
-            else if (user.IsInRole("教材科"))
-            {
-                var school = _declRepo.Find(t =>
-                    t.Term == term &&
-                    t.ApprovalState == ApprovalState.教材科审核中
-                    ).Select(t =>
-                        t.TeachingTask.Department.School
-                        ).Distinct();
-                schools = school.ToList();
-            }
-            //如果是学院院长，返回所属学院
-            else if (user.IsInRole("学院院长") || user.IsInRole("教研室主任"))
-            {
-                var school = new School { SchoolId = (Guid)user.SchoolId, Name = user.SchoolName };
-                schools.Add(school);
-            }
+            ////如果是教务处或教材科，取全部学院
+            //if (user.IsInRole("教务处"))
+            //{
+            //    var school = _declRepo.Find(t =>
+            //        t.Term == term &&
+            //        t.ApprovalState == ApprovalState.教务处审核中
+            //        ).Select(t =>
+            //            t.TeachingTask.Department.School
+            //            ).Distinct();
+            //    schools = school.ToList();
+            //}
+            //else if (user.IsInRole("教材科"))
+            //{
+            //    var school = _declRepo.Find(t =>
+            //        t.Term == term &&
+            //        t.ApprovalState == ApprovalState.教材科审核中
+            //        ).Select(t =>
+            //            t.TeachingTask.Department.School
+            //            ).Distinct();
+            //    schools = school.ToList();
+            //}
+            ////如果是学院院长，返回所属学院
+            //else if (user.IsInRole("学院院长") || user.IsInRole("教研室主任"))
+            //{
+            //    var school = new School { SchoolId = (Guid)user.SchoolId, Name = user.SchoolName };
+            //    schools.Add(school);
+            //}
             if (schools.Count > 0)
             {
                 return _adapter.Adapt<SchoolView>(schools);
@@ -91,44 +93,44 @@ namespace TextbookManage.Applications.Impl
 
             IEnumerable<Declaration> declarations = new List<Declaration>();
 
-            //如果是教务处或教材科，取全部
-            if (webUser.IsInRole("教务处"))
-            {
-                declarations = _declRepo.Find(t =>
-                    t.Term == term &&
-                    t.ApprovalState == ApprovalState.教务处审核中 &&
-                    t.TeachingTask.Department.School_Id == id
-                    );
-            }
-            else if (webUser.IsInRole("教材科"))
-            {
-                declarations = _declRepo.Find(t =>
-                    t.Term == term &&
-                    t.ApprovalState == ApprovalState.教材科审核中 &&
-                    t.TeachingTask.Department.School_Id == id
-                    );
-            }
-            //如果是学院院长，返回所属学院
-            else if (webUser.IsInRole("学院院长"))
-            {
-                declarations = _declRepo.Find(t =>
-                    t.Term == term &&
-                    t.ApprovalState == ApprovalState.学院审核中 &&
-                    t.TeachingTask.Department.School_Id == id
-                    );
-            }
-            //如果是教研室主任，返回所属系教研室未审核记录
-            else if (webUser.IsInRole("教研室主任"))
-            {
-                //取登录用户所属教研室ID
-                var ids = new DepartmentAppl().GetDepartmentBySchoolId(loginName, id).Select(t => t.DepartmentId);
-                //取上述教研室申报的未审核用书
-                declarations = _declRepo.Find(t =>
-                    t.Term == term &&
-                    t.ApprovalState == ApprovalState.教研室审核中 &&
-                    ids.Contains(t.TeachingTask.Department.DepartmentId));
+            ////如果是教务处或教材科，取全部
+            //if (webUser.IsInRole("教务处"))
+            //{
+            //    declarations = _declRepo.Find(t =>
+            //        t.Term == term &&
+            //        t.ApprovalState == ApprovalState.教务处审核中 &&
+            //        t.TeachingTask.Department.School_Id == id
+            //        );
+            //}
+            //else if (webUser.IsInRole("教材科"))
+            //{
+            //    declarations = _declRepo.Find(t =>
+            //        t.Term == term &&
+            //        t.ApprovalState == ApprovalState.教材科审核中 &&
+            //        t.TeachingTask.Department.School_Id == id
+            //        );
+            //}
+            ////如果是学院院长，返回所属学院
+            //else if (webUser.IsInRole("学院院长"))
+            //{
+            //    declarations = _declRepo.Find(t =>
+            //        t.Term == term &&
+            //        t.ApprovalState == ApprovalState.学院审核中 &&
+            //        t.TeachingTask.Department.School_Id == id
+            //        );
+            //}
+            ////如果是教研室主任，返回所属系教研室未审核记录
+            //else if (webUser.IsInRole("教研室主任"))
+            //{
+            //    //取登录用户所属教研室ID
+            //    var ids = new DepartmentAppl().GetDepartmentBySchoolId(loginName, id).Select(t => t.DepartmentId);
+            //    //取上述教研室申报的未审核用书
+            //    declarations = _declRepo.Find(t =>
+            //        t.Term == term &&
+            //        t.ApprovalState == ApprovalState.教研室审核中 &&
+            //        ids.Contains(t.TeachingTask.Department.DepartmentId));
                     
-            }
+            //}
             //结果处理
             if (declarations.Count() > 0)
             {
@@ -155,12 +157,12 @@ namespace TextbookManage.Applications.Impl
             var result = new ResponseView();
 
             //处理审核记录
-            foreach (var item in declarations)
-            {
-                var id = item.DeclarationId.ConvertToInt();
-                var declaration = repo.First(t => t.DeclarationId == id);
-                Domain.ApprovalService.CreateApproval<DeclarationApproval>(declaration, division, auditor, sugg, remark);
-            }
+            //foreach (var item in declarations)
+            //{
+            //    var id = item.DeclarationId.ConvertToInt();
+            //    var declaration = repo.First(t => t.DeclarationId == id);
+            //    Domain.ApprovalService.CreateApproval<DeclarationApproval>(declaration, division, auditor, sugg, remark);
+            //}
             //保存到db
             try
             {

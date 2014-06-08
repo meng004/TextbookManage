@@ -8,6 +8,7 @@ using TextbookManage.Infrastructure;
 using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -36,10 +37,11 @@ namespace TextbookManage.Applications.Impl
         {
             //取当前登录用户的机构ID
             var id = new TbmisUserAppl(loginName).GetUser().SchoolId;
-            var term = new TermAppl().GetMaxTerm().YearTerm;
+            var term = new TermAppl().GetMaxTerm();
 
             var subscriptions = _subscriptionRepo.Find(t =>
-                t.Term == term && //当前学期
+                t.SchoolYearTerm.Year == term.SchoolYearTerm.Year && //当前学期
+                t.SchoolYearTerm.Term == term.SchoolYearTerm.Term &&
                 t.Bookseller_Id == id  //书商
                 //t.GetFeedbackState() == FeedbackState.征订中                
                 ).Where(t =>
@@ -63,7 +65,7 @@ namespace TextbookManage.Applications.Impl
             foreach (var item in subscriptions)
             {
                 var id = item.SubscriptionId.ConvertToGuid();
-                var sub = repo.First(t => t.SubscriptionId == id);
+                var sub = repo.First(t => t.ID == id);
                 sub.Feedback = feedback;
                 repo.Modify(sub);
             }
@@ -96,7 +98,7 @@ namespace TextbookManage.Applications.Impl
                 booksellers.Add(
                     new Bookseller
                     {
-                        BooksellerId = (Guid)user.SchoolId,
+                        ID = (Guid)user.SchoolId,
                         Name = user.SchoolName
                     });
             }
@@ -117,7 +119,7 @@ namespace TextbookManage.Applications.Impl
                 views.Add(view);
 
             }
-            var item1= views.First(t => t.Name == FeedbackState.未征订.ToString());
+            var item1 = views.First(t => t.Name == FeedbackState.未征订.ToString());
             var item2 = views.First(t => t.Name == FeedbackState.未知状态.ToString());
             views.Remove(item1);
             views.Remove(item2);
@@ -134,8 +136,10 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         private IEnumerable<Subscription> GetSubscriptionByState(string term, Guid booksellerId, FeedbackState state)
         {
+            var yearTerm = new Term { YearTerm = term };
             return _subscriptionRepo.Find(t =>
-                t.Term == term &&
+                t.SchoolYearTerm.Year == yearTerm.SchoolYearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.SchoolYearTerm.Term &&
                 t.Bookseller_Id == booksellerId &&
                 t.Feedback.FeedbackState == state
                 );
@@ -143,7 +147,7 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionByBooksellerId(string booksellerId, string feedbackStateName)
         {
-            var term = new TermAppl().GetMaxTerm().YearTerm;
+            var term = new TermAppl().GetMaxTerm();
             var id = booksellerId.ConvertToGuid();
             FeedbackState state = FeedbackState.未知状态;
             Enum.TryParse(feedbackStateName, out state);
@@ -153,13 +157,19 @@ namespace TextbookManage.Applications.Impl
             switch (state)
             {
                 case FeedbackState.征订中:
-                    subs = _subscriptionRepo.Find(t => t.Term == term && t.Bookseller_Id == id).Where(t => !t.Feedback_Id.HasValue);
+                    subs = _subscriptionRepo.Find(t => 
+                        t.SchoolYearTerm.Year == term.SchoolYearTerm.Year &&
+                        t.SchoolYearTerm.Term == term.SchoolYearTerm.Term && 
+                        t.Bookseller_Id == id
+                        ).Where(t => 
+                            !t.Feedback_Id.HasValue
+                            );
                     break;
                 case FeedbackState.征订成功:
-                    subs = GetSubscriptionByState(term, id, FeedbackState.征订成功);
+                    subs = GetSubscriptionByState(term.YearTerm, id, FeedbackState.征订成功);
                     break;
                 case FeedbackState.征订失败:
-                    subs = GetSubscriptionByState(term, id, FeedbackState.征订失败);
+                    subs = GetSubscriptionByState(term.YearTerm, id, FeedbackState.征订失败);
                     break;
                 case FeedbackState.未知状态:
                 case FeedbackState.未征订:
@@ -173,7 +183,7 @@ namespace TextbookManage.Applications.Impl
         public FeedbackView GetFeedbackBySubscriptionId(string subscriptionId)
         {
             var id = subscriptionId.ConvertToGuid();
-            var subscription = _subscriptionRepo.First(t => t.SubscriptionId == id);
+            var subscription = _subscriptionRepo.First(t => t.ID == id);
             if (subscription.Feedback != null)
             {
                 return _adapter.Adapt<FeedbackView>(subscription.Feedback);

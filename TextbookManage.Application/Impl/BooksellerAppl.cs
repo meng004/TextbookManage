@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Infrastructure.ServiceLocators;
 
 namespace TextbookManage.Applications.Impl
@@ -24,7 +26,7 @@ namespace TextbookManage.Applications.Impl
         public Bookseller GetOfUser(string loginName)
         {
             var user = new TbmisUserAppl(loginName).GetUser();
-            var bookseller = _repo.First(t => t.BooksellerId == user.TbmisUserId);
+            var bookseller = _repo.First(t => t.ID == user.TbmisUserId);
             return bookseller;
         }
 
@@ -48,21 +50,33 @@ namespace TextbookManage.Applications.Impl
             //登录名取书商ID
             var booksellerId = new TbmisUserAppl(loginName).GetUser().SchoolId;
             //取当前学期
-            var term = new TermAppl().GetCurrentTerm().YearTerm;
-            //取学生用书申报
+            var term = new TermAppl().GetCurrentTerm().SchoolYearTerm;
+            //取学生用书申报的ID集合
             var declarations = _repo.First(t =>
-                t.BooksellerId == booksellerId
+                t.ID == booksellerId
                 ).Subscriptions.Where(t =>
-                    t.Term == term &&
+                    t.SchoolYearTerm.Year == term.Year &&
+                    t.SchoolYearTerm.Term == term.Term &&
                     t.FeedbackState == FeedbackState.征订成功 &&
                     t.Feedback.ApprovalState == ApprovalState.终审通过
                     ).SelectMany(t =>
-                        t.Declarations
-                        ).OfType<StudentDeclaration>();
-            //取学院
-            var schools = declarations.SelectMany(t => t.DeclarationClasses).Select(t => t.ProfessionalClass.School).Distinct();
+                        t.StudentDeclarations
+                        ).Select(t =>
+                            t.ID
+                            );
+            //取学生班级
+            var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationRepository>();
 
-            return schools;
+            //取学院
+            var schools = new List<School>();
+            foreach (var item in declarations)
+            {
+                var schoolsOfDeclaration = repo.GetSchools(item).ToList();
+                if (schoolsOfDeclaration.Count > 0)
+                    schools.Concat(schoolsOfDeclaration);
+            }
+
+            return schools.Distinct();
         }
         #endregion
 

@@ -128,8 +128,8 @@ namespace TextbookManage.Applications.Impl
             //处理审核记录
             foreach (var item in feedbacks)
             {
-                var id = item.FeedbackId.ConvertToInt();
-                var feedback = repo.First(t => t.FeedbackId == id);
+                var id = item.FeedbackId.ConvertToGuid();
+                var feedback = repo.First(t => t.ID == id);
                 Domain.ApprovalService.CreateApproval<FeedbackApproval>(feedback, division, auditor, sugg, remark);
             }
             //保存到db

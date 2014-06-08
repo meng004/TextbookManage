@@ -140,7 +140,7 @@ namespace TextbookManage.Applications.Impl
                 {
                     var repo = ServiceLocator.Current.GetInstance<ICasMapperRepository>();
                     var model = repo.First(t => t.CasNetId == casNetId);
-                    model.UserId = user.UserId;
+                    model.UserId = user.ID;
                     try
                     {
                         repo.Modify(model);

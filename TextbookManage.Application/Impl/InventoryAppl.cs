@@ -9,6 +9,8 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 
 namespace TextbookManage.Applications.Impl
@@ -70,7 +72,7 @@ namespace TextbookManage.Applications.Impl
 
         public InventoryView GetInventory(string storageId, string textbookId)
         {
-            var storId = storageId.ConvertToInt();
+            var storId = storageId.ConvertToGuid();
             var textId = textbookId.ConvertToGuid();
 
             var inventory = _inventoryRepo.First(t =>
@@ -81,7 +83,7 @@ namespace TextbookManage.Applications.Impl
             //未入库
             if (inventory == null)
             {
-                var book = _textbookRepo.First(t => t.TextbookId == textId);
+                var book = _textbookRepo.First(t => t.ID == textId);
 
                 var inve = _adapter.Adapt<InventoryView>(book);
                 inve.StorageId = storageId;
@@ -106,10 +108,10 @@ namespace TextbookManage.Applications.Impl
             var result = new ResponseView();
 
             //是否已存在库存
-            if (inve.InventoryId != 0)
+            if (inve.ID != null && inve.ID != Guid.Empty)
             {
                 //取出库存
-                inveNew = repo.First(t => t.InventoryId == inve.InventoryId);
+                inveNew = repo.First(t => t.ID == inve.ID);
                 //更新架位号
                 inveNew.ShelfNumber = inve.ShelfNumber;
             }
@@ -125,7 +127,7 @@ namespace TextbookManage.Applications.Impl
 
             try
             {
-                if (inveNew.InventoryId == 0)
+                if (inveNew.ID == null || inve.ID == Guid.Empty)
                 {
                     repo.Add(inveNew);
                 }
@@ -147,7 +149,7 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<StockRecordView> GetStockRecordsByDate(string storageId, string stockType, string beginDate, string endDate)
         {
-            var id = storageId.ConvertToInt();
+            var id = storageId.ConvertToGuid();
             var type = stockType.ConvertToBool();
             var begin = beginDate.ConvertToDateTime();
             var end = endDate.ConvertToDateTime();
@@ -168,7 +170,7 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<StockRecordView> GetStockRecordsByTextbook(string storageId, string stockType, string textbookName, string isbn)
         {
-            var id = storageId.ConvertToInt();
+            var id = storageId.ConvertToGuid();
             var type = stockType.ConvertToBool();
             IEnumerable<StockRecord> records = new List<StockRecord>();
 
@@ -182,13 +184,13 @@ namespace TextbookManage.Applications.Impl
             }
 
             return _adapter.Adapt<StockRecordView>(records);
-        } 
+        }
 
         #endregion
 
         #region 私有方法
 
-        private IEnumerable<StockRecord> GetOutStockRecordsByDate(int storageId, DateTime beginDate, DateTime endDate)
+        private IEnumerable<StockRecord> GetOutStockRecordsByDate(Guid storageId, DateTime beginDate, DateTime endDate)
         {
             //取仓库的出库记录
             var records = _inventoryRepo.Find(t =>
@@ -204,7 +206,7 @@ namespace TextbookManage.Applications.Impl
             return records;
         }
 
-        private IEnumerable<StockRecord> GetInStockRecordsByDate(int storageId, DateTime beginDate, DateTime endDate)
+        private IEnumerable<StockRecord> GetInStockRecordsByDate(Guid storageId, DateTime beginDate, DateTime endDate)
         {
             //取仓库的入库记录
             var records = _inventoryRepo.Find(t =>
@@ -220,7 +222,7 @@ namespace TextbookManage.Applications.Impl
             return records;
         }
 
-        private IEnumerable<StockRecord> GetOutStockRecordsByTextbook(int storageId, string textbookName, string isbn)
+        private IEnumerable<StockRecord> GetOutStockRecordsByTextbook(Guid storageId, string textbookName, string isbn)
         {
             IEnumerable<StockRecord> records = new List<StockRecord>();
 
@@ -252,7 +254,7 @@ namespace TextbookManage.Applications.Impl
             return records;
         }
 
-        private IEnumerable<StockRecord> GetInStockRecordsByTextbook(int storageId, string textbookName, string isbn)
+        private IEnumerable<StockRecord> GetInStockRecordsByTextbook(Guid storageId, string textbookName, string isbn)
         {
             IEnumerable<StockRecord> records = new List<StockRecord>();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain;
 using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
 using TextbookManage.IApplications;
 using TextbookManage.Infrastructure;
@@ -86,10 +87,10 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<InventoryForReleaseClassView> GetInventoriesByClassId(string classId, string storageId)
         {
             var professionalClassId = classId.ConvertToGuid();
-            var storageid = storageId.ConvertToInt();
+            var storageid = storageId.ConvertToGuid();
             var term = new TermAppl().GetMaxTerm().YearTerm;
 
-            var professionalClass = _classRepo.First(t => t.ProfessionalClassId == professionalClassId);
+            var professionalClass = _classRepo.First(t => t.ID == professionalClassId);
             //取班级教材与申报数量
             var textbooks = professionalClass.DeclarationClasses.Select(t=>t.Declaration)
                 .Where(t =>

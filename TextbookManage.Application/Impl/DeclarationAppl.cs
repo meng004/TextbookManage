@@ -9,6 +9,8 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
 using System.Text;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -40,7 +42,7 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<SchoolView> GetSchoolByLoginName(string loginName)
         {
             var school = new SchoolAppl().GetSchoolOfUser(loginName);
-            school = school.OrderBy(t => t.Name);
+            school = school.OrderBy<School, string>(t => t.Name);
             return _adapter.Adapt<SchoolView>(school);
         }
 
@@ -50,7 +52,7 @@ namespace TextbookManage.Applications.Impl
             //显示全部教研室
             var departments = new DepartmentAppl().GetDepartmentBySchoolId(id);
             //排序
-            departments = departments.OrderBy(t => t.Name);
+            departments = departments.OrderBy<Department, string>(t => t.Name);
             return _adapter.Adapt<DepartmentView>(departments);
         }
 
@@ -74,8 +76,8 @@ namespace TextbookManage.Applications.Impl
             var courId = courseId.ConvertToGuid();
 
             var teachingTask = _teachingTaskRepo.Find(t =>
-                t.XNXQ.Year == term.SchoolYearTerm.Year &&
-                t.XNXQ.Term == term.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == term.SchoolYearTerm.Year &&
+                t.SchoolYearTerm.Term == term.SchoolYearTerm.Term &&
                 t.Department_Id == depaId &&
                 t.Course_Id == courId
                 );
@@ -112,13 +114,13 @@ namespace TextbookManage.Applications.Impl
         public ResponseView SubmitStudentDeclaration(DeclarationView view)
         {
             //数据类型转换
-            
+
             var count = view.DeclarationCount.ConvertToInt();
             //取对象
             var term = new TermAppl().GetMaxTerm().YearTerm;  //学期
             var teacId = new TbmisUserAppl(view.Declarant).GetUser().TbmisUserId;  //教师ID
-            var teacher = _teacherRepo.First(t => t.TeacherId == teacId);  //教师
-            
+            var teacher = _teacherRepo.First(t => t.ID == teacId);  //教师
+
 
             var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationRepository>();//CUD专用仓储
 
@@ -144,61 +146,61 @@ namespace TextbookManage.Applications.Impl
             var successCount = 0;
 
             //需要教材
-            if (!view.NotNeedTextbook)
-            {
-                //取教材
-                var textId = view.TextbookId.ConvertToGuid();
-                var book = _textbookRepo.First(t => t.TextbookId == textId);  //教材
+            //if (!view.NotNeedTextbook)
+            //{
+            //    //取教材
+            //    var textId = view.TextbookId.ConvertToGuid();
+            //    var book = _textbookRepo.First(t => t.ID == textId);  //教材
 
-                //为教学任务中的每个学生班级创建用书申报
-                foreach (var item in view.TeachingTaskNums)
-                {
-                    //取教学任务
-                    var task = _teachingTaskRepo.First(t => t.TeachingTaskNum == item);
+            //    //为教学任务中的每个学生班级创建用书申报
+            //    foreach (var item in view.TeachingTaskNums)
+            //    {
+            //        //取教学任务
+            //        var task = _teachingTaskRepo.First(t => t.TeachingTaskNum == item);
 
-                    //创建学生用书申报
-                    var declaration = Domain.DeclarationService.CreateDeclaration<StudentDeclaration>(term, item, textId, teacId, view.Mobile, view.Telephone, count, view.NotNeedTextbook);
+            //        //创建学生用书申报
+            //        var declaration = Domain.DeclarationService.CreateDeclaration<StudentDeclaration>(term, item, textId, teacId, view.Mobile, view.Telephone, count, view.NotNeedTextbook);
 
 
-                    //取出教学任务中的学生班级，依次处理
-                    foreach (var proClass in task.ProfessionalClasses)
-                    {
-                        //检查班级是否满足申报条件
-                        if (Domain.DeclarationService.CanDeclaration(proClass, book, ref faultMessage))
-                        {
-                            //创建申报班级
-                            Domain.DeclarationService.CreateDeclarationClass(declaration, proClass);
-                        }
-                        else
-                        {
-                            //记录出错信息
-                            messageForResponse.Append(faultMessage);
-                            faultMessage = string.Empty;
-                        }
-                    }
+            //        //取出教学任务中的学生班级，依次处理
+            //        foreach (var proClass in task.ProfessionalClasses)
+            //        {
+            //            //检查班级是否满足申报条件
+            //            if (Domain.DeclarationService.CanDeclaration(proClass, book, ref faultMessage))
+            //            {
+            //                //创建申报班级
+            //                Domain.DeclarationService.CreateDeclarationClass(declaration, proClass);
+            //            }
+            //            else
+            //            {
+            //                //记录出错信息
+            //                messageForResponse.Append(faultMessage);
+            //                faultMessage = string.Empty;
+            //            }
+            //        }
 
-                    //检查可申报该教材的班级数量
-                    if (declaration.DeclarationClasses.Count() == task.ProfessionalClasses.Count())
-                    {
-                        //将申报添加到仓储
-                        repo.Add(declaration);
-                        successCount++;
-                    }
-                }
+            //        //检查可申报该教材的班级数量
+            //        if (declaration.DeclarationClasses.Count() == task.ProfessionalClasses.Count())
+            //        {
+            //            //将申报添加到仓储
+            //            repo.Add(declaration);
+            //            successCount++;
+            //        }
+            //    }
 
-            }
-            else    //不需要教材
-            {
-                foreach (var item in view.TeachingTaskNums)
-                {
-                    //创建学生用书申报
-                    var declaration = Domain.DeclarationService.CreateDeclaration<StudentDeclaration>(term, item, null, teacId, view.Mobile, view.Telephone, count, view.NotNeedTextbook);
+            //}
+            //else    //不需要教材
+            //{
+            //    foreach (var item in view.TeachingTaskNums)
+            //    {
+            //        //创建学生用书申报
+            //        var declaration = Domain.DeclarationService.CreateDeclaration<StudentDeclaration>(term, item, null, teacId, view.Mobile, view.Telephone, count, view.NotNeedTextbook);
 
-                    //将申报添加到仓储
-                    repo.Add(declaration);
-                    successCount++;
-                }
-            }
+            //        //将申报添加到仓储
+            //        repo.Add(declaration);
+            //        successCount++;
+            //    }
+            //}
             try
             {
                 //将申报保存到数据库
@@ -241,14 +243,14 @@ namespace TextbookManage.Applications.Impl
 
             try
             {
-                //CUD仓储
-                var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
-                //创建申报
-                var declaration = Domain.DeclarationService.CreateDeclaration<TeacherDeclaration>(term, view.TeachingTaskNums.First(), textId, teacId, view.Mobile, view.Telephone, count, view.NotNeedTextbook);
-                //保存
-                repo.Add(declaration);
-                //提交到数据库
-                repo.Context.Commit();
+                ////CUD仓储
+                //var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
+                ////创建申报
+                //var declaration = Domain.DeclarationService.CreateDeclaration<TeacherDeclaration>(term, view.TeachingTaskNums.First(), textId, teacId, view.Mobile, view.Telephone, count, view.NotNeedTextbook);
+                ////保存
+                //repo.Add(declaration);
+                ////提交到数据库
+                //repo.Context.Commit();
                 return result;
             }
             catch (Exception e)
@@ -272,12 +274,13 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<DeclarationForTeachingTaskView> GetDeclarationByTeacingTaskNum(string teachingTaskNum)
         {
-            IEnumerable<Declaration> decl = _teachingTaskRepo.First(t =>
-                t.TeachingTaskNum == teachingTaskNum
-                ).Declarations;
+            //IEnumerable<Declaration> decl = _teachingTaskRepo.First(t =>
+            //    t.TeachingTaskNum == teachingTaskNum
+            //    ).Declarations;
 
-            decl = decl.OrderBy(t => t.TeachingTask_Num);
+            //decl = decl.OrderBy(t => t.TeachingTask_Num);
 
+            var decl = new List<Declaration>();
             return _adapter.Adapt<DeclarationForTeachingTaskView>(decl);
         }
 

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Infrastructure.ServiceLocators;
 
 namespace TextbookManage.Applications.Impl
