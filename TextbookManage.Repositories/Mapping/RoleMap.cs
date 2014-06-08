@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public RoleMap()
         {
             // Primary Key
-            this.HasKey(t => t.RoleId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Name)
@@ -16,7 +16,7 @@ namespace TextbookManage.Repositories.Mapping
                 .HasMaxLength(256);
 
             this.ToTable("aspnet_Roles", "dbo");
-            this.Property(t => t.RoleId).HasColumnName("RoleId");
+            this.Property(t => t.ID).HasColumnName("RoleId");
             this.Property(t => t.Name).HasColumnName("RoleName");
         }
     }

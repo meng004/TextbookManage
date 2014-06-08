@@ -8,7 +8,7 @@ namespace TextbookManage.Repositories.Mapping
         public TbmisUserMap()
         {
             // Primary Key
-            this.HasKey(t => t.UserId);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.UserName)
@@ -16,16 +16,17 @@ namespace TextbookManage.Repositories.Mapping
                 .HasMaxLength(256);
 
             this.ToTable("V_SYS_UsersInfo", "dbo");
-            this.Property(t => t.UserId).HasColumnName("UserID");
+            this.Property(t => t.ID).HasColumnName("UserID");
             this.Property(t => t.UserName).HasColumnName("UserName");
             this.Property(t => t.TbmisUserId).HasColumnName("YHID");
             this.Property(t => t.TbmisUserName).HasColumnName("XM");
             this.Property(t => t.SchoolId).HasColumnName("YXSID");
             this.Property(t => t.SchoolName).HasColumnName("YXSMC");
             this.Property(t => t.YHLXM).HasColumnName("YHLXM");
-            this.Property(t => t.IdCard).HasColumnName("SFZH");
+            //this.Property(t => t.IdCard).HasColumnName("SFZH");
 
             Ignore(t => t.UserType);
+            Ignore(t => t.IdCard);
 
             //用户与角色，多对多
             this.HasMany(t=>t.Roles)

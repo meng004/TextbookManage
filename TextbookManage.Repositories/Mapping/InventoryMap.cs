@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using TextbookManage.Domain.Models;
 
@@ -9,6 +10,9 @@ namespace TextbookManage.Repositories.Mapping
         {
             // Primary Key
             this.HasKey(t => t.ID);
+
+            this.Property(t => t.ID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             // Properties
             this.Property(t => t.ShelfNumber)
