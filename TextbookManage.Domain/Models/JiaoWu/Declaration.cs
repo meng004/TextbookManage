@@ -37,7 +37,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 申报数量
         /// </summary>
-        public int DeclarationCount { get; set; }
+        //public int DeclarationCount { get; set; }
         /// <summary>
         /// 数据标识
         /// A为本部，B为船山

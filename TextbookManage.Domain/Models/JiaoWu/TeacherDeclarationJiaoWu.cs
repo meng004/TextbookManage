@@ -1,4 +1,5 @@
-﻿
+﻿using TextbookManage.Infrastructure;
+
 namespace TextbookManage.Domain.Models.JiaoWu
 {
     /// <summary>
@@ -6,5 +7,24 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// </summary>
     public class TeacherDeclarationJiaoWu : Declaration
     {
+        /// <summary>
+        /// 申报数量
+        /// </summary>
+        public int DeclarationCount { get; set; }
+
+        /// <summary>
+        /// 教务系统的核定数量
+        /// </summary>
+        public string Hdsl
+        {
+            get { return hdsl; }
+            set
+            {
+                DeclarationCount = value.ConvertToInt();
+                hdsl = value;
+            }
+        }
+
+        private string hdsl;
     }
 }
