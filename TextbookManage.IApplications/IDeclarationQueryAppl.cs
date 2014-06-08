@@ -84,12 +84,21 @@ namespace TextbookManage.IApplications
         IEnumerable<ApprovalView> GetDeclarationApproval(string declarationId);
 
         /// <summary>
-        /// 由申报ID，取回告
+        /// 由学生用书申报ID，取回告
         /// </summary>
         /// <param name="declarationId"></param>
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        FeedbackView GetFeedbackByDeclarationId(string declarationId);
+        FeedbackView GetFeedbackByStudentDeclarationId(string declarationId);
+
+        /// <summary>
+        /// 由教师用书申报ID，取回告
+        /// </summary>
+        /// <param name="declarationId"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [Cache(CacheMethod.Get)]
+        FeedbackView GetFeedbackByTeacherDeclarationId(string declarationId);
     }
 }

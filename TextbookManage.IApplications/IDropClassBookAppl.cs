@@ -50,7 +50,7 @@ namespace TextbookManage.IApplications
          /// <param name="classId"></param>
          /// <returns></returns>
         [OperationContract]
-        IEnumerable<DorpBookForClassQueryView>  GetClassDropBookByClassId(string classId);
+        IEnumerable<DropBookForClassQueryView>  GetClassDropBookByClassId(string classId);
         /// <summary>
         /// 退还班级教材
         /// </summary>
