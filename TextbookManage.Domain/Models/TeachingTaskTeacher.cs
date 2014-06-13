@@ -19,7 +19,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 性别
         /// </summary>
-        public Gender Gender { get; set; }
+        public string Gender { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>
@@ -36,5 +36,6 @@ namespace TextbookManage.Domain.Models
         /// 教学任务
         /// </summary>
         public virtual TeachingTask TeachingTask { get; set; }
+
     }
 }
