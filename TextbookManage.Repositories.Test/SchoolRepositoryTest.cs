@@ -9,6 +9,7 @@ using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Domain.Models.JiaoWu;
 using System.Transactions;
+using TextbookManage.Domain;
 
 namespace TextbookManage.Repositories.Test
 {
@@ -282,8 +283,26 @@ namespace TextbookManage.Repositories.Test
         {
             IRepositoryContext uow = new EntityFrameworkRepositoryContext();
             var repo = new TeachingTaskRepository(uow);
-            var result = repo.GetAll();
+            var result = repo.Find(t=>t.SchoolYearTerm.Year=="2013-2014" && t.SchoolYearTerm.Term=="2").ToList();
             Assert.IsTrue(result.Count() > 0);
+        }
+
+        [TestMethod]
+        public void ResponsibilityTeacherOfTeachingTask()
+        {
+            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
+            var repo = new TeachingTaskRepository(uow);
+            var result = repo.Single(t => t.TeachingTaskNum == "201306854");
+            Assert.IsNotNull(result.Teacher);
+        }
+
+        [TestMethod]
+        public void TeachingTaskTeacherOfTeachingTask()
+        {
+            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
+            var repo = new TeachingTaskRepository(uow);
+            var result = repo.Single(t => t.TeachingTaskNum == "201306854");
+            Assert.IsNotNull(result.TeachingTaskTeachers.Count>0);
         }
 
         [TestMethod]
