@@ -22,6 +22,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.Gender).HasColumnName("XB");
             this.Property(t => t.TeachingMode).HasColumnName("JXFS");
             
+            //教学任务：教师，1：N
             this.HasRequired(t => t.TeachingTask)
                 .WithMany(t => t.TeachingTaskTeachers)
                 .HasForeignKey(d => d.TeachingTaskNum);

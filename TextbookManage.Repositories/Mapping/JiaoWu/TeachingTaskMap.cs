@@ -45,8 +45,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             //            m.MapLeftKey("JXBBH");
             //            m.MapRightKey("ZGID");
             //        });
-
             
+            //责任教师：教学任务，1：N
+            this.HasOptional(t => t.Teacher)
+                .WithMany(t => t.TeachingTasks)
+                .HasForeignKey(d => d.Teacher_Id);
 
             //班级：教学任务，M：N
             this.HasMany(t => t.ProfessionalClasses)
