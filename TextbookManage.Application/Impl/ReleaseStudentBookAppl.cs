@@ -9,6 +9,7 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using System.Linq;
 using TextbookManage.ViewModels;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -105,7 +106,7 @@ namespace TextbookManage.Applications.Impl
             var bId = booksellerId.ConvertToGuid();
             var storages = storageRepository.Find(s => s.Bookseller_Id == bId).Select(s => new StorageView()
             {
-                StorageId = s.StorageId.ToString(),
+                StorageId = s.ID.ToString(),
                 Name = s.Name
             });
 
@@ -124,7 +125,7 @@ namespace TextbookManage.Applications.Impl
             //类型转换
             var stId = studentId.ConvertToGuid();
             //根据学生Id取班级Id
-            var classId = _stuRepo.First(s => s.StudentId == stId).ProfessionalClass_Id;
+            var classId = _stuRepo.First(s => s.ID == stId).ProfessionalClass_Id;
             const FeedbackState feedbackState = FeedbackState.征订成功;
             //取学生教材待发放信息信息
            //var releaseStudentBookPlans =

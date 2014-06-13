@@ -6,6 +6,8 @@ using TextbookManage.Infrastructure.TypeAdapter;
 using System.Collections.Generic;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -22,7 +24,7 @@ namespace TextbookManage.Applications.Impl
         #endregion
 
         #region 构造函数
-        public ReleaseTextbookForQueryAppl(ITypeAdapter adapter, IStudentReleaseRecordRepository recordRepo, ITeachingTaskRepository taskRepo, IProfessionalClassRepository classRepo, IStudentRepository stuRepo,IBooksellerRepository booksellerRepo)
+        public ReleaseTextbookForQueryAppl(ITypeAdapter adapter, IStudentReleaseRecordRepository recordRepo, ITeachingTaskRepository taskRepo, IProfessionalClassRepository classRepo, IStudentRepository stuRepo, IBooksellerRepository booksellerRepo)
         {
             _adapter = adapter;
             _recordRepo = recordRepo;
@@ -74,7 +76,7 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<CourseView> GetCourseByClassNum(string classId)
         {
             var id = classId.ConvertToGuid();
-            var task = _taskRepo.Find(t => t.ProfessionalClasses.FirstOrDefault(p => p.ProfessionalClassId == id).ProfessionalClassId == id);
+            var task = _taskRepo.Find(t => t.ProfessionalClasses.FirstOrDefault(p => p.ID == id).ID == id);
             var courses = task.Select(t => t.Course);
             return _adapter.Adapt<CourseView>(courses);
         }
@@ -96,7 +98,7 @@ namespace TextbookManage.Applications.Impl
 
             foreach (var staff in booksellerStaffs)
             {
-                var bookseller = staff.SingleOrDefault(s => s.BooksellerStaffId == user.TbmisUserId);
+                var bookseller = staff.SingleOrDefault(s => s.ID == user.TbmisUserId);
                 if (bookseller != null)
                 {
                     var booksellers = new BooksellerView()
@@ -147,14 +149,19 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<StudentReleaseDetailView> GetStudentReleaseDetail(string term, string studentId)
         {
             var studentid = studentId.ConvertToGuid();
+            var yearTerm = new Term { YearTerm = term }.SchoolYearTerm;
 
-            var studentRecord = _recordRepo.Find(t => t.Term == term && t.Student_Id == studentid).Select(p => new StudentReleaseDetailView()
+            var studentRecord = _recordRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.Student_Id == studentid
+                ).Select(p => new StudentReleaseDetailView()
                 {
                     TextbookId = p.Textbook_Id.ToString(),
                     TextbookName = p.Name,
                     RetailPrice = p.Price.ToString(),
                     DiscountPrice = p.DiscountPrice.ToString(),
-                    Term = p.Term,
+                    Term = p.SchoolYearTerm.ToString(),
                     SchoolName = p.SchoolName,
                     ClassName = p.ClassName,
                     StudentNum = p.StudentNum,
@@ -176,10 +183,15 @@ namespace TextbookManage.Applications.Impl
         {
             var classid = classId.ConvertToGuid();
 
-            var classRecord = _recordRepo.Find(t => t.Term == term && t.Class_Id == classid
+            var yearTerm = new Term { YearTerm = term }.SchoolYearTerm;
+
+            var classRecord = _recordRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.Class_Id == classid
                 ).GroupBy(t => new
                     {
-                        t.Term,
+                        t.SchoolYearTerm,
                         t.SchoolName,
                         t.ClassName,
                         t.BooksellerName,
@@ -190,7 +202,7 @@ namespace TextbookManage.Applications.Impl
                     }
                 ).Select(d => new ClassReleaseDetailView()
                     {
-                        Term = d.Key.Term,
+                        Term = d.Key.SchoolYearTerm.ToString(),
                         SchoolName = d.Key.SchoolName,
                         BooksellerName = d.Key.BooksellerName,
                         TextbookId = d.Key.Textbook_Id.ToString(),
@@ -212,8 +224,11 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<BooksellerReleaseDetailView> GetBooksellerReleaseDetail(string term, string booksellerId)
         {
             var id = booksellerId.ConvertToGuid();
-
-            var booksellerRecord = _recordRepo.Find(t => t.Term == term && t.Bookseller_Id == id).GroupBy(t => new
+            var yearTerm = new Term { YearTerm = term }.SchoolYearTerm;
+            var booksellerRecord = _recordRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.Bookseller_Id == id).GroupBy(t => new
                 {
                     t.SchoolName,
                     t.Name,
