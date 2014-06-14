@@ -46,7 +46,7 @@ namespace TextbookManage.Domain.Models
         public bool IsCurrent
         {
             get
-            {                
+            {
                 return DqXnXqBz.ConvertToBool();
             }
         }
@@ -94,16 +94,27 @@ namespace TextbookManage.Domain.Models
         #region 实现接口IComparable,IEquatable
         public int CompareTo(object obj)
         {
+            if (object.ReferenceEquals(this, null) || object.ReferenceEquals(obj, null))
+                throw new NullReferenceException("对象等于Null，应初始化");
             var right = obj as SchoolYearTerm;
+            return CompareTo(right);
+        }
+
+        public int CompareTo(SchoolYearTerm other)
+        {
+            if (object.ReferenceEquals(this, null) || object.ReferenceEquals(other, null))
+                throw new NullReferenceException("对象等于Null，应初始化");
+            if (string.IsNullOrWhiteSpace(this.YearTerm) || string.IsNullOrWhiteSpace(other.YearTerm))
+                throw new ArgumentNullException("YearTerm等于null，使用前应初始化");
             //学年学期比较
-            if (right.YearTerm == this.YearTerm)
+            if (other.YearTerm == this.YearTerm)
                 return 0;
             else
             {
                 var leftYear = this.Year.Substring(0, 4).ConvertToInt();
-                var rightYear = right.Year.Substring(0, 4).ConvertToInt();
+                var rightYear = other.Year.Substring(0, 4).ConvertToInt();
                 var leftTerm = this.Term.ConvertToInt();
-                var rightTerm = right.Term.ConvertToInt();
+                var rightTerm = other.Term.ConvertToInt();
                 //学年大的，较大
                 if (leftYear > rightYear)
                     return 1;
@@ -120,35 +131,37 @@ namespace TextbookManage.Domain.Models
             }
         }
 
-        public int CompareTo(SchoolYearTerm other)
-        {
-            return this.CompareTo(other);
-        }
-
         public bool Equals(SchoolYearTerm other)
         {
-            return this.Equals(other);
+            if (this == other)
+            {
+                return true;
+            }
+            if ((other == null) || !this.GetType().Equals(other.GetType()))
+            {
+                return false;
+            }
+
+            return this.GetHashCode() == other.GetHashCode();
         }
         #endregion
 
         #region 重写Equals
         public override bool Equals(object obj)
         {
-            if (this == obj)
-            {
+            if (object.ReferenceEquals(this, obj))
                 return true;
-            }
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
+            if (object.ReferenceEquals(this, null) || object.ReferenceEquals(obj, null))
                 return false;
-            }
 
-            return this.CompareTo(obj) == 0;
+            return this.GetHashCode() == obj.GetHashCode();
         }
 
         public override int GetHashCode()
         {
-            return Year.GetHashCode() + Term.GetHashCode();
+            if (object.ReferenceEquals(this, null))
+                return 0;
+            return YearTerm.GetHashCode();
         }
         #endregion
 
@@ -156,26 +169,54 @@ namespace TextbookManage.Domain.Models
 
         public static bool operator ==(SchoolYearTerm left, SchoolYearTerm right)
         {
-            var result = left.CompareTo(right);
-            return result == 0;
+            if (object.ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            if (object.ReferenceEquals(left, null) || object.ReferenceEquals(right, null))
+            {
+                return false;
+            }
+            return left.GetHashCode() == right.GetHashCode();
         }
 
         public static bool operator !=(SchoolYearTerm left, SchoolYearTerm right)
         {
-            var result = left.CompareTo(right);
-            return result != 0;
+            if (object.ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            if (object.ReferenceEquals(left, null) || object.ReferenceEquals(right, null))
+            {
+                return false;
+            }
+            return left.GetHashCode() != right.GetHashCode();
         }
 
         public static bool operator >(SchoolYearTerm left, SchoolYearTerm right)
         {
-            var result = left.CompareTo(right);
-            return result == 1;
+            if (object.ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            if (object.ReferenceEquals(left, null) || object.ReferenceEquals(right, null))
+            {
+                return false;
+            }
+            return left.CompareTo(right) == 1;
         }
 
         public static bool operator <(SchoolYearTerm left, SchoolYearTerm right)
         {
-            var result = left.CompareTo(right);
-            return result == -1;
+            if (object.ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            if (object.ReferenceEquals(left, null) || object.ReferenceEquals(right, null))
+            {
+                return false;
+            }
+            return left.CompareTo(right) == -1;
         }
         #endregion
 
