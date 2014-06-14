@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TextbookManage.Domain;
+using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Domain.Test
 {
@@ -8,26 +9,75 @@ namespace TextbookManage.Domain.Test
     public class DomainServiceTest
     {
         [TestMethod]
-        public void ApprovalTest()
+        public void SchoolYearTerm_YearGreater()
         {
-            ApprovalService.CreateApproval<Models.DeclarationApproval>(new Models.Declaration(), "11", "22", true, null);
-            ApprovalService.CreateApproval<Models.FeedbackApproval>(new Models.Feedback(), "11", "22", true, null);
-            ApprovalService.CreateApproval<Models.TextbookApproval>(new Models.Textbook(), "11", "22", true, null);
-
+            var right = new SchoolYearTerm("2013-2014-1");
+            var left = new SchoolYearTerm("2014-2015-2");
+            Assert.AreEqual(1, left.CompareTo(right));
         }
 
-        //[TestMethod]
-        //public void CreateStudentDeclarationTest()
-        //{
-        //    var declaration = DeclarationService.CreateDeclaration<Models.StudentDeclaration>("2011-2012-2", "201107884", Guid.NewGuid(), Guid.NewGuid(), "13107341111", "0734-8281111", 100);
-        //    Assert.AreEqual(Models.RecipientType.学生, declaration.RecipientType);
-        //}
+        [TestMethod]
+        public void SchoolYearTerm_YearSmaller()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2012-2013-2");
+            Assert.AreEqual(-1, left.CompareTo(right));
+        }
 
-        //[TestMethod]
-        //public void CreateTeacherDeclarationTest()
-        //{
-        //    var declaration = DeclarationService.CreateDeclaration<Models.TeacherDeclaration>("2011-2012-2", "201107884", Guid.NewGuid(), Guid.NewGuid(), "13107341111", "0734-8281111", 100);
-        //    Assert.AreEqual(Models.RecipientType.教师, declaration.RecipientType);
-        //}
+        [TestMethod]
+        public void SchoolYearTerm_TermGreater()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2013-2014-2");
+            Assert.AreEqual(1, left.CompareTo(right));
+        }
+
+        [TestMethod]
+        public void SchoolYearTerm_TermSmaller()
+        {
+            var left = new SchoolYearTerm("2013-2014-2");
+            var right = new SchoolYearTerm("2013-2014-1");
+            Assert.AreEqual(-1, left.CompareTo(right));
+        }
+
+        [TestMethod]
+        public void SchoolYearTerm_Equal()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2013-2014-1");
+            Assert.AreEqual(0, left.CompareTo(right));
+        }
+
+        [TestMethod]
+        public void SchoolYearTerm_OperatorEqual()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2013-2014-1");
+            Assert.IsTrue(left == right);
+        }
+
+        [TestMethod]
+        public void SchoolYearTerm_OperatorNotEqual()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2013-2014-2");
+            Assert.IsTrue(left != right);
+        }
+
+        [TestMethod]
+        public void SchoolYearTerm_OperatorGreater()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2013-2014-2");
+            Assert.IsTrue(left < right);
+        }
+
+        [TestMethod]
+        public void SchoolYearTerm_OperatorSmaller()
+        {
+            var left = new SchoolYearTerm("2013-2014-1");
+            var right = new SchoolYearTerm("2013-2014-2");
+            Assert.IsFalse(left > right);
+        }
     }
 }

@@ -24,7 +24,7 @@
         /// <returns></returns>
         public static bool ConvertToBool(this string str)
         {
-            if (string.IsNullOrEmpty(str))
+            if (string.IsNullOrWhiteSpace(str))
                 return false;
 
             bool rtnValue = false;

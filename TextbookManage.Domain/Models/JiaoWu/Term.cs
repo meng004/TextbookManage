@@ -49,15 +49,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// </summary>
         public SchoolYearTerm SchoolYearTerm
         {
-            get
-            {
-                var result = new SchoolYearTerm
-                {
-                    Year = YearTerm.Substring(0, 9),
-                    Term = YearTerm.Substring(10, 1)
-                };
-                return result;
-            }
+            get;
+            set;
         }
         #endregion
 
