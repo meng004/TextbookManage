@@ -4,6 +4,8 @@ using System.Linq;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -57,7 +59,7 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         public Student GetById(Guid studentId)
         {
-            return _repo.First(t => t.StudentId == studentId);
+            return _repo.First(t => t.ID == studentId);
         }
         #endregion
 

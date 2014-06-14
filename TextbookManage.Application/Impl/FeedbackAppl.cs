@@ -136,10 +136,10 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         private IEnumerable<Subscription> GetSubscriptionByState(string term, Guid booksellerId, FeedbackState state)
         {
-            var yearTerm = new Term { YearTerm = term };
+            var yearTerm = new SchoolYearTerm(term);
             return _subscriptionRepo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.SchoolYearTerm.Year &&
-                t.SchoolYearTerm.Term == yearTerm.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Bookseller_Id == booksellerId &&
                 t.Feedback.FeedbackState == state
                 );
@@ -157,11 +157,11 @@ namespace TextbookManage.Applications.Impl
             switch (state)
             {
                 case FeedbackState.征订中:
-                    subs = _subscriptionRepo.Find(t => 
+                    subs = _subscriptionRepo.Find(t =>
                         t.SchoolYearTerm.Year == term.SchoolYearTerm.Year &&
-                        t.SchoolYearTerm.Term == term.SchoolYearTerm.Term && 
+                        t.SchoolYearTerm.Term == term.SchoolYearTerm.Term &&
                         t.Bookseller_Id == id
-                        ).Where(t => 
+                        ).Where(t =>
                             !t.Feedback_Id.HasValue
                             );
                     break;

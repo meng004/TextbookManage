@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Infrastructure.ServiceLocators;
 
 namespace TextbookManage.Applications.Impl
@@ -27,7 +29,7 @@ namespace TextbookManage.Applications.Impl
             //取业务用户
             var user = new TbmisUserAppl(loginName).GetUser();
 
-            var schools = _teacherRepo.First(t => t.TeacherId == user.TbmisUserId)
+            var schools = _teacherRepo.First(t => t.ID == user.TbmisUserId)
                   .Departments
                   .Select(t => t.School);
 

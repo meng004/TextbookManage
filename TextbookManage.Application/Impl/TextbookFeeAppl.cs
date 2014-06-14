@@ -7,6 +7,7 @@ using TextbookManage.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using TextbookManage.Domain.IRepositories.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -37,7 +38,7 @@ namespace TextbookManage.Applications.Impl
 
         public TextbookFeeAppl()
         {
-            
+
         }
 
         #endregion
@@ -93,7 +94,7 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<CourseView> GetCourseByClassId(string classId)
         {
             var id = classId.ConvertToGuid();
-            var task = _taskRepo.Find(t => t.ProfessionalClasses.FirstOrDefault(p => p.ProfessionalClassId == id).ProfessionalClassId == id);
+            var task = _taskRepo.Find(t => t.ProfessionalClasses.FirstOrDefault(p => p.ID == id).ID == id);
             var courses = task.Select(t => t.Course);
             return _adapter.Adapt<CourseView>(courses);
         }
@@ -138,7 +139,7 @@ namespace TextbookManage.Applications.Impl
 
             foreach (var staff in booksellerStaffs)
             {
-                var bookseller = staff.SingleOrDefault(s => s.BooksellerStaffId == user.TbmisUserId);
+                var bookseller = staff.SingleOrDefault(s => s.ID == user.TbmisUserId);
                 if (bookseller != null)
                 {
                     var booksellers = new BooksellerView()
@@ -188,8 +189,11 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<TextbookFeeForProfessionalClassView> GetProfessionalClassFee(string term, string classId)
         {
             var classid = classId.ConvertToGuid();
-
-            var classFee = _studentRecordRepo.Find(t => t.Term == term && t.Class_Id == classid
+            var yearTerm = new SchoolYearTerm(term);
+            var classFee = _studentRecordRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.Class_Id == classid
                ).GroupBy(t => new
             {
                 t.StudentNum,
@@ -213,7 +217,12 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         public IEnumerable<TextbookFeeForStudentView> GetStudentFee(string term, string studentNum)
         {
-            var studentFee = _studentRecordRepo.Find(t => t.Term == term && t.StudentNum == studentNum
+            var yearTerm = new SchoolYearTerm(term);
+
+            var studentFee = _studentRecordRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.StudentNum == studentNum
                 ).GroupBy(t => new
                     {
                         t.Textbook_Id,
@@ -251,7 +260,7 @@ namespace TextbookManage.Applications.Impl
 
             var booksellerid = booksellerId.ConvertToGuid();
             var classid = classId.ConvertToGuid();
-
+            var yearTerm = new SchoolYearTerm(term);
             //var fee = from p in _studentRecordRepo.GetAll()
             //          where
             //              p.Bookseller_Id == booksellerId.ConvertToGuid() && p.Class_Id == classId.ConvertToGuid() &&
@@ -265,7 +274,8 @@ namespace TextbookManage.Applications.Impl
             //                  };
 
             var booksellerFee = _studentRecordRepo.Find(t =>
-                                              t.Term == term &&
+                                              t.SchoolYearTerm.Year == yearTerm.Year &&
+                                              t.SchoolYearTerm.Term == yearTerm.Term &&
                                               t.Bookseller_Id == booksellerid &&
                                               t.Class_Id == classid
                 ).GroupBy(t => new

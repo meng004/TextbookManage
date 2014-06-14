@@ -149,7 +149,7 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<StudentReleaseDetailView> GetStudentReleaseDetail(string term, string studentId)
         {
             var studentid = studentId.ConvertToGuid();
-            var yearTerm = new Term { YearTerm = term }.SchoolYearTerm;
+            var yearTerm = new SchoolYearTerm(term);
 
             var studentRecord = _recordRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
@@ -183,7 +183,7 @@ namespace TextbookManage.Applications.Impl
         {
             var classid = classId.ConvertToGuid();
 
-            var yearTerm = new Term { YearTerm = term }.SchoolYearTerm;
+            var yearTerm = new SchoolYearTerm(term);
 
             var classRecord = _recordRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
@@ -224,7 +224,7 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<BooksellerReleaseDetailView> GetBooksellerReleaseDetail(string term, string booksellerId)
         {
             var id = booksellerId.ConvertToGuid();
-            var yearTerm = new Term { YearTerm = term }.SchoolYearTerm;
+            var yearTerm = new SchoolYearTerm(term);
             var booksellerRecord = _recordRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
                 t.SchoolYearTerm.Term == yearTerm.Term &&

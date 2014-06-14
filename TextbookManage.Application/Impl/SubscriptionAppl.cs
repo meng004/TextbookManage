@@ -8,6 +8,8 @@ using TextbookManage.Infrastructure;
 using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -20,19 +22,21 @@ namespace TextbookManage.Applications.Impl
         private readonly ITeachingTaskRepository _teachingTaskRepo;//= ServiceLocator.Current.GetInstance<ITeachingTaskRepository>();
         private readonly IStudentDeclarationRepository _stuDeclRepo;// = ServiceLocator.Current.GetInstance<IStudentDeclarationRepository>();
         private readonly ITeacherDeclarationRepository _teaDeclRepo;// = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
-        private readonly IDeclarationRepository _declRepo;
+        private readonly IStudentDeclarationJiaoWuRepository _stuDeclJiaoWuRepo;
+        private readonly ITeacherDeclarationJiaoWuRepository _teaDeclJiaoWuRepo;
 
         #endregion
 
         #region 构造函数
 
-        public SubscriptionAppl(ITypeAdapter adapter, ITeachingTaskRepository teachingTaskRepo, IDeclarationRepository declRepo, IStudentDeclarationRepository stuDeclRepo, ITeacherDeclarationRepository teaDeclRepo)
+        public SubscriptionAppl(ITypeAdapter adapter, ITeachingTaskRepository teachingTaskRepo, IStudentDeclarationJiaoWuRepository stuDeclJiaoWuRepo, ITeacherDeclarationJiaoWuRepository teaDeclJiaoWuRepo, IStudentDeclarationRepository stuDeclRepo, ITeacherDeclarationRepository teaDeclRepo)
         {
             _adapter = adapter;
             _teachingTaskRepo = teachingTaskRepo;
             _stuDeclRepo = stuDeclRepo;
             _teaDeclRepo = teaDeclRepo;
-            _declRepo = declRepo;
+            _stuDeclJiaoWuRepo = stuDeclJiaoWuRepo;
+            _teaDeclJiaoWuRepo = teaDeclJiaoWuRepo;
         }
         #endregion
 
@@ -48,11 +52,15 @@ namespace TextbookManage.Applications.Impl
         {
             var term = new TermAppl().GetMaxTerm();
 
+            var yearTerm = new SchoolYearTerm(term.YearTerm);
+
             //取全部未下订单的申报
-            var query = _declRepo.Find(t =>
-                t.Term == term.YearTerm &&
-                t.ApprovalState == ApprovalState.终审通过
-                ).Where(t =>
+            var query = _stuDeclJiaoWuRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term
+                ).OfType<StudentDeclaration>()
+
+                .Where(t =>
                     !t.Subscription_Id.HasValue
                     ).Where(t =>
                         t.Textbook_Id.HasValue

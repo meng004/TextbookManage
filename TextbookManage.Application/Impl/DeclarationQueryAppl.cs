@@ -163,11 +163,11 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         private List<Declaration> GetTeacherDeclarations(Guid courId, Guid depaId, string term)
         {
-            var yearTerm = new Term { YearTerm = term };
+            var yearTerm = new SchoolYearTerm(term);
             var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationJiaoWuRepository>();
             var declarations = repo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.SchoolYearTerm.Year &&
-                t.SchoolYearTerm.Term == yearTerm.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 );
@@ -182,11 +182,11 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         private List<Declaration> GetStudentDeclarations(Guid courId, Guid depaId, string term)
         {
-            var yearTerm = new Term { YearTerm = term };
+            var yearTerm = new SchoolYearTerm(term);
             var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationJiaoWuRepository>();
             var declarations = repo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.SchoolYearTerm.Year &&
-                t.SchoolYearTerm.Term == yearTerm.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 );

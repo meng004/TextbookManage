@@ -51,9 +51,9 @@ namespace TextbookManage.Applications.Impl
 
         public StorageView GetById(string storageId)
         {
-            var id = storageId.ConvertToInt();
+            var id = storageId.ConvertToGuid();
 
-            var storage = _repo.First(t => t.StorageId == id);
+            var storage = _repo.First(t => t.ID == id);
 
             return _adapter.Adapt<StorageView>(storage);
         }
@@ -86,7 +86,7 @@ namespace TextbookManage.Applications.Impl
 
             var repo = ServiceLocator.Current.GetInstance<IStorageRepository>();
 
-            var stor = repo.First(t => t.StorageId == model.StorageId);
+            var stor = repo.First(t => t.ID == model.ID);
 
             stor.Name = model.Name;
             stor.Address = model.Address;
