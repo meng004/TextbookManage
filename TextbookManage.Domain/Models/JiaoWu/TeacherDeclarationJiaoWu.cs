@@ -1,4 +1,5 @@
-﻿using TextbookManage.Infrastructure;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using TextbookManage.Infrastructure;
 
 namespace TextbookManage.Domain.Models.JiaoWu
 {
@@ -21,5 +22,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
         }
 
         private string hdsl;
+
+        /// <summary>
+        /// 申报数量
+        /// </summary>
+        [NotMapped]
+        public int DeclarationCount { get; set; }
     }
 }

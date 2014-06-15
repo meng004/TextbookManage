@@ -5,6 +5,7 @@ using TextbookManage.Domain.Models;
 
 namespace TextbookManage.Domain.Models.JiaoWu
 {
+
     public abstract class Declaration : AggregateRoot
     {
 
@@ -38,7 +39,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 申报数量
         /// 教务系统的征订数量
         /// </summary>
-        public int DeclarationCount { get; set; }
+        //public int DeclarationCount { get; set; }
         /// <summary>
         /// 数据标识
         /// A为本部，B为船山

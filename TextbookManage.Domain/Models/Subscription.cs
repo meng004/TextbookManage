@@ -47,6 +47,10 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public System.DateTime SubscriptionDate { get; set; }
         /// <summary>
+        /// ∂©µ•◊¥Ã¨
+        /// </summary>
+        public FeedbackState SubscriptionState { get; set; }
+        /// <summary>
         ///  È…Ã
         /// </summary>
         public virtual Bookseller Bookseller { get; set; }

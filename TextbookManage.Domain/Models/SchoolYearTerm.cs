@@ -19,7 +19,7 @@ namespace TextbookManage.Domain.Models
         }
         public SchoolYearTerm(string yearTerm)
         {
-            YearTerm = yearTerm;
+            this.yearTerm = yearTerm;
         }
         #endregion
 
@@ -28,28 +28,9 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 学年学期
         /// </summary>
-        public string YearTerm { get; set; }
-        /// <summary>
-        /// 说明
-        /// </summary>
-        public string Description { get; set; }
-        /// <summary>
-        /// 当前学年学期标志
-        /// 1为当前，0为非当前
-        /// </summary>
-        public string DqXnXqBz { get; set; }
-        /// <summary>
-        /// 是否当前学年学期
-        /// 将字符串类型的当前学年学期标志转换为bool
-        /// 可接受字符为true\yes\y\1\ok\是
-        /// </summary>
-        public bool IsCurrent
-        {
-            get
-            {
-                return DqXnXqBz.ConvertToBool();
-            }
-        }
+        private string yearTerm { get; set; }
+
+        private string year;
         /// <summary>
         /// 学年
         /// 2013-2014
@@ -58,12 +39,22 @@ namespace TextbookManage.Domain.Models
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(YearTerm))
-                    return string.Empty;
+                if (string.IsNullOrWhiteSpace(year))
+                {
+                    if (string.IsNullOrWhiteSpace(yearTerm))
+                        return string.Empty;
+                    else
+                        return yearTerm.Substring(0, 9);
+                }
                 else
-                    return YearTerm.Substring(0, 9);
+                    return year;
+            }
+            set
+            {
+                year = value;
             }
         }
+        private string term;
         /// <summary>
         /// 学期
         /// 2
@@ -72,10 +63,19 @@ namespace TextbookManage.Domain.Models
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(YearTerm))
-                    return string.Empty;
+                if (string.IsNullOrWhiteSpace(term))
+                {
+                    if (string.IsNullOrWhiteSpace(yearTerm))
+                        return string.Empty;
+                    else
+                        return yearTerm.Substring(10, 1);
+                }
                 else
-                    return YearTerm.Substring(10, 1);
+                    return term;
+            }
+            set
+            {
+                term = value;
             }
         }
         #endregion
@@ -87,7 +87,7 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public override string ToString()
         {
-            return YearTerm;
+            return yearTerm;
         }
         #endregion
 
@@ -104,10 +104,10 @@ namespace TextbookManage.Domain.Models
         {
             if (object.ReferenceEquals(this, null) || object.ReferenceEquals(other, null))
                 throw new NullReferenceException("对象等于Null，应初始化");
-            if (string.IsNullOrWhiteSpace(this.YearTerm) || string.IsNullOrWhiteSpace(other.YearTerm))
+            if (string.IsNullOrWhiteSpace(this.yearTerm) || string.IsNullOrWhiteSpace(other.yearTerm))
                 throw new ArgumentNullException("YearTerm等于null，使用前应初始化");
             //学年学期比较
-            if (other.YearTerm == this.YearTerm)
+            if (other.yearTerm == this.yearTerm)
                 return 0;
             else
             {
@@ -161,7 +161,7 @@ namespace TextbookManage.Domain.Models
         {
             if (object.ReferenceEquals(this, null))
                 return 0;
-            return YearTerm.GetHashCode();
+            return yearTerm.GetHashCode();
         }
         #endregion
 
