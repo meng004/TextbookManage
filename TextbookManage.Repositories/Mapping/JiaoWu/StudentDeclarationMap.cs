@@ -7,7 +7,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
     {
         public StudentDeclarationMap()
         {
-            this.HasKey(t => t.ID);
+            //this.HasKey(t => t.ID);
 
             this.ToTable("StudentDeclaration", "Textbook");
 

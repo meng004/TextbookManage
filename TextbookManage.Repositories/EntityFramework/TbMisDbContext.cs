@@ -48,6 +48,10 @@
         //教务基础数据集
         public DbSet<Course> Courses { get; set; }
         public DbSet<DataSign> DataSigns { get; set; }
+        /// <summary>
+        /// 抽象类，不映射
+        /// </summary>
+        //public DbSet<Declaration> Declarations { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Press> Presses { get; set; }
         public DbSet<ProfessionalClass> ProfessionalClasses { get; set; }

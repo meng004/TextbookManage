@@ -7,6 +7,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
     {
         public TeacherDeclarationJiaoWuMap()
         {
+            
             // Primary Key
             this.HasKey(t => t.ID);
 
@@ -32,7 +33,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.DataSign_Id).HasColumnName("SJBS");
             this.Property(t => t.Sfgd).HasColumnName("SFGD");
 
-            this.Ignore(t => t.DeclarationCount);
+            
 
             //教材：教师用书申报教务，1:N
             this.HasRequired(t => t.Textbook)
