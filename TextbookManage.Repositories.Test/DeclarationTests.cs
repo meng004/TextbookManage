@@ -5,6 +5,7 @@ using System.Transactions;
 using TextbookManage.Repositories.EntityFramework;
 using System.Linq;
 using TextbookManage.Infrastructure;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Repositories.Test
 {
@@ -74,6 +75,17 @@ namespace TextbookManage.Repositories.Test
             var id = Guid.NewGuid();
             var result = repo.GetSchools(id).ToList();
             Assert.IsTrue(result.Count() == 0);
+        }
+
+        [TestMethod]
+        public void GetStudentDeclarationJiaoWu_UsingOfType()
+        {
+            var repo = new DeclarationRepository(_context);
+            var query = repo.Find(t =>
+                t.SchoolYearTerm.Year == "2013-2014" &&
+                t.SchoolYearTerm.Term == "2"
+                ).OfType<StudentDeclaration>();
+            Assert.IsTrue(query.Count() > 99);
         }
     }
 }
