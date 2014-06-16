@@ -2,6 +2,7 @@
 using System.Text;
 using AutoMapper;
 using TextbookManage.Domain.Models;
+using TextbookManage.Domain.Models.JiaoWu;
 
 namespace TextbookManage.Applications.AdapterProfile
 {
