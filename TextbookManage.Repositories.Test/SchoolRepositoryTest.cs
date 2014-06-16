@@ -66,7 +66,9 @@ namespace TextbookManage.Repositories.Test
         public void GetStudentDeclaration()
         {
             var repo = new StudentDeclarationRepository(_context);
-            var results = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
+            var results = repo.Find(t => 
+                t.StudentDeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
+                t.StudentDeclarationJiaoWu.SchoolYearTerm.Term == "2");
             Assert.IsTrue(results.Count() > 0);
         }
 
@@ -83,10 +85,10 @@ namespace TextbookManage.Repositories.Test
         {
             var repo = new StudentDeclarationRepository(_context);
             var decls = repo.Find(t => 
-                t.SchoolYearTerm.Year == "2013-2014" && 
-                t.SchoolYearTerm.Term == "2"
+                t.StudentDeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
+                t.StudentDeclarationJiaoWu.SchoolYearTerm.Term == "2"
                 );
-            var result = decls.Sum(t => t.DeclarationCount);
+            var result = decls.Sum(t => t.StudentDeclarationJiaoWu.DeclarationCount);
             Assert.IsTrue(result > 0);
         }
 
@@ -107,7 +109,7 @@ namespace TextbookManage.Repositories.Test
                 t.SchoolYearTerm.Year == "2013-2014" &&
                 t.SchoolYearTerm.Term == "2"
                 ).OfType<StudentDeclaration>();
-            var result = decls.Sum(t => t.DeclarationCount);
+            var result = decls.Sum(t => t.StudentDeclarationJiaoWu.DeclarationCount);
             Assert.IsTrue(result > 0);
         }
 
