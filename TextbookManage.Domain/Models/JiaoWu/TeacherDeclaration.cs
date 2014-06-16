@@ -5,7 +5,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// 用于关联订单
     /// 处理订单与用书申报的1：N关系
     /// </summary>
-    public class TeacherDeclaration : TeacherDeclarationJiaoWu
+    public class TeacherDeclaration : AggregateRoot
     {
         public TeacherDeclaration()
         {
@@ -34,6 +34,10 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 所属订单
         /// </summary>
         public virtual Subscription Subscription { get; set; }
+        /// <summary>
+        /// 教务学生用书申报
+        /// </summary>
+        public virtual TeacherDeclarationJiaoWu TeacherDeclarationJiaoWu { get; set; }
         #endregion
 
         #region 业务规则
@@ -46,16 +50,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             get
             {
-                //无订单
-                if (Subscription == null)
-                {
-                    return FeedbackState.未征订;
-                }
-                //有订单，返回订单的回告状态
-                else
-                {
-                    return Subscription.FeedbackState;
-                }
+                return Subscription.FeedbackState;
             }
         }
 
@@ -72,10 +67,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
             }
             else//未查看
             {
-                //取回告状态
-                var state = FeedbackState;
                 //书商已给出回告
-                if (state == FeedbackState.征订成功 || state == FeedbackState.征订失败)
+                if (FeedbackState == FeedbackState.征订成功 || FeedbackState == FeedbackState.征订失败)
                 {
                     //修改已查看回告标志
                     HadViewFeedback = true;

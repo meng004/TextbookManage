@@ -9,6 +9,17 @@ namespace TextbookManage.Domain.Models.JiaoWu
     public class TeacherDeclarationJiaoWu : Declaration
     {
         /// <summary>
+        /// 申报数量
+        /// </summary>
+        [NotMapped]
+        public int DeclarationCount { get; set; }
+
+        /// <summary>
+        /// 教材的学生用书申报
+        /// </summary>
+        public virtual StudentDeclaration StudentDeclaration { get; set; }
+
+        /// <summary>
         /// 教务系统的核定数量
         /// </summary>
         public string Hdsl
@@ -22,11 +33,5 @@ namespace TextbookManage.Domain.Models.JiaoWu
         }
 
         private string hdsl;
-
-        /// <summary>
-        /// 申报数量
-        /// </summary>
-        [NotMapped]
-        public int DeclarationCount { get; set; }
     }
 }

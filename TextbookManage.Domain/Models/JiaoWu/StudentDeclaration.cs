@@ -7,11 +7,12 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// </summary>
     public class StudentDeclaration : AggregateRoot
     {
-        //public StudentDeclaration()
-        //{
-        //    HadViewFeedback = false;
-        //    ViewFeedbackDate = null;
-        //}
+        public StudentDeclaration()
+        {
+            HadViewFeedback = false;
+            ViewFeedbackDate = null;
+        }
+
         #region 属性
         /// <summary>
         /// 申报ID
@@ -49,16 +50,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             get
             {
-                //无订单
-                if (Subscription == null)
-                {
-                    return FeedbackState.未征订;
-                }
-                //有订单，返回订单的回告状态
-                else
-                {
-                    return Subscription.FeedbackState;
-                }
+                return Subscription.FeedbackState;
             }
         }
 
@@ -75,10 +67,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
             }
             else//未查看
             {
-                //取回告状态
-                var state = FeedbackState;
                 //书商已给出回告
-                if (state == FeedbackState.征订成功 || state == FeedbackState.征订失败)
+                if (FeedbackState == FeedbackState.征订成功 || FeedbackState == FeedbackState.征订失败)
                 {
                     //修改已查看回告标志
                     HadViewFeedback = true;
