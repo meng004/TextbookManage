@@ -269,11 +269,13 @@ namespace TextbookManage.Applications.Impl
                 );
             //已征订
             var decl = _teaDeclRepo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.Year &&
-                t.SchoolYearTerm.Term == yearTerm.Term
-                );
+                t.TeacherDeclarationJiaoWu.SchoolYearTerm.Year == yearTerm.Year &&
+                t.TeacherDeclarationJiaoWu.SchoolYearTerm.Term == yearTerm.Term
+                ).Select(t => t.ID);
             //未征订
-            var result = query.Except(decl);
+            var result = from d in query
+                         where !decl.Contains(d.ID)
+                         select d;
             return result.ToList();
         }
         #endregion
