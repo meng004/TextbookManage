@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using TextbookManage.Domain.Models.JiaoWu;
 
 
 
-namespace TextbookManage.Domain.Models.JiaoWu
+namespace TextbookManage.Domain.Models.Comparer
 {
     public class TextbookComparer : IEqualityComparer<Textbook>
     {
@@ -21,7 +22,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
 
         public int GetHashCode(Textbook obj)
         {
-            if (object.ReferenceEquals(obj, null)) return 0;
+            if (object.ReferenceEquals(obj, null)) 
+                return 0;
             return obj.ID.GetHashCode();
         }
     }

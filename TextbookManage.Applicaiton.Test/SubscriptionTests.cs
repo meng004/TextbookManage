@@ -8,21 +8,14 @@ using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Repositories;
 using TextbookManage.IApplications;
 using TextbookManage.Applications.Impl;
+using System.Collections.Generic;
+using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.Domain;
+using System.Linq;
 
 namespace TextbookManage.Applicaitons.Test
 {
-    /// <summary>
-    /// 用于测试的子类
-    /// </summary>
-    internal class SubscriptionForTest : SubscriptionAppl
-    {
-        public SubscriptionForTest(ITypeAdapter adapter, ITeachingTaskRepository teachingTaskRepo, IStudentDeclarationJiaoWuRepository stuDeclJiaoWuRepo, ITeacherDeclarationJiaoWuRepository teaDeclJiaoWuRepo, IStudentDeclarationRepository stuDeclRepo, ITeacherDeclarationRepository teaDeclRepo)
-            : base(adapter, teachingTaskRepo, stuDeclJiaoWuRepo, teaDeclJiaoWuRepo, stuDeclRepo, teaDeclRepo)
-        {
 
-        }
-
-    }
     [TestClass]
     public class SubscriptionTests
     {
@@ -37,6 +30,9 @@ namespace TextbookManage.Applicaitons.Test
         IRepositoryContext _context;
         //事务
         TransactionScope _trans;
+        //是否回滚事务标志
+        bool _rollback;
+
         [TestInitialize]
         public void Initialize()
         {
@@ -49,14 +45,17 @@ namespace TextbookManage.Applicaitons.Test
             _teaDeclJiaoWuRepo = new TeacherDeclarationJiaoWuRepository(_context);
             _stuDeclRepo = new StudentDeclarationRepository(_context);
             _teaDeclRepo = new TeacherDeclarationRepository(_context);
-            _appl = new SubscriptionForTest(_adapter, _teachingTaskRepo, _stuDeclJiaoWuRepo, _teaDeclJiaoWuRepo, _stuDeclRepo, _teaDeclRepo);
+            _appl = new SubscriptionAppl(_adapter, _teachingTaskRepo, _stuDeclJiaoWuRepo, _teaDeclJiaoWuRepo, _stuDeclRepo, _teaDeclRepo);
+
+            _rollback = true;
         }
 
         [TestCleanup]
         public void Cleanup()
         {
             //回滚事务，清除对数据库的操作，如新建记录
-            _trans.Dispose();
+            if (_rollback)
+                _trans.Dispose();
 
         }
 
@@ -77,6 +76,29 @@ namespace TextbookManage.Applicaitons.Test
             var actual = _appl.GetNotSubscriptionTeacherDeclarationJiaoWu(term).Count;
             var expected = 290;
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SaveSubscriptionWithStudentDeclaration()
+        {
+            //取未征订学生申报
+            var declarations = _appl.GetNotSubscriptionStudentDeclarationJiaoWu("2013-2014-2");
+            //生成订单
+            var subscriptions = SubscriptionService.CreateSubscriptionsByPress(declarations);
+            //保存
+            var repo = new SubscriptionRepository(_context);
+            foreach (var item in subscriptions)
+            {
+                repo.Add(item);
+            }
+            repo.Context.Commit();
+            _rollback = false;
+
+            var ids = subscriptions.Select(d=>d.ID);
+            var result = repo.Find(t => ids
+                .Contains(t.ID)
+                );
+            Assert.AreEqual(subscriptions.Count(), result.Count());
         }
 
     }

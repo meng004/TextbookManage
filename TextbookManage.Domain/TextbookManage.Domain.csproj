@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Comparer\PressTextbookComparer.cs" />
+    <Compile Include="Models\Comparer\SchoolTextbookComparer.cs" />
     <Compile Include="Models\JiaoWu\RecipientType.cs" />
     <Compile Include="Services\ApprovalService.cs" />
     <Compile Include="Services\InventoryService.cs" />

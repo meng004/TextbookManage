@@ -229,7 +229,7 @@ namespace TextbookManage.Applications.Impl
         /// </summary>
         /// <param name="term"></param>
         /// <returns></returns>
-        protected List<StudentDeclarationJiaoWu> GetNotSubscriptionStudentDeclarationJiaoWu(string term)
+        public List<StudentDeclarationJiaoWu> GetNotSubscriptionStudentDeclarationJiaoWu(string term)
         {
             //学年学期
             var yearTerm = new SchoolYearTerm(term);
@@ -241,11 +241,13 @@ namespace TextbookManage.Applications.Impl
                 );
             //已征订
             var decl = _stuDeclRepo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.Year &&
-                t.SchoolYearTerm.Term == yearTerm.Term
-                );
+                t.StudentDeclarationJiaoWu.SchoolYearTerm.Year == yearTerm.Year &&
+                t.StudentDeclarationJiaoWu.SchoolYearTerm.Term == yearTerm.Term
+                ).Select(d => d.ID);
             //未征订
-            var result = query.Except(decl);
+            var result = from d in query
+                         where !decl.Contains(d.ID)
+                         select d;
             return result.ToList();
         }
 
@@ -254,7 +256,7 @@ namespace TextbookManage.Applications.Impl
         /// </summary>
         /// <param name="term"></param>
         /// <returns></returns>
-        protected List<TeacherDeclarationJiaoWu> GetNotSubscriptionTeacherDeclarationJiaoWu(string term)
+        public List<TeacherDeclarationJiaoWu> GetNotSubscriptionTeacherDeclarationJiaoWu(string term)
         {
             //学年学期
             var yearTerm = new SchoolYearTerm(term);

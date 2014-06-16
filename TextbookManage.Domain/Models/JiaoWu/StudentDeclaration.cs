@@ -5,7 +5,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
     /// 用于关联订单
     /// 处理订单与用书申报的1：N关系
     /// </summary>
-    public class StudentDeclaration : StudentDeclarationJiaoWu
+    public class StudentDeclaration : AggregateRoot
     {
         //public StudentDeclaration()
         //{
@@ -33,6 +33,10 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 所属订单
         /// </summary>
         public virtual Subscription Subscription { get; set; }
+        /// <summary>
+        /// 教务学生用书申报
+        /// </summary>
+        public virtual StudentDeclarationJiaoWu StudentDeclarationJiaoWu { get; set; }
         #endregion
 
         #region 业务规则

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.Domain.Models.Comparer;
 
 namespace TextbookManage.Domain
 {
@@ -62,25 +63,10 @@ namespace TextbookManage.Domain
                 .Select(m =>
                     {
                         var declarationJiaoWus = declarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
-                        var studentDeclarations = new List<StudentDeclaration>();
+
+                        var studentDeclarations = declarationJiaoWus.ConvertAll(Converter);
                         var id = Guid.NewGuid();
-                        foreach (var item in declarationJiaoWus)
-                        {
-                            var studentDeclaration = new StudentDeclaration();
 
-                            studentDeclaration.Course_Id = item.Course_Id;
-                            studentDeclaration.DataSign_Id = item.DataSign_Id;
-                            studentDeclaration.DeclarationCount = item.DeclarationCount;
-                            studentDeclaration.ID = item.ID;
-                            studentDeclaration.Department_Id = item.Department_Id;
-                            studentDeclaration.School_Id = item.School_Id;
-                            studentDeclaration.SchoolYearTerm = item.SchoolYearTerm;
-                            studentDeclaration.Sfgd = item.Sfgd;
-                            studentDeclaration.Textbook_Id = item.Textbook_Id;
-                            studentDeclaration.Subscription_Id = id;
-
-                            studentDeclarations.Add(studentDeclaration);
-                        }
                         var subscription = new Subscription
                         {
                             ID = id,
@@ -124,28 +110,12 @@ namespace TextbookManage.Domain
             var result = declarations
                 .GroupBy(t => t.Textbook, new TextbookComparer())
                 //.GroupBy(t => t.Textbook)
-                .Select(m => 
+                .Select(m =>
                     {
                         var declarationJiaoWus = declarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
-                        var teacherDeclarations = new List<TeacherDeclaration>();
                         var id = Guid.NewGuid();
-                        foreach (var item in declarationJiaoWus)
-                        {
-                            var teacherDeclaration = new TeacherDeclaration();
+                        var teacherDeclarations = declarationJiaoWus.ConvertAll(Converter);
 
-                            teacherDeclaration.Course_Id = item.Course_Id;
-                            teacherDeclaration.DataSign_Id = item.DataSign_Id;
-                            teacherDeclaration.DeclarationCount = item.DeclarationCount;
-                            teacherDeclaration.ID = item.ID;
-                            teacherDeclaration.Department_Id = item.Department_Id;
-                            teacherDeclaration.School_Id = item.School_Id;
-                            teacherDeclaration.SchoolYearTerm = item.SchoolYearTerm;
-                            teacherDeclaration.Sfgd = item.Sfgd;
-                            teacherDeclaration.Textbook_Id = item.Textbook_Id;
-                            teacherDeclaration.Subscription_Id = id;
-
-                            teacherDeclarations.Add(teacherDeclaration);
-                        }
                         var subscription = new Subscription
                         {
                             ID = id,
@@ -163,6 +133,105 @@ namespace TextbookManage.Domain
             return result.ToList();
         }
 
+        public static IEnumerable<Subscription> CreateSubscriptionsByPress(IEnumerable<StudentDeclarationJiaoWu> declarations)
+        {
+            var result = declarations.GroupBy(t =>
+                t, new PressTextbookComparer<StudentDeclarationJiaoWu>())
+                .Select(m =>
+                {
+                    var declarationJiaoWus = declarations.Where(d =>
+                        d.Textbook.Press == m.Key.Textbook.Press &&
+                        d.Textbook_Id == m.Key.Textbook_Id
+                        ).ToList();
+
+                    var studentDeclarations = declarationJiaoWus.ConvertAll(Converter);
+
+                    var subscription = new Subscription
+                    {
+                        ID = Guid.NewGuid(),
+                        Textbook_Id = m.Key.Textbook_Id.Value,
+                        SchoolYearTerm = declarations.FirstOrDefault().SchoolYearTerm,
+                        //Textbook = m.Key.Textbook,
+                        PlanCount = m.Sum(s => s.DeclarationCount),
+                        SpareCount = 0,
+                        SubscriptionDate = DateTime.Now,
+                        StudentDeclarations = studentDeclarations
+                    };
+                    return subscription;
+                });
+
+            return result.ToList();
+
+        }
+
+        public static IEnumerable<Subscription> CreateSubscriptionsByPress(IEnumerable<TeacherDeclarationJiaoWu> declarations)
+        {
+            var result = declarations.GroupBy(t =>
+                t, new PressTextbookComparer<TeacherDeclarationJiaoWu>())
+                .Select(m =>
+                {
+                    var declarationJiaoWus = declarations.Where(d =>
+                        d.Textbook.Press == m.Key.Textbook.Press &&
+                        d.Textbook_Id == m.Key.Textbook_Id
+                        ).ToList();
+
+                    var teacherDeclarations = declarationJiaoWus.ConvertAll(Converter);
+
+                    var subscription = new Subscription
+                    {
+                        ID = Guid.NewGuid(),
+                        Textbook_Id = m.Key.Textbook_Id.Value,
+                        SchoolYearTerm = declarations.FirstOrDefault().SchoolYearTerm,
+                        Textbook = m.Key.Textbook,
+                        PlanCount = m.Sum(s => s.DeclarationCount),
+                        SpareCount = 0,
+                        SubscriptionDate = DateTime.Now,
+                        TeacherDeclarations = teacherDeclarations
+                    };
+                    return subscription;
+                });
+
+            return result.ToList();
+
+        }
+
+        private static StudentDeclaration Converter(StudentDeclarationJiaoWu declaration)
+        {
+            var studentDeclaration = new StudentDeclaration()
+            {
+                //Course_Id = declaration.Course_Id,
+                //DataSign_Id = declaration.DataSign_Id,
+                //DeclarationCount = declaration.DeclarationCount,
+                ID = declaration.ID,
+                //Department_Id = declaration.Department_Id,
+                //School_Id = declaration.School_Id,
+                //SchoolYearTerm = declaration.SchoolYearTerm,
+                //Sfgd = declaration.Sfgd,
+                //Textbook_Id = declaration.Textbook_Id
+                HadViewFeedback = false,
+                ViewFeedbackDate = null
+            };
+
+            return studentDeclaration;
+        }
+
+        private static TeacherDeclaration Converter(TeacherDeclarationJiaoWu item)
+        {
+            var teacherDeclaration = new TeacherDeclaration()
+            {
+                Course_Id = item.Course_Id,
+                DataSign_Id = item.DataSign_Id,
+                DeclarationCount = item.DeclarationCount,
+                ID = item.ID,
+                Department_Id = item.Department_Id,
+                School_Id = item.School_Id,
+                SchoolYearTerm = item.SchoolYearTerm,
+                Sfgd = item.Sfgd,
+                Textbook_Id = item.Textbook_Id
+            };
+
+            return teacherDeclaration;
+        }
         /// <summary>
         /// 向订单添加回告
         /// </summary>

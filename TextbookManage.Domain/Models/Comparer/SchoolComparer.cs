@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using TextbookManage.Domain.Models.JiaoWu;
 
 
 
-namespace TextbookManage.Domain.Models.JiaoWu
+namespace TextbookManage.Domain.Models.Comparer
 {
     /// <summary>
     /// 学院比较器
@@ -24,7 +25,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
 
         public int GetHashCode(School obj)
         {
-            if (object.ReferenceEquals(obj, null)) return 0;
+            if (object.ReferenceEquals(obj, null)) 
+                return 0;
             return obj.ID.GetHashCode();
         }
     }

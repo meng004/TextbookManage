@@ -9,10 +9,10 @@ namespace TextbookManage.Domain.Models.JiaoWu
     public class Press : AggregateRoot
     {
 
-        public Press()
-        {
-            Textbooks = new List<Textbook>();
-        }
+        //public Press()
+        //{
+        //    Textbooks = new List<Textbook>();
+        //}
 
         #region 属性
 
@@ -39,7 +39,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 教材
         /// </summary>
-        public virtual ICollection<Textbook> Textbooks { get; set; }
+        //public virtual ICollection<Textbook> Textbooks { get; set; }
         #endregion
     }
 }

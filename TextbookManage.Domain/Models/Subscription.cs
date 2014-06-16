@@ -21,7 +21,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         ///  È…ÃID
         /// </summary>
-        public Guid Bookseller_Id { get; set; }
+        public Guid? Bookseller_Id { get; set; }
         /// <summary>
         /// ΩÃ≤ƒID
         /// </summary>

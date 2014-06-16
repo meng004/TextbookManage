@@ -7,11 +7,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
     {
         public StudentDeclarationMap()
         {
-            //this.HasKey(t => t.ID);
+            this.HasKey(t => t.ID);
 
             this.ToTable("StudentDeclaration", "Textbook");
 
-            //this.Property(t => t.ID).HasColumnName("Declaration_ID");
+            this.Property(t => t.ID).HasColumnName("XSYSID");
             this.Property(t => t.Subscription_Id).HasColumnName("Subscription_ID");
             this.Property(t => t.HadViewFeedback).HasColumnName("HadViewFeedback");
             this.Property(t => t.ViewFeedbackDate).HasColumnName("ViewFeedbackDate");
@@ -21,6 +21,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.HasRequired(t => t.Subscription)
                 .WithMany(t => t.StudentDeclarations)
                 .HasForeignKey(d => d.Subscription_Id);
+
+            //学生用书申报：教务学生用书申报，1：1
+            this.HasRequired(t => t.StudentDeclarationJiaoWu)
+                .WithOptional(t => t.StudentDeclaration);
+                
 
             //教材：学生用书申报
             //this.HasRequired(t => t.Textbook)

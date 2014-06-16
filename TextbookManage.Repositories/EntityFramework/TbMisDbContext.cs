@@ -56,7 +56,7 @@
         public DbSet<Press> Presses { get; set; }
         public DbSet<ProfessionalClass> ProfessionalClasses { get; set; }
         public DbSet<School> Schools { get; set; }
-        public DbSet<StudentDeclarationJiaoWu> StudentDeclarationJiaoWus { get; set; }  
+        public DbSet<StudentDeclarationJiaoWu> StudentDeclarationJiaoWus { get; set; }        
         public DbSet<StudentDeclaration> StudentDeclarations { get; set; }   
         public DbSet<Student> Students { get; set; }
         public DbSet<TeacherDeclarationJiaoWu> TeacherDeclarationJiaoWus { get; set; }

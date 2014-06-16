@@ -32,13 +32,13 @@ namespace TextbookManage.Repositories.EntityFramework
         public override IEnumerable<TAggregateRoot> GetAll()
         {
             //不启用更改跟踪，启用并行化查询
-            return _dbSet.AsNoTracking().AsParallel().ToList();
+            return _dbSet.AsParallel().ToList();
         }
 
         public override IEnumerable<TAggregateRoot> Find(System.Linq.Expressions.Expression<Func<TAggregateRoot, bool>> expression)
         {
             //启用并行化查询
-            return _dbSet.Where(expression).AsNoTracking().AsParallel().ToList();
+            return _dbSet.Where(expression).AsParallel().ToList();
         }
 
         public override TAggregateRoot Single(System.Linq.Expressions.Expression<Func<TAggregateRoot, bool>> expression)
