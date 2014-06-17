@@ -71,7 +71,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Remove)]
-        ResponseView SubmitSubscription(string term, string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions);
+        ResponseView SubmitSubscription(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions);
 
         /// <summary>
         /// 取征订状态

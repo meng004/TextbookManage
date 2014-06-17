@@ -18,7 +18,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string loginName, string term);
+        IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string term,string loginName);
 
         /// <summary>
         /// 提交回告
@@ -56,7 +56,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForFeedbackView> GetSubscriptionByBooksellerId(string booksellerId, string feedbackStateName);
+        IEnumerable<SubscriptionForFeedbackView> GetSubscriptionByBooksellerId(string term, string booksellerId, string feedbackStateName);
 
         /// <summary>
         /// 由订单Id，取回告
