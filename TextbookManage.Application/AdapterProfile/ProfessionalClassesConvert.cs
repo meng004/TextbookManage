@@ -8,11 +8,10 @@ namespace TextbookManage.Applications.AdapterProfile
 {
     /// <summary>
     /// 班级列表，转为班级名称
-    /// 如：1班，2班
+    /// 如：2012软件1班，2012软件2班
     /// </summary>
     public class ProfessionalClassesConvert : ITypeConverter<IEnumerable<ProfessionalClass>, string>
     {
-
         public string Convert(ResolutionContext context)
         {
             IEnumerable<ProfessionalClass> classes;

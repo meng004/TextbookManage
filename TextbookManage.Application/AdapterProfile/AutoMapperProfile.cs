@@ -9,7 +9,7 @@
     using System.Collections.Generic;
     using TextbookManage.Domain.Models.JiaoWu;
 
-    
+
     /// <summary>
     /// AutoMapper配置文件
     /// </summary>
@@ -33,16 +33,20 @@
                 .ForMember(v => v.IsCurrent, m => m.MapFrom(s => s.DqXnXqBz));
 
             //书商
-            Mapper.CreateMap<Bookseller, BooksellerView>();
+            Mapper.CreateMap<Bookseller, BooksellerView>()
+                .ForMember(v => v.BooksellerId, m => m.MapFrom(s => s.ID));
 
             //学院
-            Mapper.CreateMap<School, SchoolView>();
+            Mapper.CreateMap<School, SchoolView>()
+                .ForMember(v => v.SchoolId, m => m.MapFrom(s => s.ID));
 
             //系教研室
-            Mapper.CreateMap<Department, DepartmentView>();
+            Mapper.CreateMap<Department, DepartmentView>()
+                .ForMember(v => v.DepartmentId, m => m.MapFrom(s => s.ID));
 
             //课程
             Mapper.CreateMap<Course, CourseView>()
+                .ForMember(v => v.CourseId, m => m.MapFrom(s => s.ID))
                 .ForMember(v => v.NumAndName, m => m.MapFrom(s => string.Format("{0}-{1}", s.Num, s.Name)));
 
             //教学任务
@@ -54,13 +58,17 @@
             Mapper.CreateMap<Press, PressView>();
 
             //教材
-            Mapper.CreateMap<Textbook, TextbookView>();
+            Mapper.CreateMap<Textbook, TextbookView>()
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
 
-            Mapper.CreateMap<Textbook, TextbookForDeclarationView>();
+            Mapper.CreateMap<Textbook, TextbookForDeclarationView>()
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
 
-            Mapper.CreateMap<Textbook, TextbookForQueryView>();
+            Mapper.CreateMap<Textbook, TextbookForQueryView>()
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
 
-            Mapper.CreateMap<Textbook, TextbookForReleaseView>();
+            Mapper.CreateMap<Textbook, TextbookForReleaseView>()
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
 
             Mapper.CreateMap<Textbook, InventoryView>()
                 .ForMember(v => v.InventoryId, m => m.UseValue("0"))
@@ -70,137 +78,56 @@
 
             Mapper.CreateMap<TextbookView, Textbook>()
                 .ForMember(m => m.ID, v => v.MapFrom(s => string.IsNullOrWhiteSpace(s.TextbookId) ? System.Guid.Empty : s.TextbookId.ConvertToGuid()))
-                //.ForMember(m => m.Edition, v => v.MapFrom(s => s.Edition.Substring(1, s.Edition.Length - 2).ConvertToInt()))
-                                
                 .ForMember(m => m.Price, v => v.MapFrom(s => s.Price))
-                .ForMember(m => m.PrintCount, v => v.MapFrom(s => s.PrintCount.Substring(1, s.PrintCount.Length - 4).ConvertToInt()))
-                //.ForMember(m => m.PressId, v => v.MapFrom(s => s.PressId.ConvertToInt()))
-                .ForMember(m => m.Press, v => v.MapFrom(s=>s.Press));
-
-            //.ForMember(m => m.PublishDate, v => v.MapFrom(s => s.PublishDate));
+                .ForMember(m => m.Press, v => v.MapFrom(s => s.Press))
+                .ForMember(m => m.PublishDate, v => v.MapFrom(s => s.PublishDate));
 
             //专业班级
-            Mapper.CreateMap<ProfessionalClass, ProfessionalClassBaseView>();
-            Mapper.CreateMap<ProfessionalClass, ProfessionalClassView>();
-
+            Mapper.CreateMap<ProfessionalClass, ProfessionalClassBaseView>()
+                .ForMember(v => v.ProfessionalClassId, m => m.MapFrom(s => s.ID));
+            Mapper.CreateMap<ProfessionalClass, ProfessionalClassView>()
+                .ForMember(v => v.ProfessionalClassId, m => m.MapFrom(s => s.ID));
 
             //学生
             Mapper.CreateMap<Student, StudentView>()
-                .ForMember(v => v.Gender, m => m.MapFrom(s => s.Gender));
+                .ForMember(v => v.StudentId, m => m.MapFrom(s => s.ID));
 
             //申报
-            Mapper.CreateMap<IEnumerable<ProfessionalClass>, string>().ConvertUsing<ProfessionalClassesConvert>();
-
-
-            Mapper.CreateMap<DeclarationJiaoWu, DeclarationBaseView>()
-                //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
-                //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
-                .ForMember(v => v.TextbookName, m => m.MapFrom(s => s.Textbook.Name));
-                //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
-                //.ForMember(v => v.ProfessionalClassName, m => m.MapFrom(s => s.TeachingTask.ProfessionalClasses));
-
-            Mapper.CreateMap<DeclarationJiaoWu, DeclarationForTeachingTaskView>()
-                //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
-                //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
-                .ForMember(v => v.TextbookName, m => m.MapFrom(s => s.Textbook.Name))
-                //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
-                //.ForMember(v => v.ProfessionalClassName, m => m.MapFrom(s => s.TeachingTask.ProfessionalClasses))
-                .ForMember(v => v.Isbn, m => m.MapFrom(s => s.Textbook.Isbn))
-                .ForMember(v => v.Press, m => m.MapFrom(s => s.Textbook.Press))
-                .ForMember(v => v.Author, m => m.MapFrom(s => s.Textbook.Author))
-                .ForMember(v => v.Price, m => m.MapFrom(s => s.Textbook.Price))
-                .ForMember(v => v.Edition, m => m.MapFrom(s => s.Textbook.Edition))
-                .ForMember(v => v.PrintCount, m => m.MapFrom(s => s.Textbook.PrintCount));
-
-
-            Mapper.CreateMap<DeclarationJiaoWu, DeclarationForApprovalView>()
-                //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
-                //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
-                .ForMember(v => v.TextbookName, m => m.MapFrom(s => s.Textbook.Name))
-                //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
-                //.ForMember(v => v.ProfessionalClassName, m => m.MapFrom(s => s.TeachingTask.ProfessionalClasses))
-                .ForMember(v => v.DataSignName, m => m.MapFrom(s => s.DataSign.Name))
-                .ForMember(v => v.CourseNum, m => m.MapFrom(s => s.Course.Num))
-                .ForMember(v => v.CourseName, m => m.MapFrom(s => s.Course.Name));
-
-
-            Mapper.CreateMap<DeclarationJiaoWu, DeclarationForQueryView>()
-                //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
-                //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
-                .ForMember(v => v.TextbookName, m => m.MapFrom(s => s.Textbook.Name));
-                //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
-                //.ForMember(v => v.ProfessionalClassName, m => m.MapFrom(s => s.TeachingTask.ProfessionalClasses));
-
-            Mapper.CreateMap<DeclarationJiaoWu, DeclarationView>()
-                //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id));
-
-            Mapper.CreateMap<DeclarationView, DeclarationJiaoWu>()
-                .ForMember(m => m.ID, v => v.MapFrom(s => s.DeclarationId.ConvertToGuid()));
-            //.ForMember(m => m.Textbook_Id, v => v.MapFrom(s => s.TextbookId.ConvertToGuid()))
-            //.ForMember(m => m.TeachingTask_Num, v => v.MapFrom(s => s.TeachingTaskNum))
-            //.ForMember(m => m.ProfessionalClass_Id, v => v.MapFrom(s => s.ProfessionalClassId.ConvertToGuid()))
-            //.ForMember(m => m.Teacher_Id, v => v.MapFrom(s => s.TeacherId.ConvertToGuid()))
-            //.ForMember(m => m.RecipientType, v => v.MapFrom(s => System.Enum.Parse(typeof(RecipientType), s.RecipientType)))
-            //.ForMember(m => m.DeclarationCount, v => v.MapFrom(s => s.DeclarationCount.ConvertToInt()))
-            //.ForMember(m => m.DeclarationDate, v => v.MapFrom(s => System.DateTime.Parse(s.DeclarationDate)))
-            //.ForMember(m => m.ApprovalState, v => v.MapFrom(s => System.Enum.Parse(typeof(ApprovalState), s.ApprovalState)))
-            //.ForMember(m => m.HadViewFeedback, v => v.MapFrom(s => s.HadViewFeedback.ConvertToBool()));
-
-
-
-            //学院申报进度
-            Mapper.CreateMap<SchoolProgress, SchoolProgressView>()
-                .ForMember(v => v.SchoolId, m => m.MapFrom(s => s.School.ID))
-                .ForMember(v => v.Name, m => m.MapFrom(s => s.School.Name));
-
-            //系教研室申报进度
-            Mapper.CreateMap<DepartmentProgress, DepartmentProgressView>()
-                .ForMember(v => v.SchoolId, m => m.MapFrom(s => s.School.ID))
-                .ForMember(v => v.Name, m => m.MapFrom(s => s.School.Name))
-                .ForMember(v => v.DepartmentId, m => m.MapFrom(s => s.Department.ID))
-                .ForMember(v => v.DepartmentName, m => m.MapFrom(s => s.Department.Name))
-                .ForMember(v => v.DataSignName, m => m.MapFrom(s => s.DataSign.Name))
-                .ForMember(v => v.CourseNum, m => m.MapFrom(s => s.Course.Num))
-                .ForMember(v => v.CourseName, m => m.MapFrom(s => s.Course.Name));
-
-            //审核记录
-            //Mapper.CreateMap<DeclarationApproval, ApprovalView>()
-            //    .ForMember(v => v.Suggestion, m => m.MapFrom(s => s.Suggestion ? "同意" : "不同意"));
-            //Mapper.CreateMap<TextbookApproval, ApprovalView>()
-            //    .ForMember(v => v.Suggestion, m => m.MapFrom(s => s.Suggestion ? "同意" : "不同意"));
-            Mapper.CreateMap<FeedbackApproval, ApprovalView>()
-                .ForMember(v => v.Suggestion, m => m.MapFrom(s => s.Suggestion ? "同意" : "不同意"));
-
-            //回告
-            Mapper.CreateMap<Feedback, FeedbackView>()
-                .ForMember(v => v.BooksellerName, m => m.MapFrom(s => s.Subscriptions.First().Bookseller.Name));
-
-            Mapper.CreateMap<Feedback, FeedbackForApprovalView>()
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook_Id))
-                //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook.Num))
-                .ForMember(v => v.TextbookName, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook.Name))
-                .ForMember(v => v.Isbn, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook.Isbn))
-                .ForMember(v => v.SubscriptionCount, m => m.MapFrom(s => s.Subscriptions.Sum(t => t.PlanCount + t.SpareCount)));
+            Mapper.CreateMap<IEnumerable<ProfessionalClass>, string>()
+                .ConvertUsing<ProfessionalClassesConvert>();
 
             //订单
             Mapper.CreateMap<Subscription, SubscriptionForSubmitView>()
+                .ForMember(v => v.SubscriptionId, m => m.MapFrom(s => s.ID))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
-                //.ForMember(v => v.Num, m => m.MapFrom(s => s.Textbook.Num))
                 .ForMember(v => v.Name, m => m.MapFrom(s => s.Textbook.Name))
                 .ForMember(v => v.Isbn, m => m.MapFrom(s => s.Textbook.Isbn))
                 .ForMember(v => v.DeclarationCount, m => m.MapFrom(s => s.PlanCount));
 
             Mapper.CreateMap<Subscription, SubscriptionForFeedbackView>()
+                .ForMember(v => v.SubscriptionId, m => m.MapFrom(s => s.ID))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
-                //.ForMember(v => v.Num, m => m.MapFrom(s => s.Textbook.Num))
                 .ForMember(v => v.Name, m => m.MapFrom(s => s.Textbook.Name))
                 .ForMember(v => v.DeclarationCount, m => m.MapFrom(s => s.PlanCount))
                 .ForMember(v => v.TotalCount, m => m.MapFrom(s => s.PlanCount + s.SpareCount));
+
+            //回告
+            Mapper.CreateMap<BaseModel, FeedbackStateView>();
+
+            Mapper.CreateMap<Feedback, FeedbackView>()
+                .ForMember(v => v.FeedbackId, m => m.MapFrom(s => s.ID))
+                .ForMember(v => v.BooksellerName, m => m.MapFrom(s => s.Subscriptions.First().Bookseller.Name));
+
+            Mapper.CreateMap<Feedback, FeedbackForApprovalView>()
+                .ForMember(v => v.FeedbackId, m => m.MapFrom(s => s.ID))
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook_Id))
+                .ForMember(v => v.TextbookName, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook.Name))
+                .ForMember(v => v.Isbn, m => m.MapFrom(s => s.Subscriptions.FirstOrDefault().Textbook.Isbn))
+                .ForMember(v => v.SubscriptionCount, m => m.MapFrom(s => s.Subscriptions.Sum(t => t.PlanCount + t.SpareCount)));
+
+            Mapper.CreateMap<FeedbackApproval, ApprovalView>()
+                .ForMember(v => v.Suggestion, m => m.MapFrom(s => s.Suggestion ? "同意" : "不同意"));
+
 
             //仓库
             Mapper.CreateMap<Storage, StorageView>()
@@ -261,9 +188,9 @@
                 //.ForMember(v => v.Num, m => m.MapFrom(s => s.Inventory.Textbook.Num))
                 .ForMember(v => v.Name, m => m.MapFrom(s => s.Inventory.Textbook.Name))
                 .ForMember(v => v.TextbookType, m => m.MapFrom(s => s.Inventory.Textbook.TextbookType));
-        
-        //班级教材退还查询
-            
+
+            //班级教材退还查询
+
         }
         #endregion
 
