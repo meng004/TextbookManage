@@ -52,7 +52,12 @@
         
         public abstract void Remove(TAggregateRoot entity);
 
+        public abstract void Remove(Expression<Func<TAggregateRoot, bool>> expression);
+
         public abstract void Modify(TAggregateRoot entity);
+
+        public abstract void Modify(Expression<Func<TAggregateRoot, bool>> filterExpression, Expression<Func<TAggregateRoot, TAggregateRoot>> updateExpression);
+
         #endregion
 
         #region ISql

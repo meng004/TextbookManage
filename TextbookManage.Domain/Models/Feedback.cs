@@ -24,7 +24,7 @@ namespace TextbookManage.Domain.Models
         /// <summary>
         /// 回告日期
         /// </summary>
-        public System.DateTime FeedbackDate { get; set; }
+        public DateTime FeedbackDate { get; set; }
         /// <summary>
         /// 回告状态，征订成功、失败，未知，未回告
         /// </summary>

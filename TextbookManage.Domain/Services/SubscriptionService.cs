@@ -247,7 +247,32 @@ namespace TextbookManage.Domain
 
             return feedback;
         }
+        /// <summary>
+        /// 取回告状态
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<BaseModel> GetFeedbackState()
+        {
+            //返回models
+            var models = new List<BaseModel>();
+            //回告状态的值数组
+            var valueArray = (int[])Enum.GetValues(typeof(FeedbackState));
+            //数组转换为List
+            var values = new List<int>(valueArray);
+            //构建model
+            values.ForEach(t =>
+                {
+                    var model = new BaseModel
+                    {
+                        ID = t.ToString(),
+                        Num = t,
+                        Name = Enum.GetName(typeof(FeedbackState), t)
+                    };
+                    models.Add(model);
+                });
 
+            return models;
+        }
 
         #region 开课学院、学生学院
 

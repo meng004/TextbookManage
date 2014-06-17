@@ -67,10 +67,23 @@
         void Remove(TAggregateRoot entity);
 
         /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="expression"></param>
+        void Remove(Expression<Func<TAggregateRoot, bool>> expression);
+
+        /// <summary>
         /// 修改
         /// </summary>
         /// <param name="entity"></param>
         void Modify(TAggregateRoot entity);
 
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="filterExpression"></param>
+        /// <param name="updateExpression"></param>
+        void Modify(Expression<Func<TAggregateRoot, bool>> filterExpression, Expression<Func<TAggregateRoot, TAggregateRoot>> updateExpression); 
+            
     }
 }
