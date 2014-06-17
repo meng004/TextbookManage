@@ -12,7 +12,7 @@ namespace TextbookManage.Domain.Models
     public class BaseModel
     {
 
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         /// <summary>
         /// 编号

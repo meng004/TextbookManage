@@ -266,7 +266,7 @@ namespace TextbookManage.Domain
                 {
                     var model = new BaseModel
                     {
-                        ID = t.ToString(),
+                        Id = t.ToString(),
                         Num = t,
                         Name = Enum.GetName(typeof(FeedbackState), t)
                     };
