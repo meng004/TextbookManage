@@ -8,7 +8,7 @@ using TextbookManage.Domain.Models.JiaoWu;
 namespace TextbookManage.Domain.Models.Comparer
 {
     public class PressTextbookComparer<T> : IEqualityComparer<T>
-        where T : Declaration, new()
+        where T : DeclarationJiaoWu
     {
         public bool Equals(T x, T y)
         {

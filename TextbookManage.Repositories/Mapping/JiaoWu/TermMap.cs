@@ -23,6 +23,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             //²»Ó³ÉäIscurrentÊôÐÔ
             this.Ignore(t => t.IsCurrent);
             this.Ignore(t => t.ID);
+            this.Ignore(t => t.SchoolYearTerm);
         }
     }
 }

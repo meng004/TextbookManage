@@ -81,7 +81,7 @@
             modelBuilder.Configurations.Add(new FeedbackApprovalMap());
             modelBuilder.Configurations.Add(new FeedbackMap());
             modelBuilder.Configurations.Add(new InventoryMap());
-            modelBuilder.Configurations.Add(new ReleaseRecordMap());
+            //modelBuilder.Configurations.Add(new ReleaseRecordMap());
             modelBuilder.Configurations.Add(new RoleMap());
             modelBuilder.Configurations.Add(new StockRecordMap());
             modelBuilder.Configurations.Add(new StorageMap());

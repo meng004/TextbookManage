@@ -280,7 +280,7 @@ namespace TextbookManage.Applications.Impl
 
             //decl = decl.OrderBy(t => t.TeachingTask_Num);
 
-            var decl = new List<Declaration>();
+            var decl = new List<DeclarationJiaoWu>();
             return _adapter.Adapt<DeclarationForTeachingTaskView>(decl);
         }
 

@@ -91,7 +91,7 @@ namespace TextbookManage.Applications.Impl
             var term = new TermAppl().GetMaxTerm().YearTerm;
             var id = schoolId.ConvertToGuid();
 
-            IEnumerable<Declaration> declarations = new List<Declaration>();
+            IEnumerable<DeclarationJiaoWu> declarations = new List<DeclarationJiaoWu>();
 
             ////如果是教务处或教材科，取全部
             //if (webUser.IsInRole("教务处"))

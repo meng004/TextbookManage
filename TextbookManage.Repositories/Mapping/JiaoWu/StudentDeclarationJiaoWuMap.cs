@@ -33,7 +33,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.Department_Id).HasColumnName("KSID");
             this.Property(t => t.SchoolYearTerm.Year).HasColumnName("XN");
             this.Property(t => t.SchoolYearTerm.Term).HasColumnName("XQ");
-            this.Property(t => t.DeclarationCount).HasColumnName("ZDSL");
+            this.Property(t => t.Zdsl).HasColumnName("ZDSL");
             this.Property(t => t.DataSign_Id).HasColumnName("SJBS");
             this.Property(t => t.Sfgd).HasColumnName("SFGD");
 

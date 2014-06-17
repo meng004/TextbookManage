@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Threading;
+using System.Collections.Generic;
 using TextbookManage.Domain.IRepositories;
 
 namespace TextbookManage.Repositories.EntityFramework
@@ -33,6 +34,7 @@ namespace TextbookManage.Repositories.EntityFramework
             localCtx.Value.Set<TAggregateRoot>().Add(obj);
             Committed = false;
         }
+
         #endregion
 
         #region 实现RepositoryContext

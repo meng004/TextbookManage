@@ -38,18 +38,25 @@ namespace TextbookManage.Domain
         /// <summary>
         /// 对教材汇总，生成订单
         /// </summary>
-        /// <param name="declarations">学生用书申报</param>
+        /// <param name="studentDeclarations">学生用书申报</param>
+        /// <param name="teacherDeclarations">教师用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<StudentDeclarationJiaoWu> declarations)
+        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations)
         {
+            //合并教师用书申报与学生用书申报
+            var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
+            //分组
             var result = declarations
                 .GroupBy(t => t.Textbook, new TextbookComparer())  //教材选择器
                 .Select(m =>
                     {
                         //取教材ID相同的申报
-                        var declarationJiaoWus = declarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
-                        //转换为学生用书申报
-                        var studentDeclarations = declarationJiaoWus.ConvertAll(Converter);
+                        var studentDeclarationJiaoWus = studentDeclarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
+                        var teacherDeclarationJiaoWus = teacherDeclarations.Where(d => d.Textbook_Id == m.Key.ID).ToList();
+                        //转换为教材用书申报
+                        var studentDeclarationTextbooks = studentDeclarationJiaoWus.ConvertAll(Converter);
+                        var teacherDeclarationTextbooks = teacherDeclarationJiaoWus.ConvertAll(Converter);
+
                         //新建订单
                         var subscription = new Subscription
                         {
@@ -60,63 +67,42 @@ namespace TextbookManage.Domain
                             PlanCount = m.Sum(s => s.DeclarationCount),
                             SpareCount = 0,
                             SubscriptionDate = DateTime.Now,
-                            StudentDeclarations = studentDeclarations
+                            StudentDeclarations = studentDeclarationTextbooks,
+                            TeacherDeclarations = teacherDeclarationTextbooks
                         };
                         return subscription;
                     });
 
             return result.ToList();
         }
-        /// <summary>
-        /// 按教材汇总，生成订单
-        /// </summary>
-        /// <param name="declarations">教务教师用书申报</param>
-        /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<TeacherDeclarationJiaoWu> declarations)
-        {
-            var result = declarations
-                .GroupBy(t => t.Textbook, new TextbookComparer())  //使用教材选择器
-                .Select(m =>
-                    {
-                        //取教材ID相同的申报
-                        var declarationJiaoWus = declarations.Where(d => d.Textbook.ID == m.Key.ID).ToList();
-                        //转换为教师用书申报
-                        var teacherDeclarations = declarationJiaoWus.ConvertAll(Converter);
-                        //新建订单
-                        var subscription = new Subscription
-                        {
-                            ID = Guid.NewGuid(),
-                            Textbook_Id = m.Key.ID,
-                            SchoolYearTerm = declarations.First().SchoolYearTerm,
-                            //Textbook = m.Key,
-                            PlanCount = m.Sum(s => s.DeclarationCount),
-                            SpareCount = 0,
-                            SubscriptionDate = DateTime.Now,
-                            TeacherDeclarations = teacherDeclarations
-                        };
-                        return subscription;
-                    });
 
-            return result.ToList();
-        }
         /// <summary>
         /// 按出版社教材汇总，生成订单
         /// </summary>
-        /// <param name="declarations">教务学生用书申报</param>
+        /// <param name="studentDeclarations">教务学生用书申报</param>
+        /// <param name="teacherDeclarations">教务教师用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptionsByPress(IEnumerable<StudentDeclarationJiaoWu> declarations)
+        public static IEnumerable<Subscription> CreateSubscriptionsByPress(IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations)
         {
+            //合并教师用书申报与学生用书申报
+            var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
+            //分组
             var result = declarations.GroupBy(t =>
-                t, new PressTextbookComparer<StudentDeclarationJiaoWu>())  //使用出版社教材选择器
+                t, new PressTextbookComparer<DeclarationJiaoWu>())  //使用出版社教材选择器
                 .Select(m =>
                 {
                     //取出版社教材ID相同的申报
-                    var declarationJiaoWus = declarations.Where(d =>
+                    var studentDeclarationJiaoWus = studentDeclarations.Where(d =>
                         d.Textbook.Press == m.Key.Textbook.Press &&
                         d.Textbook_Id == m.Key.Textbook_Id
                         ).ToList();
-                    //转换为学生用书申报
-                    var studentDeclarations = declarationJiaoWus.ConvertAll(Converter);
+                    var teacherDeclarationJiaoWus = teacherDeclarations.Where(d =>
+                        d.Textbook.Press == m.Key.Textbook.Press &&
+                        d.Textbook_Id == m.Key.Textbook_Id
+                        ).ToList();
+                    //转换为教材用书申报
+                    var studentDeclarationTextbooks = studentDeclarationJiaoWus.ConvertAll(Converter);
+                    var teacherDeclarationTextbooks = teacherDeclarationJiaoWus.ConvertAll(Converter);
                     //新建订单
                     var subscription = new Subscription
                     {
@@ -127,67 +113,42 @@ namespace TextbookManage.Domain
                         PlanCount = m.Sum(s => s.DeclarationCount),
                         SpareCount = 0,
                         SubscriptionDate = DateTime.Now,
-                        StudentDeclarations = studentDeclarations
+                        StudentDeclarations = studentDeclarationTextbooks,
+                        TeacherDeclarations = teacherDeclarationTextbooks
                     };
                     return subscription;
                 });
 
             return result.ToList();
         }
-        /// <summary>
-        /// 按出版社教材汇总，生成订单
-        /// </summary>
-        /// <param name="declarations">教务教师用书申报</param>
-        /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptionsByPress(IEnumerable<TeacherDeclarationJiaoWu> declarations)
-        {
-            var result = declarations.GroupBy(t =>
-                t, new PressTextbookComparer<TeacherDeclarationJiaoWu>())
-                .Select(m =>
-                {
-                    //按出版社与教材ID取用书申报
-                    var declarationJiaoWus = declarations.Where(d =>
-                        d.Textbook.Press == m.Key.Textbook.Press &&
-                        d.Textbook_Id == m.Key.Textbook_Id
-                        ).ToList();
-                    //转换为教师用书申报
-                    var teacherDeclarations = declarationJiaoWus.ConvertAll(Converter);
-                    //新建订单
-                    var subscription = new Subscription
-                    {
-                        ID = Guid.NewGuid(),
-                        Textbook_Id = m.Key.Textbook_Id.Value,
-                        SchoolYearTerm = m.Key.SchoolYearTerm,
-                        //Textbook = m.Key.Textbook,
-                        PlanCount = m.Sum(s => s.DeclarationCount),
-                        SpareCount = 0,
-                        SubscriptionDate = DateTime.Now,
-                        TeacherDeclarations = teacherDeclarations
-                    };
-                    return subscription;
-                });
 
-            return result.ToList();
-
-        }
         /// <summary>
         /// 按学院教材汇总，生成订单
         /// </summary>
         /// <param name="declarations">教务学生用书</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptionsBySchool(IEnumerable<StudentDeclarationJiaoWu> declarations)
+        public static IEnumerable<Subscription> CreateSubscriptionsBySchool(IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations)
         {
+            //合并教师用书申报与学生用书申报
+            var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
+            //分组
             var result = declarations.GroupBy(t =>
-                t, new SchoolTextbookComparer<StudentDeclarationJiaoWu>())  //学院教材选择器
+                t, new SchoolTextbookComparer<DeclarationJiaoWu>())  //学院教材选择器
                 .Select(m =>
                 {
                     //取学院ID教材ID相同的申报
-                    var declarationJiaoWus = declarations.Where(d =>
+                    var studentDeclarationJiaoWus = studentDeclarations.Where(d =>
                         d.School_Id == m.Key.School_Id &&
                         d.Textbook_Id == m.Key.Textbook_Id
                         ).ToList();
-                    //转换为学生用书申报
-                    var studentDeclarations = declarationJiaoWus.ConvertAll(Converter);
+                    var teacherDeclarationJiaoWus = teacherDeclarations.Where(d =>
+                        d.School_Id == m.Key.School_Id &&
+                        d.Textbook_Id == m.Key.Textbook_Id
+                        ).ToList();
+
+                    //转换为教材用书申报
+                    var studentDeclarationTextbooks = studentDeclarationJiaoWus.ConvertAll(Converter);
+                    var teacherDeclarationTextbooks = teacherDeclarationJiaoWus.ConvertAll(Converter);
                     //新建订单
                     var subscription = new Subscription
                     {
@@ -198,48 +159,15 @@ namespace TextbookManage.Domain
                         PlanCount = m.Sum(s => s.DeclarationCount),
                         SpareCount = 0,
                         SubscriptionDate = DateTime.Now,
-                        StudentDeclarations = studentDeclarations
+                        StudentDeclarations = studentDeclarationTextbooks,
+                        TeacherDeclarations = teacherDeclarationTextbooks
                     };
                     return subscription;
                 });
 
             return result.ToList();
         }
-        /// <summary>
-        /// 按学院教材汇总，生成订单
-        /// </summary>
-        /// <param name="declarations">教务教师用书</param>
-        /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptionsBySchool(IEnumerable<TeacherDeclarationJiaoWu> declarations)
-        {
-            var result = declarations.GroupBy(t =>
-                t, new SchoolTextbookComparer<TeacherDeclarationJiaoWu>())  //学院教材选择器
-                .Select(m =>
-                {
-                    //取学院ID教材ID相同的申报
-                    var declarationJiaoWus = declarations.Where(d =>
-                        d.School_Id == m.Key.School_Id &&
-                        d.Textbook_Id == m.Key.Textbook_Id
-                        ).ToList();
-                    //转换为学生用书申报
-                    var teacherDeclarations = declarationJiaoWus.ConvertAll(Converter);
-                    //新建订单
-                    var subscription = new Subscription
-                    {
-                        ID = Guid.NewGuid(),
-                        Textbook_Id = m.Key.Textbook_Id.Value,
-                        SchoolYearTerm = m.Key.SchoolYearTerm,
-                        //Textbook = m.Key.Textbook,
-                        PlanCount = m.Sum(s => s.DeclarationCount),
-                        SpareCount = 0,
-                        SubscriptionDate = DateTime.Now,
-                        TeacherDeclarations = teacherDeclarations
-                    };
-                    return subscription;
-                });
 
-            return result.ToList();
-        }
         #endregion
 
         #region 类转换器

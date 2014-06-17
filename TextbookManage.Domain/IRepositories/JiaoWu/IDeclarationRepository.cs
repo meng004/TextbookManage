@@ -2,7 +2,7 @@
 
 namespace TextbookManage.Domain.IRepositories.JiaoWu
 {
-    public interface IDeclarationRepository : IRepository<Declaration>
+    public interface IDeclarationRepository : IRepository<DeclarationJiaoWu>
     {
     }
 }

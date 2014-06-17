@@ -54,7 +54,7 @@ namespace TextbookManage.Repositories.Test
             var repo = new StudentDeclarationRepository(_context);
             var id = "63BBECCB-E8B2-4EF6-BF36-0F16387F2611".ConvertToGuid();
             var result = repo.GetProfessionalClasses(id).ToList();
-            var declarationCount = repo.Single(t => t.ID == id).DeclarationCount;
+            var declarationCount = repo.Single(t => t.ID == id).DeclarationJiaoWu.DeclarationCount;
             var sum = result.Sum(t => t.StudentCount);
             Assert.IsTrue(sum <= declarationCount);
         }

@@ -112,10 +112,10 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 已领书学生人数
         /// </summary>
         /// <returns></returns>
-        public int StudentCountOfTextbook(Guid textbookId)
-        {
-            return ProfessionalClasses.Sum(t => t.StudentCountOfTextbook(textbookId));
-        }
+        //public int StudentCountOfTextbook(Guid textbookId)
+        //{
+        //    return ProfessionalClasses.Sum(t => t.StudentCountOfTextbook(textbookId));
+        //}
 
         /// <summary>
         /// 是否已发放
@@ -124,20 +124,20 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <param name="teachingTask">教学任务</param>
         /// <param name="textbook">教材</param>
         /// <returns></returns>
-        public bool IsReleased(Guid textbookId)
-        {
-            //是否存在相同教材的申报
-            //已领教材学生人数是否超过总人数30%
-            //如果学生人数为0，则该规则失效，返回false
-            if (StudentCount == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return StudentCountOfTextbook(textbookId) >= (StudentCount * 0.3);
-            }
-        }
+        //public bool IsReleased(Guid textbookId)
+        //{
+        //    //是否存在相同教材的申报
+        //    //已领教材学生人数是否超过总人数30%
+        //    //如果学生人数为0，则该规则失效，返回false
+        //    if (StudentCount == 0)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return StudentCountOfTextbook(textbookId) >= (StudentCount * 0.3);
+        //    }
+        //}
 
 
         #endregion

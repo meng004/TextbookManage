@@ -241,8 +241,8 @@ namespace TextbookManage.Applications.Impl
                 );
             //已征订
             var decl = _stuDeclRepo.Find(t =>
-                t.StudentDeclarationJiaoWu.SchoolYearTerm.Year == yearTerm.Year &&
-                t.StudentDeclarationJiaoWu.SchoolYearTerm.Term == yearTerm.Term
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == yearTerm.Year &&
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == yearTerm.Term
                 ).Select(d => d.ID);
             //未征订
             var result = from d in query
@@ -269,8 +269,8 @@ namespace TextbookManage.Applications.Impl
                 );
             //已征订
             var decl = _teaDeclRepo.Find(t =>
-                t.TeacherDeclarationJiaoWu.SchoolYearTerm.Year == yearTerm.Year &&
-                t.TeacherDeclarationJiaoWu.SchoolYearTerm.Term == yearTerm.Term
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == yearTerm.Year &&
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == yearTerm.Term
                 ).Select(t => t.ID);
             //未征订
             var result = from d in query

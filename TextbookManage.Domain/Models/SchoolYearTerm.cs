@@ -20,6 +20,8 @@ namespace TextbookManage.Domain.Models
         public SchoolYearTerm(string yearTerm)
         {
             this.yearTerm = yearTerm;
+            year = yearTerm.Substring(0, 9);
+            term = yearTerm.Substring(10, 1);
         }
         #endregion
 
@@ -39,15 +41,7 @@ namespace TextbookManage.Domain.Models
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(year))
-                {
-                    if (string.IsNullOrWhiteSpace(yearTerm))
-                        return string.Empty;
-                    else
-                        return yearTerm.Substring(0, 9);
-                }
-                else
-                    return year;
+                return year;
             }
             set
             {
@@ -63,15 +57,7 @@ namespace TextbookManage.Domain.Models
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(term))
-                {
-                    if (string.IsNullOrWhiteSpace(yearTerm))
-                        return string.Empty;
-                    else
-                        return yearTerm.Substring(10, 1);
-                }
-                else
-                    return term;
+                return term;
             }
             set
             {
@@ -104,6 +90,7 @@ namespace TextbookManage.Domain.Models
         {
             if (object.ReferenceEquals(this, null) || object.ReferenceEquals(other, null))
                 throw new NullReferenceException("对象等于Null，应初始化");
+            
             if (string.IsNullOrWhiteSpace(this.yearTerm) || string.IsNullOrWhiteSpace(other.yearTerm))
                 throw new ArgumentNullException("YearTerm等于null，使用前应初始化");
             //学年学期比较

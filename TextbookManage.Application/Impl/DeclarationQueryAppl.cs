@@ -136,7 +136,7 @@ namespace TextbookManage.Applications.Impl
             //        ).Where(t =>
             //            t.RecipientType == type
             //            );
-            var declarations = new List<Declaration>();
+            var declarations = new List<DeclarationJiaoWu>();
 
             switch (type)
             {
@@ -161,7 +161,7 @@ namespace TextbookManage.Applications.Impl
         /// <param name="depaId">部门ID</param>
         /// <param name="term">学年学期</param>
         /// <returns></returns>
-        private List<Declaration> GetTeacherDeclarations(Guid courId, Guid depaId, string term)
+        private List<DeclarationJiaoWu> GetTeacherDeclarations(Guid courId, Guid depaId, string term)
         {
             var yearTerm = new SchoolYearTerm(term);
             var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationJiaoWuRepository>();
@@ -171,7 +171,7 @@ namespace TextbookManage.Applications.Impl
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 );
-            return (List<Declaration>)declarations;
+            return (List<DeclarationJiaoWu>)declarations;
         }
         /// <summary>
         /// 取学生用书申报
@@ -180,7 +180,7 @@ namespace TextbookManage.Applications.Impl
         /// <param name="depaId">部门ID</param>
         /// <param name="term">学年学期</param>
         /// <returns></returns>
-        private List<Declaration> GetStudentDeclarations(Guid courId, Guid depaId, string term)
+        private List<DeclarationJiaoWu> GetStudentDeclarations(Guid courId, Guid depaId, string term)
         {
             var yearTerm = new SchoolYearTerm(term);
             var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationJiaoWuRepository>();
@@ -190,7 +190,7 @@ namespace TextbookManage.Applications.Impl
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 );
-            return (List<Declaration>)declarations;
+            return (List<DeclarationJiaoWu>)declarations;
         }
 
         public IEnumerable<ApprovalView> GetDeclarationApproval(string declarationId)

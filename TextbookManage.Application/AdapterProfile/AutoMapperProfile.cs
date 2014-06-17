@@ -92,7 +92,7 @@
             Mapper.CreateMap<IEnumerable<ProfessionalClass>, string>().ConvertUsing<ProfessionalClassesConvert>();
 
 
-            Mapper.CreateMap<Declaration, DeclarationBaseView>()
+            Mapper.CreateMap<DeclarationJiaoWu, DeclarationBaseView>()
                 //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
                 //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
@@ -100,7 +100,7 @@
                 //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
                 //.ForMember(v => v.ProfessionalClassName, m => m.MapFrom(s => s.TeachingTask.ProfessionalClasses));
 
-            Mapper.CreateMap<Declaration, DeclarationForTeachingTaskView>()
+            Mapper.CreateMap<DeclarationJiaoWu, DeclarationForTeachingTaskView>()
                 //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
                 //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
@@ -115,7 +115,7 @@
                 .ForMember(v => v.PrintCount, m => m.MapFrom(s => s.Textbook.PrintCount));
 
 
-            Mapper.CreateMap<Declaration, DeclarationForApprovalView>()
+            Mapper.CreateMap<DeclarationJiaoWu, DeclarationForApprovalView>()
                 //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
                 //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
@@ -127,7 +127,7 @@
                 .ForMember(v => v.CourseName, m => m.MapFrom(s => s.Course.Name));
 
 
-            Mapper.CreateMap<Declaration, DeclarationForQueryView>()
+            Mapper.CreateMap<DeclarationJiaoWu, DeclarationForQueryView>()
                 //.ForMember(v => v.TeachingTaskNum, m => m.MapFrom(s => s.TeachingTask_Num))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id))
                 //.ForMember(v => v.TextbookNum, m => m.MapFrom(s => s.Textbook.Num))
@@ -135,11 +135,11 @@
                 //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
                 //.ForMember(v => v.ProfessionalClassName, m => m.MapFrom(s => s.TeachingTask.ProfessionalClasses));
 
-            Mapper.CreateMap<Declaration, DeclarationView>()
+            Mapper.CreateMap<DeclarationJiaoWu, DeclarationView>()
                 //.ForMember(v => v.Declarant, m => m.MapFrom(s => s.Declarant.Name))
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.Textbook_Id));
 
-            Mapper.CreateMap<DeclarationView, Declaration>()
+            Mapper.CreateMap<DeclarationView, DeclarationJiaoWu>()
                 .ForMember(m => m.ID, v => v.MapFrom(s => s.DeclarationId.ConvertToGuid()));
             //.ForMember(m => m.Textbook_Id, v => v.MapFrom(s => s.TextbookId.ConvertToGuid()))
             //.ForMember(m => m.TeachingTask_Num, v => v.MapFrom(s => s.TeachingTaskNum))

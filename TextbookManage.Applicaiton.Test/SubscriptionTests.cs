@@ -29,15 +29,13 @@ namespace TextbookManage.Applicaitons.Test
         //仓储上下文
         IRepositoryContext _context;
         //事务
-        TransactionScope _trans;
-        //是否回滚事务标志
-        bool _rollback;
+        //TransactionScope _trans;
 
         [TestInitialize]
         public void Initialize()
         {
             _context = new EntityFrameworkRepositoryContext();
-            _trans = new TransactionScope();
+            //_trans = new TransactionScope();
 
             _adapter = new AutoMapperTypeAdapter();
             _teachingTaskRepo = new TeachingTaskRepository(_context);
@@ -47,15 +45,13 @@ namespace TextbookManage.Applicaitons.Test
             _teaDeclRepo = new TeacherDeclarationRepository(_context);
             _appl = new SubscriptionAppl(_adapter, _teachingTaskRepo, _stuDeclJiaoWuRepo, _teaDeclJiaoWuRepo, _stuDeclRepo, _teaDeclRepo);
 
-            _rollback = true;
         }
 
         [TestCleanup]
         public void Cleanup()
         {
             //回滚事务，清除对数据库的操作，如新建记录
-            if (_rollback)
-                _trans.Dispose();
+            //_trans.Dispose();
 
         }
 
@@ -82,19 +78,22 @@ namespace TextbookManage.Applicaitons.Test
         public void SaveSubscriptionWithStudentDeclaration()
         {
             //取未征订学生申报
-            var declarations = _appl.GetNotSubscriptionStudentDeclarationJiaoWu("2013-2014-2");
+            var studentDeclarations = _appl.GetNotSubscriptionStudentDeclarationJiaoWu("2013-2014-2");
+            var teacherDeclarations = _appl.GetNotSubscriptionTeacherDeclarationJiaoWu("2013-2014-2");
             //生成订单
-            var subscriptions = SubscriptionService.CreateSubscriptionsByPress(declarations);
+            var subscriptions = SubscriptionService.CreateSubscriptionsByPress(studentDeclarations, teacherDeclarations);
             //保存
             var repo = new SubscriptionRepository(_context);
-            foreach (var item in subscriptions)
+            for (int i = 0; i < subscriptions.Count(); i = i + 300)
             {
-                repo.Add(item);
-            }
-            repo.Context.Commit();
-            _rollback = false;
+                foreach (var item in subscriptions.Skip(i).Take(300))
+                {
+                    repo.Add(item);
+                }
+                repo.Context.Commit();
+            }           
 
-            var ids = subscriptions.Select(d=>d.ID);
+            var ids = subscriptions.Select(d => d.ID);
             var result = repo.Find(t => ids
                 .Contains(t.ID)
                 );

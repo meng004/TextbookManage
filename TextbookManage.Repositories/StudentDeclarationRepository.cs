@@ -22,7 +22,7 @@ namespace TextbookManage.Repositories
             var ctx = this.EFContext.Context as TbMisDbContext;
             if (ctx != null)
             {
-                var declaration = Single(t => t.ID == declarationId).StudentDeclarationJiaoWu;
+                var declaration = Single(t => t.ID == declarationId).DeclarationJiaoWu;
                 if (declaration != null)
                 {
                     //取教学任务集合

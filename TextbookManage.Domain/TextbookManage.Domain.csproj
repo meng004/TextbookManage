@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Models\Comparer\PressTextbookComparer.cs" />
     <Compile Include="Models\Comparer\SchoolTextbookComparer.cs" />
+    <Compile Include="Models\JiaoWu\DeclarationTextbook.cs" />
     <Compile Include="Models\JiaoWu\RecipientType.cs" />
     <Compile Include="Services\ApprovalService.cs" />
     <Compile Include="Services\InventoryService.cs" />
@@ -124,7 +125,7 @@
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\JiaoWu\Course.cs" />
     <Compile Include="Models\JiaoWu\DataSign.cs" />
-    <Compile Include="Models\JiaoWu\Declaration.cs" />
+    <Compile Include="Models\JiaoWu\DeclarationJiaoWu.cs" />
     <Compile Include="Models\JiaoWu\Department.cs" />
     <Compile Include="Models\JiaoWu\Press.cs" />
     <Compile Include="Models\JiaoWu\ProfessionalClass.cs" />

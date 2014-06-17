@@ -23,9 +23,9 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                 .HasForeignKey(d => d.Subscription_Id);
 
             //学生用书申报：教务学生用书申报，1：1
-            this.HasRequired(t => t.StudentDeclarationJiaoWu)
-                .WithOptional(t => t.StudentDeclaration);
-                
+            this.HasRequired(t => t.DeclarationJiaoWu)
+                .WithOptional(t => t.DeclarationTextbook);
+
 
             //教材：学生用书申报
             //this.HasRequired(t => t.Textbook)

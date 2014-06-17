@@ -13,7 +13,7 @@ namespace TextbookManage.Domain.Models.Comparer
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class SchoolTextbookComparer<T> : IEqualityComparer<T>
-        where T : Declaration, new()
+        where T : DeclarationJiaoWu
     {
         public bool Equals(T x, T y)
         {

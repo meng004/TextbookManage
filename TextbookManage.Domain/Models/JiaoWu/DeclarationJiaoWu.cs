@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TextbookManage.Domain.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TextbookManage.Domain.Models.JiaoWu
 {
-
-    public abstract class Declaration : AggregateRoot
+    /// <summary>
+    /// 教务系统的用书申报
+    /// </summary>
+    public abstract class DeclarationJiaoWu : AggregateRoot
     {
 
         #region 属性
@@ -39,7 +41,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 申报数量
         /// 教务系统的征订数量
         /// </summary>
-        //public int DeclarationCount { get; set; }
+        [NotMapped]
+        public virtual int DeclarationCount { get; set; }
         /// <summary>
         /// 数据标识
         /// A为本部，B为船山
@@ -70,8 +73,8 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 数据标识
         /// </summary>
         public virtual DataSign DataSign { get; set; }
-        #endregion
 
+        #endregion
 
     }
 }

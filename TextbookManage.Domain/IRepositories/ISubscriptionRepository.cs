@@ -1,7 +1,16 @@
-﻿namespace TextbookManage.Domain.IRepositories
+﻿using System.Collections.Generic;
+using TextbookManage.Domain.Models;
+
+namespace TextbookManage.Domain.IRepositories
 {
-    public interface ISubscriptionRepository:IRepository<Models.Subscription>
+    public interface ISubscriptionRepository : IRepository<Subscription>
     {
+        /// <summary>
+        /// 批量插入订单
+        /// 使用存储过程
+        /// </summary>
+        /// <param name="subscriptions">订单</param>
+        //void BuldInsert(IEnumerable<Subscription> subscriptions);
 
         //#region  订单
 

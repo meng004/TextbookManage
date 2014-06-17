@@ -42,7 +42,11 @@ namespace TextbookManage.Repositories.Test
             var bookseller = new Bookseller { Contact = "张三", Name = "测试", Telephone = "123456" };
             repo.Add(bookseller);
             repo.Context.Commit();
-            var result = repo.Single(t => t.Contact == bookseller.Contact && t.Name == bookseller.Name && t.Telephone == bookseller.Telephone);
+            var result = repo.Single(t => 
+                t.Contact == bookseller.Contact && 
+                t.Name == bookseller.Name && 
+                t.Telephone == bookseller.Telephone
+                );
             Assert.IsNotNull(result.ID);
         }
 
@@ -50,7 +54,10 @@ namespace TextbookManage.Repositories.Test
         public void GetStudentDeclarationJiaoWu()
         {
             var repo = new StudentDeclarationJiaoWuRepository(_context);
-            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            var results = repo.Find(t => 
+                t.SchoolYearTerm.Year == "2011-2012" && 
+                t.SchoolYearTerm.Term == "2"
+                );
             Assert.IsTrue(results.Count() > 0);
         }
 
@@ -58,7 +65,10 @@ namespace TextbookManage.Repositories.Test
         public void GetTeacherDeclarationJiaoWu()
         {
             var repo = new TeacherDeclarationJiaoWuRepository(_context);
-            var results = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+            var results = repo.Find(t => 
+                t.SchoolYearTerm.Year == "2011-2012" && 
+                t.SchoolYearTerm.Term == "2"
+                );
             Assert.IsTrue(results.Count() > 0);
         }
 
@@ -67,8 +77,8 @@ namespace TextbookManage.Repositories.Test
         {
             var repo = new StudentDeclarationRepository(_context);
             var results = repo.Find(t => 
-                t.StudentDeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
-                t.StudentDeclarationJiaoWu.SchoolYearTerm.Term == "2");
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == "2");
             Assert.IsTrue(results.Count() > 0);
         }
 
@@ -76,7 +86,9 @@ namespace TextbookManage.Repositories.Test
         public void GetTeacherDeclaration()
         {
             var repo = new TeacherDeclarationRepository(_context);
-            var results = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
+            var results = repo.Find(t => 
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == "2");
             Assert.IsTrue(results.Count() > 0);
         }
 
@@ -85,10 +97,10 @@ namespace TextbookManage.Repositories.Test
         {
             var repo = new StudentDeclarationRepository(_context);
             var decls = repo.Find(t => 
-                t.StudentDeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
-                t.StudentDeclarationJiaoWu.SchoolYearTerm.Term == "2"
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == "2"
                 );
-            var result = decls.Sum(t => t.StudentDeclarationJiaoWu.DeclarationCount);
+            var result = decls.Sum(t => t.DeclarationJiaoWu.DeclarationCount);
             Assert.IsTrue(result > 0);
         }
 
@@ -96,20 +108,22 @@ namespace TextbookManage.Repositories.Test
         public void DeclarationCountOfTeacherDeclaration()
         {
             var repo = new TeacherDeclarationRepository(_context);
-            var decls = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2");
-            var result = decls.Sum(t => t.DeclarationCount);
+            var decls = repo.Find(t => 
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" && 
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == "2");
+            var result = decls.Sum(t => t.DeclarationJiaoWu.DeclarationCount);
             Assert.IsTrue(result > 0);
         }
 
         [TestMethod]
         public void GetStudentDeclaration_FromStudentDeclarationJiaoWu()
         {
-            var repo = new StudentDeclarationJiaoWuRepository(_context);
+            var repo = new StudentDeclarationRepository(_context);
             var decls = repo.Find(t =>
-                t.SchoolYearTerm.Year == "2013-2014" &&
-                t.SchoolYearTerm.Term == "2"
-                ).OfType<StudentDeclaration>();
-            var result = decls.Sum(t => t.StudentDeclarationJiaoWu.DeclarationCount);
+                t.DeclarationJiaoWu.SchoolYearTerm.Year == "2013-2014" &&
+                t.DeclarationJiaoWu.SchoolYearTerm.Term == "2"
+                ).Select(d=>d.DeclarationJiaoWu);
+            var result = decls.Sum(t => t.DeclarationCount);
             Assert.IsTrue(result > 0);
         }
 
@@ -130,19 +144,19 @@ namespace TextbookManage.Repositories.Test
             Assert.IsTrue(result.StudentDeclarationJiaoWus.Count > 0);
         }
 
-        [TestMethod]
-        public void TeachingTaskIsReleased()
-        {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeachingTaskRepository(uow);
-            var id = "4E16A2C2-1FD0-4487-B6CC-90BACF1F7EF4".ConvertToGuid();
-            //var result = repo.IsReleased("201105758", id);
-            //Assert.IsTrue(result);
+        //[TestMethod]
+        //public void TeachingTaskIsReleased()
+        //{
+        //    IRepositoryContext uow = new EntityFrameworkRepositoryContext();
+        //    var repo = new TeachingTaskRepository(uow);
+        //    var id = "4E16A2C2-1FD0-4487-B6CC-90BACF1F7EF4".ConvertToGuid();
+        //    //var result = repo.IsReleased("201105758", id);
+        //    //Assert.IsTrue(result);
 
-            var task = repo.First(t => t.TeachingTaskNum == "201105758");
-            var isreleased = task.IsReleased(id);
-            Assert.IsTrue(isreleased);
-        }
+        //    var task = repo.First(t => t.TeachingTaskNum == "201105758");
+        //    var isreleased = task.IsReleased(id);
+        //    Assert.IsTrue(isreleased);
+        //}
 
         [TestMethod]
         public void GetTbmisUserWithRole()
@@ -163,24 +177,24 @@ namespace TextbookManage.Repositories.Test
         //    Assert.IsTrue(result.Count() == 0);
         //}
 
-        [TestMethod]
-        public void GetDeclaration()
-        {
-            //IUnitOfWork uow = new TbMisUnitOfWork();
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new DeclarationRepository(uow);
-            var teachingTaskRepo = new TeachingTaskRepository(uow);
-            var result = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
-            //.Where(t => t.CanSubscribe);
-            Assert.IsTrue(result.Count() > 0);
+        //[TestMethod]
+        //public void GetDeclaration()
+        //{
+        //    //IUnitOfWork uow = new TbMisUnitOfWork();
+        //    IRepositoryContext uow = new EntityFrameworkRepositoryContext();
+        //    var repo = new DeclarationRepository(uow);
+        //    var teachingTaskRepo = new TeachingTaskRepository(uow);
+        //    var result = repo.Find(t => t.SchoolYearTerm.Year == "2011-2012" && t.SchoolYearTerm.Term == "2");
+        //    //.Where(t => t.CanSubscribe);
+        //    Assert.IsTrue(result.Count() > 0);
 
-            IEnumerable<TeachingTask> task = teachingTaskRepo.Find(t =>
-                t.Course_Id == "684CC75B-AA96-4CBF-8172-E6B5DFC9183A".ConvertToGuid()
-                && t.DataSign_Id == "A"
-                && t.Department_Id == "CA89359F-06C7-48C0-B8EC-3E9559C4324B".ConvertToGuid()
-                );
-            Assert.IsTrue(task.Count() > 0);
-        }
+        //    IEnumerable<TeachingTask> task = teachingTaskRepo.Find(t =>
+        //        t.Course_Id == "684CC75B-AA96-4CBF-8172-E6B5DFC9183A".ConvertToGuid()
+        //        && t.DataSign_Id == "A"
+        //        && t.Department_Id == "CA89359F-06C7-48C0-B8EC-3E9559C4324B".ConvertToGuid()
+        //        );
+        //    Assert.IsTrue(task.Count() > 0);
+        //}
 
         [TestMethod]
         public void GetStudentDeclarationJiaoWuByRepo()
@@ -307,8 +321,8 @@ namespace TextbookManage.Repositories.Test
         [TestMethod]
         public void GetTeacherReleaseRecord()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeacherReleaseRecordRepository(uow);
+            
+            var repo = new TeacherReleaseRecordRepository(_context);
             var result = repo.GetAll();
             Assert.IsTrue(result.Count() == 0);
         }
@@ -316,8 +330,8 @@ namespace TextbookManage.Repositories.Test
         [TestMethod]
         public void GetTeacher()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeacherRepository(uow);
+            
+            var repo = new TeacherRepository(_context);
             var result = repo.GetAll();
             Assert.IsTrue(result.Count() > 0);
         }
@@ -325,17 +339,20 @@ namespace TextbookManage.Repositories.Test
         [TestMethod]
         public void GetTeachingTask()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeachingTaskRepository(uow);
-            var result = repo.Find(t => t.SchoolYearTerm.Year == "2013-2014" && t.SchoolYearTerm.Term == "2").ToList();
+            
+            var repo = new TeachingTaskRepository(_context);
+            var result = repo.Find(t => 
+                t.SchoolYearTerm.Year == "2013-2014" && 
+                t.SchoolYearTerm.Term == "2"
+                ).ToList();
             Assert.IsTrue(result.Count() > 0);
         }
 
         [TestMethod]
         public void ResponsibilityTeacherOfTeachingTask()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeachingTaskRepository(uow);
+            
+            var repo = new TeachingTaskRepository(_context);
             var result = repo.Single(t => t.TeachingTaskNum == "201306854");
             Assert.IsNotNull(result.Teacher);
         }
@@ -343,8 +360,8 @@ namespace TextbookManage.Repositories.Test
         [TestMethod]
         public void TeachingTaskTeacherOfTeachingTask()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TeachingTaskRepository(uow);
+            
+            var repo = new TeachingTaskRepository(_context);
             var result = repo.Single(t => t.TeachingTaskNum == "201306854");
             Assert.IsNotNull(result.TeachingTaskTeachers.Count > 0);
         }
@@ -352,17 +369,23 @@ namespace TextbookManage.Repositories.Test
         [TestMethod]
         public void GetTerm()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TermRepository(uow);
+            var repo = new TermRepository(_context);
             var result = repo.GetAll();
             Assert.IsTrue(result.Count() > 0);
         }
 
         [TestMethod]
-        public void GetTextbook()
+        public void GetTermWithSchoolYearTerm()
         {
-            IRepositoryContext uow = new EntityFrameworkRepositoryContext();
-            var repo = new TextbookRepository(uow);
+            var repo = new TermRepository(_context);
+            var result = repo.Single(t => t.DqXnXqBz == "1");
+            Assert.IsNotNull(result.SchoolYearTerm.Year);
+        }
+
+        [TestMethod]
+        public void GetTextbook()
+        {            
+            var repo = new TextbookRepository(_context);
             var result = repo.GetAll();
             Assert.IsTrue(result.Count() > 0);
         }

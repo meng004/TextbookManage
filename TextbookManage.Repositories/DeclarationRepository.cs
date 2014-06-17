@@ -6,7 +6,7 @@ using TextbookManage.Domain.IRepositories.JiaoWu;
 
 namespace TextbookManage.Repositories
 {
-    public class DeclarationRepository : EntityFrameworkRepository<Declaration>, IDeclarationRepository
+    public class DeclarationRepository : EntityFrameworkRepository<DeclarationJiaoWu>, IDeclarationRepository
     {
         public DeclarationRepository(IRepositoryContext context)
             : base(context)

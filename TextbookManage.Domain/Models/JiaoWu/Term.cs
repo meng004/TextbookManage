@@ -49,9 +49,20 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// </summary>
         public SchoolYearTerm SchoolYearTerm
         {
-            get;
-            set;
+            get
+            {
+                if (object.ReferenceEquals(schoolYearTerm, null))
+                {
+                    var yearTerm = new SchoolYearTerm(YearTerm);
+                    schoolYearTerm = yearTerm;
+                    return yearTerm;
+                }
+                else
+                    return schoolYearTerm;
+            }
         }
+
+        private SchoolYearTerm schoolYearTerm;
         #endregion
 
     }
