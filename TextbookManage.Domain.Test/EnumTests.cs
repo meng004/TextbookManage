@@ -107,5 +107,12 @@ namespace TextbookManage.Domain.Test
             var flag = Week.monday | Week.wednesday | Week.sunday;
             Assert.IsTrue(flag.HasFlag(Week.wednesday));
         }
+
+        [TestMethod]
+        public void GetFeedbackState()
+        {
+            var models = SubscriptionService.GetFeedbackState();
+            Assert.IsNotNull(models);
+        }
     }
 }
