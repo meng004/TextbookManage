@@ -10,6 +10,8 @@ using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.Domain;
+using TextbookManage.Domain.Models.Comparer;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -24,12 +26,19 @@ namespace TextbookManage.Applications.Impl
         private readonly ITeacherDeclarationRepository _teaDeclRepo;// = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
         private readonly IStudentDeclarationJiaoWuRepository _stuDeclJiaoWuRepo;
         private readonly ITeacherDeclarationJiaoWuRepository _teaDeclJiaoWuRepo;
+        private readonly ISubscriptionRepository _subscriptionRepo;
 
         #endregion
 
         #region 构造函数
 
-        public SubscriptionAppl(ITypeAdapter adapter, ITeachingTaskRepository teachingTaskRepo, IStudentDeclarationJiaoWuRepository stuDeclJiaoWuRepo, ITeacherDeclarationJiaoWuRepository teaDeclJiaoWuRepo, IStudentDeclarationRepository stuDeclRepo, ITeacherDeclarationRepository teaDeclRepo)
+        public SubscriptionAppl(ITypeAdapter adapter,
+            ITeachingTaskRepository teachingTaskRepo,
+            IStudentDeclarationJiaoWuRepository stuDeclJiaoWuRepo,
+            ITeacherDeclarationJiaoWuRepository teaDeclJiaoWuRepo,
+            IStudentDeclarationRepository stuDeclRepo,
+            ITeacherDeclarationRepository teaDeclRepo,
+            ISubscriptionRepository subscriptionRepo)
         {
             _adapter = adapter;
             _teachingTaskRepo = teachingTaskRepo;
@@ -37,6 +46,7 @@ namespace TextbookManage.Applications.Impl
             _teaDeclRepo = teaDeclRepo;
             _stuDeclJiaoWuRepo = stuDeclJiaoWuRepo;
             _teaDeclJiaoWuRepo = teaDeclJiaoWuRepo;
+            _subscriptionRepo = subscriptionRepo;
         }
         #endregion
 
@@ -48,178 +58,235 @@ namespace TextbookManage.Applications.Impl
             return _adapter.Adapt<BooksellerView>(bookserller);
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByTextbook(string textbookName, string isbn)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByTextbook(string term, string textbookName, string isbn)
         {
-            return new List<SubscriptionForSubmitView>();
-            //var term = new TermAppl().GetMaxTerm();
-
-            //var yearTerm = new SchoolYearTerm(term.YearTerm);
-
-            ////取全部未下订单的申报
-            //var query = _stuDeclJiaoWuRepo.Find(t =>
-            //    t.SchoolYearTerm.Year == yearTerm.Year &&
-            //    t.SchoolYearTerm.Term == yearTerm.Term
-            //    ).OfType<StudentDeclaration>()
-
-            //    .Where(t =>
-            //        !t.Subscription_Id.HasValue
-            //        ).Where(t =>
-            //            t.Textbook_Id.HasValue
-            //            );
-            //IEnumerable<Declaration> declarations = new List<Declaration>();
-            ////按教材名称或ISBN模糊查询
-            //if (string.IsNullOrWhiteSpace(textbookName))
-            //{
-            //    if (string.IsNullOrWhiteSpace(isbn))
-            //    {
-
-            //    }
-            //    else
-            //    {
-            //        declarations = query.Where(t => t.Textbook.Isbn.Contains(isbn));
-            //    }
-            //}
-            //else
-            //{
-            //    declarations = query.Where(t => t.Textbook.Name.Contains(textbookName));
-            //}
-            ////由申报创建订单
-            //var subs = Domain.SubscriptionService.CreateSubscriptions(declarations);
-            //subs = subs.OrderBy(t => t.Textbook.Name);
-            //var result = _adapter.Adapt<SubscriptionForSubmitView>(subs);
-            //return result;
+            //取未征订的申报
+            var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term);
+            var teacherDeclarations = GetNotSubscriptionTeacherDeclarationJiaoWu(term);
+            //合并
+            var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
+            //按教材筛选
+            IEnumerable<DeclarationJiaoWu> query;
+            //教材名称为空，则按ISBN筛选
+            if (string.IsNullOrWhiteSpace(textbookName))
+                if (string.IsNullOrWhiteSpace(isbn))
+                    query = declarations;
+                else
+                    query = declarations.Where(t => t.Textbook.Isbn.Contains(isbn));
+            else
+                query = declarations.Where(t => t.Textbook.Name.Contains(textbookName));
+            //生成订单
+            var subscriptions = SubscriptionService.CreateSubscriptions(
+                query.OfType<StudentDeclarationJiaoWu>(),
+                query.OfType<TeacherDeclarationJiaoWu>()
+                ).ToList();
+            //写入DB
+            subscriptions.ForEach(t => _subscriptionRepo.Add(t));
+            _subscriptionRepo.Context.Commit();
+            //取未征订的订单
+            var notSubs = GetNotSubscriptions(term);
+            //合并订单
+            var subs = subscriptions.Union(notSubs);
+            //返回
+            return _adapter.Adapt<SubscriptionForSubmitView>(subs);
         }
 
-        public IEnumerable<SchoolView> GetSchoolWithNotSub()
+        public IEnumerable<SchoolView> GetSchoolWithNotSub(string term)
         {
-            return new List<SchoolView>();
-            //var term = new TermAppl().GetMaxTerm().YearTerm;
-            ////取学生申报，取学生学院
-            //var stuDecl = _stuDeclRepo.Find(t =>
-            //    t.Term == term &&
-            //    t.ApprovalState == ApprovalState.终审通过
-            //    ).Where(t =>
-            //        !t.Subscription_Id.HasValue
-            //        );
+            //比较器
+            var comparer = new SchoolComparer();
+            //取未征订申报的学院
+            var studentSchools = GetNotSubscriptionStudentDeclarationJiaoWu(term)
+                .Select(t => t.School)
+                .Distinct(comparer);  //去除重复学院
+            var teacherSchools = GetNotSubscriptionTeacherDeclarationJiaoWu(term)
+                .Select(t => t.School)
+                .Distinct(comparer);  //去除重复学院
+            //取未征订的订单
+            var subStudentSchools = GetNotSubscriptions(term)
+                .SelectMany(t => t.StudentDeclarations)
+                .Select(t => t.DeclarationJiaoWu.School)
+                .Distinct(comparer);  //去除重复学院
+            var subTeacherSchools = GetNotSubscriptions(term)
+                .SelectMany(t => t.TeacherDeclarations)
+                .Select(t => t.DeclarationJiaoWu.School)
+                .Distinct(comparer);  //去除重复学院
+            //合并学院
+            var unionSchools = studentSchools
+                .Union(teacherSchools)
+                .Union(subStudentSchools)
+                .Union(subTeacherSchools);
+            //取学院
+            var schools = unionSchools
+                .Distinct(comparer)
+                .OrderBy(t => t.Name)  //按学院名称排序
+                .ToList();
 
-            //var stuSchool = stuDecl.SelectMany(t =>
-            //    t.DeclarationClasses
-            //    ).Select(t =>
-            //        t.ProfessionalClass.School
-            //        ).Distinct();
-
-            ////取教师申报，取教师学院
-            //var teaDecl = _teaDeclRepo.Find(t =>
-            //    t.Term == term &&
-            //    t.ApprovalState == ApprovalState.终审通过
-            //    ).Where(t =>
-            //        !t.Subscription_Id.HasValue
-            //        );
-
-            //var teaSchool = teaDecl.Select(t =>
-            //    t.TeachingTask.Department.School
-            //    ).Distinct();
-            ////合并
-            //var concatSchools = stuSchool.Union(teaSchool).Distinct(new TextbookManage.Domain.Comparer.SchoolComparer());
-            //IList<School> schools = concatSchools.Distinct().OrderBy(t => t.Name).ToList();
-
-            ////检查
-            //if (schools.Count() == 0)
-            //{
-            //    schools = new List<School>()
-            //    {
-            //        new School()
-            //        {
-            //            SchoolId=default(Guid),
-            //            Name="没有未下订单的学院"
-            //        }
-            //    };
-            //}
-            //return _adapter.Adapt<SchoolView>(schools);
-
+            //检查
+            if (schools.Count() == 0)
+            {
+                schools = new List<School>()
+                {
+                    new School()
+                    {
+                        ID=Guid.Empty,
+                        Name="没有未下订单的学院"
+                    }
+                };
+            }
+            return _adapter.Adapt<SchoolView>(schools);
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionBySchoolId(string schoolId)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionBySchoolId(string term, string schoolId)
         {
-            return new List<SubscriptionForSubmitView>();
-            //var id = schoolId.ConvertToGuid();
-            //var term = new TermAppl().GetMaxTerm().YearTerm;
-            ////取未下订单的学生申报
-            //IEnumerable<Declaration> stuDecl = _stuDeclRepo.Find(t =>
-            //    t.Term == term &&
-            //    t.ApprovalState == ApprovalState.终审通过
-            //    ).Where(t =>
-            //        !t.Subscription_Id.HasValue
-            //        ).SelectMany(t =>
-            //            t.DeclarationClasses
-            //            ).Where(t =>
-            //                t.ProfessionalClass.School_Id == id
-            //                ).Select(t =>
-            //                    t.Declaration
-            //                    );
+            var id = schoolId.ConvertToGuid();
+            //取未征订的申报
+            var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term)
+                .Where(t => t.School_Id == id);
+            var teacherDeclarations = GetNotSubscriptionTeacherDeclarationJiaoWu(term)
+                .Where(t => t.School_Id == id);
 
-            ////取未下订单的教师申报
-            //IEnumerable<Declaration> teaDecl = _teaDeclRepo.Find(t =>
-            //    t.Term == term &&
-            //    t.TeachingTask.Department.School_Id == id &&
-            //    t.ApprovalState == ApprovalState.终审通过
-            //    ).Where(t =>
-            //        !t.Subscription_Id.HasValue
-            //        );
-
-            ////合并申报
-            //var decls = stuDecl.Concat(teaDecl);
-            ////创建订单
-            //var subs = Domain.SubscriptionService.CreateSubscriptions(decls);
-            //subs = subs.OrderBy(t => t.Textbook.Name);
-            //var result = _adapter.Adapt<SubscriptionForSubmitView>(subs);
-            //return result;
+            //创建订单
+            var subscriptions = SubscriptionService.CreateSubscriptionsBySchool(studentDeclarations, teacherDeclarations);
+            //写入DB
+            subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
+            _subscriptionRepo.Context.Commit();
+            //取未征订的订单
+            var notSubs = GetNotSubscriptions(term);
+            //合并
+            var subs = subscriptions.Union(notSubs);
+            //排序
+            subs.OrderBy(t => t.Textbook.Name);
+            //DTO
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subs);
+            return result;
         }
 
-        public ResponseView SubmitSubscription(IEnumerable<SubscriptionForSubmitView> subscriptions, string booksellerId, string spareCount)
+        public IEnumerable<string> GetPressWithNotSub(string term)
         {
-            return new ResponseView();
-            ////类型转换
-            //var bookseId = booksellerId.ConvertToGuid();
-            //var spare = spareCount.ConvertToInt();
-            ////学期
-            //var term = new TermAppl().GetMaxTerm();
-            ////CUD仓储
-            //var declRepo = ServiceLocator.Current.GetInstance<IDeclarationRepository>();
-            ////操作响应类
-            //var result = new ResponseView();
+            //取未征订申报的教材出版社
+            var studentPress = GetNotSubscriptionStudentDeclarationJiaoWu(term)
+                .Select(t => t.Textbook.Press);
+            var teacherPress = GetNotSubscriptionTeacherDeclarationJiaoWu(term)
+                .Select(t => t.Textbook.Press);
+            //取未征订的订单
+            var notSubs = GetNotSubscriptions(term).Select(t=>t.Textbook.Press);
+            //合并
+            var press = studentPress
+                .Union(teacherPress)
+                .Union(notSubs)
+                .Distinct()
+                .OrderBy(t => t)
+                .ToList();
+            //检查
+            if (press.Count() == 0)
+            {
+                press = new List<string> { "没有未征订的用书申报" };
+            }
 
-            //try
-            //{
-            //    foreach (var item in subscriptions)
-            //    {
-            //        var subId = item.SubscriptionId.ConvertToGuid();
-            //        var textbookId = item.TextbookId.ConvertToGuid();
-            //        var planCount = item.DeclarationCount.ConvertToInt();
-            //        //创建订单
-            //        var sub = Domain.SubscriptionService.CreateSubscription(subId, textbookId, bookseId, term.YearTerm, planCount, spare);
-            //        //为申报关联订单
-            //        foreach (var declItem in item.Declarations)
-            //        {
-            //            var id = declItem.DeclarationId.ConvertToInt();
-            //            var decl = declRepo.First(t => t.DeclarationId == id);
-            //            decl.Subscription = sub;
-            //            declRepo.Modify(decl);
-            //        }
-            //    }
-
-            //    declRepo.Context.Commit();
-            //    return result;
-            //}
-            //catch (Exception e)
-            //{
-            //    var msg = e.Message;
-            //    result.IsSuccess = false;
-            //    result.Message = "征订失败";
-            //    return result;
-            //}
+            return press;
         }
 
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByPress(string term, string press)
+        {
+            //取未征订的申报
+            var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term)
+                .Where(t => t.Textbook.Press == press);
+            var teacherDeclarations = GetNotSubscriptionTeacherDeclarationJiaoWu(term)
+                .Where(t => t.Textbook.Press == press);
+
+            //创建订单
+            var subscriptions = SubscriptionService.CreateSubscriptionsByPress(studentDeclarations, teacherDeclarations);
+            //写入DB
+            subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
+            _subscriptionRepo.Context.Commit();
+            //取未征订的订单
+            var notSubs = GetNotSubscriptions(term);
+            //合并
+            var subs = notSubs.Union(notSubs).OrderBy(t => t.Textbook.Name);
+            //DTO
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subs);
+            return result;
+        }
+
+        public ResponseView SubmitSubscription(string term, string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
+        {
+            //类型转换
+            var sellerId = booksellerId.ConvertToGuid();
+            var spare = spareCount.ConvertToInt();
+            var ids = subscriptions.Select(t => t.SubscriptionId.ConvertToGuid());
+            //操作响应类
+            var result = new ResponseView();
+            //保存至DB
+            try
+            {
+                //修改订单
+                _subscriptionRepo.Modify(
+                    t => ids.Contains(t.ID),
+                    s => new Subscription
+                    {
+                        Bookseller_Id = sellerId,
+                        SpareCount = spare,
+                        SubscriptionState = FeedbackState.征订中
+                    });
+
+                //写入DB
+                _subscriptionRepo.Context.Commit();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                result.IsSuccess = false;
+                result.Message = "征订失败";
+            }
+            return result;
+        }
+
+        public IEnumerable<FeedbackStateView> GetFeedbackState()
+        {
+            var models = SubscriptionService.GetFeedbackState();
+            var result = _adapter.Adapt<FeedbackStateView>(models);
+            return result;
+        }
+
+        public IEnumerable<SubscriptionForSubmitView> GetSubscriptions(string term, FeedbackStateView state)
+        {
+            //学期
+            var yearTerm = new SchoolYearTerm(term);
+            //订单状态
+            var subscriptionState = FeedbackState.未征订;
+            Enum.TryParse(state.Name, out subscriptionState);
+            //取订单
+            var subscriptions = _subscriptionRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.SubscriptionState == subscriptionState
+                );
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
+            return result;
+        }
+
+        public ResponseView RemoveSubscription(IEnumerable<SubscriptionForSubmitView> subscriptions)
+        {
+            //取订单ID
+            var ids = subscriptions.Select(d => d.SubscriptionId.ConvertToGuid());
+            //操作响应类
+            var result = new ResponseView();
+
+            //批量删除
+            try
+            {
+                _subscriptionRepo.Remove(t => ids.Contains(t.ID));
+                _subscriptionRepo.Context.Commit();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                result.IsSuccess = false;
+                result.Message = "征订失败";
+            }
+            return result;
+        }
         #endregion
 
         #region 辅助方法
@@ -278,6 +345,23 @@ namespace TextbookManage.Applications.Impl
                          select d;
             return result.ToList();
         }
+
+        /// <summary>
+        /// 取未征订的订单
+        /// </summary>
+        /// <param name="term"></param>
+        /// <returns></returns>
+        public List<Subscription> GetNotSubscriptions(string term)
+        {
+            var yearTerm = new SchoolYearTerm(term);
+            var result = _subscriptionRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.SubscriptionState == FeedbackState.未征订
+                );
+            return result.ToList();
+        }
+
         #endregion
 
     }

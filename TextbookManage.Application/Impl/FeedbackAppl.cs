@@ -9,6 +9,7 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.Domain;
 
 namespace TextbookManage.Applications.Impl
 {
@@ -33,15 +34,16 @@ namespace TextbookManage.Applications.Impl
 
         #region 实现接口
 
-        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string loginName)
+        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string loginName,string term)
         {
-            //取当前登录用户的机构ID
+            //取当前用户的书商ID
             var id = new TbmisUserAppl(loginName).GetUser().SchoolId;
-            var term = new TermAppl().GetMaxTerm();
+            //学期
+            var yearTerm = new SchoolYearTerm(term);
 
             var subscriptions = _subscriptionRepo.Find(t =>
-                t.SchoolYearTerm.Year == term.SchoolYearTerm.Year && //当前学期
-                t.SchoolYearTerm.Term == term.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == yearTerm.Year && //当前学期
+                t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Bookseller_Id == id  //书商
                 //t.GetFeedbackState() == FeedbackState.征订中                
                 ).Where(t =>
@@ -107,24 +109,9 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<FeedbackStateView> GetFeedbackState()
         {
-            IList<FeedbackStateView> views = new List<FeedbackStateView>();
-            foreach (var item in Enum.GetValues(typeof(FeedbackState)))
-            {
-                var view = new FeedbackStateView
-                {
-                    Id = item.ToString(),
-                    Name = Enum.GetName(typeof(FeedbackState), item)
-                };
-
-                views.Add(view);
-
-            }
-            var item1 = views.First(t => t.Name == FeedbackState.未征订.ToString());
-            var item2 = views.First(t => t.Name == FeedbackState.未知状态.ToString());
-            views.Remove(item1);
-            views.Remove(item2);
-
-            return views;
+            var models = SubscriptionService.GetFeedbackState();
+            var result = _adapter.Adapt<FeedbackStateView>(models);
+            return result;            
         }
 
         /// <summary>
