@@ -29,19 +29,19 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         public IEnumerable<Course> GetCourseByDepartmentId(Guid departmentId, string term)
         {
-            var currentTerm = new Term { YearTerm = term };
+            var currentTerm = new SchoolYearTerm(term);
 
             //处理学期，为空则取当前学期
             if (string.IsNullOrWhiteSpace(term))
             {
-                var termAppl = new TermAppl();
-                currentTerm = termAppl.GetCurrentTerm();
+                var yearTerm = new TermAppl().GetCurrentTerm().YearTerm;
+                currentTerm = new SchoolYearTerm(yearTerm);
             }
 
             //构造学年学期，与教务匹配
             var courses = _teachingTaskRepo.Find(t =>
-                t.SchoolYearTerm.Year == currentTerm.SchoolYearTerm.Year &&
-                t.SchoolYearTerm.Term == currentTerm.SchoolYearTerm.Term &&
+                t.SchoolYearTerm.Year == currentTerm.Year &&
+                t.SchoolYearTerm.Term == currentTerm.Term &&
                 t.Department_Id == departmentId
                 ).Select(t =>
                     t.Course

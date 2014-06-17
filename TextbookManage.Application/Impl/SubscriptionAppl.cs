@@ -83,12 +83,8 @@ namespace TextbookManage.Applications.Impl
             //写入DB
             subscriptions.ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
-            //取未征订的订单
-            var notSubs = GetNotSubscriptions(term);
-            //合并订单
-            var subs = subscriptions.Union(notSubs);
             //返回
-            return _adapter.Adapt<SubscriptionForSubmitView>(subs);
+            return _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
         }
 
         public IEnumerable<SchoolView> GetSchoolWithNotSub(string term)
@@ -102,20 +98,10 @@ namespace TextbookManage.Applications.Impl
             var teacherSchools = GetNotSubscriptionTeacherDeclarationJiaoWu(term)
                 .Select(t => t.School)
                 .Distinct(comparer);  //去除重复学院
-            //取未征订的订单
-            var subStudentSchools = GetNotSubscriptions(term)
-                .SelectMany(t => t.StudentDeclarations)
-                .Select(t => t.DeclarationJiaoWu.School)
-                .Distinct(comparer);  //去除重复学院
-            var subTeacherSchools = GetNotSubscriptions(term)
-                .SelectMany(t => t.TeacherDeclarations)
-                .Select(t => t.DeclarationJiaoWu.School)
-                .Distinct(comparer);  //去除重复学院
             //合并学院
             var unionSchools = studentSchools
-                .Union(teacherSchools)
-                .Union(subStudentSchools)
-                .Union(subTeacherSchools);
+                .Union(teacherSchools);
+
             //取学院
             var schools = unionSchools
                 .Distinct(comparer)
@@ -151,14 +137,10 @@ namespace TextbookManage.Applications.Impl
             //写入DB
             subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
-            //取未征订的订单
-            var notSubs = GetNotSubscriptions(term);
-            //合并
-            var subs = subscriptions.Union(notSubs);
             //排序
-            subs.OrderBy(t => t.Textbook.Name);
+            subscriptions.OrderBy(t => t.Textbook.Name);
             //DTO
-            var result = _adapter.Adapt<SubscriptionForSubmitView>(subs);
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
             return result;
         }
 
@@ -169,12 +151,9 @@ namespace TextbookManage.Applications.Impl
                 .Select(t => t.Textbook.Press);
             var teacherPress = GetNotSubscriptionTeacherDeclarationJiaoWu(term)
                 .Select(t => t.Textbook.Press);
-            //取未征订的订单
-            var notSubs = GetNotSubscriptions(term).Select(t=>t.Textbook.Press);
             //合并
             var press = studentPress
                 .Union(teacherPress)
-                .Union(notSubs)
                 .Distinct()
                 .OrderBy(t => t)
                 .ToList();
@@ -200,16 +179,15 @@ namespace TextbookManage.Applications.Impl
             //写入DB
             subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
-            //取未征订的订单
-            var notSubs = GetNotSubscriptions(term);
+            
             //合并
-            var subs = notSubs.Union(notSubs).OrderBy(t => t.Textbook.Name);
+            subscriptions.OrderBy(t => t.Textbook.Name);
             //DTO
-            var result = _adapter.Adapt<SubscriptionForSubmitView>(subs);
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
             return result;
         }
 
-        public ResponseView SubmitSubscription(string term, string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
+        public ResponseView SubmitSubscription(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
         {
             //类型转换
             var sellerId = booksellerId.ConvertToGuid();
@@ -229,7 +207,11 @@ namespace TextbookManage.Applications.Impl
                         SpareCount = spare,
                         SubscriptionState = FeedbackState.征订中
                     });
-
+                //删除订单
+                _subscriptionRepo.Remove(t =>
+                    !ids.Contains(t.ID) &&
+                    t.SubscriptionState == FeedbackState.未征订
+                    );
                 //写入DB
                 _subscriptionRepo.Context.Commit();
             }
@@ -345,23 +327,6 @@ namespace TextbookManage.Applications.Impl
                          select d;
             return result.ToList();
         }
-
-        /// <summary>
-        /// 取未征订的订单
-        /// </summary>
-        /// <param name="term"></param>
-        /// <returns></returns>
-        public List<Subscription> GetNotSubscriptions(string term)
-        {
-            var yearTerm = new SchoolYearTerm(term);
-            var result = _subscriptionRepo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.Year &&
-                t.SchoolYearTerm.Term == yearTerm.Term &&
-                t.SubscriptionState == FeedbackState.未征订
-                );
-            return result.ToList();
-        }
-
         #endregion
 
     }
