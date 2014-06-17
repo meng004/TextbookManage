@@ -18,7 +18,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string loginName);
+        IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string loginName, string term);
 
         /// <summary>
         /// 提交回告
