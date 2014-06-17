@@ -29,13 +29,13 @@ namespace TextbookManage.Applicaitons.Test
         //仓储上下文
         IRepositoryContext _context;
         //事务
-        //TransactionScope _trans;
+        TransactionScope _trans;
 
         [TestInitialize]
         public void Initialize()
         {
             _context = new EntityFrameworkRepositoryContext();
-            //_trans = new TransactionScope();
+            _trans = new TransactionScope();
 
             _adapter = new AutoMapperTypeAdapter();
             _teachingTaskRepo = new TeachingTaskRepository(_context);
@@ -51,7 +51,7 @@ namespace TextbookManage.Applicaitons.Test
         public void Cleanup()
         {
             //回滚事务，清除对数据库的操作，如新建记录
-            //_trans.Dispose();
+            _trans.Dispose();
 
         }
 
