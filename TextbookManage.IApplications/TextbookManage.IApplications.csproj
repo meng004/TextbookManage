@@ -74,6 +74,7 @@
     <Compile Include="IFeedbackApprovalAppl.cs" />
     <Compile Include="IStorageAppl.cs" />
     <Compile Include="ISubscriptionAppl.cs" />
+    <Compile Include="ITermAppl.cs" />
     <Compile Include="ITextbookAppl.cs" />
     <Compile Include="ITextbookApprovalAppl.cs" />
     <Compile Include="ITextbookFeeAppl.cs" />

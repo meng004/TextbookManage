@@ -20,7 +20,7 @@ namespace TextbookManage.IApplications
         /// <summary>
         /// 由登录名，取待审书商
         /// </summary>
-        /// <param name="teacherId"></param>
+        /// <param name="loginName"></param>
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
