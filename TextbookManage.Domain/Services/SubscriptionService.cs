@@ -67,6 +67,7 @@ namespace TextbookManage.Domain
                             PlanCount = m.Sum(s => s.DeclarationCount),
                             SpareCount = 0,
                             SubscriptionDate = DateTime.Now,
+                            SubscriptionState = Models.FeedbackState.未征订,
                             StudentDeclarations = studentDeclarationTextbooks,
                             TeacherDeclarations = teacherDeclarationTextbooks
                         };
@@ -113,6 +114,7 @@ namespace TextbookManage.Domain
                         PlanCount = m.Sum(s => s.DeclarationCount),
                         SpareCount = 0,
                         SubscriptionDate = DateTime.Now,
+                        SubscriptionState = Models.FeedbackState.未征订,
                         StudentDeclarations = studentDeclarationTextbooks,
                         TeacherDeclarations = teacherDeclarationTextbooks
                     };
@@ -159,6 +161,7 @@ namespace TextbookManage.Domain
                         PlanCount = m.Sum(s => s.DeclarationCount),
                         SpareCount = 0,
                         SubscriptionDate = DateTime.Now,
+                        SubscriptionState = Models.FeedbackState.未征订,
                         StudentDeclarations = studentDeclarationTextbooks,
                         TeacherDeclarations = teacherDeclarationTextbooks
                     };
@@ -242,7 +245,6 @@ namespace TextbookManage.Domain
                 Remark = remark,
                 Person = feedbackPerson, //教材科审核中
                 ApprovalState = ApprovalState.教材科审核中 /*订单添加回告*/
-
             };
 
             return feedback;
