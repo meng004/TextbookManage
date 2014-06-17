@@ -42,8 +42,6 @@ namespace TextbookManage.Applications.Impl
         {
             //系统用户
             var user = new TbmisUserAppl(loginName).GetUser();
-            //当前学期
-            var term = new TermAppl().GetMaxTerm();
 
             IList<Bookseller> booksellers = new List<Bookseller>();
 
@@ -70,26 +68,24 @@ namespace TextbookManage.Applications.Impl
                             ).Distinct();
                 booksellers = bookseller.ToList();
             }
-            if (booksellers.Count > 0)
+            if (booksellers.Count == 0)
             {
-                return _adapter.Adapt<BooksellerView>(booksellers);
-            }
-            else
-            {
-                IEnumerable<BooksellerView> school = new List<BooksellerView>
+                var bookseller = new Bookseller
                 {
-                    new BooksellerView { BooksellerId = string.Empty, Name = "没有需要审核的书商" }
+                    ID = Guid.Empty,
+                    Name = "没有需要审核的书商"
                 };
-                return school;
+                booksellers.Add(bookseller);
             }
+
+            return _adapter.Adapt<BooksellerView>(booksellers);
         }
 
         public IEnumerable<FeedbackForApprovalView> GetFeedbackWithNotApproval(string loginName, string booksellerId)
         {
             //登录用户
             var user = new TbmisUserAppl(loginName).GetUser();
-            //当前学期
-            var term = new TermAppl().GetMaxTerm();
+            //书商ID
             var id = booksellerId.ConvertToGuid();
 
             IEnumerable<Feedback> feedbacks = new List<Feedback>();
@@ -117,33 +113,34 @@ namespace TextbookManage.Applications.Impl
 
         public ResponseView SubmitFeedbackApproval(IEnumerable<FeedbackForApprovalView> feedbacks, string loginName, string suggestion, string remark)
         {
+            //审核意见
             var sugg = suggestion.ConvertToBool();
+            //审核部门，审核人
             var user = new TbmisUserAppl(loginName).GetUser();
             var division = user.SchoolName;
             var auditor = user.TbmisUserName;
-
-            var repo = ServiceLocator.Current.GetInstance<IFeedbackRepository>();
+            //回告ID
+            var ids = feedbacks.Select(t => t.FeedbackId.ConvertToGuid());
+            //消息类
             var result = new ResponseView();
-
-            //处理审核记录
-            foreach (var item in feedbacks)
-            {
-                var id = item.FeedbackId.ConvertToGuid();
-                var feedback = repo.First(t => t.ID == id);
-                Domain.ApprovalService.CreateApproval<FeedbackApproval>(feedback, division, auditor, sugg, remark);
-            }
             //保存到db
             try
             {
-                repo.Context.Commit();
-                return result;
+                //处理审核记录
+                var backs = _repo.Find(t => ids.Contains(t.ID)).ToList();
+                backs.ForEach(t =>
+                    {
+                        Domain.ApprovalService.CreateApproval<FeedbackApproval>(t, division, auditor, sugg, remark);
+                    });
+
+                _repo.Context.Commit();
             }
             catch (Exception)
             {
                 result.IsSuccess = false;
                 result.Message = "提交审核失败";
-                return result;
             }
+            return result;
         }
         #endregion
 

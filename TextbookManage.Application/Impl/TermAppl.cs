@@ -5,14 +5,17 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.TypeAdapter;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.Applications.Impl
 {
-    public class TermAppl
+    public class TermAppl : ITermAppl
     {
 
         #region 私有变量
-
+        private readonly ITypeAdapter _adapter = ServiceLocator.Current.GetInstance<ITypeAdapter>();
         private readonly ITermRepository _repo = ServiceLocator.Current.GetInstance<ITermRepository>();
         #endregion
 
@@ -24,7 +27,7 @@ namespace TextbookManage.Applications.Impl
         /// <returns></returns>
         public IEnumerable<Term> GetAll()
         {
-            return _repo.GetAll();
+            return _repo.GetAll().OrderByDescending(t => t.YearTerm);
         }
 
         /// <summary>
@@ -46,6 +49,20 @@ namespace TextbookManage.Applications.Impl
             return term;
         }
         #endregion
+
+
+        public IEnumerable<TermView> GetAllTerms()
+        {
+            var terms = GetAll();
+            return _adapter.Adapt<TermView>(terms);
+        }
+
+        public TermView GetCurrent()
+        {
+            var term = GetCurrentTerm();
+            return _adapter.Adapt<TermView>(term);
+        }
+
 
     }
 }
