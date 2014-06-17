@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using TextbookManage.Domain;
 using TextbookManage.Domain.IRepositories;
+using EntityFramework.Extensions;
 
 
 namespace TextbookManage.Repositories.EntityFramework
@@ -63,7 +64,7 @@ namespace TextbookManage.Repositories.EntityFramework
 
         public override void Modify(TAggregateRoot entity)
         {
-            _efContext.RegisterModified<TAggregateRoot>(entity);
+            _efContext.RegisterModified<TAggregateRoot>(entity);            
         }
 
         public override IEnumerable<TEntity> ExecuteQuery<TEntity>(string sqlQuery, params object[] parameters)
@@ -97,5 +98,15 @@ namespace TextbookManage.Repositories.EntityFramework
             get { return _efContext.Context.Set<TAggregateRoot>(); }
         }
         #endregion
+
+        public override void Remove(System.Linq.Expressions.Expression<Func<TAggregateRoot, bool>> expression)
+        {
+            _dbSet.Delete(expression);
+        }
+
+        public override void Modify(System.Linq.Expressions.Expression<Func<TAggregateRoot, bool>> filterExpression, System.Linq.Expressions.Expression<Func<TAggregateRoot, TAggregateRoot>> updateExpression)
+        {
+            _dbSet.Update(filterExpression, updateExpression);
+        }
     }
 }
