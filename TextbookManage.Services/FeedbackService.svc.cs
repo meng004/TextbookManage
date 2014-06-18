@@ -15,9 +15,9 @@ namespace TextbookManage.Services
 
 
 
-        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string loginName)
+        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string term, string loginName)
         {
-            return _impl.GetSubscriptionWithNotFeedback(loginName);
+            return _impl.GetSubscriptionWithNotFeedback(term, loginName);
         }
 
         public ResponseView SubmitFeedback(IEnumerable<SubscriptionForFeedbackView> subscriptions, string loginName, string feedbackState, string remark)
@@ -35,9 +35,9 @@ namespace TextbookManage.Services
             return _impl.GetFeedbackState();
         }
 
-        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionByBooksellerId(string booksellerId, string feedbackStateName)
+        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionByBooksellerId(string term, string booksellerId, string feedbackStateName)
         {
-            return _impl.GetSubscriptionByBooksellerId(booksellerId, feedbackStateName);
+            return _impl.GetSubscriptionByBooksellerId(term, booksellerId, feedbackStateName);
         }
 
         public FeedbackView GetFeedbackBySubscriptionId(string subscriptionId)

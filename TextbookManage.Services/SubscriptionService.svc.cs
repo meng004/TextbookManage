@@ -14,29 +14,55 @@ namespace TextbookManage.Services
         private readonly ISubscriptionAppl _impl = ServiceLocator.Current.GetInstance<ISubscriptionAppl>();
 
 
-        public IEnumerable<BooksellerView> GetBookseller()
+        public IEnumerable<BooksellerView> GetBooksellers()
         {
-            return _impl.GetBookseller();
+            return _impl.GetBooksellers();
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByTextbook(string textbookName, string isbn)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn)
         {
-            return _impl.CreateSubscriptionByTextbook(textbookName, isbn);
+            return _impl.CreateSubscriptionsByTextbook(term, textbookName, isbn);
         }
 
-        public IEnumerable<SchoolView> GetSchoolWithNotSub()
+        public IEnumerable<SchoolView> GetSchoolWithNotSub(string term)
         {
-            return _impl.GetSchoolWithNotSub();
+            return _impl.GetSchoolWithNotSub(term);
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionBySchoolId(string schoolId)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsBySchoolId(string term, string schoolId)
         {
-            return _impl.CreateSubscriptionBySchoolId(schoolId);
+            return _impl.CreateSubscriptionsBySchoolId(term, schoolId);
         }
 
-        public ResponseView SubmitSubscription(IEnumerable<SubscriptionForSubmitView> subscriptions, string booksellerId, string spareCount)
+        public ResponseView SubmitSubscriptions(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
         {
-            return _impl.SubmitSubscription(subscriptions, booksellerId, spareCount);
+            return _impl.SubmitSubscriptions(booksellerId, spareCount,subscriptions );
+        }
+
+
+        public IEnumerable<string> GetPressWithNotSub(string term)
+        {
+            return _impl.GetPressWithNotSub(term);
+        }
+
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByPress(string term, string press)
+        {
+            return _impl.CreateSubscriptionsByPress(term, press);
+        }
+
+        public IEnumerable<FeedbackStateView> GetFeedbackState()
+        {
+            return _impl.GetFeedbackState();
+        }
+
+        public IEnumerable<SubscriptionForSubmitView> GetSubscriptions(string term, FeedbackStateView state)
+        {
+            return _impl.GetSubscriptions(term, state);
+        }
+
+        public ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForSubmitView> subscriptions)
+        {
+            return _impl.RemoveSubscriptions(subscriptions);
         }
     }
 }

@@ -47,9 +47,14 @@ namespace TextbookManage.Services
             return _impl.GetDeclarationApproval(declarationId);
         }
 
-        public FeedbackView GetFeedbackByDeclarationId(string declarationId)
+        public FeedbackView GetFeedbackByStudentDeclarationId(string declarationId)
         {
-            return _impl.GetFeedbackByDeclarationId(declarationId);
+            return _impl.GetFeedbackByStudentDeclarationId(declarationId);
+        }
+
+        public FeedbackView GetFeedbackByTeacherDeclarationId(string declarationId)
+        {
+            return _impl.GetFeedbackByTeacherDeclarationId(declarationId);
         }
     }
 }

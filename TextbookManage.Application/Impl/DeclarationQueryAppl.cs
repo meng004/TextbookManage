@@ -19,18 +19,17 @@ namespace TextbookManage.Applications.Impl
         #region 私有变量
 
         private readonly ITypeAdapter _adapter;// = ServiceLocator.Current.GetInstance<ITypeAdapter>();
-        private readonly ITeachingTaskRepository _teachingTaskRepo;// = ServiceLocator.Current.GetInstance<ITeachingTaskRepository>();
-        private readonly IDeclarationRepository _declarationRepo;//= ServiceLocator.Current.GetInstance<IDeclarationRepository>();
-
+        private readonly IStudentDeclarationJiaoWuRepository _studentRepo;
+        private readonly ITeacherDeclarationJiaoWuRepository _teacherRepo;
         #endregion
 
         #region 构造函数
 
-        public DeclarationQueryAppl(ITypeAdapter adapter, ITeachingTaskRepository teachingTaskRepo, IDeclarationRepository declarationRepo)
+        public DeclarationQueryAppl(ITypeAdapter adapter, IStudentDeclarationJiaoWuRepository studentRepo, ITeacherDeclarationJiaoWuRepository teacherRepo)
         {
             _adapter = adapter;
-            _teachingTaskRepo = teachingTaskRepo;
-            _declarationRepo = declarationRepo;
+            _studentRepo = studentRepo;
+            _teacherRepo = teacherRepo;
         }
         #endregion
 
@@ -164,14 +163,14 @@ namespace TextbookManage.Applications.Impl
         private List<DeclarationJiaoWu> GetTeacherDeclarations(Guid courId, Guid depaId, string term)
         {
             var yearTerm = new SchoolYearTerm(term);
-            var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationJiaoWuRepository>();
-            var declarations = repo.Find(t =>
+
+            var declarations = _teacherRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
                 t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 );
-            return (List<DeclarationJiaoWu>)declarations;
+            return declarations.Cast<DeclarationJiaoWu>().ToList();
         }
         /// <summary>
         /// 取学生用书申报
@@ -183,14 +182,13 @@ namespace TextbookManage.Applications.Impl
         private List<DeclarationJiaoWu> GetStudentDeclarations(Guid courId, Guid depaId, string term)
         {
             var yearTerm = new SchoolYearTerm(term);
-            var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationJiaoWuRepository>();
-            var declarations = repo.Find(t =>
+            var declarations = _studentRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
                 t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Course_Id == courId &&
                 t.Department_Id == depaId
                 );
-            return (List<DeclarationJiaoWu>)declarations;
+            return declarations.Cast<DeclarationJiaoWu>().ToList();
         }
 
         public IEnumerable<ApprovalView> GetDeclarationApproval(string declarationId)
@@ -208,48 +206,46 @@ namespace TextbookManage.Applications.Impl
         public FeedbackView GetFeedbackByStudentDeclarationId(string declarationId)
         {
             var id = declarationId.ConvertToGuid();
-            var repo = ServiceLocator.Current.GetInstance<IStudentDeclarationRepository>();
 
-            var declaration = repo.First(t => t.ID == id);
+            var declaration = _studentRepo.First(t => t.ID == id);
             //未下订单
             if (declaration == null)
                 return new FeedbackView { Remark = FeedbackState.未征订.ToString() };
             else
             {
                 //未查看过回告，修改状态
-                if (!declaration.HadViewFeedback)
+                if (!declaration.DeclarationTextbook.HadViewFeedback)
                 {
                     //查看公告
-                    declaration.ViewFeedback();
+                    declaration.DeclarationTextbook.ViewFeedback();
                     //修改查看时间
-                    repo.Modify(declaration);
-                    repo.Context.Commit();
+                    _studentRepo.Modify(declaration);
+                    _studentRepo.Context.Commit();
                 }
-                return _adapter.Adapt<FeedbackView>(declaration.Subscription.Feedback);
+                return _adapter.Adapt<FeedbackView>(declaration.DeclarationTextbook.Subscription.Feedback);
             }
         }
 
         public FeedbackView GetFeedbackByTeacherDeclarationId(string declarationId)
         {
             var id = declarationId.ConvertToGuid();
-            var repo = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
 
-            var declaration = repo.First(t => t.ID == id);
+            var declaration = _teacherRepo.First(t => t.ID == id);
             //未下订单
-            if (declaration == null)
+            if (declaration.DeclarationTextbook == null)
                 return new FeedbackView { Remark = FeedbackState.未征订.ToString() };
             else
             {
                 //未查看过回告，修改状态
-                if (!declaration.HadViewFeedback)
+                if (!declaration.DeclarationTextbook.HadViewFeedback)
                 {
                     //查看公告
-                    declaration.ViewFeedback();
+                    declaration.DeclarationTextbook.ViewFeedback();
                     //修改查看时间
-                    repo.Modify(declaration);
-                    repo.Context.Commit();
+                    _teacherRepo.Modify(declaration);
+                    _teacherRepo.Context.Commit();
                 }
-                return _adapter.Adapt<FeedbackView>(declaration.Subscription.Feedback);
+                return _adapter.Adapt<FeedbackView>(declaration.DeclarationTextbook.Subscription.Feedback);
             }
         }
         #endregion

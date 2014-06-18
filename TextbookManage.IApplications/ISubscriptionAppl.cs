@@ -15,7 +15,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<BooksellerView> GetBookseller();
+        IEnumerable<BooksellerView> GetBooksellers();
 
         /// <summary>
         /// 按教材生成订单
@@ -25,7 +25,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByTextbook(string term, string textbookName, string isbn);
+        IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn);
 
         /// <summary>
         /// 取待征订的学院，
@@ -43,7 +43,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForSubmitView> CreateSubscriptionBySchoolId(string term, string schoolId);
+        IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsBySchoolId(string term, string schoolId);
 
         /// <summary>
         /// 取待征订的出版社
@@ -60,7 +60,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByPress(string term, string press);
+        IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByPress(string term, string press);
 
         /// <summary>
         /// 提交订单
@@ -71,7 +71,7 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Remove)]
-        ResponseView SubmitSubscription(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions);
+        ResponseView SubmitSubscriptions(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions);
 
         /// <summary>
         /// 取征订状态
@@ -98,6 +98,6 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Remove)]
-        ResponseView RemoveSubscription(IEnumerable<SubscriptionForSubmitView> subscriptions);
+        ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForSubmitView> subscriptions);
     }
 }

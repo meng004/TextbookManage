@@ -52,13 +52,13 @@ namespace TextbookManage.Applications.Impl
 
         #region 实现接口
 
-        public IEnumerable<BooksellerView> GetBookseller()
+        public IEnumerable<BooksellerView> GetBooksellers()
         {
             var bookserller = new BooksellerAppl().GetAll();
             return _adapter.Adapt<BooksellerView>(bookserller);
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByTextbook(string term, string textbookName, string isbn)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn)
         {
             //取未征订的申报
             var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term);
@@ -123,7 +123,7 @@ namespace TextbookManage.Applications.Impl
             return _adapter.Adapt<SchoolView>(schools);
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionBySchoolId(string term, string schoolId)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsBySchoolId(string term, string schoolId)
         {
             var id = schoolId.ConvertToGuid();
             //取未征订的申报
@@ -166,7 +166,7 @@ namespace TextbookManage.Applications.Impl
             return press;
         }
 
-        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionByPress(string term, string press)
+        public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByPress(string term, string press)
         {
             //取未征订的申报
             var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term)
@@ -187,7 +187,7 @@ namespace TextbookManage.Applications.Impl
             return result;
         }
 
-        public ResponseView SubmitSubscription(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
+        public ResponseView SubmitSubscriptions(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
         {
             //类型转换
             var sellerId = booksellerId.ConvertToGuid();
@@ -248,7 +248,7 @@ namespace TextbookManage.Applications.Impl
             return result;
         }
 
-        public ResponseView RemoveSubscription(IEnumerable<SubscriptionForSubmitView> subscriptions)
+        public ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForSubmitView> subscriptions)
         {
             //取订单ID
             var ids = subscriptions.Select(d => d.SubscriptionId.ConvertToGuid());
