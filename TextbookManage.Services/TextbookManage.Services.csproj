@@ -111,6 +111,7 @@
     <Content Include="DropStudentBookService.svc" />
     <Content Include="FeedbackApprovalService.svc" />
     <Content Include="FeedbackService.svc" />
+    <Content Include="Global.asax" />
     <Content Include="InventoryService.svc" />
     <Content Include="Logs\ExceptionLog.txt" />
     <Content Include="Logs\Log.txt" />
@@ -152,6 +153,9 @@
     </Compile>
     <Compile Include="FeedbackService.svc.cs">
       <DependentUpon>FeedbackService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="InventoryService.svc.cs">
       <DependentUpon>InventoryService.svc</DependentUpon>
