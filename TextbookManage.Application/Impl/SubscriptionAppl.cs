@@ -21,7 +21,6 @@ namespace TextbookManage.Applications.Impl
         #region 私有变量
 
         private readonly ITypeAdapter _adapter;//= ServiceLocator.Current.GetInstance<ITypeAdapter>();
-        private readonly ITeachingTaskRepository _teachingTaskRepo;//= ServiceLocator.Current.GetInstance<ITeachingTaskRepository>();
         private readonly IStudentDeclarationRepository _stuDeclRepo;// = ServiceLocator.Current.GetInstance<IStudentDeclarationRepository>();
         private readonly ITeacherDeclarationRepository _teaDeclRepo;// = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
         private readonly IStudentDeclarationJiaoWuRepository _stuDeclJiaoWuRepo;
@@ -33,7 +32,6 @@ namespace TextbookManage.Applications.Impl
         #region 构造函数
 
         public SubscriptionAppl(ITypeAdapter adapter,
-            ITeachingTaskRepository teachingTaskRepo,
             IStudentDeclarationJiaoWuRepository stuDeclJiaoWuRepo,
             ITeacherDeclarationJiaoWuRepository teaDeclJiaoWuRepo,
             IStudentDeclarationRepository stuDeclRepo,
@@ -41,7 +39,6 @@ namespace TextbookManage.Applications.Impl
             ISubscriptionRepository subscriptionRepo)
         {
             _adapter = adapter;
-            _teachingTaskRepo = teachingTaskRepo;
             _stuDeclRepo = stuDeclRepo;
             _teaDeclRepo = teaDeclRepo;
             _stuDeclJiaoWuRepo = stuDeclJiaoWuRepo;

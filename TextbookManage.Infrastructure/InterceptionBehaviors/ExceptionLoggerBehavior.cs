@@ -17,7 +17,7 @@
         /// <summary>
         /// 日志配置节为ExceptionLogger
         /// </summary>
-        readonly ILogger _log = ServiceLocator.Current.GetInstance<ILogger>("ExceptionLogger");
+        readonly ILogger _log = ServiceLocator.Current.GetInstance<ILogger>();
 
         #endregion
 

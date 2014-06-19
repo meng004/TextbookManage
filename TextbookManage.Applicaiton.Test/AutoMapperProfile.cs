@@ -98,7 +98,7 @@
                 .ForMember(v => v.Gender, m => m.MapFrom(s => s.Gender));
 
             //申报
-            Mapper.CreateMap<IEnumerable<ProfessionalClass>, string>().ConvertUsing<ProfessionalClassesConvert>();
+            //Mapper.CreateMap<IEnumerable<ProfessionalClass>, string>().ConvertUsing<ProfessionalClassesConvert>();
 
 
             //Mapper.CreateMap<Declaration, DeclarationBaseView>()

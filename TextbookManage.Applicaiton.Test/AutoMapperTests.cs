@@ -10,7 +10,7 @@ using TextbookManage.Domain.Models;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Domain.Models.JiaoWu;
 
-namespace TextbookManage.Applicaitons.Test
+namespace TextbookManage.Applications.Test
 {
     [TestClass]
     public class AutoMapperTests

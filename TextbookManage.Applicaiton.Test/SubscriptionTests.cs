@@ -13,7 +13,7 @@ using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Domain;
 using System.Linq;
 
-namespace TextbookManage.Applicaitons.Test
+namespace TextbookManage.Applications.Test
 {
 
     [TestClass]
@@ -25,6 +25,7 @@ namespace TextbookManage.Applicaitons.Test
         private ITeacherDeclarationRepository _teaDeclRepo;// = ServiceLocator.Current.GetInstance<ITeacherDeclarationRepository>();
         private IStudentDeclarationJiaoWuRepository _stuDeclJiaoWuRepo;
         private ITeacherDeclarationJiaoWuRepository _teaDeclJiaoWuRepo;
+        private ISubscriptionRepository _subscriptionRepo;
         private SubscriptionAppl _appl;
         //仓储上下文
         IRepositoryContext _context;
@@ -38,13 +39,20 @@ namespace TextbookManage.Applicaitons.Test
             _trans = new TransactionScope();
 
             _adapter = new AutoMapperTypeAdapter();
-            _teachingTaskRepo = new TeachingTaskRepository(_context);
             _stuDeclJiaoWuRepo = new StudentDeclarationJiaoWuRepository(_context);
             _teaDeclJiaoWuRepo = new TeacherDeclarationJiaoWuRepository(_context);
             _stuDeclRepo = new StudentDeclarationRepository(_context);
             _teaDeclRepo = new TeacherDeclarationRepository(_context);
-            _appl = new SubscriptionAppl(_adapter, _teachingTaskRepo, _stuDeclJiaoWuRepo, _teaDeclJiaoWuRepo, _stuDeclRepo, _teaDeclRepo);
+            _subscriptionRepo = new SubscriptionRepository(_context);
 
+            _appl = new SubscriptionAppl(
+                _adapter, 
+                _stuDeclJiaoWuRepo, 
+                _teaDeclJiaoWuRepo, 
+                _stuDeclRepo, 
+                _teaDeclRepo,
+                _subscriptionRepo
+                );
         }
 
         [TestCleanup]

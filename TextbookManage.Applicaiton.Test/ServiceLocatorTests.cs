@@ -1,0 +1,90 @@
+﻿using System;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Practices.Unity;
+using TextbookManage.Infrastructure.TypeAdapter;
+using TextbookManage.IApplications;
+using TextbookManage.Applications.Impl;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Repositories;
+using TextbookManage.Domain.IRepositories;
+using TextbookManage.Repositories.EntityFramework;
+using TextbookManage.Domain;
+using TextbookManage.Infrastructure.Cache;
+using TextbookManage.Infrastructure.Logger;
+using Microsoft.Practices.Unity.InterceptionExtension;
+using TextbookManage.Infrastructure.InterceptionBehaviors;
+using Rhino.Mocks;
+
+namespace TextbookManage.Applications.Test
+{
+
+public class UnityBootstraper : IUnityBootstraper
+{
+    public void RegisterTypes(IUnityContainer container)
+    {
+        container.AddNewExtension<Interception>();
+        container.RegisterType<ITypeAdapter, AutoMapperTypeAdapter>();
+        container.RegisterType<ICacheProvider, EntLibCacheProvider>(new ContainerControlledLifetimeManager());
+        container.RegisterType<ILogger, Log4netLogger>(new InjectionConstructor("ExceptionLogger"));
+        container.RegisterType<IRepositoryContext, EntityFrameworkRepositoryContext>();
+        container.RegisterType<IRepository<IAggregateRoot>, EntityFrameworkRepository<IAggregateRoot>>();
+
+        //测试异常日志AOP专用
+        var repo = new MockRepository();
+        var stub = repo.Stub<ITermRepository>();
+        stub.Expect(t => t.GetAll())
+            .Throw(new ArgumentNullException("测试抛出的异常"));
+        repo.ReplayAll();
+        container.RegisterInstance<ITermRepository>(stub);
+
+        //container.RegisterType<ITermRepository, TermRepository>();
+        container.RegisterType<ITermAppl, TermAppl>(
+            new Interceptor<InterfaceInterceptor>(),
+            new InterceptionBehavior<CacheBehavior>(),
+            new InterceptionBehavior<ExceptionLoggerBehavior>()
+            );
+    }
+}
+
+    [TestClass]
+    public class ServiceLocatorTests
+    {
+        [TestMethod]
+        public void UnityInitializeFromExternalClass_GetAutoMapperTypeAdapter()
+        {
+            var adapter = ServiceLocator.Current.GetInstance<ITypeAdapter>();
+            Assert.IsInstanceOfType(adapter, typeof(AutoMapperTypeAdapter));
+        }
+
+        [TestMethod]
+        public void UnityInitializeFromExternalClass_GetTermRepository()
+        {
+            var repo = ServiceLocator.Current.GetInstance<ITermRepository>();
+            var terms = repo.GetAll();
+            Assert.IsTrue(terms.Count() > 0);
+        }
+
+        /// <summary>
+        /// 需要调试，进入拦截器
+        /// </summary>
+        [TestMethod]
+        public void UnityInitializeFromExternalClass_CacheInterception()
+        {
+            var appl = ServiceLocator.Current.GetInstance<ITermAppl>();
+            var terms = appl.GetAllTerms();
+            var terms2 = appl.GetAllTerms();
+            Assert.IsTrue(terms.Count() > 0);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "测试抛出的异常")]
+        public void UnityInitializeFromExternalClass_LogInterception()
+        {
+            var appl = ServiceLocator.Current.GetInstance<ITermAppl>();
+            var terms = appl.GetAllTerms();
+        }
+    }
+}

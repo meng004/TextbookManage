@@ -21,7 +21,7 @@ namespace TextbookManage.Infrastructure.ServiceLocators
         private static readonly ServiceLocator _instance = new ServiceLocator();
         #endregion
 
-        #region 构造函数
+        #region IDisposable
 
         public void Dispose()
         {
@@ -41,15 +41,32 @@ namespace TextbookManage.Infrastructure.ServiceLocators
         {
             Dispose(false);
         }
+        #endregion
 
-        private ServiceLocator()
-        {
-            //配置Unity
-            UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
-            _container = new UnityContainer();
-            section.Configure(_container);
+        #region 构造函数
+private ServiceLocator()
+{
+    //读取配置文件，如app.config，web.config，向Unity容器注册对象
+    //UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+    //_container = new UnityContainer();
+    //section.Configure(_container);
 
-        }
+    //从外部类，向Unity容器注册对象
+    _container = new UnityContainer();
+            
+    //取配置类
+    var profiles = AppDomain.CurrentDomain
+        .GetAssemblies()
+        .SelectMany(a => a.GetTypes())
+        .Where(t => t.Name == "UnityBootstraper");
+    //注册类型
+    foreach (var item in profiles)
+    {
+        var bootstraper = Activator.CreateInstance(item) as IUnityBootstraper;
+        bootstraper.RegisterTypes(_container);
+    }
+}
+
         #endregion
 
         #region 公共属性
