@@ -63,6 +63,14 @@
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -111,7 +119,6 @@
     <Content Include="DropStudentBookService.svc" />
     <Content Include="FeedbackApprovalService.svc" />
     <Content Include="FeedbackService.svc" />
-    <Content Include="Global.asax" />
     <Content Include="InventoryService.svc" />
     <Content Include="Logs\ExceptionLog.txt" />
     <Content Include="Logs\Log.txt" />
@@ -154,9 +161,6 @@
     <Compile Include="FeedbackService.svc.cs">
       <DependentUpon>FeedbackService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="InventoryService.svc.cs">
       <DependentUpon>InventoryService.svc</DependentUpon>
     </Compile>
@@ -182,6 +186,7 @@
     <Compile Include="TextbookService.svc.cs">
       <DependentUpon>TextbookService.svc</DependentUpon>
     </Compile>
+    <Compile Include="UnityBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -200,6 +205,10 @@
     <ProjectReference Include="..\TextbookManage.Application\TextbookManage.Applications.csproj">
       <Project>{55a9ecbc-b25e-47a4-a914-aedf859d62db}</Project>
       <Name>TextbookManage.Applications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
+      <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
+      <Name>TextbookManage.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\TextbookManage.IApplications\TextbookManage.IApplications.csproj">
       <Project>{01885be2-55da-4c10-a747-a276af4f706b}</Project>
