@@ -36,7 +36,7 @@ namespace TextbookManage.Services
             container.RegisterType<IBooksellerRepository, BooksellerRepository>()
                 .RegisterType<IFeedbackRepository, FeedbackRepository>()
                 //单例模式，否则报错 一个实体不能被多个上下文跟踪
-                .RegisterType<IRepositoryContext, EntityFrameworkRepositoryContext>(new PerResolveLifetimeManager())
+                .RegisterType<IRepositoryContext, EntityFrameworkRepositoryContext>(new PerThreadLifetimeManager())
                 .RegisterType<IRepository<IAggregateRoot>, EntityFrameworkRepository<IAggregateRoot>>()
                 .RegisterType<ISubscriptionRepository, SubscriptionRepository>()
                 .RegisterType<ITbmisUserRepository, TbmisUserRepository>();
