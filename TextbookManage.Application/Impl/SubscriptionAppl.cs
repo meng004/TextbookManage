@@ -57,6 +57,9 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn)
         {
+            //删除未征订的订单
+            RemoveNotSubscription();
+            _subscriptionRepo.Context.Commit();
             //取未征订的申报
             var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term);
             var teacherDeclarations = GetNotSubscriptionTeacherDeclarationJiaoWu(term);
@@ -86,6 +89,9 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SchoolView> GetSchoolWithNotSub(string term)
         {
+            //删除未征订的订单
+            RemoveNotSubscription();
+            _subscriptionRepo.Context.Commit();
             //比较器
             var comparer = new SchoolComparer();
             //取未征订申报的学院
@@ -122,6 +128,10 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsBySchoolId(string term, string schoolId)
         {
+            //删除未征订的订单
+            //RemoveNotSubscription();
+            //_subscriptionRepo.Context.Commit();
+
             var id = schoolId.ConvertToGuid();
             //取未征订的申报
             var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term)
@@ -143,6 +153,9 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<string> GetPressWithNotSub(string term)
         {
+            //删除未征订的订单
+            RemoveNotSubscription();
+            _subscriptionRepo.Context.Commit();
             //取未征订申报的教材出版社
             var studentPress = GetNotSubscriptionStudentDeclarationJiaoWu(term)
                 .Select(t => t.Textbook.Press);
@@ -165,6 +178,9 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByPress(string term, string press)
         {
+            //删除未征订的订单
+            RemoveNotSubscription();
+            _subscriptionRepo.Context.Commit();
             //取未征订的申报
             var studentDeclarations = GetNotSubscriptionStudentDeclarationJiaoWu(term)
                 .Where(t => t.Textbook.Press == press);
@@ -176,7 +192,7 @@ namespace TextbookManage.Applications.Impl
             //写入DB
             subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
-            
+
             //合并
             subscriptions.OrderBy(t => t.Textbook.Name);
             //DTO
@@ -205,10 +221,7 @@ namespace TextbookManage.Applications.Impl
                         SubscriptionState = FeedbackState.征订中
                     });
                 //删除订单
-                _subscriptionRepo.Remove(t =>
-                    !ids.Contains(t.ID) &&
-                    t.SubscriptionState == FeedbackState.未征订
-                    );
+                RemoveNotSubscription();
                 //写入DB
                 _subscriptionRepo.Context.Commit();
             }
@@ -323,6 +336,19 @@ namespace TextbookManage.Applications.Impl
                          where !decl.Contains(d.ID)
                          select d;
             return result.ToList();
+        }
+
+        public void RemoveNotSubscription()
+        {
+            ////取订单
+            //var subscriptions = _subscriptionRepo.Find(t =>
+            //    t.SubscriptionState == FeedbackState.未征订
+            //    );
+            ////删除订单
+            //foreach (var item in subscriptions)
+            //{
+            //    _subscriptionRepo.Remove(item);
+            //}
         }
         #endregion
 
