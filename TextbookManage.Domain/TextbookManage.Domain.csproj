@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\JiaoWu\IDeclarationRepository.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Comparer\PressTextbookComparer.cs" />
     <Compile Include="Models\Comparer\SchoolTextbookComparer.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="IRepositories\ITbmisUserRepository.cs" />
     <Compile Include="IRepositories\ITeacherReleaseRecordRepository.cs" />
     <Compile Include="IRepositories\JiaoWu\IDataSignRepository.cs" />
-    <Compile Include="IRepositories\JiaoWu\IDeclarationRepository.cs" />
     <Compile Include="IRepositories\JiaoWu\IDepartmentRepository.cs" />
     <Compile Include="IRepositories\JiaoWu\IPressRepository.cs" />
     <Compile Include="IRepositories\JiaoWu\IProfessionalClassRepository.cs" />
