@@ -129,8 +129,8 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsBySchoolId(string term, string schoolId)
         {
             //删除未征订的订单
-            //RemoveNotSubscription();
-            //_subscriptionRepo.Context.Commit();
+            RemoveNotSubscription();
+            _subscriptionRepo.Context.Commit();
 
             var id = schoolId.ConvertToGuid();
             //取未征订的申报
@@ -340,15 +340,17 @@ namespace TextbookManage.Applications.Impl
 
         public void RemoveNotSubscription()
         {
-            ////取订单
+            //取订单
             //var subscriptions = _subscriptionRepo.Find(t =>
             //    t.SubscriptionState == FeedbackState.未征订
             //    );
-            ////删除订单
+            //删除订单
             //foreach (var item in subscriptions)
             //{
             //    _subscriptionRepo.Remove(item);
             //}
+            _subscriptionRepo.Remove(t =>
+                t.SubscriptionState == FeedbackState.未征订);
         }
         #endregion
 
