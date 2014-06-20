@@ -21,7 +21,8 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             //书商订单：教师用书申报
             this.HasRequired(t => t.Subscription)
                 .WithMany(t => t.TeacherDeclarations)
-                .HasForeignKey(d => d.Subscription_Id);
+                .HasForeignKey(d => d.Subscription_Id)
+                .WillCascadeOnDelete(true);
 
             //教师用书申报：教务教师用书申报，1：1
             this.HasRequired(t => t.DeclarationJiaoWu)
