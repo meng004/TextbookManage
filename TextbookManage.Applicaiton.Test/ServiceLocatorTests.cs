@@ -9,7 +9,6 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Domain.IRepositories;
 using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Repositories;
-using TextbookManage.Domain.IRepositories;
 using TextbookManage.Repositories.EntityFramework;
 using TextbookManage.Domain;
 using TextbookManage.Infrastructure.Cache;
@@ -21,33 +20,39 @@ using Rhino.Mocks;
 namespace TextbookManage.Applications.Test
 {
 
-public class UnityBootstraper : IUnityBootstraper
-{
-    public void RegisterTypes(IUnityContainer container)
+    public class UnityBootstraper : IUnityBootstrapper
     {
-        container.AddNewExtension<Interception>();
-        container.RegisterType<ITypeAdapter, AutoMapperTypeAdapter>();
-        container.RegisterType<ICacheProvider, EntLibCacheProvider>(new ContainerControlledLifetimeManager());
-        container.RegisterType<ILogger, Log4netLogger>(new InjectionConstructor("ExceptionLogger"));
-        container.RegisterType<IRepositoryContext, EntityFrameworkRepositoryContext>();
-        container.RegisterType<IRepository<IAggregateRoot>, EntityFrameworkRepository<IAggregateRoot>>();
+        public void RegisterTypes(IUnityContainer container)
+        {
+            container.AddNewExtension<Interception>();
+            container.RegisterType<ITypeAdapter, AutoMapperTypeAdapter>()
+                .RegisterType<ICacheProvider, EntLibCacheProvider>(new ContainerControlledLifetimeManager())
+                //异常记录器
+                .RegisterType<ILogger, Log4netLogger>(LoggerName.ExceptionLogger.ToString(), new InjectionConstructor(LoggerName.ExceptionLogger.ToString()))
+                //日志记录器
+                .RegisterType<ILogger, Log4netLogger>(LoggerName.Logger.ToString(), new InjectionConstructor(LoggerName.Logger.ToString()))
+                .RegisterType<IRepositoryContext, EntityFrameworkRepositoryContext>()
+                .RegisterType<IRepository<IAggregateRoot>, EntityFrameworkRepository<IAggregateRoot>>();
 
-        //测试异常日志AOP专用
-        var repo = new MockRepository();
-        var stub = repo.Stub<ITermRepository>();
-        stub.Expect(t => t.GetAll())
-            .Throw(new ArgumentNullException("测试抛出的异常"));
-        repo.ReplayAll();
-        container.RegisterInstance<ITermRepository>(stub);
+            //测试异常日志AOP专用
+            var repo = new MockRepository();
+            var stub = repo.Stub<ITermRepository>();
+            stub.Expect(t => t.GetAll())
+                .Throw(new ArgumentNullException("测试抛出的异常"));
+            repo.ReplayAll();
+            container.RegisterInstance<ITermRepository>(stub);
 
-        //container.RegisterType<ITermRepository, TermRepository>();
-        container.RegisterType<ITermAppl, TermAppl>(
-            new Interceptor<InterfaceInterceptor>(),
-            new InterceptionBehavior<CacheBehavior>(),
-            new InterceptionBehavior<ExceptionLoggerBehavior>()
-            );
+            //执行异常日志测试时，注释该语句
+            //container.RegisterType<ITermRepository, TermRepository>();
+
+            container.RegisterType<ITermAppl, TermAppl>(
+                new Interceptor<InterfaceInterceptor>(),
+                new InterceptionBehavior<CacheBehavior>(),
+                new InterceptionBehavior<ExceptionLoggerBehavior>()
+                );
+        }
     }
-}
+
 
     [TestClass]
     public class ServiceLocatorTests
@@ -76,7 +81,7 @@ public class UnityBootstraper : IUnityBootstraper
             var appl = ServiceLocator.Current.GetInstance<ITermAppl>();
             var terms = appl.GetAllTerms();
             var terms2 = appl.GetAllTerms();
-            Assert.IsTrue(terms.Count() > 0);
+            Assert.IsTrue(terms2.Count() > 0);
         }
 
         [TestMethod]
