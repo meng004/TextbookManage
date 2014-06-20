@@ -15,9 +15,10 @@
         #region 字段
 
         /// <summary>
-        /// 日志配置节为ExceptionLogger
+        /// 使用名为ExceptionLogger的Log4net对象
+        /// 配置节中Logger Name为ExceptionLogger
         /// </summary>
-        readonly ILogger _log = ServiceLocator.Current.GetInstance<ILogger>();
+        readonly ILogger _log = ServiceLocator.Current.GetInstance<ILogger>(LoggerName.ExceptionLogger.ToString());
 
         #endregion
 

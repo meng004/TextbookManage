@@ -44,28 +44,30 @@ namespace TextbookManage.Infrastructure.ServiceLocators
         #endregion
 
         #region 构造函数
-private ServiceLocator()
-{
-    //读取配置文件，如app.config，web.config，向Unity容器注册对象
-    //UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
-    //_container = new UnityContainer();
-    //section.Configure(_container);
+        private ServiceLocator()
+        {
+            //读取配置文件，如app.config，web.config，向Unity容器注册对象
+            //UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            //_container = new UnityContainer();
+            //section.Configure(_container);
 
-    //从外部类，向Unity容器注册对象
-    _container = new UnityContainer();
-            
-    //取配置类
-    var profiles = AppDomain.CurrentDomain
-        .GetAssemblies()
-        .SelectMany(a => a.GetTypes())
-        .Where(t => t.Name == "UnityBootstraper");
-    //注册类型
-    foreach (var item in profiles)
-    {
-        var bootstraper = Activator.CreateInstance(item) as IUnityBootstraper;
-        bootstraper.RegisterTypes(_container);
-    }
-}
+            //从外部类，向Unity容器注册对象
+            _container = new UnityContainer();
+
+            //取配置类
+            var profiles = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.GetTypeInfo()
+                    .ImplementedInterfaces
+                    .Contains(typeof(IUnityBootstrapper)));
+            //注册类型
+            foreach (var item in profiles)
+            {
+                var bootstraper = Activator.CreateInstance(item) as IUnityBootstrapper;
+                bootstraper.RegisterTypes(_container);
+            }
+        }
 
         #endregion
 
