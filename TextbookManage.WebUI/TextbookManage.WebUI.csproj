@@ -245,6 +245,19 @@
     <Content Include="Middle.htm" />
     <Content Include="ReleaseTextbook\ReleaseClassBook.aspx" />
     <Content Include="Service References\CasMapperService\CasMapperService.wsdl" />
+    <None Include="Service References\SubscriptionService\SubscriptionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SubscriptionService\TextbookManage.WebUI.SubscriptionService.FeedbackStateView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\TermService\TermService.disco" />
+    <None Include="Service References\TermService\configuration91.svcinfo" />
+    <None Include="Service References\TermService\configuration.svcinfo" />
+    <None Include="Service References\TermService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="WindowForMessage\帮助文档.doc" />
     <Content Include="WindowForMessage\TbmisHelp.aspx" />
     <Content Include="WindowForMessage\TextbookDetailMessage.aspx" />
@@ -389,13 +402,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\SubscriptionService\SubscriptionService.disco" />
-    <Content Include="Service References\SubscriptionService\configuration91.svcinfo" />
-    <Content Include="Service References\SubscriptionService\configuration.svcinfo" />
-    <Content Include="Service References\SubscriptionService\Reference.svcmap">
+    <None Include="Service References\SubscriptionService\SubscriptionService.disco" />
+    <None Include="Service References\SubscriptionService\configuration91.svcinfo" />
+    <None Include="Service References\SubscriptionService\configuration.svcinfo" />
+    <None Include="Service References\SubscriptionService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Service References\TextbookApprovalService\TextbookApprovalService.disco" />
     <Content Include="Service References\TextbookApprovalService\configuration91.svcinfo" />
     <Content Include="Service References\TextbookApprovalService\configuration.svcinfo" />
@@ -444,6 +457,19 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\TextbookService\TextbookManage.WebUI.TextbookService.PressView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\TermService\TermService.wsdl" />
+    <None Include="Service References\TermService\TermService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermService\TermService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermService\TermService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\TermService\TextbookManage.WebUI.TermService.TermView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\TextbookService\TextbookService.disco" />
@@ -705,7 +731,7 @@
     <Content Include="Service References\FeedbackService\TextbookManage.WebUI.FeedbackService.SubscriptionForFeedbackView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\SubscriptionService\SubscriptionService.wsdl" />
+    <None Include="Service References\SubscriptionService\SubscriptionService.wsdl" />
     <None Include="Service References\SubscriptionService\SubscriptionService.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -914,6 +940,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\TermService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\TextbookApprovalService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1104,6 +1135,7 @@
     <WCFMetadataStorage Include="Service References\InventoryService\" />
     <WCFMetadataStorage Include="Service References\ReleaseClassBookService\" />
     <WCFMetadataStorage Include="Service References\SubscriptionService\" />
+    <WCFMetadataStorage Include="Service References\TermService\" />
     <WCFMetadataStorage Include="Service References\TextbookApprovalService\" />
     <WCFMetadataStorage Include="Service References\TextbookService\" />
   </ItemGroup>

@@ -23,7 +23,7 @@ namespace USCTAMis.WebPage
         {
             if (!IsPostBack)
             {
-                Validate();
+                //Validate();
             }
         }
 

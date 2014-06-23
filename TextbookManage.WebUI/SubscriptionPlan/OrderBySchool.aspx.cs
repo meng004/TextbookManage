@@ -18,11 +18,11 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         //ProfileManger profile = new ProfileManger(HttpContext.Current.User.Identity.Name);
         //获取登录名
         //readonly string _loginName = HttpContext.Current.User.Identity.Name;
-        
+
         //外国语学院院长，42018
         //教材科,hynhpgj
         //教务处，jwclsl
-        
+
         #endregion
 
         #region 页面加载
@@ -68,9 +68,9 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         {
             using (SubscriptionApplClient app = new SubscriptionApplClient())
             {
-                ccmbSchool.DataSource = app.GetSchoolWithNotSub();
+                var term = ccmbTerm.SelectedValue;
+                ccmbSchool.DataSource = app.GetSchoolWithNotSub(term);
             }
-
         }
 
         protected void ccmbSchool_AfterDataBind(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         {
             using (SubscriptionApplClient app = new SubscriptionApplClient())
             {
-                ccmbBookseller.DataSource = app.GetBookseller();
+                ccmbBookseller.DataSource = app.GetBooksellers();
             }
         }
         #endregion
@@ -107,10 +107,12 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         {
             //获取学院ID
             string schoolId = ccmbSchool.SelectedValue;
+            //取学期
+            var term = ccmbTerm.SelectedValue;
             using (SubscriptionApplClient app = new SubscriptionApplClient())
             {
                 //根据学院ID获取当前学年学期的未生成订单的申报列表
-                cgrdPlanSet.DataSource = app.CreateSubscriptionBySchoolId(schoolId);
+                cgrdPlanSet.DataSource = app.CreateSubscriptionsBySchoolId(term, schoolId);
             }
 
         }
@@ -161,7 +163,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
                 //生成订单
                 using (SubscriptionApplClient app = new SubscriptionApplClient())
                 {
-                    var result = app.SubmitSubscription(views.ToArray(), booksellerId, ctxtSpareCount.Text.Trim());
+                    var result = app.SubmitSubscriptions(booksellerId, ctxtSpareCount.Text.Trim(), views.ToArray());
 
                     USCTAMis.Web.WebClient.ScriptManager.Alert(result.Message);
                 }
@@ -179,6 +181,26 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         }
 
         #endregion
+
+        protected void ccmbTerm_DataBinding(object sender, EventArgs e)
+        {
+            using (TermService.TermApplClient app = new TermService.TermApplClient())
+            {
+                var result = app.GetAllTerms();
+                ccmbTerm.DataSource = result;
+                ccmbSchool.DoDataBind();
+            }
+        }
+
+        protected void ccmbTerm_DataBound(object sender, EventArgs e)
+        {
+            ccmbSchool.DoDataBind();
+        }
+
+        protected void ccmbTerm_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            ccmbSchool.DoDataBind();
+        }
 
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2726/TermService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" />
+  <xs:element name="GetAllTerms">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTermsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetAllTermsResult" nillable="true" type="q1:ArrayOfTermView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrent">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetCurrentResult" nillable="true" type="q2:TermView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

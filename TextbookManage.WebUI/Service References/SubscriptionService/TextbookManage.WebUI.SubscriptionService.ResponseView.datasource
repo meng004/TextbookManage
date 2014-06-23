@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="ResponseView" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>TextbookManage.WebUI.SubscriptionService.ResponseView, Service References.SubscriptionService.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>TextbookManage.WebUI.SubscriptionService.ResponseView</TypeInfo>
 </GenericObjectDataSource>

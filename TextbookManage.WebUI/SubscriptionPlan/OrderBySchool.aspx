@@ -23,9 +23,15 @@
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                     <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbTerm" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbSchool" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" />
                         <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="ccmbTerm">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbSchool" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
                 <telerik:AjaxSetting AjaxControlID="ccmbSchool">
@@ -83,12 +89,18 @@
                         <table>
                             <tr>
                                 <td>
-                                    <telerik:RadComboBox runat="server" ID="ccmbSchool" Label="学院：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                        DataTextField="Description" DataValueField="YearTerm"
+                                        OnDataBinding="ccmbTerm_DataBinding" OnDataBound="ccmbTerm_DataBound" OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                    </utm:UTMisComboBox>
+                                </td>
+                                <td>
+                                    <utm:UTMisComboBox runat="server" ID="ccmbSchool" Label="学院：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
                                         DataTextField="Name" DataValueField="SchoolId"
-                                        OnDataBinding="ccmbSchool_BeforeDataBind" 
-                                        OnDataBound="ccmbSchool_AfterDataBind" 
+                                        OnDataBinding="ccmbSchool_BeforeDataBind"
+                                        OnDataBound="ccmbSchool_AfterDataBind"
                                         OnSelectedIndexChanged="ccmbSchool_SelectedIndexChanged">
-                                    </telerik:RadComboBox>
+                                    </utm:UTMisComboBox>
                                 </td>
                                 <td>
                                     <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="ccmbSchool_AfterDataBind" />
@@ -116,9 +128,9 @@
                             </tr>
                         </table>
                     </div>
-                    <utm:UTMisGrid runat="server" ID="cgrdPlanSet"  SkinID="NoExport" CheckControlID="cchkRowCheck" 
+                    <utm:UTMisGrid runat="server" ID="cgrdPlanSet" SkinID="NoExport" CheckControlID="cchkRowCheck"
                         OnBeforeDataBind="cgrdPlanSet_BeforeDataBind" OnBeforePageIndexChanged="cgrdPlanSet_BeforePageIndexChanged">
-                        <MasterTableView AllowPaging="true" PageSize="10" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示" >
+                        <MasterTableView AllowPaging="true" PageSize="10" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示">
                             <PagerStyle Mode="NextPrevAndNumeric" PagerTextFormat="{4}第{0}页 共{1}页" PageButtonCount="4" />
                             <Columns>
                                 <telerik:GridTemplateColumn HeaderStyle-Width="40px">
@@ -138,7 +150,7 @@
                                 </telerik:GridTemplateColumn>
                                 <telerik:GridBoundColumn HeaderText="教材编号" DataField="Num" HeaderStyle-Width="100">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridTemplateColumn HeaderText="教材名称" >
+                                <telerik:GridTemplateColumn HeaderText="教材名称">
                                     <ItemTemplate>
                                         <a href="#" onclick="OnRequestTextbook('<%#Eval("TextbookId") %>')">
                                             <%# Eval("Name")%></a>

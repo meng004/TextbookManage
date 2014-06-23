@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2726/SubscriptionService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ArrayOfBooksellerView">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="BooksellerView" nillable="true" type="tns:BooksellerView" />
@@ -66,20 +67,14 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseViewModel">
         <xs:sequence>
-          <xs:element minOccurs="0" name="ApprovalState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Declarant" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DeclarationCount" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DeclarationDate" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DeclarationId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="HadViewFeedback" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ProfessionalClassId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RecipientType" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="TeacherId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="TeachingTaskNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NotNeedTextbook" type="xs:boolean" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TeachingTaskNums" nillable="true" type="q1:ArrayOfstring" />
           <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TextbookId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ViewFeedbackDate" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -113,4 +108,21 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ResponseView" nillable="true" type="tns:ResponseView" />
+  <xs:complexType name="ArrayOfFeedbackStateView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FeedbackStateView" nillable="true" type="tns:FeedbackStateView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeedbackStateView" nillable="true" type="tns:ArrayOfFeedbackStateView" />
+  <xs:complexType name="FeedbackStateView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseViewModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FeedbackStateView" nillable="true" type="tns:FeedbackStateView" />
 </xs:schema>

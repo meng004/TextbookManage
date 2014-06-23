@@ -112,13 +112,22 @@ namespace TextbookManage.WebUI.SubscriptionPlan {
         protected global::USCTAMis.Web.WebControls.UTMisPageView pv_OrderBySchool;
         
         /// <summary>
+        /// ccmbTerm 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::USCTAMis.Web.WebControls.UTMisComboBox ccmbTerm;
+        
+        /// <summary>
         /// ccmbSchool 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox ccmbSchool;
+        protected global::USCTAMis.Web.WebControls.UTMisComboBox ccmbSchool;
         
         /// <summary>
         /// cbtnQuery 控件。

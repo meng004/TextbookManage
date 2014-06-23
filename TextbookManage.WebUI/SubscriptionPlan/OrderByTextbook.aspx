@@ -23,6 +23,7 @@
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                     <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbTerm" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" />
                         <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
@@ -77,6 +78,12 @@
                         <table>
                             <tr>
                                 <td>
+                                    <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                        DataTextField="Description" DataValueField="YearTerm"
+                                        OnDataBinding="ccmbTerm_DataBinding" OnDataBound="ccmbTerm_DataBound" OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                    </utm:UTMisComboBox>
+                                </td>
+                                <td>
                                     <utm:UTMisTextBox runat="server" ID="ctxtTextBookName" Label="教材名称" LabelWidth="60" SkinID="txt200">
                                     </utm:UTMisTextBox>
                                 </td>
@@ -88,13 +95,13 @@
                                     <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="cbtnQuery_Click" />
                                 </td>
                                 <td>
-                                    <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商"  SkinID="cmb120" IsMaintainSelectedValue="true"
+                                    <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商" SkinID="cmb120" IsMaintainSelectedValue="true"
                                         DataTextField="Name" DataValueField="BooksellerId"
                                         OnBeforeDataBind="ccmbBookseller_BeforeDataBind">
                                     </utm:UTMisComboBox>
                                 </td>
                                 <td>
-                                    <utm:UTMisTextBox runat="server" ID="ctxtSpareCount" Text="0" Label="上抛数量"  LabelWidth="60" SkinID="txt120">
+                                    <utm:UTMisTextBox runat="server" ID="ctxtSpareCount" Text="0" Label="上抛数量" LabelWidth="60" SkinID="txt120">
                                     </utm:UTMisTextBox>
                                 </td>
                                 <td>
@@ -132,7 +139,7 @@
                                 </telerik:GridTemplateColumn>
                                 <telerik:GridBoundColumn HeaderText="教材编号" DataField="Num" HeaderStyle-Width="100">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridTemplateColumn HeaderText="教材名称" >
+                                <telerik:GridTemplateColumn HeaderText="教材名称">
                                     <ItemTemplate>
                                         <a href="#" onclick="OnRequestTextbook('<%#Eval("TextbookId") %>')">
                                             <%# Eval("Name")%></a>
