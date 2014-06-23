@@ -36,7 +36,7 @@ namespace TextbookManage.Services
 
         public ResponseView SubmitSubscriptions(string booksellerId, string spareCount, IEnumerable<SubscriptionForSubmitView> subscriptions)
         {
-            return _impl.SubmitSubscriptions(booksellerId, spareCount,subscriptions );
+            return _impl.SubmitSubscriptions(booksellerId, spareCount, subscriptions);
         }
 
 

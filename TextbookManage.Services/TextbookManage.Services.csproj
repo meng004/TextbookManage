@@ -96,6 +96,11 @@
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -131,6 +136,7 @@
     <Content Include="ReleaseStudentBookService.svc" />
     <Content Include="ReleaseTextbookForQueryServiec.svc" />
     <Content Include="SubscriptionService.svc" />
+    <Content Include="TermService.svc" />
     <Content Include="TextbookApprovalService.svc" />
     <Content Include="TextbookFeeService.svc" />
     <Content Include="TextbookService.svc" />
@@ -182,6 +188,9 @@
     <Compile Include="SubscriptionService.svc.cs">
       <DependentUpon>SubscriptionService.svc</DependentUpon>
     </Compile>
+    <Compile Include="TermService.svc.cs">
+      <DependentUpon>TermService.svc</DependentUpon>
+    </Compile>
     <Compile Include="TextbookApprovalService.svc.cs">
       <DependentUpon>TextbookApprovalService.svc</DependentUpon>
     </Compile>
@@ -192,6 +201,9 @@
       <DependentUpon>TextbookService.svc</DependentUpon>
     </Compile>
     <Compile Include="UnityBootstrapper.cs" />
+    <Compile Include="Unity\UnityInstanceProvider.cs" />
+    <Compile Include="Unity\UnityServiceHost.cs" />
+    <Compile Include="Unity\UnityServiceHostFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TextbookManage.Services.TermService" CodeBehind="TermService.svc.cs" %>

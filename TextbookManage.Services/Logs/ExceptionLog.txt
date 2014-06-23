@@ -5403,3 +5403,27 @@ System.Reflection.TargetException: 非静态方法需要一个目标。
 System.NullReferenceException: 未将对象引用设置到对象的实例。
    在 TextbookManage.Applications.Impl.DeclarationQueryAppl.GetSchoolByLoginName(String loginName) 位置 g:\教材系统\教材管理v3\TextbookManage\TextbookManage.Application\Impl\DeclarationQueryAppl.cs:行号 43
    在 DynamicModule.ns.Wrapped_IDeclarationQueryAppl_1492304521f64ea5a018b258f4fef752.<GetSchoolByLoginName_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-23 15:32:31,571 [9] ERROR ExceptionLogger - Exception caught
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TextbookManage.Domain.Models.SchoolYearTerm..ctor(String yearTerm) 位置 g:\Repos\TextbookManage\TextbookManage.Domain\Models\SchoolYearTerm.cs:行号 23
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetNotSubscriptionStudentDeclarationJiaoWu(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 294
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSchoolWithNotSub(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 98
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_6e20493b3d944820b3170c9fc5b96019.<GetSchoolWithNotSub_DelegateImplementation>__2(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-23 15:33:23,782 [9] ERROR ExceptionLogger - Exception caught
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TextbookManage.Domain.Models.SchoolYearTerm..ctor(String yearTerm) 位置 g:\Repos\TextbookManage\TextbookManage.Domain\Models\SchoolYearTerm.cs:行号 23
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetNotSubscriptionStudentDeclarationJiaoWu(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 294
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSchoolWithNotSub(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 98
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_6e20493b3d944820b3170c9fc5b96019.<GetSchoolWithNotSub_DelegateImplementation>__2(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-23 18:02:21,702 [9] ERROR ExceptionLogger - Exception caught
+System.ArgumentOutOfRangeException: 索引和长度必须引用该字符串内的位置。
+参数名: length
+   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 TextbookManage.Domain.Models.SchoolYearTerm..ctor(String yearTerm) 位置 g:\Repos\TextbookManage\TextbookManage.Domain\Models\SchoolYearTerm.cs:行号 23
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetNotSubscriptionStudentDeclarationJiaoWu(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 294
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSchoolWithNotSub(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 98
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_37189b358bfb4194a81fd09654547df1.<GetSchoolWithNotSub_DelegateImplementation>__2(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
