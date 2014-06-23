@@ -34,21 +34,21 @@ namespace TextbookManage.Applications.Test
                 .RegisterType<IRepositoryContext, EntityFrameworkRepositoryContext>()
                 .RegisterType<IRepository<IAggregateRoot>, EntityFrameworkRepository<IAggregateRoot>>();
 
-            //测试异常日志AOP专用
-            var repo = new MockRepository();
-            var stub = repo.Stub<ITermRepository>();
-            stub.Expect(t => t.GetAll())
-                .Throw(new ArgumentNullException("测试抛出的异常"));
-            repo.ReplayAll();
-            container.RegisterInstance<ITermRepository>(stub);
+            ////测试异常日志AOP专用
+            //var repo = new MockRepository();
+            //var stub = repo.Stub<ITermRepository>();
+            //stub.Expect(t => t.GetAll())
+            //    .Throw(new ArgumentNullException("测试抛出的异常"));
+            //repo.ReplayAll();
+            //container.RegisterInstance<ITermRepository>(stub);
 
             //执行异常日志测试时，注释该语句
-            //container.RegisterType<ITermRepository, TermRepository>();
+            container.RegisterType<ITermRepository, TermRepository>();
 
             container.RegisterType<ITermAppl, TermAppl>(
-                new Interceptor<InterfaceInterceptor>(),
-                new InterceptionBehavior<CacheBehavior>(),
-                new InterceptionBehavior<ExceptionLoggerBehavior>()
+                //new Interceptor<InterfaceInterceptor>(),
+                //new InterceptionBehavior<CacheBehavior>(),
+                //new InterceptionBehavior<ExceptionLoggerBehavior>()
                 );
         }
     }
@@ -90,6 +90,13 @@ namespace TextbookManage.Applications.Test
         {
             var appl = ServiceLocator.Current.GetInstance<ITermAppl>();
             var terms = appl.GetAllTerms();
+        }
+
+        [TestMethod]
+        public void UnityInitializeFromExternalClass_GetInstance()
+        {
+            var appl = ServiceLocator.Current.GetInstance<TermAppl>();
+            Assert.IsNotNull(appl);
         }
     }
 }
