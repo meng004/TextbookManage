@@ -58,8 +58,8 @@ namespace TextbookManage.Infrastructure.ServiceLocators
             var profiles = AppDomain.CurrentDomain
                 .GetAssemblies()
                 .SelectMany(a => a.GetTypes())
-                .Where(t => t.GetTypeInfo()
-                    .ImplementedInterfaces
+                .Where(t => t.GetInterfaces()
+                    //.ImplementedInterfaces
                     .Contains(typeof(IUnityBootstrapper)));
             //注册类型
             foreach (var item in profiles)
