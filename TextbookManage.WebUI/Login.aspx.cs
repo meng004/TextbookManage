@@ -31,15 +31,17 @@ namespace USCTAMis.WebPage
 
         protected void bt_Login_Click(object sender, EventArgs e)
         {
-            if (!logUser.ValidateUser(txt_UserName.Text.Trim(), txt_Password.Text.Trim()))
-            {
-                USCTAMis.Web.WebClient.ScriptManager.Alert("您输入的用户名或密码不正确！");
-                return;
-            }
+            //if (!logUser.ValidateUser(txt_UserName.Text.Trim(), txt_Password.Text.Trim()))
+            //{
+            //    USCTAMis.Web.WebClient.ScriptManager.Alert("您输入的用户名或密码不正确！");
+            //    return;
+            //}
             Redirect(txt_UserName.Text.Trim());
         }
 
-
+        /// <summary>
+        /// 单点登录验证
+        /// </summary>
         private void Validate()
         {
             
@@ -83,6 +85,8 @@ namespace USCTAMis.WebPage
             //创建用户配置文件
             ProfileManger currentUserProfile = new ProfileManger(userName);
             currentUserProfile.SetUserProfile();
+            //创建授权证书
+            System.Web.Security.FormsAuthentication.SetAuthCookie(userName, true);
 
             //由其他页面跳转过来
             if (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
@@ -91,8 +95,7 @@ namespace USCTAMis.WebPage
                 return;
             }
 
-            //创建授权证书
-            System.Web.Security.FormsAuthentication.SetAuthCookie(userName, true);
+
 
             //根据用户级别，跳转页面
             if (currentUserProfile.UserLevel == USCTAMis.Common.UserInfo.StudentLevel)

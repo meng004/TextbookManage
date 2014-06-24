@@ -37,8 +37,9 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
             if (!IsPostBack)
             {
+                ccmbTerm.DataBind();
                 //获取已申报并通过审核的学院列表
-                ccmbSchool.DataBind();
+                //ccmbSchool.DataBind();
                 //获取书商列表
                 ccmbBookseller.DataBind();
             }
@@ -188,7 +189,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
             {
                 var result = app.GetAllTerms();
                 ccmbTerm.DataSource = result;
-                ccmbSchool.DoDataBind();
+               
             }
         }
 
