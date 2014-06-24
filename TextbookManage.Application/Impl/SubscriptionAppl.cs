@@ -84,7 +84,7 @@ namespace TextbookManage.Applications.Impl
             subscriptions.ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
             //返回
-            return _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
+            return _adapter.Adapt<SubscriptionForSubmitView>(subscriptions.OrderBy(t=>t.Textbook.Name));
         }
 
         public IEnumerable<SchoolView> GetSchoolWithNotSub(string term)
@@ -144,10 +144,8 @@ namespace TextbookManage.Applications.Impl
             //写入DB
             subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
-            //排序
-            subscriptions.OrderBy(t => t.Textbook.Name);
             //DTO
-            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions.OrderBy(t => t.Textbook.Name));
             return result;
         }
 
@@ -193,10 +191,8 @@ namespace TextbookManage.Applications.Impl
             subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
 
-            //合并
-            subscriptions.OrderBy(t => t.Textbook.Name);
             //DTO
-            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
+            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions.OrderBy(t => t.Textbook.Name));
             return result;
         }
 
