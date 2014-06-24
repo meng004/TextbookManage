@@ -59,7 +59,8 @@
 
             //教材
             Mapper.CreateMap<Textbook, TextbookView>()
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID))
+                .ForMember(v => v.Price, m => m.MapFrom(s => s.Price.ConvertToDecimal()));
 
             Mapper.CreateMap<Textbook, TextbookForDeclarationView>()
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
