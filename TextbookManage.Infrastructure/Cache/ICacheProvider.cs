@@ -39,6 +39,8 @@
         /// </summary>
         /// <param name="key">缓存的键值，该值通常是使用缓存机制的方法的名称。</param>
         void Remove(string key);
+
+        void Remove(Type type);
         /// <summary>
         /// 获取一个<see cref="Boolean"/>值，该值表示拥有指定键值的缓存是否存在。
         /// </summary>

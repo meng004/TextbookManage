@@ -71,6 +71,11 @@ namespace TextbookManage.Infrastructure.Cache
         {
             cacheProvider.Remove(key);
         }
+
+        public void Remove(Type type)
+        {
+            cacheProvider.Remove(type);
+        }
         /// <summary>
         /// 获取一个<see cref="Boolean"/>值，该值表示拥有指定键值的缓存是否存在。
         /// </summary>

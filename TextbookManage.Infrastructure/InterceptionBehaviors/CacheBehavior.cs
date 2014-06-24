@@ -30,13 +30,13 @@
         private static string CreateKey(IMethodInvocation input)
         {
             //拦截目标名称
-            var interfaceName = input.Target.ToString();
+            //var interfaceName = input.Target.ToString();
             //方法名称
             var methodName = input.MethodBase.Name;
             //key
-            var key = string.Format("{0}_{1}", interfaceName, methodName);
+            //var key = string.Format("{0}_{1}", interfaceName, methodName);
 
-            return key;
+            return methodName;
         }
 
         /// <summary>
@@ -125,8 +125,8 @@
             try
             {
                 //移除该拦截目标的全部缓存
-                var key = input.Target.ToString();
-                _cache.Remove(key);
+                var target = input.Target.GetType();
+                _cache.Remove(target);
 
                 var methodReturn = getNext().Invoke(input, getNext);
                 return methodReturn;

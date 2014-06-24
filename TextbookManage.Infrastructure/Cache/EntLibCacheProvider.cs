@@ -1,5 +1,7 @@
 ﻿using Microsoft.Practices.EnterpriseLibrary.Caching;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TextbookManage.Infrastructure.Cache
 {
@@ -69,6 +71,18 @@ namespace TextbookManage.Infrastructure.Cache
         public void Remove(string key)
         {
             cacheManager.Remove(key);
+        }
+
+        public void Remove(Type type)
+        {
+            var methods = type.GetMethods();
+            foreach (var item in methods)
+            {
+                if (Exists(item.Name))
+                {
+                    cacheManager.Remove(item.Name);
+                }
+            }
         }
         /// <summary>
         /// 获取一个<see cref="Boolean"/>值，该值表示拥有指定键值的缓存是否存在。

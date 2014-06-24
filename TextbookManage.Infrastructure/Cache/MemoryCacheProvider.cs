@@ -106,6 +106,12 @@
             }
         }
         #endregion
-        
+
+
+
+        public void Remove(Type type)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
