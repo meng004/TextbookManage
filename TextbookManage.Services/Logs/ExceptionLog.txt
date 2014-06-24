@@ -5427,3 +5427,95 @@ System.ArgumentOutOfRangeException: 索引和长度必须引用该字符串内的位置。
    在 TextbookManage.Applications.Impl.SubscriptionAppl.GetNotSubscriptionStudentDeclarationJiaoWu(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 294
    在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSchoolWithNotSub(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 98
    在 DynamicModule.ns.Wrapped_ISubscriptionAppl_37189b358bfb4194a81fd09654547df1.<GetSchoolWithNotSub_DelegateImplementation>__2(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-24 17:02:25,464 [11] ERROR ExceptionLogger - Exception caught
+System.ArgumentOutOfRangeException: 索引和长度必须引用该字符串内的位置。
+参数名: length
+   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 TextbookManage.Domain.Models.SchoolYearTerm..ctor(String yearTerm) 位置 g:\Repos\TextbookManage\TextbookManage.Domain\Models\SchoolYearTerm.cs:行号 23
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetNotSubscriptionStudentDeclarationJiaoWu(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 294
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSchoolWithNotSub(String term) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 98
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_643c00c15ace4e37bdc7bd6d2c282fe1.<GetSchoolWithNotSub_DelegateImplementation>__2(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-24 17:45:37,226 [14] ERROR ExceptionLogger - Exception caught
+AutoMapper.AutoMapperMappingException: 
+
+Mapping types:
+String -> Decimal
+System.String -> System.Decimal
+
+Destination path:
+TextbookView.Price.Price
+
+Source value:
+17.4元 ---> System.Exception: 17.4元 不是 Decimal 的有效值。 ---> System.FormatException: 输入字符串的格式不正确。
+   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   在 System.Decimal.Parse(String s, NumberStyles style, IFormatProvider provider)
+   在 System.ComponentModel.DecimalConverter.FromString(String value, NumberFormatInfo formatInfo)
+   在 System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
+   在 AutoMapper.Mappers.TypeConverterMapper.<>c__DisplayClass3.<GetConverter>b__2()
+   在 AutoMapper.Mappers.TypeConverterMapper.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   在 AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   在 AutoMapper.Mappers.TypeMapObjectMapperRegistry.PropertyMapMappingStrategy.MapPropertyValue(ResolutionContext context, IMappingEngineRunner mapper, Object mappedObject, PropertyMap propertyMap)
+   在 AutoMapper.Mappers.TypeMapObjectMapperRegistry.PropertyMapMappingStrategy.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   在 AutoMapper.Mappers.TypeMapMapper.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   在 AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   在 AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   在 AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   在 AutoMapper.MappingEngine.Map[TDestination](Object source)
+   在 AutoMapper.Mapper.Map[TDestination](Object source)
+   在 TextbookManage.Infrastructure.TypeAdapter.AutoMapperTypeAdapter.Adapt[TTarget](Object source) 位置 g:\Repos\TextbookManage\TextbookManage.Infrastructure\TypeAdapter\AutoMapperTypeAdapter.cs:行号 62
+   在 TextbookManage.Applications.Impl.TextbookAppl.GetById(String textbookId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\TextbookAppl.cs:行号 155
+   在 DynamicModule.ns.Wrapped_ITextbookAppl_983f6758e8524a5899380faa1f05472b.<GetById_DelegateImplementation>__4(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-24 18:22:38,063 [10] ERROR ExceptionLogger - Exception caught
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Term -> TermView
+TextbookManage.Domain.Models.JiaoWu.Term -> TextbookManage.ViewModels.TermView
+
+Destination path:
+TermView
+
+Source value:
+TextbookManage.Domain.Models.JiaoWu.Term
+   在 AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   在 AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   在 AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   在 AutoMapper.MappingEngine.Map[TDestination](Object source)
+   在 AutoMapper.Mapper.Map[TDestination](Object source)
+   在 TextbookManage.Infrastructure.TypeAdapter.AutoMapperTypeAdapter.Adapt[TTarget](Object source) 位置 g:\Repos\TextbookManage\TextbookManage.Infrastructure\TypeAdapter\AutoMapperTypeAdapter.cs:行号 62
+   在 TextbookManage.Infrastructure.TypeAdapter.AutoMapperTypeAdapter.Adapt[TTarget](IEnumerable`1 source) 位置 g:\Repos\TextbookManage\TextbookManage.Infrastructure\TypeAdapter\AutoMapperTypeAdapter.cs:行号 103
+   在 TextbookManage.Applications.Impl.TermAppl.GetAllTerms() 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\TermAppl.cs:行号 57
+   在 DynamicModule.ns.Wrapped_ITermAppl_d792c0f4250547668a0d1151f4b5c07d.<GetAllTerms_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-24 18:25:16,941 [10] ERROR ExceptionLogger - Exception caught
+System.InvalidOperationException: Multiplicity constraint violated. The role 'StudentDeclaration_DeclarationJiaoWu_Source' of the relationship 'TextbookManage.Repositories.EntityFramework.StudentDeclaration_DeclarationJiaoWu' has multiplicity 1 or 0..1.
+   在 System.Data.Entity.Core.Objects.EntityEntry.WillNotRefSteal(EntityReference refToPrincipal, IEntityWrapper wrappedPrincipal)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupEntityReferenceToPrincipal(EntityReference relatedEnd, EntityKey foreignKey, Boolean setIsLoaded, Boolean replaceExistingRef)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupReferencesByForeignKeys(Boolean replaceAddedRefs, EntitySetBase restrictTo)
+   在 System.Data.Entity.Core.Objects.ObjectStateManager.FixupReferencesByForeignKeys(EntityEntry newEntry, Boolean replaceAddedRefs)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddSingleObject(EntitySet entitySet, IEntityWrapper wrappedEntity, String argumentName)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddObject(String entitySetName, Object entity)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassd.<Add>b__c()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.RegisterNew[TAggregateRoot](TAggregateRoot obj) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 34
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Add(TAggregateRoot entity) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 57
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.<CreateSubscriptionsBySchoolId>b__11(Subscription t) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_191bc7c1fe694e74b98fa3fa881faa4e.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
