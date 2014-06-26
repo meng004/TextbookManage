@@ -29,7 +29,9 @@ namespace TextbookManage.Domain.Models.JiaoWu
             get { return hdsl; }
             set
             {
-                DeclarationCount = value.ConvertToInt();
+                var count = value.ConvertToInt();
+                //如果包含非法字符，最少1本
+                DeclarationCount = count == 0 ? 1 : count;
                 hdsl = value;
             }
         }

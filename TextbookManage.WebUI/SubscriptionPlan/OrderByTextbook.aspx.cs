@@ -23,7 +23,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         //外国语学院院长，42018
         //教材科,hynhpgj
         //教务处，jwclsl
-        
+
         #endregion
 
         #region 页面加载
@@ -35,32 +35,36 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             if (!IsPostBack)
             {
+                ccmbTerm.DoDataBind();
                 //获取书商列表
                 ccmbBookseller.DoDataBind();
-                cgrdPlanSet.DoDataBind();
+                //cgrdPlanSet.DoDataBind();
             }
         }
 
-        ///// <summary>
-        ///// 保存应用对象到session
-        ///// </summary>
-        ///// <returns></returns>
-        //private ISubscriptionPlan GetISubscriptionPlan()
-        //{
-        //    _key = string.Format("subscriptionPlanApp_of_loginName_{0}", _loginName);
-        //    ISubscriptionPlan subscriptionPlan = Session[_key] as ISubscriptionPlan;
-        //    if (subscriptionPlan == null)
-        //    {
-        //        subscriptionPlan = new ApplicationFactory(_loginName, _ipAddress).CreateSubscriptionPlanApplication();
+        #endregion
 
-        //        Session[_key] = subscriptionPlan;
-        //    }
-        //    return subscriptionPlan;
-        //}
+        #region 学期
+        protected void ccmbTerm_DataBinding(object sender, EventArgs e)
+        {
+            using (TermService.TermApplClient app = new TermService.TermApplClient())
+            {
+                var result = app.GetAllTerms();
+                ccmbTerm.DataSource = result;
+            }
+        }
+
+        protected void ccmbTerm_DataBound(object sender, EventArgs e)
+        {
+            cgrdPlanSet.DoDataBind();
+        }
+
+        protected void ccmbTerm_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            cgrdPlanSet.DoDataBind();
+        }
         #endregion
 
         #region 书商
@@ -87,14 +91,14 @@ namespace TextbookManage.WebUI.SubscriptionPlan
             string isbn = ctxtISBN.Text.Trim();
             var term = ccmbTerm.SelectedValue;
             //查询条件为空，不执行
-            if (string.IsNullOrWhiteSpace(textbookName)&&string.IsNullOrWhiteSpace(isbn))
+            if (string.IsNullOrWhiteSpace(textbookName) && string.IsNullOrWhiteSpace(isbn))
             {
                 return;
             }
             //根据学院ID获取当前学年学期的未生成订单的申报列表
             using (SubscriptionApplClient app = new SubscriptionApplClient())
             {
-                cgrdPlanSet.DataSource = app.CreateSubscriptionsByTextbook(term,textbookName, isbn);
+                cgrdPlanSet.DataSource = app.CreateSubscriptionsByTextbook(term, textbookName, isbn);
             }
         }
 
@@ -122,6 +126,25 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
         #endregion
 
+        #region 查询
+
+        protected void cbtnQuery_Click(object sender, EventArgs e)
+        {
+            string textbookName = ctxtTextBookName.Text.Trim();
+            string isbn = ctxtISBN.Text.Trim();
+            //查询条件为空，不执行
+            if (string.IsNullOrWhiteSpace(textbookName) && string.IsNullOrWhiteSpace(isbn))
+            {
+                USCTAMis.Web.WebClient.ScriptManager.Alert("请输入教材名称或ISBN！");
+                return;
+            }
+            else
+            {
+                cgrdPlanSet.DoDataBind();
+            }
+        }
+        #endregion
+
         #region 提交按钮
 
         /// <summary>
@@ -140,7 +163,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
             {
                 //获取书商ID
                 string booksellerId = ccmbBookseller.SelectedValue;
-                
+
                 //生成订单
                 using (SubscriptionApplClient app = new SubscriptionApplClient())
                 {
@@ -168,42 +191,5 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
         #endregion
 
-        #region 查询
-
-        protected void cbtnQuery_Click(object sender, EventArgs e)
-        {
-            string textbookName = ctxtTextBookName.Text.Trim();
-            string isbn = ctxtISBN.Text.Trim();
-            //查询条件为空，不执行
-            if (string.IsNullOrWhiteSpace(textbookName) && string.IsNullOrWhiteSpace(isbn))
-            {
-                USCTAMis.Web.WebClient.ScriptManager.Alert("请输入教材名称或ISBN！");
-                return;
-            }
-            else
-            {
-                cgrdPlanSet.DoDataBind();
-            }
-        }
-        #endregion
-
-        protected void ccmbTerm_DataBinding(object sender, EventArgs e)
-        {
-            using (TermService.TermApplClient app = new TermService.TermApplClient())
-            {
-                var result = app.GetAllTerms();
-                ccmbTerm.DataSource = result;
-            }
-        }
-
-        protected void ccmbTerm_DataBound(object sender, EventArgs e)
-        {
-            cgrdPlanSet.DoDataBind();
-        }
-
-        protected void ccmbTerm_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
-        {
-            cgrdPlanSet.DoDataBind();
-        }
     }
 }

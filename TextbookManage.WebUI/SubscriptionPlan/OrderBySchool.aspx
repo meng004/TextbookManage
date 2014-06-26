@@ -106,10 +106,10 @@
                                     <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="ccmbSchool_AfterDataBind" />
                                 </td>
                                 <td>
-                                    <telerik:RadComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" IsMaintainSelectedValue="true"
+                                    <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" IsMaintainSelectedValue="true"
                                         DataTextField="Name" DataValueField="BooksellerId"
                                         OnDataBinding="ccmbBookseller_BeforeDataBind">
-                                    </telerik:RadComboBox>
+                                    </utm:UTMisComboBox>
                                 </td>
                                 <td>
                                     <utm:UTMisTextBox runat="server" ID="ctxtSpareCount" Text="0" Label="上抛数量：" LabelWidth="80" SkinID="txt200">

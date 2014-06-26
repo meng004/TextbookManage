@@ -11,7 +11,7 @@
     /// 仓储的抽象基类
     /// </summary>
     /// <typeparam name="TAggregateRoot"></typeparam>
-    public abstract class Repository<TAggregateRoot> : IRepository<TAggregateRoot>
+    public abstract class Repository<TAggregateRoot> : IRepository<TAggregateRoot>, IDisposable
         where TAggregateRoot : class,IAggregateRoot
     {
 
@@ -24,6 +24,10 @@
 
         #endregion
 
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
         #region 构造函数
 
         public Repository(IRepositoryContext context)

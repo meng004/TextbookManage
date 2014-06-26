@@ -258,6 +258,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="SubscriptionPlan\OrderByPress.aspx" />
     <Content Include="WindowForMessage\帮助文档.doc" />
     <Content Include="WindowForMessage\TbmisHelp.aspx" />
     <Content Include="WindowForMessage\TextbookDetailMessage.aspx" />
@@ -954,6 +955,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionPlan\OrderByPress.aspx.cs">
+      <DependentUpon>OrderByPress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubscriptionPlan\OrderByPress.aspx.designer.cs">
+      <DependentUpon>OrderByPress.aspx</DependentUpon>
     </Compile>
     <Compile Include="TextbookMaintain\TextbookApproval.aspx.cs">
       <DependentUpon>TextbookApproval.aspx</DependentUpon>

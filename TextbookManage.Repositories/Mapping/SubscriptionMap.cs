@@ -27,6 +27,7 @@ namespace TextbookManage.Repositories.Mapping
             this.Property(t => t.SpareCount).HasColumnName("SpareCount");
             this.Property(t => t.SubscriptionDate).HasColumnName("SubscriptionDate");
             this.Property(t => t.SubscriptionState).HasColumnName("SubscriptionState");
+            this.Property(t => t.RowVersion).HasColumnName("RowVersion").IsRowVersion();//乐观并发标志
             // 书商：书商订单，1：N
             this.HasRequired(t => t.Bookseller)
                 .WithMany(t => t.Subscriptions)

@@ -51,6 +51,10 @@ namespace TextbookManage.Domain.Models
         /// </summary>
         public FeedbackState SubscriptionState { get; set; }
         /// <summary>
+        /// 并发标志
+        /// </summary>
+        public byte[] RowVersion { get; set; }
+        /// <summary>
         /// 书商
         /// </summary>
         public virtual Bookseller Bookseller { get; set; }

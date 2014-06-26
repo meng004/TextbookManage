@@ -41,7 +41,10 @@ namespace TextbookManage.Domain
         /// <param name="studentDeclarations">学生用书申报</param>
         /// <param name="teacherDeclarations">教师用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptions(IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations)
+        public static IEnumerable<Subscription> CreateSubscriptions(
+            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, 
+            IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations
+            )
         {
             //合并教师用书申报与学生用书申报
             var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
@@ -83,7 +86,10 @@ namespace TextbookManage.Domain
         /// <param name="studentDeclarations">教务学生用书申报</param>
         /// <param name="teacherDeclarations">教务教师用书申报</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptionsByPress(IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations)
+        public static IEnumerable<Subscription> CreateSubscriptionsByPress(
+            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, 
+            IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations
+            )
         {
             //合并教师用书申报与学生用书申报
             var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
@@ -114,7 +120,7 @@ namespace TextbookManage.Domain
                         PlanCount = m.Sum(s => s.DeclarationCount),
                         SpareCount = 0,
                         SubscriptionDate = DateTime.Now,
-                        SubscriptionState = Models.FeedbackState.未征订,
+                        SubscriptionState = FeedbackState.未征订,
                         StudentDeclarations = studentDeclarationTextbooks,
                         TeacherDeclarations = teacherDeclarationTextbooks
                     };
@@ -164,7 +170,7 @@ namespace TextbookManage.Domain
                         PlanCount = m.Sum(s => s.DeclarationCount),
                         SpareCount = 0,
                         SubscriptionDate = DateTime.Now,
-                        SubscriptionState = Models.FeedbackState.未征订,
+                        SubscriptionState = FeedbackState.未征订,
                         StudentDeclarations = studentDeclarationTextbooks,
                         TeacherDeclarations = teacherDeclarationTextbooks
                     };
@@ -184,7 +190,7 @@ namespace TextbookManage.Domain
         /// </summary>
         /// <param name="declaration">教务学生用书申报</param>
         /// <returns></returns>
-        private static StudentDeclarationJiaoWu Converter(StudentDeclarationJiaoWu declaration)
+        private static StudentDeclaration Converter(StudentDeclarationJiaoWu declaration)
         {
             var studentDeclaration = new StudentDeclaration()
             {
@@ -204,7 +210,7 @@ namespace TextbookManage.Domain
 
             declaration.DeclarationTextbook = studentDeclaration;
 
-            return declaration;
+            return studentDeclaration;
         }
         /// <summary>
         /// 转换器
@@ -212,7 +218,7 @@ namespace TextbookManage.Domain
         /// </summary>
         /// <param name="declaration">教务教师用书申报</param>
         /// <returns></returns>
-        private static TeacherDeclarationJiaoWu Converter(TeacherDeclarationJiaoWu declaration)
+        private static TeacherDeclaration Converter(TeacherDeclarationJiaoWu declaration)
         {
             var teacherDeclaration = new TeacherDeclaration()
             {
@@ -230,7 +236,7 @@ namespace TextbookManage.Domain
                 DeclarationJiaoWu = declaration
             };
             declaration.DeclarationTextbook = teacherDeclaration;
-            return declaration;
+            return teacherDeclaration;
         }
         #endregion
 

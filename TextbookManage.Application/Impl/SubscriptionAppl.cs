@@ -84,7 +84,7 @@ namespace TextbookManage.Applications.Impl
             subscriptions.ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
             //返回
-            return _adapter.Adapt<SubscriptionForSubmitView>(subscriptions.OrderBy(t=>t.Textbook.Name));
+            return _adapter.Adapt<SubscriptionForSubmitView>(subscriptions.OrderBy(t => t.Textbook.Name));
         }
 
         public IEnumerable<SchoolView> GetSchoolWithNotSub(string term)
@@ -187,6 +187,7 @@ namespace TextbookManage.Applications.Impl
 
             //创建订单
             var subscriptions = SubscriptionService.CreateSubscriptionsByPress(studentDeclarations, teacherDeclarations);
+
             //写入DB
             subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
@@ -216,8 +217,9 @@ namespace TextbookManage.Applications.Impl
                         SpareCount = spare,
                         SubscriptionState = FeedbackState.征订中
                     });
+
                 //删除订单
-                RemoveNotSubscription();
+                //RemoveNotSubscription();
                 //写入DB
                 _subscriptionRepo.Context.Commit();
             }

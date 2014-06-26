@@ -37,30 +37,12 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
             if (!IsPostBack)
             {
-                ccmbTerm.DataBind();
-                //获取已申报并通过审核的学院列表
-                //ccmbSchool.DataBind();
+                ccmbTerm.DoDataBind();
                 //获取书商列表
-                ccmbBookseller.DataBind();
+                ccmbBookseller.DoDataBind();
             }
         }
 
-        ///// <summary>
-        ///// 保存应用对象到session
-        ///// </summary>
-        ///// <returns></returns>
-        //private ISubscriptionPlan GetISubscriptionPlan()
-        //{
-        //    _key = string.Format("subscriptionPlanApp_of_loginName_{0}", _loginName);
-        //    ISubscriptionPlan subscriptionPlan = Session[_key] as ISubscriptionPlan;
-        //    if (subscriptionPlan == null)
-        //    {
-        //        subscriptionPlan = new ApplicationFactory(_loginName, _ipAddress).CreateSubscriptionPlanApplication();
-
-        //        Session[_key] = subscriptionPlan;
-        //    }
-        //    return subscriptionPlan;
-        //}
         #endregion
 
         #region 学院
@@ -183,13 +165,14 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
         #endregion
 
+        #region 学期
+
         protected void ccmbTerm_DataBinding(object sender, EventArgs e)
         {
             using (TermService.TermApplClient app = new TermService.TermApplClient())
             {
                 var result = app.GetAllTerms();
                 ccmbTerm.DataSource = result;
-               
             }
         }
 
@@ -202,6 +185,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
         {
             ccmbSchool.DoDataBind();
         }
+        #endregion
 
     }
 }
