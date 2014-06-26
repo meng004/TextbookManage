@@ -129,7 +129,10 @@ namespace TextbookManage.Domain
         /// </summary>
         /// <param name="declarations">教务学生用书</param>
         /// <returns></returns>
-        public static IEnumerable<Subscription> CreateSubscriptionsBySchool(IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations)
+        public static IEnumerable<Subscription> CreateSubscriptionsBySchool(
+            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations,
+            IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations
+            )
         {
             //合并教师用书申报与学生用书申报
             var declarations = studentDeclarations.Union<DeclarationJiaoWu>(teacherDeclarations);
@@ -181,7 +184,7 @@ namespace TextbookManage.Domain
         /// </summary>
         /// <param name="declaration">教务学生用书申报</param>
         /// <returns></returns>
-        private static StudentDeclaration Converter(StudentDeclarationJiaoWu declaration)
+        private static StudentDeclarationJiaoWu Converter(StudentDeclarationJiaoWu declaration)
         {
             var studentDeclaration = new StudentDeclaration()
             {
@@ -195,10 +198,13 @@ namespace TextbookManage.Domain
                 //Sfgd = declaration.Sfgd,
                 //Textbook_Id = declaration.Textbook_Id
                 HadViewFeedback = false,
-                ViewFeedbackDate = null
+                ViewFeedbackDate = null,
+                DeclarationJiaoWu = declaration
             };
 
-            return studentDeclaration;
+            declaration.DeclarationTextbook = studentDeclaration;
+
+            return declaration;
         }
         /// <summary>
         /// 转换器
@@ -206,7 +212,7 @@ namespace TextbookManage.Domain
         /// </summary>
         /// <param name="declaration">教务教师用书申报</param>
         /// <returns></returns>
-        private static TeacherDeclaration Converter(TeacherDeclarationJiaoWu declaration)
+        private static TeacherDeclarationJiaoWu Converter(TeacherDeclarationJiaoWu declaration)
         {
             var teacherDeclaration = new TeacherDeclaration()
             {
@@ -220,10 +226,11 @@ namespace TextbookManage.Domain
                 //Sfgd = item.Sfgd,
                 //Textbook_Id = item.Textbook_Id
                 HadViewFeedback = false,
-                ViewFeedbackDate = null
+                ViewFeedbackDate = null,
+                DeclarationJiaoWu = declaration
             };
-
-            return teacherDeclaration;
+            declaration.DeclarationTextbook = teacherDeclaration;
+            return declaration;
         }
         #endregion
 

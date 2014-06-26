@@ -57,6 +57,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.HasRequired(t => t.DataSign)
                 .WithMany(t => t.StudentDeclarationJiaoWus)
                 .HasForeignKey(t => t.DataSign_Id);
+
         }
     }
 }

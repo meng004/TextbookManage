@@ -5519,3 +5519,175 @@ System.InvalidOperationException: Multiplicity constraint violated. The role 'St
    在 System.Collections.Generic.List`1.ForEach(Action`1 action)
    在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
    在 DynamicModule.ns.Wrapped_ISubscriptionAppl_191bc7c1fe694e74b98fa3fa881faa4e.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-26 08:39:37,340 [13] ERROR ExceptionLogger - Exception caught
+System.InvalidOperationException: Multiplicity constraint violated. The role 'StudentDeclaration_DeclarationJiaoWu_Source' of the relationship 'TextbookManage.Repositories.EntityFramework.StudentDeclaration_DeclarationJiaoWu' has multiplicity 1 or 0..1.
+   在 System.Data.Entity.Core.Objects.EntityEntry.WillNotRefSteal(EntityReference refToPrincipal, IEntityWrapper wrappedPrincipal)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupEntityReferenceToPrincipal(EntityReference relatedEnd, EntityKey foreignKey, Boolean setIsLoaded, Boolean replaceExistingRef)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupReferencesByForeignKeys(Boolean replaceAddedRefs, EntitySetBase restrictTo)
+   在 System.Data.Entity.Core.Objects.ObjectStateManager.FixupReferencesByForeignKeys(EntityEntry newEntry, Boolean replaceAddedRefs)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddSingleObject(EntitySet entitySet, IEntityWrapper wrappedEntity, String argumentName)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddObject(String entitySetName, Object entity)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassd.<Add>b__c()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.RegisterNew[TAggregateRoot](TAggregateRoot obj) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 34
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Add(TAggregateRoot entity) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 57
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.<CreateSubscriptionsBySchoolId>b__11(Subscription t) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_c009ec669a4d43b8827b1aba04a3534c.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-26 08:42:12,951 [13] ERROR ExceptionLogger - Exception caught
+System.InvalidOperationException: Multiplicity constraint violated. The role 'StudentDeclaration_DeclarationJiaoWu_Source' of the relationship 'TextbookManage.Repositories.EntityFramework.StudentDeclaration_DeclarationJiaoWu' has multiplicity 1 or 0..1.
+   在 System.Data.Entity.Core.Objects.EntityEntry.WillNotRefSteal(EntityReference refToPrincipal, IEntityWrapper wrappedPrincipal)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupEntityReferenceToPrincipal(EntityReference relatedEnd, EntityKey foreignKey, Boolean setIsLoaded, Boolean replaceExistingRef)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupReferencesByForeignKeys(Boolean replaceAddedRefs, EntitySetBase restrictTo)
+   在 System.Data.Entity.Core.Objects.ObjectStateManager.FixupReferencesByForeignKeys(EntityEntry newEntry, Boolean replaceAddedRefs)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddSingleObject(EntitySet entitySet, IEntityWrapper wrappedEntity, String argumentName)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddObject(String entitySetName, Object entity)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassd.<Add>b__c()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.RegisterNew[TAggregateRoot](TAggregateRoot obj) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 34
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Add(TAggregateRoot entity) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 57
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.<CreateSubscriptionsBySchoolId>b__11(Subscription t) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_c009ec669a4d43b8827b1aba04a3534c.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-26 08:44:24,550 [13] ERROR ExceptionLogger - Exception caught
+System.InvalidOperationException: Multiplicity constraint violated. The role 'StudentDeclaration_DeclarationJiaoWu_Source' of the relationship 'TextbookManage.Repositories.EntityFramework.StudentDeclaration_DeclarationJiaoWu' has multiplicity 1 or 0..1.
+   在 System.Data.Entity.Core.Objects.EntityEntry.WillNotRefSteal(EntityReference refToPrincipal, IEntityWrapper wrappedPrincipal)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupEntityReferenceToPrincipal(EntityReference relatedEnd, EntityKey foreignKey, Boolean setIsLoaded, Boolean replaceExistingRef)
+   在 System.Data.Entity.Core.Objects.EntityEntry.FixupReferencesByForeignKeys(Boolean replaceAddedRefs, EntitySetBase restrictTo)
+   在 System.Data.Entity.Core.Objects.ObjectStateManager.FixupReferencesByForeignKeys(EntityEntry newEntry, Boolean replaceAddedRefs)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddSingleObject(EntitySet entitySet, IEntityWrapper wrappedEntity, String argumentName)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddObject(String entitySetName, Object entity)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassd.<Add>b__c()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.RegisterNew[TAggregateRoot](TAggregateRoot obj) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 34
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Add(TAggregateRoot entity) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 57
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.<CreateSubscriptionsBySchoolId>b__11(Subscription t) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 145
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_c009ec669a4d43b8827b1aba04a3534c.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-26 08:51:46,780 [12] ERROR ExceptionLogger - Exception caught
+System.Data.Entity.Infrastructure.DbUpdateConcurrencyException: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. ---> System.Data.Entity.Core.OptimisticConcurrencyException: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries.
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   在 System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   在 System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.Commit() 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 47
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 146
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_fabb697ce75547f9a46a520f83848c77.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-26 08:59:04,925 [9] ERROR ExceptionLogger - Exception caught
+System.Data.Entity.Infrastructure.DbUpdateConcurrencyException: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. ---> System.Data.Entity.Core.OptimisticConcurrencyException: Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries.
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.ValidateRowsAffected(Int64 rowsAffected, UpdateCommand source)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   在 System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   在 System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.Commit() 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 47
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsBySchoolId(String term, String schoolId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 146
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_4d2f9ad9747d467991d45b56e182accd.<CreateSubscriptionsBySchoolId_DelegateImplementation>__3(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-26 09:18:06,002 [11] ERROR ExceptionLogger - Exception caught
+System.Data.Entity.Core.EntityCommandCompilationException: An error occurred while preparing the command definition. See the inner exception for details. ---> System.Data.Entity.Core.MappingException: 
+(276,10) : error 3034: Problem in mapping fragments starting at lines 276, 417:An entity from one EntitySet is mapped to a row that is also mapped to an entity from another EntitySet with possibly different key. Ensure these two mapping fragments do not map two unrelated EntitySets to two overlapping groups of rows.
+
+(341,10) : error 3034: Problem in mapping fragments starting at lines 341, 426:An entity from one EntitySet is mapped to a row that is also mapped to an entity from another EntitySet with possibly different key. Ensure these two mapping fragments do not map two unrelated EntitySets to two overlapping groups of rows.
+
+   在 System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGenerateViews(EntityContainerMapping entityContainerMap, Dictionary`2 resultDictionary)
+   在 System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGetGeneratedViews(EntityContainer container)
+   在 System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   在 System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   在 System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   在 System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.GetGeneratedView(EntitySetBase extent, MetadataWorkspace workspace, StorageMappingItemCollection storageMappingItemCollection)
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetGeneratedView(EntitySetBase extent)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ExpandView(ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ProcessScanTable(Node scanTableNode, ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ScanTableOp op, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.ScanTableOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   在 System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   在 System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ProjectOp op, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.ProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   在 System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitDefault(Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitPhysicalOpDefault(PhysicalOp op, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.Visit(PhysicalProjectOp op, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.PhysicalProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   在 System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(Dictionary`2& tvfResultKeys)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(PlanCompiler planCompilerState, StructuredTypeInfo& typeInfo, Dictionary`2& tvfResultKeys)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   在 System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(DbCommandTree ctree, List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.Common.DbProviderServices.CreateCommandDefinition(DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.CreateCommandDefinition(ObjectContext context, DbQueryCommandTree tree)
+   在 System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.Prepare(ObjectContext context, DbQueryCommandTree tree, Type elementType, MergeOption mergeOption, Boolean streaming, Span span, IEnumerable`1 compiledQueryParameters, AliasGenerator aliasGenerator)
+   在 System.Data.Entity.Core.Objects.EntitySqlQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.ParallelEnumerable.ToList[TSource](ParallelQuery`1 source)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.GetAll() 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 36
+   在 TextbookManage.Applications.Impl.TermAppl.GetAll() 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\TermAppl.cs:行号 30
+   在 TextbookManage.Applications.Impl.TermAppl.GetAllTerms() 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\TermAppl.cs:行号 56
+   在 DynamicModule.ns.Wrapped_ITermAppl_7af9915882c24ee8b5d8dcce42d8078c.<GetAllTerms_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
