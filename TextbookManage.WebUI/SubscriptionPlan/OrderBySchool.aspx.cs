@@ -6,6 +6,7 @@ using System.Linq;
 using TextbookManage.WebUI.SubscriptionService;
 
 using Telerik.Web.UI;
+using TextbookManage.WebUI.BooksellerService;
 
 namespace TextbookManage.WebUI.SubscriptionPlan
 {
@@ -72,7 +73,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
         protected void ccmbBookseller_BeforeDataBind(object sender, EventArgs e)
         {
-            using (SubscriptionApplClient app = new SubscriptionApplClient())
+            using (BooksellerApplClient app = new BooksellerApplClient())
             {
                 ccmbBookseller.DataSource = app.GetBooksellers();
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Telerik.Web.UI;
+using TextbookManage.WebUI.BooksellerService;
 //添加引用
 using TextbookManage.WebUI.SubscriptionService;
 using USCTAMis.Web.WebClient;
@@ -71,7 +72,7 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
         protected void ccmbBookseller_BeforeDataBind(object sender, EventArgs e)
         {
-            using (SubscriptionApplClient app = new SubscriptionApplClient())
+            using (BooksellerApplClient app = new BooksellerApplClient())
             {
                 ccmbBookseller.DataSource = app.GetBooksellers();
             }

@@ -244,7 +244,27 @@
     <Content Include="Main.aspx" />
     <Content Include="Middle.htm" />
     <Content Include="ReleaseTextbook\ReleaseClassBook.aspx" />
+    <None Include="Service References\BooksellerService\BooksellerService.disco" />
+    <None Include="Service References\BooksellerService\configuration91.svcinfo" />
+    <None Include="Service References\BooksellerService\configuration.svcinfo" />
+    <None Include="Service References\BooksellerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\CasMapperService\CasMapperService.wsdl" />
+    <None Include="Service References\BooksellerService\BooksellerService.wsdl" />
+    <None Include="Service References\BooksellerService\BooksellerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BooksellerService\BooksellerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BooksellerService\BooksellerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\BooksellerService\TextbookManage.WebUI.BooksellerService.BooksellerView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SubscriptionService\SubscriptionService3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -742,9 +762,6 @@
     <None Include="Service References\SubscriptionService\SubscriptionService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SubscriptionService\TextbookManage.WebUI.SubscriptionService.BooksellerView.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\SubscriptionService\TextbookManage.WebUI.SubscriptionService.ResponseView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -890,6 +907,11 @@
     </Compile>
     <Compile Include="ReleaseTextbook\StudentList.aspx.designer.cs">
       <DependentUpon>StudentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BooksellerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\CasMapperService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -1133,6 +1155,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BooksellerService\" />
     <WCFMetadataStorage Include="Service References\CasMapperService\" />
     <WCFMetadataStorage Include="Service References\DeclarationApprovalService\" />
     <WCFMetadataStorage Include="Service References\DeclarationProgressService\" />
