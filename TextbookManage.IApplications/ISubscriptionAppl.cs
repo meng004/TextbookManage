@@ -10,14 +10,6 @@ namespace TextbookManage.IApplications
     {
 
         /// <summary>
-        /// 取书商
-        /// </summary>
-        /// <returns></returns>
-        [OperationContract]
-        [Cache(CacheMethod.Get)]
-        IEnumerable<BooksellerView> GetBooksellers();
-
-        /// <summary>
         /// 按教材生成订单
         /// </summary>
         /// <param name="textbookName"></param>

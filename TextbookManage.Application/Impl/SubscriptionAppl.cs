@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TextbookManage.IApplications;
-using TextbookManage.ViewModels;
-using TextbookManage.Domain.IRepositories;
-using TextbookManage.Infrastructure;
-using TextbookManage.Infrastructure.ServiceLocators;
-using TextbookManage.Infrastructure.TypeAdapter;
-using TextbookManage.Domain.Models;
-using TextbookManage.Domain.IRepositories.JiaoWu;
-using TextbookManage.Domain.Models.JiaoWu;
 using TextbookManage.Domain;
+using TextbookManage.Domain.IRepositories;
+using TextbookManage.Domain.IRepositories.JiaoWu;
+using TextbookManage.Domain.Models;
 using TextbookManage.Domain.Models.Comparer;
+using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure;
+using TextbookManage.Infrastructure.TypeAdapter;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.Applications.Impl
 {
-    public class SubscriptionAppl : ISubscriptionAppl
+    public class SubscriptionAppl : ISubscriptionAppl, IDisposable
     {
 
         #region 私有变量
@@ -26,8 +25,13 @@ namespace TextbookManage.Applications.Impl
         private readonly IStudentDeclarationJiaoWuRepository _stuDeclJiaoWuRepo;
         private readonly ITeacherDeclarationJiaoWuRepository _teaDeclJiaoWuRepo;
         private readonly ISubscriptionRepository _subscriptionRepo;
+        private readonly IRepositoryContext _contextForUpdate;
 
         #endregion
+
+        public void Dispose()
+        {
+        }
 
         #region 构造函数
 
@@ -36,7 +40,9 @@ namespace TextbookManage.Applications.Impl
             ITeacherDeclarationJiaoWuRepository teaDeclJiaoWuRepo,
             IStudentDeclarationRepository stuDeclRepo,
             ITeacherDeclarationRepository teaDeclRepo,
-            ISubscriptionRepository subscriptionRepo)
+            ISubscriptionRepository subscriptionRepo,
+            IRepositoryContext context
+            )
         {
             _adapter = adapter;
             _stuDeclRepo = stuDeclRepo;
@@ -44,17 +50,12 @@ namespace TextbookManage.Applications.Impl
             _stuDeclJiaoWuRepo = stuDeclJiaoWuRepo;
             _teaDeclJiaoWuRepo = teaDeclJiaoWuRepo;
             _subscriptionRepo = subscriptionRepo;
+            _contextForUpdate = context;
         }
         #endregion
 
         #region 实现接口
-
-        public IEnumerable<BooksellerView> GetBooksellers()
-        {
-            var bookserller = new BooksellerAppl().GetAll();
-            return _adapter.Adapt<BooksellerView>(bookserller);
-        }
-
+        
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn)
         {
             //删除未征订的订单
@@ -176,6 +177,7 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByPress(string term, string press)
         {
+            
             //删除未征订的订单
             RemoveNotSubscription();
             _subscriptionRepo.Context.Commit();
@@ -186,10 +188,10 @@ namespace TextbookManage.Applications.Impl
                 .Where(t => t.Textbook.Press == press);
 
             //创建订单
-            var subscriptions = SubscriptionService.CreateSubscriptionsByPress(studentDeclarations, teacherDeclarations);
+            var subscriptions = SubscriptionService.CreateSubscriptionsByPress(studentDeclarations, teacherDeclarations).ToList();
 
             //写入DB
-            subscriptions.ToList().ForEach(t => _subscriptionRepo.Add(t));
+            subscriptions.ForEach(t => _subscriptionRepo.Add(t));
             _subscriptionRepo.Context.Commit();
 
             //DTO
@@ -290,6 +292,8 @@ namespace TextbookManage.Applications.Impl
         {
             //学年学期
             var yearTerm = new SchoolYearTerm(term);
+            var context1 = _stuDeclJiaoWuRepo.Context;
+            var context2 = _stuDeclRepo.Context;
             //是否归档等于0
             var query = _stuDeclJiaoWuRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
@@ -338,15 +342,6 @@ namespace TextbookManage.Applications.Impl
 
         public void RemoveNotSubscription()
         {
-            //取订单
-            //var subscriptions = _subscriptionRepo.Find(t =>
-            //    t.SubscriptionState == FeedbackState.未征订
-            //    );
-            //删除订单
-            //foreach (var item in subscriptions)
-            //{
-            //    _subscriptionRepo.Remove(item);
-            //}
             _subscriptionRepo.Remove(t =>
                 t.SubscriptionState == FeedbackState.未征订);
         }
