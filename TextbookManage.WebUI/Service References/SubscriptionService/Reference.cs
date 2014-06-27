@@ -15,38 +15,54 @@ namespace TextbookManage.WebUI.SubscriptionService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BooksellerView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SubscriptionForSubmitView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
     [System.SerializableAttribute()]
-    public partial class BooksellerView : TextbookManage.WebUI.SubscriptionService.BaseViewModel {
+    public partial class SubscriptionForSubmitView : TextbookManage.WebUI.SubscriptionService.TextbookForDeclarationView {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BooksellerIdField;
+        private string DeclarationCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
+        private TextbookManage.WebUI.SubscriptionService.DeclarationView[] DeclarationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubscriptionIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BooksellerId {
+        public string DeclarationCount {
             get {
-                return this.BooksellerIdField;
+                return this.DeclarationCountField;
             }
             set {
-                if ((object.ReferenceEquals(this.BooksellerIdField, value) != true)) {
-                    this.BooksellerIdField = value;
-                    this.RaisePropertyChanged("BooksellerId");
+                if ((object.ReferenceEquals(this.DeclarationCountField, value) != true)) {
+                    this.DeclarationCountField = value;
+                    this.RaisePropertyChanged("DeclarationCount");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
+        public TextbookManage.WebUI.SubscriptionService.DeclarationView[] Declarations {
             get {
-                return this.NameField;
+                return this.DeclarationsField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.DeclarationsField, value) != true)) {
+                    this.DeclarationsField = value;
+                    this.RaisePropertyChanged("Declarations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SubscriptionId {
+            get {
+                return this.SubscriptionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubscriptionIdField, value) != true)) {
+                    this.SubscriptionIdField = value;
+                    this.RaisePropertyChanged("SubscriptionId");
                 }
             }
         }
@@ -56,13 +72,12 @@ namespace TextbookManage.WebUI.SubscriptionService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseViewModel", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.TextbookForDeclarationView))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.DeclarationView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SchoolView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.ResponseView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.FeedbackStateView))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.BooksellerView))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.TextbookForDeclarationView))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView))]
     public partial class BaseViewModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -132,133 +147,6 @@ namespace TextbookManage.WebUI.SubscriptionService {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TextbookForDeclarationView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView))]
-    public partial class TextbookForDeclarationView : TextbookManage.WebUI.SubscriptionService.BaseViewModel {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsbnField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TextbookIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Isbn {
-            get {
-                return this.IsbnField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsbnField, value) != true)) {
-                    this.IsbnField = value;
-                    this.RaisePropertyChanged("Isbn");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Num {
-            get {
-                return this.NumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NumField, value) != true)) {
-                    this.NumField = value;
-                    this.RaisePropertyChanged("Num");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TextbookId {
-            get {
-                return this.TextbookIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TextbookIdField, value) != true)) {
-                    this.TextbookIdField = value;
-                    this.RaisePropertyChanged("TextbookId");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubscriptionForSubmitView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
-    [System.SerializableAttribute()]
-    public partial class SubscriptionForSubmitView : TextbookManage.WebUI.SubscriptionService.TextbookForDeclarationView {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DeclarationCountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TextbookManage.WebUI.SubscriptionService.DeclarationView[] DeclarationsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SubscriptionIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DeclarationCount {
-            get {
-                return this.DeclarationCountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeclarationCountField, value) != true)) {
-                    this.DeclarationCountField = value;
-                    this.RaisePropertyChanged("DeclarationCount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TextbookManage.WebUI.SubscriptionService.DeclarationView[] Declarations {
-            get {
-                return this.DeclarationsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeclarationsField, value) != true)) {
-                    this.DeclarationsField = value;
-                    this.RaisePropertyChanged("Declarations");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SubscriptionId {
-            get {
-                return this.SubscriptionIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SubscriptionIdField, value) != true)) {
-                    this.SubscriptionIdField = value;
-                    this.RaisePropertyChanged("SubscriptionId");
-                }
             }
         }
     }
@@ -515,15 +403,81 @@ namespace TextbookManage.WebUI.SubscriptionService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TextbookForDeclarationView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView))]
+    public partial class TextbookForDeclarationView : TextbookManage.WebUI.SubscriptionService.BaseViewModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsbnField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextbookIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Isbn {
+            get {
+                return this.IsbnField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsbnField, value) != true)) {
+                    this.IsbnField = value;
+                    this.RaisePropertyChanged("Isbn");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Num {
+            get {
+                return this.NumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumField, value) != true)) {
+                    this.NumField = value;
+                    this.RaisePropertyChanged("Num");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TextbookId {
+            get {
+                return this.TextbookIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextbookIdField, value) != true)) {
+                    this.TextbookIdField = value;
+                    this.RaisePropertyChanged("TextbookId");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SubscriptionService.ISubscriptionAppl")]
     public interface ISubscriptionAppl {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetBooksellers", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetBooksellersResponse")]
-        TextbookManage.WebUI.SubscriptionService.BooksellerView[] GetBooksellers();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetBooksellers", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetBooksellersResponse")]
-        System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.BooksellerView[]> GetBooksellersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionsByTextbook", ReplyAction="http://tempuri.org/ISubscriptionAppl/CreateSubscriptionsByTextbookResponse")]
         TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] CreateSubscriptionsByTextbook(string term, string textbookName, string isbn);
@@ -605,14 +559,6 @@ namespace TextbookManage.WebUI.SubscriptionService {
         
         public SubscriptionApplClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public TextbookManage.WebUI.SubscriptionService.BooksellerView[] GetBooksellers() {
-            return base.Channel.GetBooksellers();
-        }
-        
-        public System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.BooksellerView[]> GetBooksellersAsync() {
-            return base.Channel.GetBooksellersAsync();
         }
         
         public TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] CreateSubscriptionsByTextbook(string term, string textbookName, string isbn) {

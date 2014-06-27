@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:2726/SubscriptionService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:complexType name="ArrayOfBooksellerView">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="BooksellerView" nillable="true" type="tns:BooksellerView" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfBooksellerView" nillable="true" type="tns:ArrayOfBooksellerView" />
-  <xs:complexType name="BooksellerView">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseViewModel">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="BooksellerId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="BooksellerView" nillable="true" type="tns:BooksellerView" />
-  <xs:complexType name="BaseViewModel">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CheckFlag" type="xs:boolean" />
-      <xs:element minOccurs="0" name="DeleteFlag" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="BaseViewModel" nillable="true" type="tns:BaseViewModel" />
   <xs:complexType name="ArrayOfSubscriptionForSubmitView">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="SubscriptionForSubmitView" nillable="true" type="tns:SubscriptionForSubmitView" />
@@ -57,6 +32,14 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TextbookForDeclarationView" nillable="true" type="tns:TextbookForDeclarationView" />
+  <xs:complexType name="BaseViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeleteFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseViewModel" nillable="true" type="tns:BaseViewModel" />
   <xs:complexType name="ArrayOfDeclarationView">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DeclarationView" nillable="true" type="tns:DeclarationView" />
