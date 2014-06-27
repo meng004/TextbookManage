@@ -20,7 +20,7 @@
 
         public TbMisDbContext()
             : base("TbMisContext")
-        {
+        {            
         }
 
         #endregion
