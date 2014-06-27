@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBooksellerAppl.cs" />
     <Compile Include="ICasMapperAppl.cs" />
     <Compile Include="IDeclarationApprovalAppl.cs" />
     <Compile Include="IDeclarationAppl.cs" />

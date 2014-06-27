@@ -4,16 +4,20 @@ using TextbookManage.Domain.IRepositories;
 using TextbookManage.Domain.IRepositories.JiaoWu;
 using TextbookManage.Domain.Models;
 using TextbookManage.Domain.Models.JiaoWu;
+using TextbookManage.IApplications;
 using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.Infrastructure.TypeAdapter;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.Applications.Impl
 {
-    public class BooksellerAppl
+    public class BooksellerAppl : IBooksellerAppl
     {
 
         #region 私有变量
 
         private readonly IBooksellerRepository _repo = ServiceLocator.Current.GetInstance<IBooksellerRepository>();
+        private readonly ITypeAdapter _adapter = ServiceLocator.Current.GetInstance<ITypeAdapter>();
 
         #endregion
 
@@ -80,5 +84,11 @@ namespace TextbookManage.Applications.Impl
         }
         #endregion
 
+
+        public IEnumerable<BooksellerView> GetBooksellers()
+        {
+            var bookserller = GetAll();
+            return _adapter.Adapt<BooksellerView>(bookserller);
+        }
     }
 }
