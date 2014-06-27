@@ -6077,3 +6077,63 @@ System.Data.Entity.Infrastructure.DbUpdateConcurrencyException: Store update, in
    在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.Commit() 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 47
    在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsByPress(String term, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 193
    在 DynamicModule.ns.Wrapped_ISubscriptionAppl_6a363b0451bc491fadbd130dc3a213f8.<CreateSubscriptionsByPress_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-27 08:27:24,978 [7] ERROR ExceptionLogger - Exception caught
+System.InvalidOperationException: An entity object cannot be referenced by multiple instances of IEntityChangeTracker.
+   在 System.Data.Entity.Core.Objects.ObjectContext.VerifyContextForAddOrAttach(IEntityWrapper wrappedEntity)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddSingleObject(EntitySet entitySet, IEntityWrapper wrappedEntity, String argumentName)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityReference.AddEntityToObjectStateManager(IEntityWrapper wrappedEntity, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityReference`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   在 System.Data.Entity.Core.Objects.ObjectContext.AddObject(String entitySetName, Object entity)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassd.<Add>b__c()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.RegisterNew[TAggregateRoot](TAggregateRoot obj) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 34
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Add(TAggregateRoot entity) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 57
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.<CreateSubscriptionsByPress>b__1f(Subscription t) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 195
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsByPress(String term, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 195
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_2d0655656da44537a40f5e520a40c723.<CreateSubscriptionsByPress_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-06-27 08:40:51,397 [11] ERROR ExceptionLogger - Exception caught
+System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 视图或函数 'dbo.V_TextBook' 不可更新，因为修改会影响多个基表。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   在 System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   在 System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   在 System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.Commit() 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 47
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsByPress(String term, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 196
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_7785edebf4374bd8866e6bef6848b2ef.<CreateSubscriptionsByPress_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

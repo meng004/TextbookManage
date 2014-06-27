@@ -13,12 +13,6 @@ namespace TextbookManage.Services
     {
         private readonly ISubscriptionAppl _impl = ServiceLocator.Current.GetInstance<ISubscriptionAppl>();
 
-
-        public IEnumerable<BooksellerView> GetBooksellers()
-        {
-            return _impl.GetBooksellers();
-        }
-
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn)
         {
             return _impl.CreateSubscriptionsByTextbook(term, textbookName, isbn);
