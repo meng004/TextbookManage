@@ -50,6 +50,12 @@
   <wsdl:message name="ISubscriptionAppl_GetFeedbackState_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFeedbackStateResponse" />
   </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_GetPressByBookseller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPressByBookseller" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriptionAppl_GetPressByBookseller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPressByBooksellerResponse" />
+  </wsdl:message>
   <wsdl:message name="ISubscriptionAppl_GetSubscriptions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSubscriptions" />
   </wsdl:message>
@@ -90,6 +96,10 @@
     <wsdl:operation name="GetFeedbackState">
       <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetFeedbackState" message="tns:ISubscriptionAppl_GetFeedbackState_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetFeedbackStateResponse" message="tns:ISubscriptionAppl_GetFeedbackState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPressByBookseller">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetPressByBookseller" message="tns:ISubscriptionAppl_GetPressByBookseller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetPressByBooksellerResponse" message="tns:ISubscriptionAppl_GetPressByBookseller_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSubscriptions">
       <wsdl:input wsaw:Action="http://tempuri.org/ISubscriptionAppl/GetSubscriptions" message="tns:ISubscriptionAppl_GetSubscriptions_InputMessage" />
@@ -158,6 +168,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetFeedbackState">
       <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/GetFeedbackState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPressByBookseller">
+      <soap:operation soapAction="http://tempuri.org/ISubscriptionAppl/GetPressByBookseller" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

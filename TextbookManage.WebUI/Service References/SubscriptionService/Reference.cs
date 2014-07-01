@@ -77,6 +77,7 @@ namespace TextbookManage.WebUI.SubscriptionService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.ResponseView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.FeedbackStateView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.TextbookForDeclarationView))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView))]
     public partial class BaseViewModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -407,6 +408,7 @@ namespace TextbookManage.WebUI.SubscriptionService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TextbookForDeclarationView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView))]
     public partial class TextbookForDeclarationView : TextbookManage.WebUI.SubscriptionService.BaseViewModel {
         
@@ -475,6 +477,109 @@ namespace TextbookManage.WebUI.SubscriptionService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SubscriptionForFeedbackView", Namespace="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels")]
+    [System.SerializableAttribute()]
+    public partial class SubscriptionForFeedbackView : TextbookManage.WebUI.SubscriptionService.TextbookForDeclarationView {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeclarationCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SpareCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubscriptionDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubscriptionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubscriptionStateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TotalCountField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeclarationCount {
+            get {
+                return this.DeclarationCountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeclarationCountField, value) != true)) {
+                    this.DeclarationCountField = value;
+                    this.RaisePropertyChanged("DeclarationCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SpareCount {
+            get {
+                return this.SpareCountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SpareCountField, value) != true)) {
+                    this.SpareCountField = value;
+                    this.RaisePropertyChanged("SpareCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SubscriptionDate {
+            get {
+                return this.SubscriptionDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubscriptionDateField, value) != true)) {
+                    this.SubscriptionDateField = value;
+                    this.RaisePropertyChanged("SubscriptionDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SubscriptionId {
+            get {
+                return this.SubscriptionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubscriptionIdField, value) != true)) {
+                    this.SubscriptionIdField = value;
+                    this.RaisePropertyChanged("SubscriptionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SubscriptionState {
+            get {
+                return this.SubscriptionStateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubscriptionStateField, value) != true)) {
+                    this.SubscriptionStateField = value;
+                    this.RaisePropertyChanged("SubscriptionState");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TotalCount {
+            get {
+                return this.TotalCountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TotalCountField, value) != true)) {
+                    this.TotalCountField = value;
+                    this.RaisePropertyChanged("TotalCount");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SubscriptionService.ISubscriptionAppl")]
     public interface ISubscriptionAppl {
@@ -521,17 +626,23 @@ namespace TextbookManage.WebUI.SubscriptionService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetFeedbackState", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetFeedbackStateResponse")]
         System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.FeedbackStateView[]> GetFeedbackStateAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetSubscriptions", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetSubscriptionsResponse")]
-        TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] GetSubscriptions(string term, TextbookManage.WebUI.SubscriptionService.FeedbackStateView state);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetPressByBookseller", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetPressByBooksellerResponse")]
+        string[] GetPressByBookseller(string term, string booksellerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetPressByBookseller", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetPressByBooksellerResponse")]
+        System.Threading.Tasks.Task<string[]> GetPressByBooksellerAsync(string term, string booksellerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetSubscriptions", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetSubscriptionsResponse")]
-        System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[]> GetSubscriptionsAsync(string term, TextbookManage.WebUI.SubscriptionService.FeedbackStateView state);
+        TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[] GetSubscriptions(string term, string booksellerId, string press);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/GetSubscriptions", ReplyAction="http://tempuri.org/ISubscriptionAppl/GetSubscriptionsResponse")]
+        System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[]> GetSubscriptionsAsync(string term, string booksellerId, string press);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/RemoveSubscriptions", ReplyAction="http://tempuri.org/ISubscriptionAppl/RemoveSubscriptionsResponse")]
-        TextbookManage.WebUI.SubscriptionService.ResponseView RemoveSubscriptions(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] subscriptions);
+        TextbookManage.WebUI.SubscriptionService.ResponseView RemoveSubscriptions(TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[] subscriptions);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriptionAppl/RemoveSubscriptions", ReplyAction="http://tempuri.org/ISubscriptionAppl/RemoveSubscriptionsResponse")]
-        System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.ResponseView> RemoveSubscriptionsAsync(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] subscriptions);
+        System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.ResponseView> RemoveSubscriptionsAsync(TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[] subscriptions);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -617,19 +728,27 @@ namespace TextbookManage.WebUI.SubscriptionService {
             return base.Channel.GetFeedbackStateAsync();
         }
         
-        public TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] GetSubscriptions(string term, TextbookManage.WebUI.SubscriptionService.FeedbackStateView state) {
-            return base.Channel.GetSubscriptions(term, state);
+        public string[] GetPressByBookseller(string term, string booksellerId) {
+            return base.Channel.GetPressByBookseller(term, booksellerId);
         }
         
-        public System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[]> GetSubscriptionsAsync(string term, TextbookManage.WebUI.SubscriptionService.FeedbackStateView state) {
-            return base.Channel.GetSubscriptionsAsync(term, state);
+        public System.Threading.Tasks.Task<string[]> GetPressByBooksellerAsync(string term, string booksellerId) {
+            return base.Channel.GetPressByBooksellerAsync(term, booksellerId);
         }
         
-        public TextbookManage.WebUI.SubscriptionService.ResponseView RemoveSubscriptions(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] subscriptions) {
+        public TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[] GetSubscriptions(string term, string booksellerId, string press) {
+            return base.Channel.GetSubscriptions(term, booksellerId, press);
+        }
+        
+        public System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[]> GetSubscriptionsAsync(string term, string booksellerId, string press) {
+            return base.Channel.GetSubscriptionsAsync(term, booksellerId, press);
+        }
+        
+        public TextbookManage.WebUI.SubscriptionService.ResponseView RemoveSubscriptions(TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[] subscriptions) {
             return base.Channel.RemoveSubscriptions(subscriptions);
         }
         
-        public System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.ResponseView> RemoveSubscriptionsAsync(TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView[] subscriptions) {
+        public System.Threading.Tasks.Task<TextbookManage.WebUI.SubscriptionService.ResponseView> RemoveSubscriptionsAsync(TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView[] subscriptions) {
             return base.Channel.RemoveSubscriptionsAsync(subscriptions);
         }
     }

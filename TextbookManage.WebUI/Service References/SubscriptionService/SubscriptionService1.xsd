@@ -104,25 +104,41 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPressByBookseller">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="booksellerId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPressByBooksellerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPressByBooksellerResult" nillable="true" type="q9:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetSubscriptions">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="state" nillable="true" type="q9:FeedbackStateView" />
+        <xs:element minOccurs="0" name="booksellerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="press" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSubscriptionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSubscriptionsResult" nillable="true" type="q10:ArrayOfSubscriptionForSubmitView" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="GetSubscriptionsResult" nillable="true" type="q10:ArrayOfSubscriptionForFeedbackView" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveSubscriptions">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="subscriptions" nillable="true" type="q11:ArrayOfSubscriptionForSubmitView" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TextbookManage.ViewModels" minOccurs="0" name="subscriptions" nillable="true" type="q11:ArrayOfSubscriptionForFeedbackView" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

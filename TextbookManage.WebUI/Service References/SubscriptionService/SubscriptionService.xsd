@@ -108,4 +108,25 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="FeedbackStateView" nillable="true" type="tns:FeedbackStateView" />
+  <xs:complexType name="ArrayOfSubscriptionForFeedbackView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubscriptionForFeedbackView" nillable="true" type="tns:SubscriptionForFeedbackView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubscriptionForFeedbackView" nillable="true" type="tns:ArrayOfSubscriptionForFeedbackView" />
+  <xs:complexType name="SubscriptionForFeedbackView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TextbookForDeclarationView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeclarationCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpareCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriptionDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriptionId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriptionState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalCount" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubscriptionForFeedbackView" nillable="true" type="tns:SubscriptionForFeedbackView" />
 </xs:schema>
