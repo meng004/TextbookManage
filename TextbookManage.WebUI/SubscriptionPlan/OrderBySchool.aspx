@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>按学院制订定单</title>
+    <title>按学院制订订单</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -79,7 +79,7 @@
             </utm:UTMisToolBar>
             <utm:UTMisTabStrip ID="UTMisTabStrip1" runat="server" MultiPageID="mp_OrderBySchool" SkinID="Long">
                 <Tabs>
-                    <utm:UTMisTab runat="server" Text="按学院制订定单" PageViewID="pv_OrderBySchool" Selected="true">
+                    <utm:UTMisTab runat="server" Text="按学院制订订单" PageViewID="pv_OrderBySchool" Selected="true">
                     </utm:UTMisTab>
                 </Tabs>
             </utm:UTMisTabStrip>

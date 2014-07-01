@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderByPress.aspx.cs"
-    Inherits="TextbookManage.WebUI.SubscriptionPlan.OrderByPress" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderQuery.aspx.cs"
+    Inherits="TextbookManage.WebUI.SubscriptionPlan.OrderQuery" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>按出版社制订订单</title>
+    <title>订单查询</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,18 +18,24 @@
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js"></asp:ScriptReference>
             </Scripts>
         </telerik:RadScriptManager>
-        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" UpdatePanelsRenderMode="Inline">
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" UpdatePanelsRenderMode="Inline"
+            OnAjaxRequest="RadAjaxManager1_AjaxRequest">
             <ClientEvents OnRequestStart="onRequestStart" />
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                     <UpdatedControls>
                         <telerik:AjaxUpdatedControl ControlID="ccmbTerm" />
-                        <telerik:AjaxUpdatedControl ControlID="ccmbPress" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" />
+                        <telerik:AjaxUpdatedControl ControlID="ccmbPress" />
                         <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
                 <telerik:AjaxSetting AjaxControlID="ccmbTerm">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="ccmbBookseller">
                     <UpdatedControls>
                         <telerik:AjaxUpdatedControl ControlID="ccmbPress" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
@@ -59,7 +65,25 @@
                         args.set_enableAjax(false);
                     }
                 }
-
+                //异步回调,刷新grid
+                function refreshGrid(arg) {
+                    $find("<%= RadAjaxManager1.ClientID %>").ajaxRequest(arg);
+                }
+                //工具栏
+                function OnToolBarButtonClicked(sender, args) {
+                    var button = args.get_item();
+                    var command = button.get_commandName();
+                    var a = true;                    
+                    if (command == "Delete") {
+                        a = confirm("确认删除？");
+                        if (a == true) {
+                            refreshGrid("Delete");
+                        }
+                        else {
+                            args.set_cancel(true);
+                        }
+                    }
+                }
                 //教材详单弹窗
                 function OnRequestTextbook(TextbookId) {
                     var oWnd = $find("<%=wdw_TextbookDetailMessage.ClientID%>");
@@ -71,15 +95,17 @@
         </telerik:RadCodeBlock>
 
         <div>
-            <utm:UTMisToolBar ID="UTMisToolBar1" runat="server" SkinID="Long">
+            <utm:UTMisToolBar ID="UTMisToolBar1" runat="server" SkinID="Long" OnClientButtonClicked="OnToolBarButtonClicked">
                 <Items>
+                    <telerik:RadToolBarButton runat="server" Text="删除" ToolTip="删除选中的订单" ImageUrl="~/Img/tlb_Delete.png" CommandName="Delete">
+                    </telerik:RadToolBarButton>
                     <telerik:RadToolBarButton runat="server" Text="帮助" ImageUrl="~/Img/tlb_Help.png">
                     </telerik:RadToolBarButton>
                 </Items>
             </utm:UTMisToolBar>
             <utm:UTMisTabStrip ID="UTMisTabStrip1" runat="server" MultiPageID="mp_OrderBySchool" SkinID="Long">
                 <Tabs>
-                    <utm:UTMisTab runat="server" Text="按出版社制订订单" PageViewID="pv_OrderBySchool" Selected="true">
+                    <utm:UTMisTab runat="server" Text="订单查询" PageViewID="pv_OrderBySchool" Selected="true">
                     </utm:UTMisTab>
                 </Tabs>
             </utm:UTMisTabStrip>
@@ -91,9 +117,17 @@
                                 <td>
                                     <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
                                         DataTextField="Description" DataValueField="YearTerm"
-                                        OnDataBinding="ccmbTerm_DataBinding" 
-                                        OnDataBound="ccmbTerm_DataBound" 
+                                        OnDataBinding="ccmbTerm_DataBinding"
+                                        OnDataBound="ccmbTerm_DataBound"
                                         OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                    </utm:UTMisComboBox>
+                                </td>
+                                <td>
+                                    <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                        DataTextField="Name" DataValueField="BooksellerId"
+                                        OnDataBinding="ccmbBookseller_BeforeDataBind"
+                                        OnDataBound="ccmbBookseller_DataBound"
+                                        OnSelectedIndexChanged="ccmbBookseller_SelectedIndexChanged">
                                     </utm:UTMisComboBox>
                                 </td>
                                 <td>
@@ -104,30 +138,8 @@
                                     </utm:UTMisComboBox>
                                 </td>
                                 <td>
-                                    <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="ccmbPress_AfterDataBind" />
+                                    <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="cbtnQuery_Click" />
                                 </td>
-                                <td>
-                                    <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" IsMaintainSelectedValue="true"
-                                        DataTextField="Name" DataValueField="BooksellerId"
-                                        OnDataBinding="ccmbBookseller_BeforeDataBind">
-                                    </utm:UTMisComboBox>
-                                </td>
-                                <td>
-                                    <utm:UTMisTextBox runat="server" ID="ctxtSpareCount" Text="0" Label="上抛数量：" LabelWidth="80" SkinID="txt200">
-                                    </utm:UTMisTextBox>
-                                </td>
-                                <td>
-                                    <utm:UTMisButton runat="server" ID="cbtnOrder" Text="生成订单" 
-                                        OnClick="cbtnOrder_Click" 
-                                        OnAfterClick="cbtnOrder_AfterClick" />
-                                </td>
-                                <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="上抛数量不能为空" ControlToValidate="ctxtSpareCount"
-                                        Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="上抛数量应大于0小于1000，如：1" ControlToValidate="ctxtSpareCount"
-                                        ForeColor="Red" Display="Dynamic" Type="Integer" MinimumValue="0" MaximumValue="1000"></asp:RangeValidator>
-                                </td>
-
                             </tr>
                         </table>
                     </div>
@@ -160,6 +172,14 @@
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
                                 <telerik:GridBoundColumn HeaderText="申报数量" DataField="DeclarationCount" HeaderStyle-Width="100">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="上抛数量" DataField="SpareCount" HeaderStyle-Width="100">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="订单总数" DataField="TotalCount" HeaderStyle-Width="100">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="征订状态" DataField="SubscriptionState" HeaderStyle-Width="100">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="征订日期" DataField="SubscriptionDate" HeaderStyle-Width="100">
                                 </telerik:GridBoundColumn>
                             </Columns>
                         </MasterTableView>
