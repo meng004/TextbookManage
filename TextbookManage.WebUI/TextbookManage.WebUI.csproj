@@ -271,6 +271,9 @@
     <Content Include="Service References\SubscriptionService\TextbookManage.WebUI.SubscriptionService.FeedbackStateView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\SubscriptionService\TextbookManage.WebUI.SubscriptionService.SubscriptionForFeedbackView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\TermService\TermService.disco" />
     <None Include="Service References\TermService\configuration91.svcinfo" />
     <None Include="Service References\TermService\configuration.svcinfo" />
@@ -278,6 +281,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="SubscriptionPlan\OrderQuery.aspx" />
     <Content Include="SubscriptionPlan\OrderByPress.aspx" />
     <Content Include="WindowForMessage\帮助文档.doc" />
     <Content Include="WindowForMessage\TbmisHelp.aspx" />
@@ -977,6 +981,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionPlan\OrderQuery.aspx.cs">
+      <DependentUpon>OrderQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubscriptionPlan\OrderQuery.aspx.designer.cs">
+      <DependentUpon>OrderQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="SubscriptionPlan\OrderByPress.aspx.cs">
       <DependentUpon>OrderByPress.aspx</DependentUpon>
