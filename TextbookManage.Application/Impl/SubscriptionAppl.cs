@@ -55,7 +55,7 @@ namespace TextbookManage.Applications.Impl
         #endregion
 
         #region 实现接口
-        
+
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByTextbook(string term, string textbookName, string isbn)
         {
             //删除未征订的订单
@@ -167,7 +167,7 @@ namespace TextbookManage.Applications.Impl
                 .OrderBy(t => t)
                 .ToList();
             //检查
-            if (press.Count() == 0)
+            if (press.Count == 0)
             {
                 press = new List<string> { "没有未征订的用书申报" };
             }
@@ -177,7 +177,7 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<SubscriptionForSubmitView> CreateSubscriptionsByPress(string term, string press)
         {
-            
+
             //删除未征订的订单
             RemoveNotSubscription();
             _subscriptionRepo.Context.Commit();
@@ -241,24 +241,51 @@ namespace TextbookManage.Applications.Impl
             return result;
         }
 
-        public IEnumerable<SubscriptionForSubmitView> GetSubscriptions(string term, FeedbackStateView state)
+        public IEnumerable<string> GetPressByBookseller(string term, string booksellerId)
         {
             //学期
             var yearTerm = new SchoolYearTerm(term);
-            //订单状态
-            var subscriptionState = FeedbackState.未征订;
-            Enum.TryParse(state.Name, out subscriptionState);
+            //书商ID
+            var id = booksellerId.ConvertToGuid();
             //取订单
             var subscriptions = _subscriptionRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year &&
                 t.SchoolYearTerm.Term == yearTerm.Term &&
-                t.SubscriptionState == subscriptionState
+                t.Bookseller_Id == id &&
+                t.SubscriptionState != FeedbackState.未征订
                 );
-            var result = _adapter.Adapt<SubscriptionForSubmitView>(subscriptions);
+            //取出版社
+            var press = subscriptions.Select(t => t.Textbook.Press).Distinct().OrderBy(t => t).ToList();
+            //检查
+            if (press.Count == 0)
+            {
+                press = new List<string> { "没有订单" };
+            }
+
+            return press;
+        }
+
+        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptions(string term, string booksellerId, string press)
+        {
+            //学期
+            var yearTerm = new SchoolYearTerm(term);
+            //书商ID
+            var id = booksellerId.ConvertToGuid();
+
+            //取订单
+            var subscriptions = _subscriptionRepo.Find(t =>
+                t.SchoolYearTerm.Year == yearTerm.Year &&
+                t.SchoolYearTerm.Term == yearTerm.Term &&
+                t.Bookseller_Id == id &&
+                t.Textbook.Press == press
+                );
+            //按教材名称排序
+            subscriptions = subscriptions.OrderBy(t => t.Textbook.Name );
+            var result = _adapter.Adapt<SubscriptionForFeedbackView>(subscriptions);
             return result;
         }
 
-        public ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForSubmitView> subscriptions)
+        public ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForFeedbackView> subscriptions)
         {
             //取订单ID
             var ids = subscriptions.Select(d => d.SubscriptionId.ConvertToGuid());
@@ -346,6 +373,9 @@ namespace TextbookManage.Applications.Impl
                 t.SubscriptionState == FeedbackState.未征订);
         }
         #endregion
+
+
+
 
     }
 }
