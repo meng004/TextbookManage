@@ -31,6 +31,10 @@
         /// </summary>
         [DataMember]
         public string SubscriptionDate { get; set; }
-
+        /// <summary>
+        /// 征订状态
+        /// </summary>
+        [DataMember]
+        public string SubscriptionState { get; set; }
     }
 }
