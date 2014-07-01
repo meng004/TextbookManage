@@ -74,14 +74,25 @@ namespace TextbookManage.IApplications
         IEnumerable<FeedbackStateView> GetFeedbackState();
 
         /// <summary>
-        /// 查询订单
+        /// 取订单的出版社
         /// </summary>
-        /// <param name="term">学年学期</param>
-        /// <param name="state">订单状态</param>
+        /// <param name="term">学期</param>
+        /// <param name="booksellerId">书商ID</param>
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Get)]
-        IEnumerable<SubscriptionForSubmitView> GetSubscriptions(string term, FeedbackStateView state);
+        IEnumerable<string> GetPressByBookseller(string term, string booksellerId);
+
+        /// <summary>
+        /// 查询订单
+        /// </summary>
+        /// <param name="term">学年学期</param>
+        /// <param name="booksellerId">书商ID</param>
+        /// <param name="press">出版社名称</param>
+        /// <returns></returns>
+        [OperationContract]
+        [Cache(CacheMethod.Get)]
+        IEnumerable<SubscriptionForFeedbackView> GetSubscriptions(string term, string booksellerId, string press);
 
         /// <summary>
         /// 删除订单
@@ -90,6 +101,6 @@ namespace TextbookManage.IApplications
         /// <returns></returns>
         [OperationContract]
         [Cache(CacheMethod.Remove)]
-        ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForSubmitView> subscriptions);
+        ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForFeedbackView> subscriptions);
     }
 }
