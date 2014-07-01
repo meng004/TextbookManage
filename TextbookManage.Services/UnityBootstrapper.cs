@@ -42,7 +42,8 @@ namespace TextbookManage.Services
                 .RegisterType<ISubscriptionRepository, SubscriptionRepository>()
                 .RegisterType<ITbmisUserRepository, TbmisUserRepository>();
             //JiaoWu Repository
-            container.RegisterType<IDataSignRepository, DataSignRepository>()
+            container.RegisterType<IBooksellerRepository, BooksellerRepository>()
+                .RegisterType<IDataSignRepository, DataSignRepository>()
                 .RegisterType<IDepartmentRepository, DepartmentRepository>()
                 .RegisterType<IPressRepository, PressRepository>()
                 .RegisterType<IProfessionalClassRepository, ProfessionalClassRepository>()
@@ -58,7 +59,12 @@ namespace TextbookManage.Services
                 .RegisterType<ITextbookRepository, TextbookRepository>();
 
             //Application
-            container.RegisterType<IFeedbackAppl, FeedbackAppl>(
+            container.RegisterType<IBooksellerAppl, BooksellerAppl>(
+                new Interceptor<InterfaceInterceptor>(),
+                new InterceptionBehavior<CacheBehavior>(),
+                new InterceptionBehavior<ExceptionLoggerBehavior>()
+                )
+                .RegisterType<IFeedbackAppl, FeedbackAppl>(
                 new Interceptor<InterfaceInterceptor>(),
                 new InterceptionBehavior<CacheBehavior>(),
                 new InterceptionBehavior<ExceptionLoggerBehavior>()

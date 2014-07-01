@@ -6137,3 +6137,52 @@ System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while upd
    在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepositoryContext.Commit() 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepositoryContext.cs:行号 47
    在 TextbookManage.Applications.Impl.SubscriptionAppl.CreateSubscriptionsByPress(String term, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 196
    在 DynamicModule.ns.Wrapped_ISubscriptionAppl_7785edebf4374bd8866e6bef6848b2ef.<CreateSubscriptionsByPress_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-01 18:15:20,387 [11] ERROR ExceptionLogger - Exception caught
+System.ArgumentException: 必须至少有一个对象实现 IComparable。
+   在 System.Collections.Comparer.Compare(Object a, Object b)
+   在 System.Collections.Generic.ObjectComparer`1.Compare(T x, T y)
+   在 System.Linq.EnumerableSorter`2.CompareKeys(Int32 index1, Int32 index2)
+   在 System.Linq.EnumerableSorter`1.QuickSort(Int32[] map, Int32 left, Int32 right)
+   在 System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   在 System.Linq.OrderedEnumerable`1.<GetEnumerator>d__0.MoveNext()
+   在 TextbookManage.Infrastructure.TypeAdapter.AutoMapperTypeAdapter.Adapt[TTarget](IEnumerable`1 source) 位置 g:\Repos\TextbookManage\TextbookManage.Infrastructure\TypeAdapter\AutoMapperTypeAdapter.cs:行号 101
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSubscriptions(String term, String booksellerId, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 283
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_1209763c6516472288fb3f300d5e7748.<GetSubscriptions_DelegateImplementation>__8(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-01 18:18:09,044 [14] ERROR ExceptionLogger - Exception caught
+System.ArgumentException: 必须至少有一个对象实现 IComparable。
+   在 System.Collections.Comparer.Compare(Object a, Object b)
+   在 System.Collections.Generic.ObjectComparer`1.Compare(T x, T y)
+   在 System.Linq.EnumerableSorter`2.CompareKeys(Int32 index1, Int32 index2)
+   在 System.Linq.EnumerableSorter`1.QuickSort(Int32[] map, Int32 left, Int32 right)
+   在 System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   在 System.Linq.OrderedEnumerable`1.<GetEnumerator>d__0.MoveNext()
+   在 TextbookManage.Infrastructure.TypeAdapter.AutoMapperTypeAdapter.Adapt[TTarget](IEnumerable`1 source) 位置 g:\Repos\TextbookManage\TextbookManage.Infrastructure\TypeAdapter\AutoMapperTypeAdapter.cs:行号 101
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSubscriptions(String term, String booksellerId, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 283
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_e14037a045394791b5408091567ed6cd.<GetSubscriptions_DelegateImplementation>__8(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-01 18:19:29,415 [11] ERROR ExceptionLogger - Exception caught
+System.ArgumentException: 必须至少有一个对象实现 IComparable。
+   在 System.Collections.Comparer.Compare(Object a, Object b)
+   在 System.Collections.Generic.ObjectComparer`1.Compare(T x, T y)
+   在 System.Linq.EnumerableSorter`2.CompareKeys(Int32 index1, Int32 index2)
+   在 System.Linq.EnumerableSorter`1.QuickSort(Int32[] map, Int32 left, Int32 right)
+   在 System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   在 System.Linq.OrderedEnumerable`1.<GetEnumerator>d__0.MoveNext()
+   在 TextbookManage.Infrastructure.TypeAdapter.AutoMapperTypeAdapter.Adapt[TTarget](IEnumerable`1 source) 位置 g:\Repos\TextbookManage\TextbookManage.Infrastructure\TypeAdapter\AutoMapperTypeAdapter.cs:行号 101
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSubscriptions(String term, String booksellerId, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 284
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_06e41df154b043cbaea2f3ebc2d81f2f.<GetSubscriptions_DelegateImplementation>__8(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-01 18:20:19,131 [10] ERROR ExceptionLogger - Exception caught
+System.ArgumentException: 必须至少有一个对象实现 IComparable。
+   在 System.Collections.Comparer.Compare(Object a, Object b)
+   在 System.Collections.Generic.ObjectComparer`1.Compare(T x, T y)
+   在 System.Linq.EnumerableSorter`2.CompareKeys(Int32 index1, Int32 index2)
+   在 System.Linq.EnumerableSorter`1.QuickSort(Int32[] map, Int32 left, Int32 right)
+   在 System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   在 System.Linq.OrderedEnumerable`1.<GetEnumerator>d__0.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSubscriptions(String term, String booksellerId, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 283
+   在 DynamicModule.ns.Wrapped_ISubscriptionAppl_f25350d9d57f42108666185aaa24b839.<GetSubscriptions_DelegateImplementation>__8(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

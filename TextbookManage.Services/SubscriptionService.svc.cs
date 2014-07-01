@@ -48,15 +48,20 @@ namespace TextbookManage.Services
         {
             return _impl.GetFeedbackState();
         }
-
-        public IEnumerable<SubscriptionForSubmitView> GetSubscriptions(string term, FeedbackStateView state)
+        public IEnumerable<string> GetPressByBookseller(string term, string booksellerId)
         {
-            return _impl.GetSubscriptions(term, state);
+            return _impl.GetPressByBookseller(term, booksellerId);
         }
 
-        public ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForSubmitView> subscriptions)
+        public IEnumerable<SubscriptionForFeedbackView> GetSubscriptions(string term, string booksellerId, string press)
+        {
+            return _impl.GetSubscriptions(term, booksellerId, press);
+        }
+
+        public ResponseView RemoveSubscriptions(IEnumerable<SubscriptionForFeedbackView> subscriptions)
         {
             return _impl.RemoveSubscriptions(subscriptions);
         }
+
     }
 }
