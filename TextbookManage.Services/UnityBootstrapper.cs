@@ -26,6 +26,7 @@ namespace TextbookManage.Services
             container.AddNewExtension<Interception>();
             //Infrastructure
             container.RegisterType<ITypeAdapter, AutoMapperTypeAdapter>()
+                //缓存
                 .RegisterType<ICacheProvider, EntLibCacheProvider>(new ContainerControlledLifetimeManager())
                 //异常记录器
                 .RegisterType<ILogger, Log4netLogger>(LoggerName.ExceptionLogger.ToString(), new InjectionConstructor(LoggerName.ExceptionLogger.ToString()))
