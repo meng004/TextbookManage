@@ -80,7 +80,9 @@
                                 <td>
                                     <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
                                         DataTextField="Description" DataValueField="YearTerm"
-                                        OnDataBinding="ccmbTerm_DataBinding" OnDataBound="ccmbTerm_DataBound" OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                        OnDataBinding="ccmbTerm_DataBinding" 
+                                        OnDataBound="ccmbTerm_DataBound" 
+                                        OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
                                     </utm:UTMisComboBox>
                                 </td>
                                 <td>

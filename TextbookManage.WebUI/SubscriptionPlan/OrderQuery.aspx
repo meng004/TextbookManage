@@ -27,27 +27,29 @@
                         <telerik:AjaxUpdatedControl ControlID="ccmbTerm" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbPress" />
-                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
                 <telerik:AjaxSetting AjaxControlID="ccmbTerm">
                     <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbPress"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
                 <telerik:AjaxSetting AjaxControlID="ccmbBookseller">
                     <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="ccmbPress" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbPress"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
                 <telerik:AjaxSetting AjaxControlID="ccmbPress">
                     <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
                 <telerik:AjaxSetting AjaxControlID="cgrdPlanSet">
                     <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cgrdPlanSet"></telerik:AjaxUpdatedControl>
                     </UpdatedControls>
                 </telerik:AjaxSetting>
             </AjaxSettings>
@@ -73,7 +75,7 @@
                 function OnToolBarButtonClicked(sender, args) {
                     var button = args.get_item();
                     var command = button.get_commandName();
-                    var a = true;                    
+                    var a = true;
                     if (command == "Delete") {
                         a = confirm("确认删除？");
                         if (a == true) {
@@ -118,7 +120,6 @@
                                     <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
                                         DataTextField="Description" DataValueField="YearTerm"
                                         OnDataBinding="ccmbTerm_DataBinding"
-                                        OnDataBound="ccmbTerm_DataBound"
                                         OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
                                     </utm:UTMisComboBox>
                                 </td>
@@ -131,14 +132,14 @@
                                     </utm:UTMisComboBox>
                                 </td>
                                 <td>
-                                    <utm:UTMisComboBox runat="server" ID="ccmbPress" Label="出版社：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    <utm:UTMisComboBox runat="server" ID="ccmbPress" Label="出版社：" SkinID="cmb200" AutoPostBack="true"
                                         OnDataBinding="ccmbPress_BeforeDataBind"
                                         OnDataBound="ccmbPress_AfterDataBind"
                                         OnSelectedIndexChanged="ccmbPress_SelectedIndexChanged">
                                     </utm:UTMisComboBox>
                                 </td>
                                 <td>
-                                    <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="cbtnQuery_Click" />
+                                    <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="ccmbPress_AfterDataBind" />
                                 </td>
                             </tr>
                         </table>

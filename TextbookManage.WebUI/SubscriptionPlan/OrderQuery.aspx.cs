@@ -7,6 +7,7 @@ using TextbookManage.WebUI.SubscriptionService;
 
 using Telerik.Web.UI;
 using TextbookManage.WebUI.BooksellerService;
+using TextbookManage.WebUI.TermService;
 
 namespace TextbookManage.WebUI.SubscriptionPlan
 {
@@ -49,23 +50,17 @@ namespace TextbookManage.WebUI.SubscriptionPlan
 
         protected void ccmbTerm_DataBinding(object sender, EventArgs e)
         {
-            using (TermService.TermApplClient app = new TermService.TermApplClient())
+            using (TermApplClient app = new TermApplClient())
             {
                 var result = app.GetAllTerms();
                 ccmbTerm.DataSource = result;
             }
         }
 
-        protected void ccmbTerm_DataBound(object sender, EventArgs e)
-        {
-            //获取书商列表
-            ccmbBookseller.DoDataBind();
-        }
 
         protected void ccmbTerm_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            //获取书商列表
-            ccmbBookseller.DoDataBind();
+            ccmbPress.DoDataBind();
         }
         #endregion
 
@@ -200,11 +195,6 @@ namespace TextbookManage.WebUI.SubscriptionPlan
             }
         }
         #endregion
-
-        protected void cbtnQuery_Click(object sender, EventArgs e)
-        {
-            cgrdPlanSet.DoDataBind();
-        }
 
     }
 }
