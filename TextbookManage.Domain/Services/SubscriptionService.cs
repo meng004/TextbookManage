@@ -42,7 +42,7 @@ namespace TextbookManage.Domain
         /// <param name="teacherDeclarations">教师用书申报</param>
         /// <returns></returns>
         public static IEnumerable<Subscription> CreateSubscriptions(
-            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, 
+            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations,
             IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations
             )
         {
@@ -87,7 +87,7 @@ namespace TextbookManage.Domain
         /// <param name="teacherDeclarations">教务教师用书申报</param>
         /// <returns></returns>
         public static IEnumerable<Subscription> CreateSubscriptionsByPress(
-            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations, 
+            IEnumerable<StudentDeclarationJiaoWu> studentDeclarations,
             IEnumerable<TeacherDeclarationJiaoWu> teacherDeclarations
             )
         {
@@ -246,18 +246,19 @@ namespace TextbookManage.Domain
         /// <param name="subscriptionPlan">订单</param>
         /// <param name="feedBackState">回告状态，成功或失败</param>
         /// <param name="remark">回告说明</param>
-        /// <param name="feedbackPerson">回告人</param>
+        /// <param name="feedbackPerson">回告人</param>        
         /// <returns></returns>
-        public static Feedback CreateFeedback(string feedbackPerson, bool feedBackState, string remark)
+        public static Feedback CreateFeedback(string feedbackPerson, FeedbackState feedBackState, string remark)
         {
             //创建回告
             var feedback = new Feedback
             {
+                ID = Guid.NewGuid(),
                 FeedbackDate = DateTime.Now, //true为征订成功
-                FeedbackState = feedBackState ? FeedbackState.征订成功 : FeedbackState.征订失败,
+                FeedbackState = feedBackState,
                 Remark = remark,
                 Person = feedbackPerson, //教材科审核中
-                ApprovalState = ApprovalState.教材科审核中 /*订单添加回告*/
+                ApprovalState = ApprovalState.教材科审核中 /*订单添加回告*/                
             };
 
             return feedback;
