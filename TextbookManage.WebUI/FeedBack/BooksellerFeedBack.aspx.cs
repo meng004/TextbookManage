@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using Telerik.Web.UI;
 //添加引用
 using TextbookManage.WebUI.FeedbackService;
+using TextbookManage.WebUI.TermService;
 
 
 namespace TextbookManage.WebUI.FeedBack
@@ -26,7 +27,7 @@ namespace TextbookManage.WebUI.FeedBack
         //教材科,hynhpgj
         //教务处，jwclsl
 
-        
+
         #endregion
 
         #region 页面加载
@@ -38,22 +39,39 @@ namespace TextbookManage.WebUI.FeedBack
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
             if (!IsPostBack)
             {
                 using (FeedbackApplClient app = new FeedbackApplClient())
                 {
+                    if (string.IsNullOrWhiteSpace(_loginName))
+                        return;
                     //回告人
                     ctxt_Sign.Text = app.GetFeedbackPerson(_loginName);
                 }
 
-                //获取定单列表
-                cgrdOrderSet.DoDataBind();
+                //学期
+                ccmbTerm.DoDataBind();
             }
         }
 
+        #endregion
+
+        #region 学期
+
+        protected void ccmbTerm_DataBinding(object sender, EventArgs e)
+        {
+            using (TermApplClient app = new TermApplClient())
+            {
+                var result = app.GetAllTerms();
+                ccmbTerm.DataSource = result;
+            }
+        }
+
+
+        protected void ccmbTerm_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            cgrdOrderSet.DoDataBind();
+        }
         #endregion
 
         #region 定单列表
@@ -67,8 +85,10 @@ namespace TextbookManage.WebUI.FeedBack
         {
             using (FeedbackApplClient app = new FeedbackApplClient())
             {
+                //学期
+                var term = ccmbTerm.SelectedValue;
                 //获取未回告订单列表
-                cgrdOrderSet.DataSource = app.GetSubscriptionWithNotFeedback(_loginName);
+                cgrdOrderSet.DataSource = app.GetSubscriptionWithNotFeedback(term, _loginName);
             }
 
         }
@@ -115,14 +135,15 @@ namespace TextbookManage.WebUI.FeedBack
                 string feedbackState = crdlFeedbackState.SelectedText.Trim();
                 //获取回告说明
                 string feedbackRemark = ctxtRemark.Text.Trim();
+                //回告人
+                var person = ctxt_Sign.Text;
                 //提交回告
                 using (FeedbackApplClient app = new FeedbackApplClient())
                 {
-                    var result = app.SubmitFeedback(views.ToArray(), _loginName, feedbackState, feedbackRemark);
+                    var result = app.SubmitFeedback(views.ToArray(), person, feedbackState, feedbackRemark);
                     //提示消息
                     USCTAMis.Web.WebClient.ScriptManager.Alert(result.Message);
                 }
-
             }
             else
             {

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Telerik.Web.UI;
 using TextbookManage.WebUI.FeedbackService;
+using TextbookManage.WebUI.TermService;
 
 
 namespace TextbookManage.WebUI.FeedBack
@@ -32,10 +34,12 @@ namespace TextbookManage.WebUI.FeedBack
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
-        {           
+        {
 
             if (!IsPostBack)
             {
+                //学期
+                ccmbTerm.DoDataBind();
                 //获取书商列表
                 ccmbBookseller.DataBind();
                 //获取回告状态                               
@@ -43,6 +47,24 @@ namespace TextbookManage.WebUI.FeedBack
             }
         }
 
+        #endregion
+
+        #region 学期
+
+        protected void ccmbTerm_DataBinding(object sender, EventArgs e)
+        {
+            using (TermApplClient app = new TermApplClient())
+            {
+                var result = app.GetAllTerms();
+                ccmbTerm.DataSource = result;
+            }
+        }
+
+
+        protected void ccmbTerm_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            cgrdOrderSet.DoDataBind();
+        }
         #endregion
 
         #region 书商
@@ -57,7 +79,7 @@ namespace TextbookManage.WebUI.FeedBack
             using (FeedbackApplClient app = new FeedbackApplClient())
             {
                 ccmbBookseller.DataSource = app.GetBookseller(_loginName);
-            }            
+            }
         }
 
         #endregion
@@ -74,7 +96,7 @@ namespace TextbookManage.WebUI.FeedBack
             using (FeedbackApplClient app = new FeedbackApplClient())
             {
                 ccmbFeedbackState.DataSource = app.GetFeedbackState();
-            }            
+            }
         }
 
 
@@ -106,12 +128,17 @@ namespace TextbookManage.WebUI.FeedBack
         /// <param name="e"></param>
         protected void cgrdOrderSet_BeforeDataBind(object sender, EventArgs e)
         {
+            //学期
+            string term = ccmbTerm.SelectedValue;
+            //书商ID
             string booksellerId = ccmbBookseller.SelectedValue;
-            string feedbackState = ccmbFeedbackState.Text;
+            //回告状态ID
+            string feedbackState = ccmbFeedbackState.SelectedValue;
+
             using (FeedbackApplClient app = new FeedbackApplClient())
             {
-                cgrdOrderSet.DataSource = app.GetSubscriptionByBooksellerId(booksellerId, feedbackState);
-            }            
+                cgrdOrderSet.DataSource = app.GetSubscriptionByBooksellerId(term, booksellerId, feedbackState);
+            }
         }
 
         /// <summary>
@@ -120,7 +147,7 @@ namespace TextbookManage.WebUI.FeedBack
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void cgrdOrderSet_BeforePageIndexChanged(object sender, EventArgs e)
-        {            
+        {
             cgrdOrderSet.PersistCheckState<SubscriptionForFeedbackView>();
         }
         #endregion

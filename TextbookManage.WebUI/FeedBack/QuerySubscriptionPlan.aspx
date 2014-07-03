@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>查询订单</title>
+    <title>书商订单查询</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,8 +24,14 @@
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                     <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbTerm" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbBookseller" />
                         <telerik:AjaxUpdatedControl ControlID="ccmbFeedbackState" />
+                        <telerik:AjaxUpdatedControl ControlID="cgrdOrderSet" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="ccmbTerm">
+                    <UpdatedControls>
                         <telerik:AjaxUpdatedControl ControlID="cgrdOrderSet" LoadingPanelID="RadAjaxLoadingPanel1" />
                     </UpdatedControls>
                 </telerik:AjaxSetting>
@@ -83,48 +89,49 @@
                     </telerik:RadToolBarButton>
                 </Items>
             </utm:UTMisToolBar>
-            <utm:UTMisTabStrip runat="server" ID="ctspHead" MultiPageID="mp_Feedback">
+            <utm:UTMisTabStrip runat="server" ID="ctspHead" MultiPageID="mp_Feedback" SkinID="Long">
                 <Tabs>
-                    <utm:UTMisTab runat="server" Text="书商回告" PageViewID="pv_Feedback" Selected="true">
+                    <utm:UTMisTab runat="server" Text="书商订单查询" PageViewID="pv_Feedback" Selected="true">
                     </utm:UTMisTab>
                 </Tabs>
             </utm:UTMisTabStrip>
             <utm:UTMisMultiPage runat="server" ID="mp_Feedback" SkinID="Long">
                 <utm:UTMisPageView runat="server" ID="pv_Feedback">
-
                     <table>
                         <tr>
                             <td>
-                                <telerik:RadComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
-                                    DataTextField="Name" DataValueField="BooksellerId"
-                                    OnDataBinding="ccmbBookseller_BeforeDataBind" 
-                                    OnSelectedIndexChanged="ccmbFeedbackState_SelectedIndexChanged">
-                                </telerik:RadComboBox>
+                                <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    DataTextField="Description" DataValueField="YearTerm"
+                                    OnDataBinding="ccmbTerm_DataBinding"
+                                    OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
                             </td>
                             <td>
-                                <telerik:RadComboBox runat="server" ID="ccmbFeedbackState" Label="回告状态：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    DataTextField="Name" DataValueField="BooksellerId"
+                                    OnDataBinding="ccmbBookseller_BeforeDataBind"
+                                    OnSelectedIndexChanged="ccmbFeedbackState_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
+                            </td>
+                            <td>
+                                <utm:UTMisComboBox runat="server" ID="ccmbFeedbackState" Label="回告状态：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
                                     DataTextField="Name" DataValueField="Id"
-                                    OnDataBinding="ccmbFeedbackState_BeforeDataBind" OnAfterDataBind="cbtnQuery_Click" OnSelectedIndexChanged="ccmbFeedbackState_SelectedIndexChanged">
-                                </telerik:RadComboBox>
+                                    OnDataBinding="ccmbFeedbackState_BeforeDataBind"
+                                    OnAfterDataBind="cbtnQuery_Click"
+                                    OnSelectedIndexChanged="ccmbFeedbackState_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
                             </td>
                             <td>
                                 <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" Width="60" OnClick="cbtnQuery_Click" />
                             </td>
                         </tr>
                     </table>
-                    <utm:UTMisGrid runat="server" ID="cgrdOrderSet" SkinID="NoExport" CheckControlID="cchkRowCheck"
-                        OnBeforeDataBind="cgrdOrderSet_BeforeDataBind" OnBeforePageIndexChanged="cgrdOrderSet_BeforePageIndexChanged">
+                    <utm:UTMisGrid runat="server" ID="cgrdOrderSet" SkinID="AutoPages" 
+                        OnBeforeDataBind="cgrdOrderSet_BeforeDataBind"
+                        OnBeforePageIndexChanged="cgrdOrderSet_BeforePageIndexChanged">
                         <MasterTableView AllowPaging="true" PageSize="10" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示">
                             <PagerStyle Mode="NextPrevAndNumeric" PagerTextFormat="{4}第{0}页 共{1}页" PageButtonCount="4" />
                             <Columns>
-                                <%--                                <telerik:GridTemplateColumn UniqueName="cchkCheck" DataField="CheckFlag" HeaderStyle-Width="40px">
-                                    <HeaderTemplate>
-                                        <utm:UTMisCheckBox runat="server" ID="cchkCheckAll" AutoPostBack="true" OnCheckedChanged="cchkCheckAll_CheckedChanged"></utm:UTMisCheckBox>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <utm:UTMisCheckBox runat="server" ID="cchkRowCheck"></utm:UTMisCheckBox>
-                                    </ItemTemplate>
-                                </telerik:GridTemplateColumn>--%>
                                 <telerik:GridTemplateColumn HeaderText="序号" HeaderStyle-Width="40">
                                     <ItemTemplate>
                                         <%#Container .DataSetIndex +1 %>
@@ -138,18 +145,17 @@
                                             <%# Eval("Name")%></a>
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
-                                <telerik:GridBoundColumn HeaderText="征订数量" DataField="DeclarationCount" HeaderStyle-Width="80">
+                                <telerik:GridBoundColumn HeaderText="申报数量" DataField="DeclarationCount" HeaderStyle-Width="80">
                                 </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn HeaderText="上抛数量" DataField="SpareCount" HeaderStyle-Width="80">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn HeaderText="小计" DataField="TotalCount" HeaderStyle-Width="80">
+                                <telerik:GridBoundColumn HeaderText="征订总数" DataField="TotalCount" HeaderStyle-Width="80">
                                 </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn HeaderText="征订日期" DataField="SubscriptionDate" HeaderStyle-Width="120">
                                 </telerik:GridBoundColumn>
                                 <telerik:GridTemplateColumn HeaderText="回告状态" HeaderStyle-Width="200">
                                     <ItemTemplate>
-                                        <a href="#" onclick="OnRequestFeedback('<%#Eval ("SubscriptionId") %>')">
-                                            回告状态</a>
+                                        <a href="#" onclick="OnRequestFeedback('<%#Eval ("SubscriptionId") %>')">回告状态</a>
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
                             </Columns>

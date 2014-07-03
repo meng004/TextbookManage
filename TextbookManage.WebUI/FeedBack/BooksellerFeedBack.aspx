@@ -24,6 +24,12 @@
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                     <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ccmbTerm" LoadingPanelID="RadAjaxLoadingPanel1" />
+                        <telerik:AjaxUpdatedControl ControlID="cgrdOrderSet" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="ccmbTerm">
+                    <UpdatedControls>
                         <telerik:AjaxUpdatedControl ControlID="cgrdOrderSet" LoadingPanelID="RadAjaxLoadingPanel1" />
                     </UpdatedControls>
                 </telerik:AjaxSetting>
@@ -73,14 +79,20 @@
             </utm:UTMisTabStrip>
             <utm:UTMisMultiPage runat="server" ID="mp_Feedback" SkinID="Long">
                 <utm:UTMisPageView runat="server" ID="pv_Feedback">
-
                     <table>
                         <tr>
+                            <td>
+                                <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    DataTextField="Description" DataValueField="YearTerm"
+                                    OnDataBinding="ccmbTerm_DataBinding"
+                                    OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
+                            </td>
                             <td>
                                 <utm:UTMisLabel ID="clblResult" runat="server" Text="回告结果：" SkinID="AutoSize"></utm:UTMisLabel>
                             </td>
                             <td>
-                                <utm:UTMisRadioButtonList runat="server" ID="crdlFeedbackState" RepeatDirection="Horizontal" >
+                                <utm:UTMisRadioButtonList runat="server" ID="crdlFeedbackState" RepeatDirection="Horizontal">
                                     <asp:ListItem Text="征订成功" Value="1" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="征订失败" Value="0"></asp:ListItem>
                                 </utm:UTMisRadioButtonList>
@@ -96,10 +108,10 @@
                                 <utm:UTMisTextBox runat="server" ID="ctxtRemark" Width="300" SkinID="Multi" Label="回告说明：" LabelWidth="80">
                                 </utm:UTMisTextBox>
                             </td>
-                            <td >
+                            <td>
                                 <utm:UTMisButton runat="server" ID="cbtnQuery" Text="刷新" Width="60" OnClick="cbtnQuery_Click" />
                             </td>
-                            <td >
+                            <td>
                                 <utm:UTMisButton runat="server" ID="cbtnSubmit" Text="提交" Width="60" OnClick="cbtnSubmit_Click" OnAfterClick="cbtnQuery_Click" />
                             </td>
                         </tr>
