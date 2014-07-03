@@ -37,15 +37,16 @@ namespace TextbookManage.Applications.Impl
         public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionWithNotFeedback(string term, string loginName)
         {
             //取当前用户的书商ID
-            var id = new TbmisUserAppl(loginName).GetUser().SchoolId;
+            //var id = new TbmisUserAppl(loginName).GetUser().SchoolId;
+            var id = "60D6E947-EC9C-4A0A-AEA6-26673C046B3C".ConvertToGuid();
             //学期
             var yearTerm = new SchoolYearTerm(term);
 
             var subscriptions = _subscriptionRepo.Find(t =>
                 t.SchoolYearTerm.Year == yearTerm.Year && //当前学期
                 t.SchoolYearTerm.Term == yearTerm.Term &&
-                t.Bookseller_Id == id  //书商
-                //t.GetFeedbackState() == FeedbackState.征订中                
+                t.Bookseller_Id == id &&//书商
+                t.SubscriptionState == FeedbackState.征订中
                 ).Where(t =>
                     !t.Feedback_Id.HasValue
                     ); //未回告;
@@ -55,21 +56,31 @@ namespace TextbookManage.Applications.Impl
 
         public ResponseView SubmitFeedback(IEnumerable<SubscriptionForFeedbackView> subscriptions, string loginName, string feedbackState, string remark)
         {
+            //回告意见
             var sugg = feedbackState.ConvertToBool();
-            var person = new TbmisUserAppl(loginName).GetUser().TbmisUserName;
+            //订单ID
             var ids = subscriptions.Select(t => t.SubscriptionId.ConvertToGuid());
+            //回告状态
+            FeedbackState state = FeedbackState.未征订;
+            Enum.TryParse(feedbackState, out state);
+            //返回消息
             var result = new ResponseView();
             //创建回告
-            var feedback = Domain.SubscriptionService.CreateFeedback(person, sugg, remark);
+            var feedback = SubscriptionService.CreateFeedback(loginName, state, remark);
             //修改订单，增加回告
-            _subscriptionRepo.Modify(
-                t => ids.Contains(t.ID),
-                d => new Subscription { Feedback = feedback }
-                );
+            var subs = _subscriptionRepo.Find(t => ids.Contains(t.ID));
+            foreach (var item in subs)
+            {
+                item.Feedback = feedback;
+                _subscriptionRepo.Modify(item);
+            }
+            //_subscriptionRepo.Modify(
+            //    t => ids.Contains(t.ID),
+            //    d => new Subscription { Feedback = feedback }
+            //    );
             try
             {
                 _subscriptionRepo.Context.Commit();
-
             }
             catch (Exception e)
             {
@@ -81,21 +92,34 @@ namespace TextbookManage.Applications.Impl
 
         public IEnumerable<BooksellerView> GetBookseller(string loginName)
         {
-            var user = new TbmisUserAppl(loginName).GetUser();
             IList<Bookseller> booksellers = new List<Bookseller>();
-
-            if (user.IsInRole("教材科"))
-            {
-                booksellers = new BooksellerAppl().GetAll().ToList();
-            }
-            else
+            if (string.IsNullOrWhiteSpace(loginName))
             {
                 booksellers.Add(
                     new Bookseller
                     {
-                        ID = (Guid)user.SchoolId,
-                        Name = user.SchoolName
+                        ID = Guid.Empty,
+                        Name = "你没有权限"
                     });
+            }
+            else
+            {
+                var user = new TbmisUserAppl(loginName).GetUser();
+
+
+                if (user.IsInRole("教材科"))
+                {
+                    booksellers = new BooksellerAppl().GetAll().ToList();
+                }
+                else
+                {
+                    booksellers.Add(
+                        new Bookseller
+                        {
+                            ID = (Guid)user.SchoolId,
+                            Name = user.SchoolName
+                        });
+                }
             }
             return _adapter.Adapt<BooksellerView>(booksellers);
         }
