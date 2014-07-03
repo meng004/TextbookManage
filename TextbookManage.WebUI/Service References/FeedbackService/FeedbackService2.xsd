@@ -4,6 +4,7 @@
   <xs:element name="GetSubscriptionWithNotFeedback">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -61,6 +62,7 @@
   <xs:element name="GetSubscriptionByBooksellerId">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="booksellerId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="feedbackStateName" nillable="true" type="xs:string" />
       </xs:sequence>
