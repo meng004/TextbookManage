@@ -6186,3 +6186,152 @@ System.ArgumentException: 必须至少有一个对象实现 IComparable。
    在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    在 TextbookManage.Applications.Impl.SubscriptionAppl.GetSubscriptions(String term, String booksellerId, String press) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\SubscriptionAppl.cs:行号 283
    在 DynamicModule.ns.Wrapped_ISubscriptionAppl_f25350d9d57f42108666185aaa24b839.<GetSubscriptions_DelegateImplementation>__8(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-03 16:05:20,656 [11] ERROR ExceptionLogger - Exception caught
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TextbookManage.Applications.Impl.FeedbackAppl.GetBookseller(String loginName) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 87
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_26d94875e2af4375926c27a153357733.<GetBookseller_DelegateImplementation>__2(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-03 16:10:46,511 [12] ERROR ExceptionLogger - Exception caught
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TextbookManage.Domain.Models.SchoolYearTerm..ctor(String yearTerm) 位置 g:\Repos\TextbookManage\TextbookManage.Domain\Models\SchoolYearTerm.cs:行号 23
+   在 TextbookManage.Applications.Impl.FeedbackAppl.GetSubscriptionByBooksellerId(String term, String booksellerId, String feedbackStateName) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 143
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_c56859a985364983838adc8980675549.<GetSubscriptionByBooksellerId_DelegateImplementation>__4(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-03 17:09:34,170 [10] ERROR ExceptionLogger - Exception caught
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TextbookManage.Applications.Impl.FeedbackAppl.GetFeedbackPerson(String loginName) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 192
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_9bf05a1724464d8383d914ae046c7c4a.<GetFeedbackPerson_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-03 17:25:46,909 [11] ERROR ExceptionLogger - Exception caught
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TextbookManage.Applications.Impl.FeedbackAppl.GetFeedbackPerson(String loginName) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 194
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_5c08ebb5b88d43af9ed40b0188be75bb.<GetFeedbackPerson_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-03 17:38:34,063 [12] ERROR ExceptionLogger - Exception caught
+System.AggregateException: 发生一个或多个错误。 ---> System.ArgumentException: 不存在从对象类型 TextbookManage.Domain.Models.Feedback 到已知的托管提供程序本机类型的映射。
+   在 System.Data.SqlClient.MetaType.GetMetaTypeFromValue(Type dataType, Object value, Boolean inferLen, Boolean streamAllowed)
+   在 System.Data.SqlClient.SqlParameter.GetMetaTypeOnly()
+   在 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   在 System.Data.SqlClient.SqlCommand.BuildParamList(TdsParser parser, SqlParameterCollection parameters)
+   在 System.Data.SqlClient.SqlCommand.BuildExecuteSql(CommandBehavior behavior, String commandText, SqlParameterCollection parameters, _SqlRPC& rpc)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 EntityFramework.Batch.SqlServerBatchRunner.<InternalUpdate>d__15`1.MoveNext()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   在 System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   在 System.Threading.Tasks.Task`1.get_Result()
+   在 EntityFramework.Batch.SqlServerBatchRunner.Update[TEntity](ObjectContext objectContext, EntityMap entityMap, ObjectQuery`1 query, Expression`1 updateExpression)
+   在 EntityFramework.Extensions.BatchExtensions.Update[TEntity](IQueryable`1 source, Expression`1 updateExpression)
+   在 EntityFramework.Extensions.BatchExtensions.Update[TEntity](IQueryable`1 source, Expression`1 filterExpression, Expression`1 updateExpression)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Modify(Expression`1 filterExpression, Expression`1 updateExpression) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 109
+   在 TextbookManage.Applications.Impl.FeedbackAppl.SubmitFeedback(IEnumerable`1 subscriptions, String loginName, String feedbackState, String remark) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 67
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_e6126ef9e1db49748eb26056741821d3.<SubmitFeedback_DelegateImplementation>__1(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+---> (内部异常 #0) System.ArgumentException: 不存在从对象类型 TextbookManage.Domain.Models.Feedback 到已知的托管提供程序本机类型的映射。
+   在 System.Data.SqlClient.MetaType.GetMetaTypeFromValue(Type dataType, Object value, Boolean inferLen, Boolean streamAllowed)
+   在 System.Data.SqlClient.SqlParameter.GetMetaTypeOnly()
+   在 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   在 System.Data.SqlClient.SqlCommand.BuildParamList(TdsParser parser, SqlParameterCollection parameters)
+   在 System.Data.SqlClient.SqlCommand.BuildExecuteSql(CommandBehavior behavior, String commandText, SqlParameterCollection parameters, _SqlRPC& rpc)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 EntityFramework.Batch.SqlServerBatchRunner.<InternalUpdate>d__15`1.MoveNext()<---
+
+
+2014-07-03 17:51:25,682 [11] ERROR ExceptionLogger - Exception caught
+System.AggregateException: 发生一个或多个错误。 ---> System.ArgumentException: 不存在从对象类型 TextbookManage.Domain.Models.Feedback 到已知的托管提供程序本机类型的映射。
+   在 System.Data.SqlClient.MetaType.GetMetaTypeFromValue(Type dataType, Object value, Boolean inferLen, Boolean streamAllowed)
+   在 System.Data.SqlClient.SqlParameter.GetMetaTypeOnly()
+   在 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   在 System.Data.SqlClient.SqlCommand.BuildParamList(TdsParser parser, SqlParameterCollection parameters)
+   在 System.Data.SqlClient.SqlCommand.BuildExecuteSql(CommandBehavior behavior, String commandText, SqlParameterCollection parameters, _SqlRPC& rpc)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 EntityFramework.Batch.SqlServerBatchRunner.<InternalUpdate>d__15`1.MoveNext()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   在 System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   在 System.Threading.Tasks.Task`1.get_Result()
+   在 EntityFramework.Batch.SqlServerBatchRunner.Update[TEntity](ObjectContext objectContext, EntityMap entityMap, ObjectQuery`1 query, Expression`1 updateExpression)
+   在 EntityFramework.Extensions.BatchExtensions.Update[TEntity](IQueryable`1 source, Expression`1 updateExpression)
+   在 EntityFramework.Extensions.BatchExtensions.Update[TEntity](IQueryable`1 source, Expression`1 filterExpression, Expression`1 updateExpression)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Modify(Expression`1 filterExpression, Expression`1 updateExpression) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 109
+   在 TextbookManage.Applications.Impl.FeedbackAppl.SubmitFeedback(IEnumerable`1 subscriptions, String loginName, String feedbackState, String remark) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 69
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_bb5ff94a26464f78ac5b6e7588a262d8.<SubmitFeedback_DelegateImplementation>__1(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+---> (内部异常 #0) System.ArgumentException: 不存在从对象类型 TextbookManage.Domain.Models.Feedback 到已知的托管提供程序本机类型的映射。
+   在 System.Data.SqlClient.MetaType.GetMetaTypeFromValue(Type dataType, Object value, Boolean inferLen, Boolean streamAllowed)
+   在 System.Data.SqlClient.SqlParameter.GetMetaTypeOnly()
+   在 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   在 System.Data.SqlClient.SqlCommand.BuildParamList(TdsParser parser, SqlParameterCollection parameters)
+   在 System.Data.SqlClient.SqlCommand.BuildExecuteSql(CommandBehavior behavior, String commandText, SqlParameterCollection parameters, _SqlRPC& rpc)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 EntityFramework.Batch.SqlServerBatchRunner.<InternalUpdate>d__15`1.MoveNext()<---
+
+
+2014-07-03 18:30:04,489 [9] ERROR ExceptionLogger - Exception caught
+System.NotSupportedException: The specified type member 'FeedbackState' is not supported in LINQ to Entities. Only initializers, entity members, and entity navigation properties are supported.
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MemberAccessTranslator.TypedTranslate(ExpressionConverter parent, MemberExpression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.UnaryTranslator.TypedTranslate(ExpressionConverter parent, UnaryExpression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.EqualsTranslator.TypedTranslate(ExpressionConverter parent, BinaryExpression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.BinaryTranslator.TypedTranslate(ExpressionConverter parent, BinaryExpression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.BinaryTranslator.TypedTranslate(ExpressionConverter parent, BinaryExpression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input, DbExpressionBinding& binding)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression& source, DbExpressionBinding& sourceBinding, DbExpression& lambda)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   在 System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   在 System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.ParallelEnumerable.ToList[TSource](ParallelQuery`1 source)
+   在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Find(Expression`1 expression) 位置 g:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 42
+   在 TextbookManage.Applications.Impl.FeedbackAppl.GetSubscriptionWithNotFeedback(String term, String loginName) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 45
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_9fe822caa50e41aa81583eca77576347.<GetSubscriptionWithNotFeedback_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2014-07-03 18:43:35,725 [10] ERROR ExceptionLogger - Exception caught
+System.InvalidOperationException: The 'FeedbackState' property on 'Feedback' could not be set to a 'System.String' value. You must set this property to a non-null value of type 'TextbookManage.Domain.Models.FeedbackState'. 
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Shaper.GetPropertyValueWithErrorHandling[TProperty](Int32 ordinal, String propertyName, String typeName)
+   在 lambda_method(Closure , Shaper )
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   在 lambda_method(Closure , Shaper )
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   在 System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 System.Data.Entity.Core.Objects.DataClasses.EntityReference`1.Load(MergeOption mergeOption)
+   在 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   在 System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   在 System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__2(TProxy proxy, TItem item)
+   在 System.Data.Entity.DynamicProxies.Subscription_0D594D6AE690D4D8F77D7AA55BE354E66269DDBA871E0F9F9A62351EE1339635.get_Feedback()
+   在 TextbookManage.Applications.Impl.FeedbackAppl.GetFeedbackBySubscriptionId(String subscriptionId) 位置 g:\Repos\TextbookManage\TextbookManage.Application\Impl\FeedbackAppl.cs:行号 191
+   在 DynamicModule.ns.Wrapped_IFeedbackAppl_5aefc230ff0f47be84de68573d49bc4e.<GetFeedbackBySubscriptionId_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
