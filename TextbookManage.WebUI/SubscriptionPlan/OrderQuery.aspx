@@ -113,39 +113,40 @@
             </utm:UTMisTabStrip>
             <utm:UTMisMultiPage ID="mp_OrderBySchool" runat="server" SkinID="Long">
                 <utm:UTMisPageView ID="pv_OrderBySchool" runat="server">
-                    <div>
-                        <table>
-                            <tr>
-                                <td>
-                                    <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
-                                        DataTextField="Description" DataValueField="YearTerm"
-                                        OnDataBinding="ccmbTerm_DataBinding"
-                                        OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
-                                    </utm:UTMisComboBox>
-                                </td>
-                                <td>
-                                    <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
-                                        DataTextField="Name" DataValueField="BooksellerId"
-                                        OnDataBinding="ccmbBookseller_BeforeDataBind"
-                                        OnDataBound="ccmbBookseller_DataBound"
-                                        OnSelectedIndexChanged="ccmbBookseller_SelectedIndexChanged">
-                                    </utm:UTMisComboBox>
-                                </td>
-                                <td>
-                                    <utm:UTMisComboBox runat="server" ID="ccmbPress" Label="出版社：" SkinID="cmb200" AutoPostBack="true"
-                                        OnDataBinding="ccmbPress_BeforeDataBind"
-                                        OnDataBound="ccmbPress_AfterDataBind"
-                                        OnSelectedIndexChanged="ccmbPress_SelectedIndexChanged">
-                                    </utm:UTMisComboBox>
-                                </td>
-                                <td>
-                                    <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="ccmbPress_AfterDataBind" />
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <utm:UTMisComboBox runat="server" ID="ccmbTerm" Label="学期：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    DataTextField="Description" DataValueField="YearTerm"
+                                    OnDataBinding="ccmbTerm_DataBinding"
+                                    OnSelectedIndexChanged="ccmbTerm_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
+                            </td>
+                            <td>
+                                <utm:UTMisComboBox runat="server" ID="ccmbBookseller" Label="书商：" SkinID="cmb200" AutoPostBack="true" IsMaintainSelectedValue="true"
+                                    DataTextField="Name" DataValueField="BooksellerId"
+                                    OnDataBinding="ccmbBookseller_BeforeDataBind"
+                                    OnDataBound="ccmbBookseller_DataBound"
+                                    OnSelectedIndexChanged="ccmbBookseller_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
+                            </td>
+                            <td>
+                                <utm:UTMisComboBox runat="server" ID="ccmbPress" Label="出版社：" SkinID="cmb200" AutoPostBack="true"
+                                    OnDataBinding="ccmbPress_BeforeDataBind"
+                                    OnDataBound="ccmbPress_AfterDataBind"
+                                    OnSelectedIndexChanged="ccmbPress_SelectedIndexChanged">
+                                </utm:UTMisComboBox>
+                            </td>
+                            <td>
+                                <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="ccmbPress_AfterDataBind" />
+                            </td>
+                        </tr>
+                    </table>
+
                     <utm:UTMisGrid runat="server" ID="cgrdPlanSet" SkinID="NoExport" CheckControlID="cchkRowCheck"
-                        OnBeforeDataBind="cgrdPlanSet_BeforeDataBind" OnBeforePageIndexChanged="cgrdPlanSet_BeforePageIndexChanged">
+                        OnBeforeDataBind="cgrdPlanSet_BeforeDataBind"
+                        OnBeforePageIndexChanged="cgrdPlanSet_BeforePageIndexChanged">
                         <MasterTableView AllowPaging="true" PageSize="10" EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示">
                             <PagerStyle Mode="NextPrevAndNumeric" PagerTextFormat="{4}第{0}页 共{1}页" PageButtonCount="4" />
                             <Columns>
@@ -176,7 +177,7 @@
                                 </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn HeaderText="上抛数量" DataField="SpareCount" HeaderStyle-Width="100">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn HeaderText="订单总数" DataField="TotalCount" HeaderStyle-Width="100">
+                                <telerik:GridBoundColumn HeaderText="征订总数" DataField="TotalCount" HeaderStyle-Width="100">
                                 </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn HeaderText="征订状态" DataField="SubscriptionState" HeaderStyle-Width="100">
                                 </telerik:GridBoundColumn>
@@ -185,6 +186,8 @@
                             </Columns>
                         </MasterTableView>
                     </utm:UTMisGrid>
+
+                    
                 </utm:UTMisPageView>
             </utm:UTMisMultiPage>
         </div>

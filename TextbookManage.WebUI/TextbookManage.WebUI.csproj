@@ -344,13 +344,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
-    <Content Include="Service References\FeedbackService\FeedbackService.disco" />
-    <Content Include="Service References\FeedbackService\configuration91.svcinfo" />
-    <Content Include="Service References\FeedbackService\configuration.svcinfo" />
-    <Content Include="Service References\FeedbackService\Reference.svcmap">
+    <None Include="Service References\FeedbackService\FeedbackService.disco" />
+    <None Include="Service References\FeedbackService\configuration91.svcinfo" />
+    <None Include="Service References\FeedbackService\configuration.svcinfo" />
+    <None Include="Service References\FeedbackService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Service References\DeclarationService\DeclarationService.wsdl" />
     <None Include="Service References\DeclarationService\DeclarationService.xsd">
       <SubType>Designer</SubType>
@@ -731,7 +731,7 @@
     <Content Include="Service References\FeedbackApprovalService\TextbookManage.WebUI.FeedbackApprovalService.ResponseView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\FeedbackService\FeedbackService.wsdl" />
+    <None Include="Service References\FeedbackService\FeedbackService.wsdl" />
     <None Include="Service References\FeedbackService\FeedbackService.xsd">
       <SubType>Designer</SubType>
     </None>
