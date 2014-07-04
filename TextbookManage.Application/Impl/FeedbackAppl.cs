@@ -42,14 +42,16 @@ namespace TextbookManage.Applications.Impl
             //学期
             var yearTerm = new SchoolYearTerm(term);
 
-            var subscriptions = _subscriptionRepo.Find(t =>
-                t.SchoolYearTerm.Year == yearTerm.Year && //当前学期
-                t.SchoolYearTerm.Term == yearTerm.Term &&
-                t.Bookseller_Id == id &&//书商
-                t.SubscriptionState == FeedbackState.征订中
-                ).Where(t =>
-                    !t.Feedback_Id.HasValue
-                    ); //未回告;
+            //var subscriptions = _subscriptionRepo.Find(t =>
+            //    t.SchoolYearTerm.Year == yearTerm.Year && //当前学期
+            //    t.SchoolYearTerm.Term == yearTerm.Term &&
+            //    t.Bookseller_Id == id &&//书商
+            //    t.SubscriptionState == FeedbackState.征订中
+            //    ).Where(t =>
+            //        !t.Feedback_Id.HasValue
+            //        ); //未回告;
+
+            var subscriptions = GetSubscriptionByState(term, id, FeedbackState.征订中).Where(t => !t.Feedback_Id.HasValue);
 
             return _adapter.Adapt<SubscriptionForFeedbackView>(subscriptions);
         }
@@ -71,7 +73,10 @@ namespace TextbookManage.Applications.Impl
             var subs = _subscriptionRepo.Find(t => ids.Contains(t.ID));
             foreach (var item in subs)
             {
+                //添加回告
                 item.Feedback = feedback;
+                //修改订单状态
+                item.SubscriptionState = state;
                 _subscriptionRepo.Modify(item);
             }
             //_subscriptionRepo.Modify(
@@ -145,41 +150,45 @@ namespace TextbookManage.Applications.Impl
                 t.SchoolYearTerm.Year == yearTerm.Year &&
                 t.SchoolYearTerm.Term == yearTerm.Term &&
                 t.Bookseller_Id == booksellerId &&
-                t.Feedback.FeedbackState == state
+                    //t.Feedback.FeedbackState == state
+                t.SubscriptionState == state
                 );
         }
 
         public IEnumerable<SubscriptionForFeedbackView> GetSubscriptionByBooksellerId(string term, string booksellerId, string feedbackStateName)
         {
-            var yearTerm = new SchoolYearTerm(term);
+            //书商ID
             var id = booksellerId.ConvertToGuid();
+            //回告状态
             FeedbackState state = FeedbackState.未征订;
             Enum.TryParse(feedbackStateName, out state);
 
             IEnumerable<Subscription> subs = new List<Subscription>();
 
-            switch (state)
-            {
-                case FeedbackState.征订中:
-                    subs = _subscriptionRepo.Find(t =>
-                        t.SchoolYearTerm.Year == yearTerm.Year &&
-                        t.SchoolYearTerm.Term == yearTerm.Term &&
-                        t.Bookseller_Id == id
-                        ).Where(t =>
-                            !t.Feedback_Id.HasValue
-                            );
-                    break;
-                case FeedbackState.征订成功:
-                    subs = GetSubscriptionByState(term, id, FeedbackState.征订成功);
-                    break;
-                case FeedbackState.征订失败:
-                    subs = GetSubscriptionByState(term, id, FeedbackState.征订失败);
-                    break;
-                case FeedbackState.未知状态:
-                case FeedbackState.未征订:
-                default:
-                    break;
-            }
+            subs = GetSubscriptionByState(term, id, state);
+
+            //switch (state)
+            //{
+            //    case FeedbackState.征订中:
+            //        subs = _subscriptionRepo.Find(t =>
+            //            t.SchoolYearTerm.Year == yearTerm.Year &&
+            //            t.SchoolYearTerm.Term == yearTerm.Term &&
+            //            t.Bookseller_Id == id
+            //            ).Where(t =>
+            //                !t.Feedback_Id.HasValue
+            //                );
+            //        break;
+            //    case FeedbackState.征订成功:
+            //        subs = GetSubscriptionByState(term, id, FeedbackState.征订成功);
+            //        break;
+            //    case FeedbackState.征订失败:
+            //        subs = GetSubscriptionByState(term, id, FeedbackState.征订失败);
+            //        break;
+            //    case FeedbackState.未知状态:
+            //    case FeedbackState.未征订:
+            //    default:
+            //        break;
+            //}
 
             return _adapter.Adapt<SubscriptionForFeedbackView>(subs);
         }
