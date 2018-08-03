@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Calendar.ascx.cs" Inherits="USCTAMis.WebPage.CommonControl.Calendar" %>
-<utm:utmisgrid id="wg_Calendar" runat="server" width="295px" height="220px" skinid="Calendar" onitemdatabound="wg_Calendar_ItemDataBound" onbeforedatabind="wg_Calendar_BeforeDataBind" clientsettings-scrolling-scrollheight="300px">
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Calendar.ascx.cs" Inherits="CPMis.WebPage.CommonControl.Calendar" %>
+<cp:CPMisGrid id="wg_Calendar" runat="server" width="295px" height="220px" skinid="Calendar" onitemdatabound="wg_Calendar_ItemDataBound" onbeforedatabind="wg_Calendar_BeforeDataBind" clientsettings-scrolling-scrollheight="300px">
     <MasterTableView>
         <Columns>
             <telerik:GridBoundColumn DataField="Week"  UniqueName="Week" ItemStyle-BackColor="#ECF4FF" HeaderText="周"   />
@@ -12,4 +12,4 @@
             <telerik:GridBoundColumn DataField="Saturday" UniqueName="Saturday" ItemStyle-ForeColor="Red" HeaderText="六"  />
         </Columns>
     </MasterTableView>
-</utm:utmisgrid>
+</cp:CPMisGrid>

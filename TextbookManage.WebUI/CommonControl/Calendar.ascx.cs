@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Telerik.Web.UI;
 
-namespace USCTAMis.WebPage.CommonControl
+namespace CPMis.WebPage.CommonControl
 {
     public partial class Calendar : System.Web.UI.UserControl
     {
-        private IBLL.Educational.ParameterSet.IEducationCalendar _calendarBLL =
+        private CPMis.IBLL.Educational.ParameterSet.IEducationCalendar _calendarBLL =
             new BLL.Educational.ParameterSet.EducationCalendar();
         private IBLL.BaseInfo.ITerm _termBLL = new BLL.BaseInfo.Term();
         private DateTime _now = DateTime.Now;
