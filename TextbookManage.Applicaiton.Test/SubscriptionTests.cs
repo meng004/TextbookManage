@@ -51,7 +51,8 @@ namespace TextbookManage.Applications.Test
                 _teaDeclJiaoWuRepo, 
                 _stuDeclRepo, 
                 _teaDeclRepo,
-                _subscriptionRepo
+                _subscriptionRepo,
+                _context
                 );
         }
 
