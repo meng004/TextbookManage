@@ -11,7 +11,9 @@ namespace USCTAMis.WebPage
 
         protected void Login_LoggedIn(object sender, EventArgs e)
         {
-            ProfileManger CurrentUserProfile = new ProfileManger(Login.UserName.Trim());
+            //ProfileManger CurrentUserProfile = new ProfileManger(Login.UserName.Trim());
+
+            ProfileManger CurrentUserProfile = new ProfileManger("nhu_lemon");
             CurrentUserProfile.SetUserProfile();
 
             Response.Write(CurrentUserProfile.UserLevel);
