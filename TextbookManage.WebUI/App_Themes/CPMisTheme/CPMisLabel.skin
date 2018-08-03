@@ -1,0 +1,24 @@
+﻿<%--
+默认的外观模板。以下外观仅作为示例提供。
+
+1. 命名的控件外观。SkinId 的定义应唯一，因为在同一主题中不允许一个控件类型有重复的 SkinId。
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. 默认外观。未定义 SkinId。在同一主题中每个控件类型只允许有一个默认的控件外观。
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+ <cp:CPMisLabel  runat="server" style="text-align:right;vertical-align:middle" Width="60px" />
+ <cp:CPMisLabel  runat="server"  style="text-align:right;vertical-align:middle" SkinID="AutoSize"/>
+
+<%--查询条件中用到的皮肤--%>
+<cp:CPMisLabel  runat="server"  style="text-align:right;vertical-align:middle;margin-left:4px" SkinID="Average"/>
+
+<%--静态文本皮肤
+      Xing:用于表单中*标记必操作项
+      Paraset:用于表单中说明性质的Label
+--%>
+<cp:CPMisLabel  runat="server"  style="text-align:right;vertical-align:middle" ForeColor="red" SkinID="Xing"/>  <cp:CPMisLabel  runat="server"  style="text-align:left;vertical-align:middle; margin-left:3px" ForeColor="Gray" SkinID="Paraset"/> 
