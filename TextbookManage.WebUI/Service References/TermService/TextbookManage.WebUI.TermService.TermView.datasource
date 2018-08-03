@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="TermView" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>TextbookManage.WebUI.TermService.TermView, Service References.TermService.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>TextbookManage.WebUI.TermService.TermView, TextbookManage.WebUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
