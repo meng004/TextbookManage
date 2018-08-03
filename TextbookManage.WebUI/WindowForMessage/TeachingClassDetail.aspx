@@ -39,7 +39,7 @@
         <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
         </telerik:RadAjaxLoadingPanel>
         <div>
-            <utm:UTMisGrid runat="server" ID="cgrdProfessionalClasses" SkinID="NoExport" OnBeforeDataBind="cgrdProfessionalClasses_BeforeDataBind"
+            <cp:CPMisGrid runat="server" ID="cgrdProfessionalClasses" SkinID="NoExport" OnBeforeDataBind="cgrdProfessionalClasses_BeforeDataBind"
                 Height="220px" Width="350px">
                 <MasterTableView>
                     <Columns>
@@ -56,7 +56,7 @@
                         </telerik:GridBoundColumn>
                     </Columns>
                 </MasterTableView>
-            </utm:UTMisGrid>
+            </cp:CPMisGrid>
         </div>
     </form>
 </body>

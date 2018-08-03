@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using TextbookManage.WebUI.DeclarationService;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.IApplications;
 
 
 namespace TextbookManage.WebUI.WindowForMessage
 {
-    public partial class TeachingClassDetail : USCTAMis.Web.WebControls.Page
+    public partial class TeachingClassDetail : CPMis.Web.WebControls.Page
     {
-        
+        private readonly IDeclarationAppl _impl = ServiceLocator.Current.GetInstance<IDeclarationAppl>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,10 +21,9 @@ namespace TextbookManage.WebUI.WindowForMessage
         protected void cgrdProfessionalClasses_BeforeDataBind(object sender, EventArgs e)
         {
             string num = Request.QueryString["TeachingClassNum"];
-            using (DeclarationApplClient app = new DeclarationApplClient())
-            {
-                cgrdProfessionalClasses.DataSource = app.GetProfessionalClassByTeachingTaskNum(num);
-            }            
+
+            cgrdProfessionalClasses.DataSource = _impl.GetProfessionalClassByTeachingTaskNum(num);
+
         }
     }
 }

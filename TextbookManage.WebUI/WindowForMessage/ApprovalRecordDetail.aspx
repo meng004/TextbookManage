@@ -42,7 +42,7 @@
             </script>
         </telerik:RadCodeBlock>
         <div>
-            <utm:UTMisGrid runat="server" ID="cgrdApprovalRecord" SkinID="NoExport" OnBeforeDataBind="cgrdApprovalRecord_BeforeDataBind" >
+            <cp:CPMisGrid runat="server" ID="cgrdApprovalRecord" SkinID="NoExport" OnBeforeDataBind="cgrdApprovalRecord_BeforeDataBind" >
                 <MasterTableView>
                     <Columns>
                         <telerik:GridTemplateColumn HeaderText="序号" HeaderStyle-Width="40px">
@@ -62,7 +62,7 @@
                         </telerik:GridBoundColumn>
                     </Columns>
                 </MasterTableView>
-            </utm:UTMisGrid>
+            </cp:CPMisGrid>
         </div>
     </form>
 </body>

@@ -23,13 +23,13 @@
         <div>
             <ul>
                 <li>
-                    <utm:UTMisTextBox runat="server" ID="txt_Person" ReadOnly="True" Label="回告人" SkinID="tb200" EmptyMessage="无"></utm:UTMisTextBox></li>
+                    <cp:CPMisTextBox runat="server" ID="txt_Person" ReadOnly="True" Label="回告人" SkinID="tb200" EmptyMessage="无"></cp:CPMisTextBox></li>
                 <li>
-                    <utm:UTMisTextBox runat="server" ID="txt_Date" ReadOnly="true" Label="回告日期" SkinID="tb200" EmptyMessage="无"></utm:UTMisTextBox></li>
+                    <cp:CPMisTextBox runat="server" ID="txt_Date" ReadOnly="true" Label="回告日期" SkinID="tb200" EmptyMessage="无"></cp:CPMisTextBox></li>
                 <li>
-                    <utm:UTMisTextBox runat="server" ID="txt_State" ReadOnly="true" Label="回告状态" SkinID="tb200" EmptyMessage="无"></utm:UTMisTextBox></li>
+                    <cp:CPMisTextBox runat="server" ID="txt_State" ReadOnly="true" Label="回告状态" SkinID="tb200" EmptyMessage="无"></cp:CPMisTextBox></li>
                 <li>
-                    <utm:UTMisTextBox runat="server" ID="txt_Remark" ReadOnly="true" TextMode="MultiLine" Label="备注" SkinID="tb200" Height="100" EmptyMessage="无"></utm:UTMisTextBox></li>
+                    <cp:CPMisTextBox runat="server" ID="txt_Remark" ReadOnly="true" TextMode="MultiLine" Label="备注" SkinID="tb200" Height="100" EmptyMessage="无"></cp:CPMisTextBox></li>
             </ul>
         </div>
     </form>

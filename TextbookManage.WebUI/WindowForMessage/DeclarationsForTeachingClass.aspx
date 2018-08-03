@@ -40,7 +40,7 @@
             </script>
         </telerik:RadCodeBlock>
         <div>
-            <utm:UTMisGrid runat="server" ID="cgrdDeclarations" SkinID="AutoHeight"
+            <cp:CPMisGrid runat="server" ID="cgrdDeclarations" SkinID="AutoHeight"
                 OnBeforeDataBind="cgrdDeclarations_BeforeDataBind">
                 <MasterTableView>
                     <Columns>
@@ -73,7 +73,7 @@
                         </telerik:GridBoundColumn>
                     </Columns>
                 </MasterTableView>
-            </utm:UTMisGrid>
+            </cp:CPMisGrid>
         </div>
     </form>
 </body>

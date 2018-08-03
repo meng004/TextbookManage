@@ -261,6 +261,18 @@
     <Content Include="App_Themes\CPMisTheme\DatePicker.skin" />
     <Content Include="App_Themes\CPMisTheme\OnFileUpdate.skin" />
     <Content Include="App_Themes\CPMisTheme\ReportViewer.skin" />
+    <Content Include="TextbookMaintain\TextbookAdd.aspx" />
+    <Content Include="TextbookMaintain\TextbookApproval.aspx" />
+    <Content Include="TextbookMaintain\TextbookModify.aspx" />
+    <Content Include="TextbookMaintain\TextbookMyQuery.aspx" />
+    <Content Include="TextbookMaintain\TextbookQuery.aspx" />
+    <Content Include="WindowForMessage\ApprovalRecordDetail.aspx" />
+    <Content Include="WindowForMessage\DeclarationsForTeachingClass.aspx" />
+    <Content Include="WindowForMessage\FeedbackForDeclaration.aspx" />
+    <Content Include="WindowForMessage\FeedbackForSubscriptionPlan.aspx" />
+    <Content Include="WindowForMessage\TbmisHelp.aspx" />
+    <Content Include="WindowForMessage\TeachingClassDetail.aspx" />
+    <Content Include="WindowForMessage\TextbookDetailMessage.aspx" />
     <None Include="Service References\BooksellerService\BooksellerService.disco" />
     <None Include="Service References\BooksellerService\configuration91.svcinfo" />
     <None Include="Service References\BooksellerService\configuration.svcinfo" />
@@ -268,6 +280,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.7.2.js" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\LodopFuncs.js" />
+    <Content Include="Scripts\MainTabs.js" />
+    <Content Include="Scripts\Money.js" />
+    <Content Include="Scripts\Window.js" />
     <Content Include="Service References\CasMapperService\CasMapperService.wsdl" />
     <None Include="Service References\BooksellerService\BooksellerService.wsdl" />
     <None Include="Service References\BooksellerService\BooksellerService.xsd">
@@ -816,6 +835,7 @@
     <None Include="Service References\TextbookService\TextbookService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="WindowForMessage\帮助文档.doc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -924,6 +944,85 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextbookMaintain\TextbookAdd.aspx.cs">
+      <DependentUpon>TextbookAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookAdd.aspx.designer.cs">
+      <DependentUpon>TextbookAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookApproval.aspx.cs">
+      <DependentUpon>TextbookApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookApproval.aspx.designer.cs">
+      <DependentUpon>TextbookApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookModify.aspx.cs">
+      <DependentUpon>TextbookModify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookModify.aspx.designer.cs">
+      <DependentUpon>TextbookModify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.cs">
+      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.designer.cs">
+      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookQuery.aspx.cs">
+      <DependentUpon>TextbookQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookQuery.aspx.designer.cs">
+      <DependentUpon>TextbookQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\ApprovalRecordDetail.aspx.cs">
+      <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\ApprovalRecordDetail.aspx.designer.cs">
+      <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\DeclarationsForTeachingClass.aspx.cs">
+      <DependentUpon>DeclarationsForTeachingClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\DeclarationsForTeachingClass.aspx.designer.cs">
+      <DependentUpon>DeclarationsForTeachingClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\FeedbackForDeclaration.aspx.cs">
+      <DependentUpon>FeedbackForDeclaration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\FeedbackForDeclaration.aspx.designer.cs">
+      <DependentUpon>FeedbackForDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\FeedbackForSubscriptionPlan.aspx.cs">
+      <DependentUpon>FeedbackForSubscriptionPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\FeedbackForSubscriptionPlan.aspx.designer.cs">
+      <DependentUpon>FeedbackForSubscriptionPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\TbmisHelp.aspx.cs">
+      <DependentUpon>TbmisHelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\TbmisHelp.aspx.designer.cs">
+      <DependentUpon>TbmisHelp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\TeachingClassDetail.aspx.cs">
+      <DependentUpon>TeachingClassDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\TeachingClassDetail.aspx.designer.cs">
+      <DependentUpon>TeachingClassDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForMessage\TextbookDetailMessage.aspx.cs">
+      <DependentUpon>TextbookDetailMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowForMessage\TextbookDetailMessage.aspx.designer.cs">
+      <DependentUpon>TextbookDetailMessage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppSettings.config" />
@@ -946,6 +1045,32 @@
     <WCFMetadataStorage Include="Service References\TermService\" />
     <WCFMetadataStorage Include="Service References\TextbookApprovalService\" />
     <WCFMetadataStorage Include="Service References\TextbookService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextbookManage.Application\TextbookManage.Applications.csproj">
+      <Project>{55a9ecbc-b25e-47a4-a914-aedf859d62db}</Project>
+      <Name>TextbookManage.Applications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Domain\TextbookManage.Domain.csproj">
+      <Project>{9f0b3334-5e6e-4b48-a1dc-1f65b186a21d}</Project>
+      <Name>TextbookManage.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.IApplications\TextbookManage.IApplications.csproj">
+      <Project>{01885be2-55da-4c10-a747-a276af4f706b}</Project>
+      <Name>TextbookManage.IApplications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookManage.Infrastructure.csproj">
+      <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
+      <Name>TextbookManage.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.Repositories\TextbookManage.Repositories.csproj">
+      <Project>{bd9a5ce9-d0d6-4fb4-85d4-c1a8ab63c8a0}</Project>
+      <Name>TextbookManage.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookManage.ViewModels\TextbookManage.ViewModels.csproj">
+      <Project>{e90bd2fa-796e-46c6-ad7e-a47f84941146}</Project>
+      <Name>TextbookManage.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

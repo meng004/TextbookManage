@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using TextbookManage.WebUI.DeclarationQueryService;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.ViewModels;
 
 
 namespace TextbookManage.WebUI.WindowForMessage
 {
-    public partial class FeedbackForDeclaration : USCTAMis.Web.WebControls.Page
+    public partial class FeedbackForDeclaration : CPMis.Web.WebControls.Page
     {
-
+        private readonly IDeclarationQueryAppl _impl = ServiceLocator.Current.GetInstance<IDeclarationQueryAppl>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(Request.QueryString["DeclarationID"]))
             {
                 var id = Request.QueryString["DeclarationID"];
-                using (DeclarationQueryApplClient app = new DeclarationQueryApplClient())
-                {
-                    var result = app.GetFeedbackByDeclarationId(id);
-                    SetFeedbackInfo(result);
-                }
+
+                var result = _impl.GetFeedbackByStudentDeclarationId(id);
+                SetFeedbackInfo(result);
+
             }
         }
 

@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using TextbookManage.WebUI.FeedbackService;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.IApplications;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.WebUI.WindowForMessage
 {
-    public partial class FeedbackForSubscriptionPlan : USCTAMis.Web.WebControls.Page
+    public partial class FeedbackForSubscriptionPlan : CPMis.Web.WebControls.Page
     {
-
+        private readonly IFeedbackAppl _impl = ServiceLocator.Current.GetInstance<IFeedbackAppl>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(Request.QueryString["SubscriptionPlanId"]))
             {
-                using (FeedbackApplClient app = new FeedbackApplClient())
-                {
-                    var id = Request.QueryString["SubscriptionPlanId"];
-                    var result = app.GetFeedbackBySubscriptionId(id);
-                    SetFeedbackInfo(result);
-                }
+
+                var id = Request.QueryString["SubscriptionPlanId"];
+                var result = _impl.GetFeedbackBySubscriptionId(id);
+                SetFeedbackInfo(result);
+
             }
         }
 

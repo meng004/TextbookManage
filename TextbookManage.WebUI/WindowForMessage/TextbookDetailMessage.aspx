@@ -63,133 +63,133 @@
             </script>
         </telerik:RadCodeBlock>
         <div>
-            <utm:UTMisMultiPage runat="server" ID="mp_Textbook">
-                <utm:UTMisPageView ID="pv_Textbook" runat="server">
+            <cp:CPMisMultiPage runat="server" ID="mp_Textbook">
+                <cp:CPMisPageView ID="pv_Textbook" runat="server">
                     <table class="border">
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblTextbookName" runat="server" Text="教材名称">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblTextbookName" runat="server" Text="教材名称">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border" colspan="3">
-                                <utm:UTMisTextBox ID="ctxtTextbookName" runat="server" SkinID="Changeable" Width="500">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtTextbookName" runat="server" SkinID="Changeable" Width="500">
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblAuthor" runat="server" Text="作者">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblAuthor" runat="server" Text="作者">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border" colspan="3">
-                                <utm:UTMisTextBox ID="ctxtAuthor" runat="server" SkinID="Changeable" Width="500">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtAuthor" runat="server" SkinID="Changeable" Width="500">
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblISBN" runat="server" Text="ISBN">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblISBN" runat="server" Text="ISBN">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border">
-                                <utm:UTMisTextBox ID="ctxtISBN" runat="server">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtISBN" runat="server">
+                                </cp:CPMisTextBox>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisLabel ID="clblRetailPrice" runat="server" Text="定价">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblRetailPrice" runat="server" Text="定价">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="borderRight" >
-                                <utm:UTMisTextBox ID="ctxtRetailPrice" runat="server">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtRetailPrice" runat="server">
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblPress" runat="server" Text="出版社">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblPress" runat="server" Text="出版社">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border">
-                                <utm:UTMisTextBox ID="ctxtPress" runat="server"></utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtPress" runat="server"></cp:CPMisTextBox>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisLabel ID="UTMisLabel1" runat="server" Text="出版地址">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="UTMisLabel1" runat="server" Text="出版地址">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisTextBox ID="ctxtPressAddress" runat="server" >
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtPressAddress" runat="server" >
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblEdition" runat="server" Text="版本">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblEdition" runat="server" Text="版本">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border">
-                                <utm:UTMisTextBox ID="ctxtEdition" runat="server">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtEdition" runat="server">
+                                </cp:CPMisTextBox>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisLabel ID="clblPrintingCount" runat="server" Text="版次">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblPrintingCount" runat="server" Text="版次">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisTextBox ID="ctxtPrintingCount" runat="server">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtPrintingCount" runat="server">
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblPage" runat="server" Text="页数">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblPage" runat="server" Text="页数">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border">
-                                <utm:UTMisTextBox ID="ctxtPage" runat="server">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtPage" runat="server">
+                                </cp:CPMisTextBox>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisLabel ID="UTMisLabel2" runat="server" Text="出版日期">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="UTMisLabel2" runat="server" Text="出版日期">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="borderRight">
-                                <utm:UTMisTextBox ID="ctxtPublishDate" runat="server">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtPublishDate" runat="server">
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblTextbookId" runat="server" Text="教材ID" Visible="false">
-                                </utm:UTMisLabel>
-                                <utm:UTMisLabel ID="clblIsSelfCompile" runat="server" Text="自编教材">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="clblTextbookId" runat="server" Text="教材ID" Visible="false">
+                                </cp:CPMisLabel>
+                                <cp:CPMisLabel ID="clblIsSelfCompile" runat="server" Text="自编教材">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border">
-                                <utm:UTMisTextBox runat="server" ID="ctxtIsSelfCompile"></utm:UTMisTextBox>
+                                <cp:CPMisTextBox runat="server" ID="ctxtIsSelfCompile"></cp:CPMisTextBox>
                             </td>
                             <td class="borderRight" >
-                                <utm:UTMisLabel ID="UTMisLabel3" runat="server" Text="教材编号">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="UTMisLabel3" runat="server" Text="教材编号">
+                                </cp:CPMisLabel>
                             </td>
                             <td class="borderRight"> 
-                                <utm:UTMisTextBox ID="ctxtTextbookNum" runat="server"></utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtTextbookNum" runat="server"></cp:CPMisTextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="border">
-                                <utm:UTMisLabel ID="clblType" runat="server" Style="font-family: Arial; font-size: medium"
+                                <cp:CPMisLabel ID="clblType" runat="server" Style="font-family: Arial; font-size: medium"
                                     Text="教材类型">
-                                </utm:UTMisLabel>
+                                </cp:CPMisLabel>
                             </td>
                             <td class="border" align="left" colspan="3">
-                                <utm:UTMisTextBox ID="ctxtType" runat="server" SkinID="Changeable" Width="500">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtType" runat="server" SkinID="Changeable" Width="500">
+                                </cp:CPMisTextBox>
                             </td>
                         </tr>
                     </table>
 
-                </utm:UTMisPageView>
-            </utm:UTMisMultiPage>
+                </cp:CPMisPageView>
+            </cp:CPMisMultiPage>
         </div>
     </form>
 </body>

@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.WebUI.DeclarationQueryService;
 
 
 namespace TextbookManage.WebUI.WindowForMessage
 {
-    public partial class ApprovalRecordDetail :USCTAMis.Web.WebControls.Page
+    public partial class ApprovalRecordDetail : CPMis.Web.WebControls.Page
     {
+        private readonly IDeclarationQueryAppl _impl = ServiceLocator.Current.GetInstance<IDeclarationQueryAppl>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,10 +26,7 @@ namespace TextbookManage.WebUI.WindowForMessage
         {
             string declarationId = Request.QueryString["DeclarationID"];
 
-            using (DeclarationQueryApplClient app = new DeclarationQueryApplClient())
-            {
-                cgrdApprovalRecord.DataSource = app.GetDeclarationApproval(declarationId);
-            }            
+            cgrdApprovalRecord.DataSource = _impl.GetDeclarationApproval(declarationId);
         }
     }
 }

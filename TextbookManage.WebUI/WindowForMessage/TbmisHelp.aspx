@@ -17,12 +17,12 @@
             </Scripts>
         </telerik:RadScriptManager>
         <div>
-            <utm:UTMisToolBar ID="ctlbDeclaration" runat="server" OnButtonClick="ctlbDeclaration_ButtonClick">
+            <cp:CPMisToolBar ID="ctlbDeclaration" runat="server" OnButtonClick="ctlbDeclaration_ButtonClick">
                 <Items>
                     <telerik:RadToolBarButton runat="server" Text="帮助" ImageUrl="~/Img/tlb_Help.png" AccessKey="h">
                     </telerik:RadToolBarButton>
                 </Items>
-            </utm:UTMisToolBar>
+            </cp:CPMisToolBar>
         </div>
     </form>
 </body>
