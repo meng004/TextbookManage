@@ -1,6 +1,7 @@
 ﻿using System;
+using TextbookManage.IApplications;
 using TextbookManage.Infrastructure.ServiceLocators;
-using TextbookManage.WebUI.DeclarationQueryService;
+
 
 
 namespace TextbookManage.WebUI.WindowForMessage
