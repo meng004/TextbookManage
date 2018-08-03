@@ -29,6 +29,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +52,53 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CPMis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.DataTrans">
+      <HintPath>App_Code\TBMIS-40\CPMis.DataTrans.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.IBLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.IBLL.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.IDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.IDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.Web.BusinessControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.Web.BusinessControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.Web.UserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.Web.UserControl.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.Web.WebClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.Web.WebClient.dll</HintPath>
+    </Reference>
+    <Reference Include="CPMis.Web.WebControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Code\TBMIS-40\CPMis.Web.WebControls.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -103,9 +152,9 @@
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -124,58 +173,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>App_Code\Telerik.Web.UI.Skins.dll</HintPath>
     </Reference>
-    <Reference Include="USCTAMis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.BLL.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.DAL.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.DataTrans, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.DataTrans.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.IBLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.IBLL.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.IDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.IDAL.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Restrict, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Restrict.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Web.BusinessControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Web.BusinessControls.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Web.UserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Web.UserControl.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Web.WebClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Web.WebClient.dll</HintPath>
-    </Reference>
-    <Reference Include="USCTAMis.Web.WebControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Code\USCTAMis.Web.WebControls.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
@@ -187,6 +184,17 @@
     <Content Include="App_Code\Microsoft.ReportViewer.DataVisualization.dll" />
     <Content Include="App_Code\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
     <Content Include="App_Code\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.BLL.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.Common.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.DAL.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.IBLL.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.IDAL.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.Model.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.Web.BusinessControls.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.Web.UserControl.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.Web.WebClient.dll" />
+    <Content Include="App_Code\TBMIS\CPMis.Web.WebControls.dll" />
     <Content Include="App_Code\Telerik.Web.UI.dll" />
     <Content Include="App_Code\Telerik.Web.UI.Skins.dll" />
     <Content Include="App_Code\USCTAMis.BLL.dll" />
@@ -202,11 +210,12 @@
     <Content Include="App_Code\USCTAMis.Web.UserControl.dll" />
     <Content Include="App_Code\USCTAMis.Web.WebClient.dll" />
     <Content Include="App_Code\USCTAMis.Web.WebControls.dll" />
+    <Content Include="App_Themes\CPMisTheme\CPMisTable.css" />
+    <Content Include="App_Themes\CPMisTheme\style.css" />
+    <Content Include="App_Themes\CPMisTheme\Title.png" />
     <Content Include="App_Themes\USTAMisTheme\Title.png" />
     <Content Include="App_Themes\USTAMisTheme\USCTAMis.css" />
     <Content Include="App_Themes\USTAMisTheme\UTMisTable.css" />
-    <Content Include="CommonControl\Calendar.ascx" />
-    <Content Include="Declaration\DeclarationApproval.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Images\Add.png" />
@@ -236,14 +245,22 @@
     <Content Include="Images\Query.png" />
     <Content Include="Images\uscbackgroud.jpg" />
     <Content Include="Images\xzf.gif" />
-    <Content Include="Inventory\InStock.aspx" />
-    <Content Include="Inventory\InStockForm.aspx" />
-    <Content Include="Inventory\QueryStock.aspx" />
     <Content Include="Left.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="Middle.htm" />
-    <Content Include="ReleaseTextbook\ReleaseClassBook.aspx" />
+    <Content Include="App_Themes\CPMisTheme\CPMisButton.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisCheckBoxList.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisComboBox.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisGrid.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisLabel.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisTab.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisTextBox.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisToolBar.skin" />
+    <Content Include="App_Themes\CPMisTheme\CPMisWindow.skin" />
+    <Content Include="App_Themes\CPMisTheme\DatePicker.skin" />
+    <Content Include="App_Themes\CPMisTheme\OnFileUpdate.skin" />
+    <Content Include="App_Themes\CPMisTheme\ReportViewer.skin" />
     <None Include="Service References\BooksellerService\BooksellerService.disco" />
     <None Include="Service References\BooksellerService\configuration91.svcinfo" />
     <None Include="Service References\BooksellerService\configuration.svcinfo" />
@@ -281,11 +298,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="SubscriptionPlan\OrderQuery.aspx" />
-    <Content Include="SubscriptionPlan\OrderByPress.aspx" />
-    <Content Include="WindowForMessage\帮助文档.doc" />
-    <Content Include="WindowForMessage\TbmisHelp.aspx" />
-    <Content Include="WindowForMessage\TextbookDetailMessage.aspx" />
     <None Include="Service References\CasMapperService\CasMapperService.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -305,7 +317,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="ReleaseTextbook\StudentList.aspx" />
     <None Include="Service References\DeclarationProgressService\DeclarationProgressService.disco" />
     <None Include="Service References\DeclarationProgressService\configuration91.svcinfo" />
     <None Include="Service References\DeclarationProgressService\configuration.svcinfo" />
@@ -504,14 +515,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="TextbookMaintain\TextbookApproval.aspx" />
-    <Content Include="Declaration\QueryDeclaration.aspx" />
-    <Content Include="Declaration\SchoolProgress.aspx" />
-    <Content Include="Declaration\StudentTextbookDeclaration.aspx" />
-    <Content Include="Declaration\TeacherTextbookDeclaration.aspx" />
-    <Content Include="FeedBack\BooksellerFeedBack.aspx" />
-    <Content Include="FeedBack\FeedbackApproval.aspx" />
-    <Content Include="FeedBack\QuerySubscriptionPlan.aspx" />
     <Content Include="Img\AddCourse.png" />
     <Content Include="Img\click.jpg" />
     <Content Include="Img\Delete.gif" />
@@ -775,13 +778,6 @@
     <Content Include="Service References\SubscriptionService\TextbookManage.WebUI.SubscriptionService.SubscriptionForSubmitView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="SubscriptionPlan\OrderBySchool.aspx" />
-    <Content Include="SubscriptionPlan\OrderByTextbook.aspx" />
-    <Content Include="TextbookMaintain\TextbookAdd.aspx" />
-    <Content Include="TextbookMaintain\TextbookModify.aspx" />
-    <Content Include="TextbookMaintain\TextbookQuery.aspx" />
-    <Content Include="TextbookMaintain\TextbookMyQuery.aspx" />
-    <Content Include="USCTAMisLogin.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -791,12 +787,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WindowForMessage\ApprovalRecordDetail.aspx" />
-    <Content Include="Declaration\DepartmentProgress.aspx" />
-    <Content Include="WindowForMessage\FeedbackForDeclaration.aspx" />
-    <Content Include="WindowForMessage\FeedbackForSubscriptionPlan.aspx" />
-    <Content Include="WindowForMessage\TeachingClassDetail.aspx" />
-    <Content Include="WindowForMessage\DeclarationsForTeachingClass.aspx" />
     <Content Include="Service References\TextbookApprovalService\TextbookApprovalService.wsdl" />
     <None Include="Service References\TextbookApprovalService\TextbookApprovalService.xsd">
       <SubType>Designer</SubType>
@@ -828,20 +818,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonControl\Calendar.ascx.cs">
-      <DependentUpon>Calendar.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CommonControl\Calendar.ascx.designer.cs">
-      <DependentUpon>Calendar.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Declaration\DeclarationApproval.aspx.cs">
-      <DependentUpon>DeclarationApproval.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Declaration\DeclarationApproval.aspx.designer.cs">
-      <DependentUpon>DeclarationApproval.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -855,27 +831,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\InStock.aspx.cs">
-      <DependentUpon>InStock.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inventory\InStock.aspx.designer.cs">
-      <DependentUpon>InStock.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\InStockForm.aspx.cs">
-      <DependentUpon>InStockForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inventory\InStockForm.aspx.designer.cs">
-      <DependentUpon>InStockForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\QueryStock.aspx.cs">
-      <DependentUpon>QueryStock.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inventory\QueryStock.aspx.designer.cs">
-      <DependentUpon>QueryStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Left.aspx.cs">
       <DependentUpon>Left.aspx</DependentUpon>
@@ -897,20 +852,6 @@
     </Compile>
     <Compile Include="Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ReleaseTextbook\ReleaseClassBook.aspx.cs">
-      <DependentUpon>ReleaseClassBook.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReleaseTextbook\ReleaseClassBook.aspx.designer.cs">
-      <DependentUpon>ReleaseClassBook.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ReleaseTextbook\StudentList.aspx.cs">
-      <DependentUpon>StudentList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReleaseTextbook\StudentList.aspx.designer.cs">
-      <DependentUpon>StudentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\BooksellerService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -982,182 +923,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="SubscriptionPlan\OrderQuery.aspx.cs">
-      <DependentUpon>OrderQuery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SubscriptionPlan\OrderQuery.aspx.designer.cs">
-      <DependentUpon>OrderQuery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SubscriptionPlan\OrderByPress.aspx.cs">
-      <DependentUpon>OrderByPress.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SubscriptionPlan\OrderByPress.aspx.designer.cs">
-      <DependentUpon>OrderByPress.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookApproval.aspx.cs">
-      <DependentUpon>TextbookApproval.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookApproval.aspx.designer.cs">
-      <DependentUpon>TextbookApproval.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Declaration\QueryDeclaration.aspx.cs">
-      <DependentUpon>QueryDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Declaration\QueryDeclaration.aspx.designer.cs">
-      <DependentUpon>QueryDeclaration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Declaration\SchoolProgress.aspx.cs">
-      <DependentUpon>SchoolProgress.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Declaration\SchoolProgress.aspx.designer.cs">
-      <DependentUpon>SchoolProgress.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Declaration\StudentTextbookDeclaration.aspx.cs">
-      <DependentUpon>StudentTextbookDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Declaration\StudentTextbookDeclaration.aspx.designer.cs">
-      <DependentUpon>StudentTextbookDeclaration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Declaration\TeacherTextbookDeclaration.aspx.cs">
-      <DependentUpon>TeacherTextbookDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Declaration\TeacherTextbookDeclaration.aspx.designer.cs">
-      <DependentUpon>TeacherTextbookDeclaration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FeedBack\BooksellerFeedBack.aspx.cs">
-      <DependentUpon>BooksellerFeedBack.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FeedBack\BooksellerFeedBack.aspx.designer.cs">
-      <DependentUpon>BooksellerFeedBack.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FeedBack\FeedbackApproval.aspx.cs">
-      <DependentUpon>FeedbackApproval.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FeedBack\FeedbackApproval.aspx.designer.cs">
-      <DependentUpon>FeedbackApproval.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FeedBack\QuerySubscriptionPlan.aspx.cs">
-      <DependentUpon>QuerySubscriptionPlan.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FeedBack\QuerySubscriptionPlan.aspx.designer.cs">
-      <DependentUpon>QuerySubscriptionPlan.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubscriptionPlan\OrderBySchool.aspx.cs">
-      <DependentUpon>OrderBySchool.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SubscriptionPlan\OrderBySchool.aspx.designer.cs">
-      <DependentUpon>OrderBySchool.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SubscriptionPlan\OrderByTextbook.aspx.cs">
-      <DependentUpon>OrderByTextbook.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SubscriptionPlan\OrderByTextbook.aspx.designer.cs">
-      <DependentUpon>OrderByTextbook.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookAdd.aspx.cs">
-      <DependentUpon>TextbookAdd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookAdd.aspx.designer.cs">
-      <DependentUpon>TextbookAdd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookModify.aspx.cs">
-      <DependentUpon>TextbookModify.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookModify.aspx.designer.cs">
-      <DependentUpon>TextbookModify.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookQuery.aspx.cs">
-      <DependentUpon>TextbookQuery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookQuery.aspx.designer.cs">
-      <DependentUpon>TextbookQuery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.cs">
-      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.designer.cs">
-      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="USCTAMisLogin.aspx.cs">
-      <DependentUpon>USCTAMisLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="USCTAMisLogin.aspx.designer.cs">
-      <DependentUpon>USCTAMisLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\ApprovalRecordDetail.aspx.cs">
-      <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\ApprovalRecordDetail.aspx.designer.cs">
-      <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Declaration\DepartmentProgress.aspx.cs">
-      <DependentUpon>DepartmentProgress.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Declaration\DepartmentProgress.aspx.designer.cs">
-      <DependentUpon>DepartmentProgress.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\FeedbackForDeclaration.aspx.cs">
-      <DependentUpon>FeedbackForDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\FeedbackForDeclaration.aspx.designer.cs">
-      <DependentUpon>FeedbackForDeclaration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\FeedbackForSubscriptionPlan.aspx.cs">
-      <DependentUpon>FeedbackForSubscriptionPlan.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\FeedbackForSubscriptionPlan.aspx.designer.cs">
-      <DependentUpon>FeedbackForSubscriptionPlan.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\TbmisHelp.aspx.cs">
-      <DependentUpon>TbmisHelp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\TbmisHelp.aspx.designer.cs">
-      <DependentUpon>TbmisHelp.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\TeachingClassDetail.aspx.cs">
-      <DependentUpon>TeachingClassDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\TeachingClassDetail.aspx.designer.cs">
-      <DependentUpon>TeachingClassDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\DeclarationsForTeachingClass.aspx.cs">
-      <DependentUpon>DeclarationsForTeachingClass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\DeclarationsForTeachingClass.aspx.designer.cs">
-      <DependentUpon>DeclarationsForTeachingClass.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowForMessage\TextbookDetailMessage.aspx.cs">
-      <DependentUpon>TextbookDetailMessage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowForMessage\TextbookDetailMessage.aspx.designer.cs">
-      <DependentUpon>TextbookDetailMessage.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppSettings.config" />
@@ -1180,12 +946,6 @@
     <WCFMetadataStorage Include="Service References\TermService\" />
     <WCFMetadataStorage Include="Service References\TextbookApprovalService\" />
     <WCFMetadataStorage Include="Service References\TextbookService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CasClientValidate\CasClientValidate.csproj">
-      <Project>{1fcf25f3-0329-4d4f-b1f5-795d09c5db6a}</Project>
-      <Name>CasClientValidate</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

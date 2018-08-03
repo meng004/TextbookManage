@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="USCTAMis.WebPage.Navigation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="CPMis.WebPage.Navigation" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,8 +29,8 @@
                     <tr>
                         <td>
                             <div id="UserName">
-                                <utm:UTMisLabel ID="lbl_UserName" runat="server" SkinID="Paraset" Style="text-align: left;
-                                                width: 200px;" Text="载入中..." Font-Size="10pt" ForeColor="Red" Font-Bold="true"></utm:UTMisLabel>
+                                <cp:CPMisLabel ID="lbl_UserName" runat="server" SkinID="Paraset" Style="text-align: left;
+                                                width: 200px;" Text="载入中..." Font-Size="10pt" ForeColor="Red" Font-Bold="true"></cp:CPMisLabel>
                             </div>
                         </td>
                     </tr>
@@ -41,8 +41,8 @@
                                 <asp:LinkButton ID="exit_button" runat="server" class="linkStyle" OnClick="exit_button_Click"
                                                 Text="【退出】" Font-Size="10pt"></asp:LinkButton>
                                 <hr />
-                                <utm:UTMisTreeView ID="tv_Function" runat="server">
-                                </utm:UTMisTreeView>
+                                <cp:CPMisTreeView ID="tv_Function" runat="server">
+                                </cp:CPMisTreeView>
                             </div>
                         </td>
                     </tr>

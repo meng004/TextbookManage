@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web.UI;
 using Telerik.Web.UI;
 
-namespace USCTAMis.WebPage
+namespace CPMis.WebPage
 {
-    public partial class NewsList : USCTAMis.Web.WebControls.Page
+    public partial class NewsList : CPMis.Web.WebControls.Page
     {
         #region 变量
-        IBLL.Sys.IInfoView _infoView = new BLL.Sys.InfoView();
+        //CPMis.IBLL.Sys.IInfoView _infoView = new CPMis.BLL.Sys.InfoView();
 
         #endregion
         /// <summary>
@@ -34,14 +34,14 @@ namespace USCTAMis.WebPage
         {
             PagePath = "StudentList.aspx";
             SetPageParameter<string>("1");
-            USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 700, 1000);
+            CPMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 700, 1000);
         }
 
         protected void lnk_TableDown_Click(object sender, EventArgs e)
         {
             PagePath = "TableDownLoad.aspx";
             SetPageParameter<string>("1");
-            USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 700, 1000);
+            CPMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 700, 1000);
         }
 
         /// <summary>
@@ -51,10 +51,10 @@ namespace USCTAMis.WebPage
         /// <param name="e"></param>
         protected void btn_Query_AfterClick(object sender, EventArgs e)
         {
-            Common.SimpleDictionary para = new USCTAMis.Common.SimpleDictionary(1);
-            para.Add(Common.ParameterList.Sys.NewsRelease.NewsTitle, txt_News.Text);
-            wg_News.DataSource = _infoView.Retrieve(para);
-            wg_News.DoDataBind();
+            //Common.SimpleDictionary para = new USCTAMis.Common.SimpleDictionary(1);
+            //para.Add(Common.ParameterList.Sys.NewsRelease.NewsTitle, txt_News.Text);
+            //wg_News.DataSource = _infoView.Retrieve(para);
+            //wg_News.DoDataBind();
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace USCTAMis.WebPage
         {
             PagePath = "NewsList.aspx";
             SetPageParameter<string>("1");
-            USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
+            CPMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace USCTAMis.WebPage
         {
             PagePath = "NewsList.aspx";
             SetPageParameter<string>("0");
-            USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
+            CPMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace USCTAMis.WebPage
             }
             catch (Exception ex)
             {
-                USCTAMis.Web.WebClient.ScriptManager.Alert(ex.Message.ToString());
+                CPMis.Web.WebClient.ScriptManager.Alert(ex.Message.ToString());
             }
         }
 
@@ -123,8 +123,8 @@ namespace USCTAMis.WebPage
         /// </summary>
         private void wg_NewsDataBind()
         {
-            wg_News.DataSource = _infoView.RetrievePreTwenty();
-            wg_News.DataBind();
+            //wg_News.DataSource = _infoView.RetrievePreTwenty();
+            //wg_News.DataBind();
         }
 
         /// <summary>
@@ -132,16 +132,16 @@ namespace USCTAMis.WebPage
         /// </summary>
         protected void AddLinkButtonForDynamic()
         {
-            IList<Model.Sys.NewsModel> TeachingNews = _infoView.RetrievePreFiveTeachingNews();
-            for (int startNews = 0; startNews < TeachingNews.Count; startNews++)
-            {
-                USCTAMis.Web.WebControls.UTMisLinkButton TeachingNewsLink = new USCTAMis.Web.WebControls.UTMisLinkButton();
-                TeachingNewsLink.Text = TeachingNews[startNews].NewsTitle;
-                TeachingNewsLink.ID = TeachingNews[startNews].NewsID;
-                TeachingNewsLink.AfterClick += new EventHandler(TeachingNewsLink_AfterClick);
-                this.Teaching.Controls.Add(TeachingNewsLink);
-                this.Teaching.Controls.Add(new LiteralControl(" <br/><br/> "));
-            }
+            //IList<Model.Sys.NewsModel> TeachingNews = _infoView.RetrievePreFiveTeachingNews();
+            //for (int startNews = 0; startNews < TeachingNews.Count; startNews++)
+            //{
+            //    USCTAMis.Web.WebControls.UTMisLinkButton TeachingNewsLink = new USCTAMis.Web.WebControls.UTMisLinkButton();
+            //    TeachingNewsLink.Text = TeachingNews[startNews].NewsTitle;
+            //    TeachingNewsLink.ID = TeachingNews[startNews].NewsID;
+            //    TeachingNewsLink.AfterClick += new EventHandler(TeachingNewsLink_AfterClick);
+            //    this.Teaching.Controls.Add(TeachingNewsLink);
+            //    this.Teaching.Controls.Add(new LiteralControl(" <br/><br/> "));
+            //}
         }
 
         /// <summary>
@@ -151,11 +151,11 @@ namespace USCTAMis.WebPage
         /// <param name="e"></param>
         protected void TeachingNewsLink_AfterClick(object sender, EventArgs e)
         {
-            USCTAMis.Web.WebControls.UTMisLinkButton clickLink = sender as
-            USCTAMis.Web.WebControls.UTMisLinkButton;
-            PagePath = "NewsView.aspx";
-            SetPageParameter<string>(clickLink.ID.ToString());
-            USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
+            //USCTAMis.Web.WebControls.UTMisLinkButton clickLink = sender as
+            //USCTAMis.Web.WebControls.UTMisLinkButton;
+            //PagePath = "NewsView.aspx";
+            //SetPageParameter<string>(clickLink.ID.ToString());
+            //USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
         }
 
         #endregion
@@ -167,12 +167,12 @@ namespace USCTAMis.WebPage
         /// <param name="e"></param>
         protected void ScanCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            Model.Sys.NewsModel model = new USCTAMis.Model.Sys.NewsModel();
-            model = wg_News.GetData<Model.Sys.NewsModel>(e.Item.ItemIndex);
-            string NewslID = model.NewsID;
-            PagePath = "NewsView.aspx";
-            SetPageParameter<string>(NewslID);
-            USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
+            //Model.Sys.NewsModel model = new CPMis.Model.Sys.NewsModel();
+            //model = wg_News.GetData<Model.Sys.NewsModel>(e.Item.ItemIndex);
+            //string NewslID = model.NewsID;
+            //PagePath = "NewsView.aspx";
+            //SetPageParameter<string>(NewslID);
+            //USCTAMis.Web.WebClient.ScriptManager.OpenWindow(PathBuilder, 650, 850);
         }
     }
 }

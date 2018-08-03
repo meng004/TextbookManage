@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="USCTAMis.WebPage.NewsList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CPMis.WebPage.NewsList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,19 +43,19 @@
                                                 <tr>
            
                                                     <td>
-                                                        <utm:UTMisLabel ID="keyword" runat="server" Text="关键字：" SkinID="AutoSize" Width="400px"></utm:UTMisLabel>
+                                                        <cp:CPMisLabel ID="keyword" runat="server" Text="关键字：" SkinID="AutoSize" Width="400px"></cp:CPMisLabel>
                                                     </td>
                                                     <td>
-                                                        <utm:UTMisTextBox ID="txt_News" runat="server"></utm:UTMisTextBox>
+                                                        <cp:CPMisTextBox ID="txt_News" runat="server"></cp:CPMisTextBox>
                                                     </td>
                                                     <td>
-                                                        <utm:UTMisButton ID="btn_Query" Text="搜索新闻" runat="server" OnAfterClick="btn_Query_AfterClick">
-                                                        </utm:UTMisButton>
+                                                        <cp:CPMisButton ID="btn_Query" Text="搜索新闻" runat="server" OnAfterClick="btn_Query_AfterClick">
+                                                        </cp:CPMisButton>
                                                     </td>
                                                     <td>
-                                                        <utm:UTMisLinkButton ID="lb_MoreNews"  OnAfterClick="lb_MoreNews_AfterClick" runat="server" ToolTip="更多新闻" >
+                                                        <cp:CPMisLinkButton ID="lb_MoreNews"  OnAfterClick="lb_MoreNews_AfterClick" runat="server" ToolTip="更多新闻" >
                                                             >>更多<%--<img  src="Img/More.gif"/ alt="更多新闻">--%>
-                                                        </utm:UTMisLinkButton>
+                                                        </cp:CPMisLinkButton>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -67,7 +67,7 @@
                                         <td style=" width:15px; background-image: url(../Img/tab_left.gif);" align="left">
                                         </td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
                                         <td >
-                                            <utm:UTMisGrid ID="wg_News" runat="server" OnItemCommand="wg_News_ItemCommand" SkinID="News"
+                                            <cp:CPMisGrid ID="wg_News" runat="server" OnItemCommand="wg_News_ItemCommand" SkinID="News"
                                                            Width="695px" Height="403px" EnableHeaderContextFilterMenu="true">
                                                 <FilterMenu>
                                                     <ItemTemplate>ds</ItemTemplate>
@@ -83,10 +83,9 @@
                                                             </ItemTemplate>
                                                         </telerik:GridTemplateColumn>
                                                         <telerik:GridTemplateColumn DataField="NewsTitle" UniqueName="NewsTitle">
-
                                                             <ItemTemplate>
-                                                                <utm:UTMisLinkButton ID="mlb_ScanNews" Text='<%# DataBinder.Eval(Container.DataItem,"NewsTitle") %>'
-                                                                                     CommandName="ScanCommand" runat="server"></utm:UTMisLinkButton>
+                                                                <cp:CPMisLinkButton ID="mlb_ScanNews" Text='<%# DataBinder.Eval(Container.DataItem,"NewsTitle") %>'
+                                                                                     CommandName="ScanCommand" runat="server"></cp:CPMisLinkButton>
                                                             </ItemTemplate>
                                                         </telerik:GridTemplateColumn>
                                                         <telerik:GridBoundColumn DataField="NewsDepartment" UniqueName="NewsDepartment">
@@ -100,7 +99,7 @@
                                                         </telerik:GridBoundColumn>
                                                     </Columns>
                                                 </MasterTableView>
-                                            </utm:UTMisGrid>
+                                            </cp:CPMisGrid>
                                         </td>
                                         <td style=" width:13px;   background-image: url(../Img/tab_right.gif); " align="right">
                                         </td>
@@ -124,10 +123,10 @@
                                                     <td style=" width:10px; background-image: url(../Img/tab_topleft.gif); height:30px">
                                                     </td>
                                                     <td style=" width:260px; background-image: url(../Img/tab_headnotice.gif); height:30px; text-align:right;" >
-                                                        <utm:UTMisLinkButton ID="lb_MoreTeachingNews"
+                                                        <cp:CPMisLinkButton ID="lb_MoreTeachingNews"
                                                                              OnAfterClick="lb_MoreTeachingNews_AfterClick" runat="server"  ToolTip="更多新闻" >
                                                             <%-->>更多--%><img  src="Img/More.gif" alt="更多新闻"/>
-                                                        </utm:UTMisLinkButton>
+                                                        </cp:CPMisLinkButton>
                                                     </td>
                                                     <td style=" width:15px; background-image: url(../Img/tab_topright.gif); height:30px">
                                                     </td>
@@ -136,7 +135,7 @@
                                                     <td style="width:15px; background-image: url(../Img/tab_left.gif);" >
                                                     </td>
                                                     <td style=" width:220px; background-color:#eff7fe">
-                                                        <marquee direction="up" onmouseover="stop()" vspace="10" hspace="10"  onmouseout="start()"; scrollamount= "3" align="left" height="155px"
+                                                        <marquee direction="up" onmouseover="stop()" vspace="10" hspace="10"  onmouseout="start()" scrollamount= "3" align="left" height="155px"
                                                                  width="250" loop="-1" behavior="SCROLL"   style="margin:0px; padding:0px;" >
                                                             <div id="Teaching" runat="server" >
                                                             </div>
@@ -170,9 +169,10 @@
                                                 <tr>
                                                     <td style="width:15px; background-image: url(../Img/tab_left.gif);" >
                                                     </td>
-                                                    <td style=" width:260px;" >
+                                                    <td></td>
+                                                   <%-- <td style=" width:260px;" >
                                                         <ucc:Calendar ID="Calendar1" runat="server" ></ucc:Calendar>
-                                                    </td>
+                                                    </td>--%>
                                                     <td style=" width:13px; background-image: url(../Img/tab_right.gif);">
                                                     </td>
                                                 </tr>

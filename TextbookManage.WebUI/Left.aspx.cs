@@ -6,19 +6,19 @@ using System.Web.Security;
 using System.Data;
 using Telerik.Web.UI;
 
-namespace USCTAMis.WebPage
+namespace CPMis.WebPage
 {
-    public partial class Navigation : USCTAMis.Web.WebControls.Page
+    public partial class Navigation : CPMis.Web.WebControls.Page
     {
-        private USCTAMis.IBLL.Sys.IUser _user = new USCTAMis.BLL.Sys.User();
+        private CPMis.IBLL.Sys.IUser _user = new CPMis.BLL.Sys.User();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 var name = Page.User.Identity.Name;
                 fillData();
-                USCTAMis.Web.WebClient.ProfileManger profile =
-                    new USCTAMis.Web.WebClient.ProfileManger(HttpContext.Current.User.Identity.Name);
+                CPMis.Web.WebClient.ProfileManger profile =
+                    new CPMis.Web.WebClient.ProfileManger(HttpContext.Current.User.Identity.Name);
                 string strInf = "今天是:" + DateTime.Now.ToString("yyyy年MM月dd日  ");
                 string strDay = "";
                 switch (DateTime.Now.DayOfWeek.ToString("d"))
@@ -46,8 +46,8 @@ namespace USCTAMis.WebPage
                         break;
                 }
                 strInf += strDay;
-                if (profile.Name.Length > 0)
-                    strInf += "\r\n您好!" + profile.Name;
+                if (profile.UserTruelyName.Length > 0)
+                    strInf += "\r\n您好!" + profile.UserTruelyName;
                 lbl_UserName.Text = strInf;
             }
         }
@@ -69,13 +69,13 @@ namespace USCTAMis.WebPage
             //bool isAdmin = Roles.IsUserInRole("系统管理员");
             //string[] roles = Roles.GetRolesForUser();
             //string[] roles = Roles.GetRolesForUser(userName);
-            IList<USCTAMis.Model.Sys.FunctionModel> functionModelList = _user.GetUserFunctionList(userName);
+            IList<CPMis.Model.Sys.FunctionModel> functionModelList = _user.GetUserFunctionList(userName);
             //IList<USCTAMis.Model.Sys.FunctionModel> functionModelList = _user.GetUserFunctionList("guiqi");
             if (null == functionModelList || functionModelList.Count == 0)
             {
                 return;
             }
-            DataTable functionTable = _user.ConvertToDataTable<USCTAMis.Model.Sys.FunctionModel>(functionModelList);
+            DataTable functionTable = _user.ConvertToDataTable<CPMis.Model.Sys.FunctionModel>(functionModelList);
             int strLen = functionTable.Rows[0]["FunctionID"].ToString().Length;
             String filterStr2 = new string('0', strLen - 2);
             String filterStr1 = "";

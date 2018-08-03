@@ -2,12 +2,12 @@
 // <自动生成>
 //     此代码由工具生成。
 //
-//     对此文件的更改可能会导致不正确的行为，并且如果
-//     重新生成代码，这些更改将会丢失。 
+//     对此文件的更改可能导致不正确的行为，如果
+//     重新生成代码，则所做更改将丢失。
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace USCTAMis.WebPage {
+namespace CPMis.WebPage {
     
     
     public partial class Default {
@@ -91,7 +91,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTabStrip tab_News;
+        protected global::CPMis.Web.WebControls.CPMisTabStrip tab_News;
         
         /// <summary>
         /// mtp_News 控件。
@@ -100,43 +100,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisMultiPage mtp_News;
-        
-        /// <summary>
-        /// mtv_MailBox 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisPageView mtv_MailBox;
-        
-        /// <summary>
-        /// wd_MailList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisGrid wd_MailList;
-        
-        /// <summary>
-        /// mtv_News 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisPageView mtv_News;
-        
-        /// <summary>
-        /// wg_News 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisGrid wg_News;
+        protected global::CPMis.Web.WebControls.CPMisMultiPage mtp_News;
         
         /// <summary>
         /// upv_PersonelInfo 控件。
@@ -145,7 +109,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisPageView upv_PersonelInfo;
+        protected global::CPMis.Web.WebControls.CPMisPageView upv_PersonelInfo;
         
         /// <summary>
         /// pnl_PassEdit 控件。
@@ -163,7 +127,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_OldPass;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_OldPass;
         
         /// <summary>
         /// txt_OldPass 控件。
@@ -172,7 +136,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_OldPass;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_OldPass;
         
         /// <summary>
         /// lbl_NewPass 控件。
@@ -181,7 +145,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_NewPass;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_NewPass;
         
         /// <summary>
         /// txt_NewPass 控件。
@@ -190,7 +154,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_NewPass;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_NewPass;
         
         /// <summary>
         /// lbl_CheckPass 控件。
@@ -199,7 +163,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_CheckPass;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_CheckPass;
         
         /// <summary>
         /// txt_CheckPass 控件。
@@ -208,7 +172,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_CheckPass;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_CheckPass;
         
         /// <summary>
         /// cpv_True 控件。
@@ -226,7 +190,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisButton btn_SavePass;
+        protected global::CPMis.Web.WebControls.CPMisButton btn_SavePass;
         
         /// <summary>
         /// id 控件。
@@ -244,7 +208,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisButton btn_Cancel;
+        protected global::CPMis.Web.WebControls.CPMisButton btn_Cancel;
         
         /// <summary>
         /// pnl_UserNameEdit 控件。
@@ -262,7 +226,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_OldName;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_OldName;
         
         /// <summary>
         /// txt_OldName 控件。
@@ -271,7 +235,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_OldName;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_OldName;
         
         /// <summary>
         /// lbl_NewName 控件。
@@ -280,7 +244,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_NewName;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_NewName;
         
         /// <summary>
         /// txt_NewName 控件。
@@ -289,7 +253,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_NewName;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_NewName;
         
         /// <summary>
         /// btn_SaveName 控件。
@@ -298,6 +262,6 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisButton btn_SaveName;
+        protected global::CPMis.Web.WebControls.CPMisButton btn_SaveName;
     }
 }

@@ -8,6 +8,6 @@
     <frameset cols="210,11,*" frameborder="no" border="0" framespacing="0" id="main">
         <frame name="leftFrame" src="Left.aspx" />
         <frame src="Middle.htm" name="middleFrame" id="middleFrame" title="middleFrame"/>
-        <frame name="mainFrame" scrolling="Auto" style="width: 100%;"  src="Default.aspx"/>
+        <frame name="mainFrame" scrolling="Auto" style="width: 100%;" src="Default.aspx"/>
     </frameset>
 </html>

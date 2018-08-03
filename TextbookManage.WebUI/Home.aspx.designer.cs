@@ -2,12 +2,12 @@
 // <自动生成>
 //     此代码由工具生成。
 //
-//     对此文件的更改可能会导致不正确的行为，并且如果
-//     重新生成代码，这些更改将会丢失。 
+//     对此文件的更改可能导致不正确的行为，如果
+//     重新生成代码，则所做更改将丢失。
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace USCTAMis.WebPage {
+namespace CPMis.WebPage {
     
     
     public partial class NewsList {
@@ -91,7 +91,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel keyword;
+        protected global::CPMis.Web.WebControls.CPMisLabel keyword;
         
         /// <summary>
         /// txt_News 控件。
@@ -100,7 +100,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_News;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_News;
         
         /// <summary>
         /// btn_Query 控件。
@@ -109,7 +109,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisButton btn_Query;
+        protected global::CPMis.Web.WebControls.CPMisButton btn_Query;
         
         /// <summary>
         /// lb_MoreNews 控件。
@@ -118,7 +118,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLinkButton lb_MoreNews;
+        protected global::CPMis.Web.WebControls.CPMisLinkButton lb_MoreNews;
         
         /// <summary>
         /// wg_News 控件。
@@ -127,7 +127,16 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisGrid wg_News;
+        protected global::CPMis.Web.WebControls.CPMisGrid wg_News;
+        
+        /// <summary>
+        /// mlb_ScanNews 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::CPMis.Web.WebControls.CPMisLinkButton mlb_ScanNews;
         
         /// <summary>
         /// lb_MoreTeachingNews 控件。
@@ -136,7 +145,7 @@ namespace USCTAMis.WebPage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLinkButton lb_MoreTeachingNews;
+        protected global::CPMis.Web.WebControls.CPMisLinkButton lb_MoreTeachingNews;
         
         /// <summary>
         /// Teaching 控件。
@@ -146,14 +155,5 @@ namespace USCTAMis.WebPage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Teaching;
-        
-        /// <summary>
-        /// Calendar1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::USCTAMis.WebPage.CommonControl.Calendar Calendar1;
     }
 }
