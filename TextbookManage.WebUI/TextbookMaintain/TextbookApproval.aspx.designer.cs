@@ -2,8 +2,8 @@
 // <自动生成>
 //     此代码由工具生成。
 //
-//     对此文件的更改可能会导致不正确的行为，并且如果
-//     重新生成代码，这些更改将会丢失。 
+//     对此文件的更改可能导致不正确的行为，如果
+//     重新生成代码，则所做更改将丢失。
 // </自动生成>
 //------------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisToolBar CPMisToolBar1;
+        protected global::CPMis.Web.WebControls.CPMisToolBar CPMisToolBar1;
         
         /// <summary>
         /// CPMisTabStrip1 控件。
@@ -82,7 +82,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTabStrip CPMisTabStrip1;
+        protected global::CPMis.Web.WebControls.CPMisTabStrip CPMisTabStrip1;
         
         /// <summary>
         /// mp_Approval 控件。
@@ -91,7 +91,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisMultiPage mp_Approval;
+        protected global::CPMis.Web.WebControls.CPMisMultiPage mp_Approval;
         
         /// <summary>
         /// pv_Approval 控件。
@@ -100,7 +100,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisPageView pv_Approval;
+        protected global::CPMis.Web.WebControls.CPMisPageView pv_Approval;
         
         /// <summary>
         /// lbl_School 控件。
@@ -109,7 +109,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_School;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_School;
         
         /// <summary>
         /// ccmbSchool 控件。
@@ -118,7 +118,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisComboBox ccmbSchool;
+        protected global::CPMis.Web.WebControls.CPMisComboBox ccmbSchool;
         
         /// <summary>
         /// spare 控件。
@@ -127,7 +127,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel spare;
+        protected global::CPMis.Web.WebControls.CPMisLabel spare;
         
         /// <summary>
         /// cbtnQuery 控件。
@@ -136,7 +136,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisButton cbtnQuery;
+        protected global::CPMis.Web.WebControls.CPMisButton cbtnQuery;
         
         /// <summary>
         /// lbl_Choise 控件。
@@ -145,7 +145,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_Choise;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_Choise;
         
         /// <summary>
         /// crdlSuggestion 控件。
@@ -154,7 +154,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisRadioButtonList crdlSuggestion;
+        protected global::CPMis.Web.WebControls.CPMisRadioButtonList crdlSuggestion;
         
         /// <summary>
         /// lbl_CheckOpinion 控件。
@@ -163,7 +163,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_CheckOpinion;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_CheckOpinion;
         
         /// <summary>
         /// ctxtRemark 控件。
@@ -172,7 +172,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox ctxtRemark;
+        protected global::CPMis.Web.WebControls.CPMisTextBox ctxtRemark;
         
         /// <summary>
         /// lbl_Sign 控件。
@@ -181,7 +181,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisLabel lbl_Sign;
+        protected global::CPMis.Web.WebControls.CPMisLabel lbl_Sign;
         
         /// <summary>
         /// txt_Sign 控件。
@@ -190,7 +190,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisTextBox txt_Sign;
+        protected global::CPMis.Web.WebControls.CPMisTextBox txt_Sign;
         
         /// <summary>
         /// cbtnSubmit 控件。
@@ -199,7 +199,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisButton cbtnSubmit;
+        protected global::CPMis.Web.WebControls.CPMisButton cbtnSubmit;
         
         /// <summary>
         /// cgrdDeclaration 控件。
@@ -208,7 +208,7 @@ namespace TextbookManage.WebUI.TextbookMaintain {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::USCTAMis.Web.WebControls.UTMisGrid cgrdDeclaration;
+        protected global::CPMis.Web.WebControls.CPMisGrid cgrdDeclaration;
         
         /// <summary>
         /// RadWindowManager1 控件。

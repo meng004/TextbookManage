@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using TextbookManage.WebUI.TextbookService;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.WebUI.TextbookMaintain
 {
-    public partial class TextbookModify : USCTAMis.Web.WebControls.Page
+    public partial class TextbookModify : CPMis.Web.WebControls.Page
     {
-
+        private readonly ITextbookAppl _impl = ServiceLocator.Current.GetInstance<ITextbookAppl>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,29 +50,28 @@ namespace TextbookManage.WebUI.TextbookMaintain
 
         private void SetForm(string id)
         {
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                //取教材
-                var view = client.GetById(id);
 
-                var isSelf = false;
-                bool.TryParse(view.IsSelfCompile, out isSelf);
+            //取教材
+            var view = _impl.GetById(id);
 
-                //设置教材信息
-                clblTextbookId.Text = view.TextbookId;    //教材ID
-                ctxtTextbookName.Text = view.Name;       //教材名称
-                ctxtISBN.Text = view.Isbn;              //isbn
-                ctxtRetailPrice.Text = view.Price.ToString();        //零售价
-                ctxtAuthor.Text = view.Author;    //作者
-                ccmbPress.SelectedValue = view.PressId;     //出版社
-                ctxtPressAddress.Text = view.PressAddress;//出版社地址
-                ctxtEdition.Text = view.Edition;   //版本
-                ctxtPrintingCount.Text = view.PrintCount;    //版次
-                ctxtPage.Text = view.PageCount;   //页数
-                ctxtType.Text = view.TextbookType;   //教材类型
-                chkIsSelfCompile.Checked = isSelf;//自编
-                ctxtPublishDate.SelectedDate = view.PublishDate; //出版日期
-            }
+            var isSelf = false;
+            bool.TryParse(view.IsSelfCompile, out isSelf);
+
+            //设置教材信息
+            clblTextbookId.Text = view.TextbookId;    //教材ID
+            ctxtTextbookName.Text = view.Name;       //教材名称
+            ctxtISBN.Text = view.Isbn;              //isbn
+            ctxtRetailPrice.Text = view.Price.ToString();        //零售价
+            ctxtAuthor.Text = view.Author;    //作者
+            ccmbPress.SelectedValue = view.PressId;     //出版社
+            ctxtPressAddress.Text = view.PressAddress;//出版社地址
+            ctxtEdition.Text = view.Edition;   //版本
+            ctxtPrintingCount.Text = view.PrintCount;    //版次
+            ctxtPage.Text = view.PageCount;   //页数
+            ctxtType.Text = view.TextbookType;   //教材类型
+            chkIsSelfCompile.Checked = isSelf;//自编
+            ctxtPublishDate.SelectedDate = view.PublishDate; //出版日期
+
         }
         #endregion
 
@@ -88,12 +87,11 @@ namespace TextbookManage.WebUI.TextbookMaintain
             //检查是否已验证
             if (IsValid)
             {
-                using (TextbookApplClient client = new TextbookApplClient())
-                {
-                    var view = GetForm();
-                    var result = client.Modify(view);
-                    USCTAMis.Web.WebClient.ScriptManager.AlertAndClose(result.Message);
-                }
+
+                var view = GetForm();
+                var result = _impl.Modify(view);
+                CPMis.Web.WebClient.ScriptManager.AlertAndClose(result.Message);
+
             }
         }
 
@@ -109,7 +107,7 @@ namespace TextbookManage.WebUI.TextbookMaintain
 
         protected void cbtnSubmit_AfterClick(object sender, EventArgs e)
         {
-            USCTAMis.Web.WebClient.ScriptManager.ExecuteJs("Sys.Application.add_load(CloseAndRebind);");
+            CPMis.Web.WebClient.ScriptManager.ExecuteJs("Sys.Application.add_load(CloseAndRebind);");
         }
         #endregion
 
@@ -117,10 +115,9 @@ namespace TextbookManage.WebUI.TextbookMaintain
 
         protected void ccmbPress_BeforeDataBind(object sender, EventArgs e)
         {
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                ccmbPress.DataSource = client.GetPresses();
-            }
+
+            ccmbPress.DataSource = _impl.GetPresses();
+
         }
 
         protected void ccmbPress_AfterDataBind(object sender, EventArgs e)

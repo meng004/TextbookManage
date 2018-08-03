@@ -87,7 +87,7 @@
             </script>
         </telerik:RadCodeBlock>
         <div>
-            <utm:UTMisToolBar ID="ctlb_book" runat="server" SkinID="Long" OnClientButtonClicked="OnToolBarButtonClicked">
+            <cp:CPMisToolBar ID="ctlb_book" runat="server" SkinID="Long" OnClientButtonClicked="OnToolBarButtonClicked">
                 <Items>
                     <telerik:RadToolBarButton Text="添加教材" ToolTip="添加教材" CommandName="Add" ImageUrl="../Img/tlb_Add.png">
                     </telerik:RadToolBarButton>
@@ -96,40 +96,40 @@
                     <telerik:RadToolBarButton runat="server" CommandName="help" Text="帮助" ImageUrl="~\Img\tlb_Help.png">
                     </telerik:RadToolBarButton>
                 </Items>
-            </utm:UTMisToolBar>
+            </cp:CPMisToolBar>
         </div>
         <div>
-            <utm:UTMisTabStrip runat="server" ID="tab_Main" MultiPageID="mp_Textbook" SkinID="Long">
+            <cp:CPMisTabStrip runat="server" ID="tab_Main" MultiPageID="mp_Textbook" SkinID="Long">
                 <Tabs>
-                    <utm:UTMisTab runat="server" Text="查询教材" PageViewID="pv_TextbookQuery" Selected="true">
-                    </utm:UTMisTab>
+                    <cp:CPMisTab runat="server" Text="查询教材" PageViewID="pv_TextbookQuery" Selected="true">
+                    </cp:CPMisTab>
                 </Tabs>
-            </utm:UTMisTabStrip>
-            <utm:UTMisMultiPage runat="server" ID="mp_Textbook" SkinID="Long">
+            </cp:CPMisTabStrip>
+            <cp:CPMisMultiPage runat="server" ID="mp_Textbook" SkinID="Long">
                 <telerik:RadPageView ID="pv_TextbookQuery" runat="server">
                     <div>
                         <table>
                             <tr>
                                 <td>
-                                    <utm:UTMisLabel ID="UTMisLabel1" runat="server" Text="教材名称："></utm:UTMisLabel>
+                                    <cp:CPMisLabel ID="UTMisLabel1" runat="server" Text="教材名称："></cp:CPMisLabel>
                                 </td>
                                 <td>
-                                    <utm:UTMisTextBox runat="server" ID="ctxtTextbookName"></utm:UTMisTextBox>
+                                    <cp:CPMisTextBox runat="server" ID="ctxtTextbookName"></cp:CPMisTextBox>
                                 </td>
                                 <td>
-                                    <utm:UTMisLabel ID="UTMisLabel2" runat="server" Text="ISBN："></utm:UTMisLabel>
+                                    <cp:CPMisLabel ID="UTMisLabel2" runat="server" Text="ISBN："></cp:CPMisLabel>
                                 </td>
                                 <td>
-                                    <utm:UTMisTextBox runat="server" ID="ctxtIsbn"></utm:UTMisTextBox>
+                                    <cp:CPMisTextBox runat="server" ID="ctxtIsbn"></cp:CPMisTextBox>
                                 </td>
                                 <td>
-                                    <utm:UTMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="cbtnQuery_Click"></utm:UTMisButton>
+                                    <cp:CPMisButton runat="server" ID="cbtnQuery" Text="查询" OnClick="cbtnQuery_Click"></cp:CPMisButton>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div>
-                        <utm:UTMisGrid ID="cgrdBookQuery" runat="server" AutoGenerateColumns="false" CheckControlID="cchkRowCheck"
+                        <cp:CPMisGrid ID="cgrdBookQuery" runat="server" AutoGenerateColumns="false" CheckControlID="cchkRowCheck"
                             OnBeforeDataBind="cgrdBookQuery_BeforeDataBind" 
                             OnPageIndexChanged="cgrdBookQuery_PageIndexChanged">
                             <MasterTableView EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示" AllowPaging="true" PageSize="10">
@@ -142,10 +142,10 @@
                                     </telerik:GridTemplateColumn>
                                     <telerik:GridTemplateColumn DataField="CheckFlag" HeaderStyle-Width="40" UniqueName="cchkCheck" Visible="true">
                                         <HeaderTemplate>
-                                            <utm:UTMisCheckBox ID="cchkCheckAll" runat="server" AutoPostBack="true" OnCheckedChanged="cchkCheckAll_CheckedChanged" />
+                                            <cp:CPMisCheckBox ID="cchkCheckAll" runat="server" AutoPostBack="true" OnCheckedChanged="cchkCheckAll_CheckedChanged" />
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <utm:UTMisCheckBox ID="cchkRowCheck" runat="server" Checked='<%#Eval("CheckFlag")%>' />
+                                            <cp:CPMisCheckBox ID="cchkRowCheck" runat="server" Checked='<%#Eval("CheckFlag")%>' />
                                         </ItemTemplate>
                                     </telerik:GridTemplateColumn>
                                     <telerik:GridTemplateColumn HeaderStyle-Width="40" HeaderText="序号">
@@ -187,10 +187,10 @@
                                     </telerik:GridBoundColumn>--%>
                                 </Columns>
                             </MasterTableView>
-                        </utm:UTMisGrid>
+                        </cp:CPMisGrid>
                     </div>
                 </telerik:RadPageView>
-            </utm:UTMisMultiPage>
+            </cp:CPMisMultiPage>
         </div>
         <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
             <Windows>

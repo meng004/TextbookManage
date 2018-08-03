@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using TextbookManage.WebUI.TextbookService;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.WebUI.TextbookMaintain
 {
-    public partial class TextbookQuery : USCTAMis.Web.WebControls.Page
+    public partial class TextbookQuery : CPMis.Web.WebControls.Page
     {
+        private readonly ITextbookAppl _impl = ServiceLocator.Current.GetInstance<ITextbookAppl>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,10 +42,9 @@ namespace TextbookManage.WebUI.TextbookMaintain
                 return;
             }
             //获取gridview数据源
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                cgrdBookQuery.DataSource = client.GetByName(name, isbn);
-            }
+
+            cgrdBookQuery.DataSource = _impl.GetByName(name, isbn);
+
         }
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace TextbookManage.WebUI.TextbookMaintain
         protected void cchkCheckAll_CheckedChanged(object sender, EventArgs e)
         {
             //处理复选框全选或不选
-            USCTAMis.Web.WebControls.UTMisCheckBox chk = sender as USCTAMis.Web.WebControls.UTMisCheckBox;
+            var chk = sender as CPMis.Web.WebControls.CPMisCheckBox;
             cgrdBookQuery.SetAllCheckControlState(chk.Checked);
         }
 
@@ -96,17 +97,16 @@ namespace TextbookManage.WebUI.TextbookMaintain
         /// </summary>
         private void BatchDeleteBooks()
         {
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                //取选中的图书
-                cgrdBookQuery.PersistCheckState<TextbookForQueryView>();
-                var books = cgrdBookQuery.GetAllCheckedDataList<TextbookForQueryView>();
 
-                //删除
-                var result = client.Remove(books.ToArray());
+            //取选中的图书
+            cgrdBookQuery.PersistCheckState<TextbookForQueryView>();
+            var books = cgrdBookQuery.GetAllCheckedDataList<TextbookForQueryView>();
 
-                USCTAMis.Web.WebClient.ScriptManager.Alert(result.Message);
-            }
+            //删除
+            var result = _impl.Remove(books.ToArray());
+
+            CPMis.Web.WebClient.ScriptManager.Alert(result.Message);
+
         }
         #endregion
 

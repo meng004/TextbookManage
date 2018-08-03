@@ -66,40 +66,40 @@
         <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
         </telerik:RadAjaxLoadingPanel>
 
-        <utm:UTMisToolBar ID="CPMisToolBar1" runat="server" SkinID="Long">
+        <cp:CPMisToolBar ID="CPMisToolBar1" runat="server" SkinID="Long">
             <Items>
                 <telerik:RadToolBarButton runat="server" CommandName="help" Text="帮助" ImageUrl="~\Img\tlb_Help.png">
                 </telerik:RadToolBarButton>
             </Items>
-        </utm:UTMisToolBar>
+        </cp:CPMisToolBar>
 
-        <utm:UTMisTabStrip ID="CPMisTabStrip1" runat="server" MultiPageID="mp_Approval">
+        <cp:CPMisTabStrip ID="CPMisTabStrip1" runat="server" MultiPageID="mp_Approval">
             <Tabs>
-                <utm:UTMisTab runat="server" Text="审核用书申报" PageViewID="pv_Approval" Selected="true">
-                </utm:UTMisTab>
+                <cp:CPMisTab runat="server" Text="审核用书申报" PageViewID="pv_Approval" Selected="true">
+                </cp:CPMisTab>
             </Tabs>
-        </utm:UTMisTabStrip>
+        </cp:CPMisTabStrip>
 
-        <utm:UTMisMultiPage ID="mp_Approval" runat="server" SkinID="Long">
-            <utm:UTMisPageView ID="pv_Approval" runat="server" >
+        <cp:CPMisMultiPage ID="mp_Approval" runat="server" SkinID="Long">
+            <cp:CPMisPageView ID="pv_Approval" runat="server" >
                 <table>
                     <tr>
                         <td>
-                            <utm:UTMisLabel ID="lbl_School" runat="server" Text="学院：">
-                            </utm:UTMisLabel>
+                            <cp:CPMisLabel ID="lbl_School" runat="server" Text="学院：">
+                            </cp:CPMisLabel>
                         </td>
                         <td>
-                            <utm:UTMisComboBox ID="ccmbSchool" runat="server" AutoPostBack="true" DataTextField="Name" DataValueField="SchoolId"
+                            <cp:CPMisComboBox ID="ccmbSchool" runat="server" AutoPostBack="true" DataTextField="Name" DataValueField="SchoolId"
                                 OnBeforeDataBind="ccmbSchool_BeforeDataBind"
                                 OnAfterDataBind="ccmbSchool_AfterDataBind" 
                                 OnSelectedIndexChanged="ccmbSchool_SelectedIndexChanged">
-                            </utm:UTMisComboBox>
+                            </cp:CPMisComboBox>
                         </td>
                         <td>
-                            <utm:UTMisLabel ID="spare" runat="server" SkinID="AutoSize" Text="" Width="30px">
-                            </utm:UTMisLabel>
-                            <utm:UTMisButton ID="cbtnQuery" runat="server" Text="查 询" OnClick="ccmbSchool_AfterDataBind">
-                            </utm:UTMisButton>
+                            <cp:CPMisLabel ID="spare" runat="server" SkinID="AutoSize" Text="" Width="30px">
+                            </cp:CPMisLabel>
+                            <cp:CPMisButton ID="cbtnQuery" runat="server" Text="查 询" OnClick="ccmbSchool_AfterDataBind">
+                            </cp:CPMisButton>
                         </td>
                     </tr>
                 </table>
@@ -108,42 +108,42 @@
                     <table>
                         <tr>
                             <td>
-                                <utm:UTMisLabel ID="lbl_Choise" runat="server" Text="请选择：">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="lbl_Choise" runat="server" Text="请选择：">
+                                </cp:CPMisLabel>
                             </td>
                             <td>
-                                <utm:UTMisRadioButtonList ID="crdlSuggestion" runat="server" RepeatColumns="2">
+                                <cp:CPMisRadioButtonList ID="crdlSuggestion" runat="server" RepeatColumns="2">
                                     <asp:ListItem Text="同意" Value="1" Selected="True">
                                     </asp:ListItem>
                                     <asp:ListItem Text="不同意" Value="0">
                                     </asp:ListItem>
-                                </utm:UTMisRadioButtonList>
+                                </cp:CPMisRadioButtonList>
                             </td>
                             <td style="width: 20px;"></td>
                             <td>
-                                <utm:UTMisLabel ID="lbl_CheckOpinion" runat="server" Text="审核意见：">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="lbl_CheckOpinion" runat="server" Text="审核意见：">
+                                </cp:CPMisLabel>
                             </td>
                             <td>
-                                <utm:UTMisTextBox ID="ctxtRemark" runat="server" Width="390px" SkinID="AutoSize">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="ctxtRemark" runat="server" Width="390px" SkinID="AutoSize">
+                                </cp:CPMisTextBox>
                             </td>
                             <td>
-                                <utm:UTMisLabel ID="lbl_Sign" runat="server" Text="签名：">
-                                </utm:UTMisLabel>
+                                <cp:CPMisLabel ID="lbl_Sign" runat="server" Text="签名：">
+                                </cp:CPMisLabel>
                             </td>
                             <td>
-                                <utm:UTMisTextBox ID="txt_Sign" runat="server" Enabled="false">
-                                </utm:UTMisTextBox>
+                                <cp:CPMisTextBox ID="txt_Sign" runat="server" Enabled="false">
+                                </cp:CPMisTextBox>
                             </td>
                             <td>
-                                <utm:UTMisButton ID="cbtnSubmit" runat="server" Text="审核确认" OnClick="cbtnSubmit_Click" OnAfterClick="cbtnSubmit_AfterClick">
-                                </utm:UTMisButton>
+                                <cp:CPMisButton ID="cbtnSubmit" runat="server" Text="审核确认" OnClick="cbtnSubmit_Click" OnAfterClick="cbtnSubmit_AfterClick">
+                                </cp:CPMisButton>
                             </td>
                         </tr>
                     </table>
                 </fieldset>
-                <utm:UTMisGrid ID="cgrdDeclaration" SkinID="NoExport" runat="server" CheckControlID="cchkRowCheck" 
+                <cp:CPMisGrid ID="cgrdDeclaration" SkinID="NoExport" runat="server" CheckControlID="cchkRowCheck" 
                     OnBeforeDataBind="cgrdDeclaration_BeforeDataBind" OnPageIndexChanged="cgrdDeclaration_PageIndexChanged">
                     <MasterTableView EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示" AllowPaging="true" PageSize="10">
                         <PagerStyle Mode="NumericPages" PagerTextFormat="{4}第{0}页 共{1}页" PageButtonCount="4" />
@@ -151,10 +151,10 @@
                         <Columns>
                             <telerik:GridTemplateColumn DataField="CheckFlag" HeaderStyle-Width="30px" UniqueName="cchkCheck" Visible="true">
                                 <HeaderTemplate>
-                                    <utm:UTMisCheckBox ID="cchkCheckAll" runat="server" AutoPostBack="true" OnCheckedChanged="cchkCheckAll_CheckedChanged" />
+                                    <cp:CPMisCheckBox ID="cchkCheckAll" runat="server" AutoPostBack="true" OnCheckedChanged="cchkCheckAll_CheckedChanged" />
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <utm:UTMisCheckBox ID="cchkRowCheck" runat="server" Checked='<%#Eval("CheckFlag")%>' />
+                                    <cp:CPMisCheckBox ID="cchkRowCheck" runat="server" Checked='<%#Eval("CheckFlag")%>' />
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
                             <telerik:GridTemplateColumn HeaderStyle-Width="40px" HeaderText="序号">
@@ -194,9 +194,9 @@
                             </telerik:GridBoundColumn>
                         </Columns>
                     </MasterTableView>
-                </utm:UTMisGrid>
-            </utm:UTMisPageView>
-        </utm:UTMisMultiPage>
+                </cp:CPMisGrid>
+            </cp:CPMisPageView>
+        </cp:CPMisMultiPage>
 
         <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
             <Windows>

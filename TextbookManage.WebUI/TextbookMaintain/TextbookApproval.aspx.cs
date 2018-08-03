@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TextbookManage.WebUI.TextbookApprovalService;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.WebUI.TextbookMaintain
 {
-    public partial class TextbookApproval : USCTAMis.Web.WebControls.Page
+    public partial class TextbookApproval : CPMis.Web.WebControls.Page
     {
 
         #region 属性
-
+        private readonly ITextbookApprovalAppl _impl = ServiceLocator.Current.GetInstance<ITextbookApprovalAppl>();
         //获取用户信息
         //ProfileManger profile = new ProfileManger(HttpContext.Current.User.Identity.Name);
         //获取登录名
@@ -19,7 +20,7 @@ namespace TextbookManage.WebUI.TextbookMaintain
         //外国语学院院长，42018
         //教材科,hynhpgj
         //教务处，jwclsl
-               
+
 
         #endregion
 
@@ -31,12 +32,11 @@ namespace TextbookManage.WebUI.TextbookMaintain
             {
                 //绑定学院下拉列表
                 ccmbSchool.DoDataBind();
-                using (TextbookApprovalApplClient client = new TextbookApprovalApplClient())
-                {
-                    //审核人签名
-                    txt_Sign.Text = client.GetAuditor(_loginName);
-                    //txt_Sign.Text = client.GetAuditor(User.Identity.Name);
-                }
+
+                //审核人签名
+                txt_Sign.Text = _impl.GetAuditor(_loginName);
+                //txt_Sign.Text = client.GetAuditor(User.Identity.Name);
+
             }
         }
         #endregion
@@ -45,11 +45,10 @@ namespace TextbookManage.WebUI.TextbookMaintain
 
         protected void ccmbSchool_BeforeDataBind(object sender, EventArgs e)
         {
-            using (var client = new TextbookApprovalApplClient())
-            {
-                ccmbSchool.DataSource = client.GetSchoolWithNotApproval(_loginName);
-                //ccmbSchool.DataSource = client.GetSchoolWithNotApproval(User.Identity.Name);
-            }
+
+            ccmbSchool.DataSource = _impl.GetSchoolWithNotApproval(_loginName);
+            //ccmbSchool.DataSource = client.GetSchoolWithNotApproval(User.Identity.Name);
+
         }
 
         protected void ccmbSchool_AfterDataBind(object sender, EventArgs e)
@@ -74,10 +73,9 @@ namespace TextbookManage.WebUI.TextbookMaintain
         protected void cgrdDeclaration_BeforeDataBind(object sender, EventArgs e)
         {
             string schoolId = ccmbSchool.SelectedValue;
-            using (var client = new TextbookApprovalApplClient())
-            {
-                cgrdDeclaration.DataSource = client.GetTextbookWithNotApproval(_loginName, schoolId);
-            }
+
+            cgrdDeclaration.DataSource = _impl.GetTextbookWithNotApproval(_loginName, schoolId);
+
         }
 
         #endregion
@@ -102,7 +100,7 @@ namespace TextbookManage.WebUI.TextbookMaintain
         protected void cchkCheckAll_CheckedChanged(object sender, EventArgs e)
         {
             //处理复选框全选或不选
-            USCTAMis.Web.WebControls.UTMisCheckBox chk = sender as USCTAMis.Web.WebControls.UTMisCheckBox;
+            CPMis.Web.WebControls.CPMisCheckBox chk = sender as CPMis.Web.WebControls.CPMisCheckBox;
             cgrdDeclaration.SetAllCheckControlState(chk.Checked);
         }
         #endregion
@@ -132,14 +130,13 @@ namespace TextbookManage.WebUI.TextbookMaintain
                 string approvalSuggestion = crdlSuggestion.SelectedValue;
                 string remark = ctxtRemark.Text.Trim();
 
-                using (var client = new TextbookApprovalApplClient())
-                {
-                    var result = client.SubmitTextbookApproval(views.ToArray(), _loginName, approvalSuggestion, remark);
-                    message = result.Message;
-                }
+
+                var result = _impl.SubmitTextbookApproval(views.ToArray(), _loginName, approvalSuggestion, remark);
+                message = result.Message;
+
             }
 
-            USCTAMis.Web.WebClient.ScriptManager.Alert(message);
+            CPMis.Web.WebClient.ScriptManager.Alert(message);
         }
 
         protected void cbtnSubmit_AfterClick(object sender, EventArgs e)
@@ -169,6 +166,6 @@ namespace TextbookManage.WebUI.TextbookMaintain
         #endregion
 
 
-        
+
     }
 }

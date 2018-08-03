@@ -1,17 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.ViewModels;
+
 //添加引用
-using TextbookManage.WebUI.TextbookService;
+
 
 
 namespace TextbookManage.WebUI.TextbookMaintain
 {
-    public partial class TextbookAdd : USCTAMis.Web.WebControls.Page
+    public partial class TextbookAdd : CPMis.Web.WebControls.Page
     {
 
         private readonly string _loginName = HttpContext.Current.User.Identity.Name;
+        private readonly ITextbookAppl _impl = ServiceLocator.Current.GetInstance<ITextbookAppl>();
         //private readonly string _loginName = "46010";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -78,10 +81,9 @@ namespace TextbookManage.WebUI.TextbookMaintain
 
         protected void ccmbPress_BeforeDataBind(object sender, EventArgs e)
         {
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                ccmbPress.DataSource = client.GetPresses();
-            }
+
+            ccmbPress.DataSource = _impl.GetPresses();
+
         }
 
         protected void ccmbPress_AfterDataBind(object sender, EventArgs e)
@@ -119,12 +121,11 @@ namespace TextbookManage.WebUI.TextbookMaintain
         {
             if (IsValid)
             {
-                using (TextbookApplClient client = new TextbookApplClient())
-                {
-                    TextbookView view = GetForm();
-                    var result = client.Add(view, _loginName);
-                    USCTAMis.Web.WebClient.ScriptManager.AlertAndClose(result.Message);
-                }
+
+                TextbookView view = GetForm();
+                var result = _impl.Add(view, _loginName);
+                CPMis.Web.WebClient.ScriptManager.AlertAndClose(result.Message);
+
             }
         }
 
@@ -135,7 +136,7 @@ namespace TextbookManage.WebUI.TextbookMaintain
         /// <param name="e"></param>
         protected void cbtnSubmit_AfterClick(object sender, EventArgs e)
         {
-            USCTAMis.Web.WebClient.ScriptManager.ExecuteJs("Sys.Application.add_load(CloseAndRebind);");
+            CPMis.Web.WebClient.ScriptManager.ExecuteJs("Sys.Application.add_load(CloseAndRebind);");
         }
         #endregion
 

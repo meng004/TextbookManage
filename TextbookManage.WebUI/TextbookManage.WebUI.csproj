@@ -283,6 +283,11 @@
     <Content Include="App_Themes\CPMisTheme\DatePicker.skin" />
     <Content Include="App_Themes\CPMisTheme\OnFileUpdate.skin" />
     <Content Include="App_Themes\CPMisTheme\ReportViewer.skin" />
+    <Content Include="TextbookMaintain\TextbookAdd.aspx" />
+    <Content Include="TextbookMaintain\TextbookApproval.aspx" />
+    <Content Include="TextbookMaintain\TextbookModify.aspx" />
+    <Content Include="TextbookMaintain\TextbookMyQuery.aspx" />
+    <Content Include="TextbookMaintain\TextbookQuery.aspx" />
     <Content Include="WindowForMessage\ApprovalRecordDetail.aspx" />
     <Content Include="WindowForMessage\DeclarationsForTeachingClass.aspx" />
     <Content Include="WindowForMessage\FeedbackForDeclaration.aspx" />
@@ -962,6 +967,41 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextbookMaintain\TextbookAdd.aspx.cs">
+      <DependentUpon>TextbookAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookAdd.aspx.designer.cs">
+      <DependentUpon>TextbookAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookApproval.aspx.cs">
+      <DependentUpon>TextbookApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookApproval.aspx.designer.cs">
+      <DependentUpon>TextbookApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookModify.aspx.cs">
+      <DependentUpon>TextbookModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookModify.aspx.designer.cs">
+      <DependentUpon>TextbookModify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.cs">
+      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.designer.cs">
+      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookQuery.aspx.cs">
+      <DependentUpon>TextbookQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextbookMaintain\TextbookQuery.aspx.designer.cs">
+      <DependentUpon>TextbookQuery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WindowForMessage\ApprovalRecordDetail.aspx.cs">
       <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

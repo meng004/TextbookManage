@@ -90,7 +90,7 @@
             </script>
         </telerik:RadCodeBlock>
         <div>
-            <utm:UTMisToolBar ID="ctlb_book" runat="server" SkinID="Long" OnClientButtonClicked="OnToolBarButtonClicked">
+            <cp:CPMisToolBar ID="ctlb_book" runat="server" SkinID="Long" OnClientButtonClicked="OnToolBarButtonClicked">
                 <Items>
                     <telerik:RadToolBarButton runat="server" Text="添加教材" ToolTip="添加教材" CommandName="Add" ImageUrl="~\Img\tlb_Add.png">
                     </telerik:RadToolBarButton>
@@ -99,18 +99,18 @@
                     <telerik:RadToolBarButton runat="server" Text="帮助" CommandName="help" ImageUrl="~\Img\tlb_Help.png">
                     </telerik:RadToolBarButton>
                 </Items>
-            </utm:UTMisToolBar>
+            </cp:CPMisToolBar>
         </div>
         <div>
-            <utm:UTMisTabStrip runat="server" ID="tab_Main" MultiPageID="mp_Textbook" SkinID="Long">
+            <cp:CPMisTabStrip runat="server" ID="tab_Main" MultiPageID="mp_Textbook" SkinID="Long">
                 <Tabs>
                     <telerik:RadTab runat="server" Text="查询我申报的教材" PageViewID="pv_MyTextbook" Selected="True"></telerik:RadTab>
                 </Tabs>
-            </utm:UTMisTabStrip>
-            <utm:UTMisMultiPage runat="server" ID="mp_Textbook" SkinID="Long">
+            </cp:CPMisTabStrip>
+            <cp:CPMisMultiPage runat="server" ID="mp_Textbook" SkinID="Long">
                 <telerik:RadPageView ID="pv_MyTextbook" runat="server" >
                     <div>
-                        <utm:UTMisGrid ID="cgrdMyBookQuery" runat="server" SkinID="Long" AutoGenerateColumns="false" CheckControlID="cchkRowCheck"
+                        <cp:CPMisGrid ID="cgrdMyBookQuery" runat="server" SkinID="Long" AutoGenerateColumns="false" CheckControlID="cchkRowCheck"
                             OnBeforeDataBind="cgrdMyBookQuery_BeforeDataBind" OnPageIndexChanged="cgrdMyBookQuery_PageIndexChanged">
                             <MasterTableView EnableNoRecordsTemplate="true" NoMasterRecordsText="没有数据可以显示" AllowPaging="true" PageSize="10">
                                 <PagerStyle Mode="NumericPages" PagerTextFormat="{4}第{0}页 共{1}页" PageButtonCount="4" />
@@ -165,10 +165,10 @@
                                     </telerik:GridBoundColumn>
                                 </Columns>
                             </MasterTableView>
-                        </utm:UTMisGrid>
+                        </cp:CPMisGrid>
                     </div>
                 </telerik:RadPageView>
-            </utm:UTMisMultiPage>
+            </cp:CPMisMultiPage>
         </div>
         <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
             <Windows>

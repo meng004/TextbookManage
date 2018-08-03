@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TextbookManage.WebUI.TextbookService;
+using TextbookManage.IApplications;
+using TextbookManage.Infrastructure.ServiceLocators;
+using TextbookManage.ViewModels;
 
 namespace TextbookManage.WebUI.TextbookMaintain
 {
-    public partial class TextbookMyQuery : USCTAMis.Web.WebControls.Page
+    public partial class TextbookMyQuery : CPMis.Web.WebControls.Page
     {
-
+        private readonly ITextbookAppl _impl = ServiceLocator.Current.GetInstance<ITextbookAppl>();
         private readonly string _loginName = HttpContext.Current.User.Identity.Name;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,17 +45,16 @@ namespace TextbookManage.WebUI.TextbookMaintain
         /// </summary>
         private void BatchDeleteBooks()
         {
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                //取选中的图书
-                cgrdMyBookQuery.PersistCheckState<TextbookForQueryView>();
-                var books = cgrdMyBookQuery.GetAllCheckedDataList<TextbookForQueryView>();
 
-                //删除
-                var result = client.Remove(books.ToArray());
+            //取选中的图书
+            cgrdMyBookQuery.PersistCheckState<TextbookForQueryView>();
+            var books = cgrdMyBookQuery.GetAllCheckedDataList<TextbookForQueryView>();
 
-                USCTAMis.Web.WebClient.ScriptManager.Alert(result.Message);
-            }
+            //删除
+            var result = _impl.Remove(books.ToArray());
+
+            CPMis.Web.WebClient.ScriptManager.Alert(result.Message);
+
         }
         #endregion
 
@@ -64,11 +64,10 @@ namespace TextbookManage.WebUI.TextbookMaintain
         protected void cgrdMyBookQuery_BeforeDataBind(object sender, EventArgs e)
         {
             //获取gridview数据源
-            using (TextbookApplClient client = new TextbookApplClient())
-            {
-                //cgrdBookQuery.DataSource = client.GetByLoginName(Page.User.Identity.Name);
-                cgrdMyBookQuery.DataSource = client.GetByLoginName(_loginName);
-            }
+
+            //cgrdBookQuery.DataSource = client.GetByLoginName(Page.User.Identity.Name);
+            cgrdMyBookQuery.DataSource = _impl.GetByLoginName(_loginName);
+
         }
 
         protected void cgrdMyBookQuery_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
@@ -80,7 +79,7 @@ namespace TextbookManage.WebUI.TextbookMaintain
         protected void cchkMyCheckAll_CheckedChanged(object sender, EventArgs e)
         {
             //处理复选框全选或不选
-            USCTAMis.Web.WebControls.UTMisCheckBox chk = sender as USCTAMis.Web.WebControls.UTMisCheckBox;
+            var chk = sender as CPMis.Web.WebControls.CPMisCheckBox;
             cgrdMyBookQuery.SetAllCheckControlState(chk.Checked);
         }
         #endregion
