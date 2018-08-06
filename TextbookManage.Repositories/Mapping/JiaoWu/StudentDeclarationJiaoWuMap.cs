@@ -38,9 +38,9 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
             this.Property(t => t.Sfgd).HasColumnName("SFGD");
 
             //教材：学生用书申报教务，1:N
-            this.HasRequired(t => t.Textbook)
-                .WithMany(t => t.StudentDeclarationJiaoWus)
-                .HasForeignKey(t => t.Textbook_Id);
+            //this.HasRequired(t => t.Textbook)
+            //    .WithMany(t => t.StudentDeclarationJiaoWus)
+            //    .HasForeignKey(t => t.Textbook_Id);
             //部门：教务学生用书申报，1：N
             this.HasRequired(t => t.Department)
                 .WithMany(t => t.StudentDeclarationJiaoWus)

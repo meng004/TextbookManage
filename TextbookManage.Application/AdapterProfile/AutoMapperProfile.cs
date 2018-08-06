@@ -59,15 +59,16 @@
 
             //教材
             Mapper.CreateMap<Textbook, TextbookView>()
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID))
-                .ForMember(v => v.Price, m => m.MapFrom(s => s.Price.ConvertToDecimal()))
-                .ForMember(v => v.PublishDate, m => m.MapFrom(s => s.PublishDate.ConvertToDateTime()));
+                .ForMember(v => v.IsSelfCompile, m => m.MapFrom(s => s.IsSelfCompile == "1" ? true : false));
+            //.ForMember(v => v.TextbookId, m => m.MapFrom(s => s.TextbookId))
+            //.ForMember(v => v.Price, m => m.MapFrom(s => s.Price.ConvertToDecimal()))
+            //.ForMember(v => v.PublishDate, m => m.MapFrom(s => s.PublishDate.ConvertToDateTime()));
 
             Mapper.CreateMap<Textbook, TextbookForDeclarationView>()
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
 
             Mapper.CreateMap<Textbook, TextbookForQueryView>()
-                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
+                .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.TextbookId));
 
             Mapper.CreateMap<Textbook, TextbookForReleaseView>()
                 .ForMember(v => v.TextbookId, m => m.MapFrom(s => s.ID));
@@ -79,10 +80,11 @@
                 .ForMember(v => v.InventoryCount, m => m.UseValue("0"));
 
             Mapper.CreateMap<TextbookView, Textbook>()
-                .ForMember(m => m.ID, v => v.MapFrom(s => string.IsNullOrWhiteSpace(s.TextbookId) ? System.Guid.Empty : s.TextbookId.ConvertToGuid()))
-                .ForMember(m => m.Price, v => v.MapFrom(s => s.Price))
-                .ForMember(m => m.Press, v => v.MapFrom(s => s.Press))
-                .ForMember(m => m.PublishDate, v => v.MapFrom(s => s.PublishDate));
+                //.ForMember(m => m.ID, v => v.MapFrom(s => string.IsNullOrWhiteSpace(s.TextbookId) ? System.Guid.Empty : s.TextbookId.ConvertToGuid()))
+                .ForMember(m => m.Price, v => v.MapFrom(s => s.Price.ConvertToDecimal()))
+                .ForMember(m => m.IsSelfCompile, v => v.MapFrom(s => s.IsSelfCompile ? "1" : "0"));
+            //.ForMember(m => m.Press, v => v.MapFrom(s => s.Press))
+            //.ForMember(m => m.PublishDate, v => v.MapFrom(s => s.PublishDate));
 
             //专业班级
             Mapper.CreateMap<ProfessionalClass, ProfessionalClassBaseView>()

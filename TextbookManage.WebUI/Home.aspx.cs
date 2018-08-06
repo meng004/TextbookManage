@@ -19,14 +19,14 @@ namespace CPMis.WebPage
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            IsAnony = true;
-            btn_Login1.Attributes.Add("onmouseover", "this.src='Img/HomeLogButtonOver.gif'");
-            btn_Login1.Attributes.Add("onmouseout ", "this.src='Img/HomeLogButton.gif'");
-            AddLinkButtonForDynamic();
-            if (!IsPostBack)
-            {
-                wg_NewsDataBind(); 
-            }
+            //IsAnony = true;
+            //btn_Login1.Attributes.Add("onmouseover", "this.src='Img/HomeLogButtonOver.gif'");
+            //btn_Login1.Attributes.Add("onmouseout ", "this.src='Img/HomeLogButton.gif'");
+            //AddLinkButtonForDynamic();
+            //if (!IsPostBack)
+            //{
+            //    wg_NewsDataBind(); 
+            //}
         }
 
         #region 系统事件
@@ -106,7 +106,7 @@ namespace CPMis.WebPage
             try
             {
                 //USCTAMis.Web.WebClient.ScriptManager.Alert("将要跳转！");
-                Response.Redirect("~/USCTAMisLogin.aspx");
+                Response.Redirect("~/Login.aspx");
             }
             catch (Exception ex)
             {

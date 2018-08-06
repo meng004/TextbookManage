@@ -30,9 +30,9 @@ namespace TextbookManage.Repositories.Mapping
             this.HasRequired(t => t.Storage)
                 .WithMany(t => t.Inventories)
                 .HasForeignKey(d => d.Storage_Id);
-            this.HasRequired(t => t.Textbook)
-                .WithMany(t => t.Inventories)
-                .HasForeignKey(d => d.Textbook_Id);
+            //this.HasRequired(t => t.Textbook)
+            //    .WithMany(t => t.Inventories)
+            //    .HasForeignKey(d => d.Textbook_Id);
 
         }
     }

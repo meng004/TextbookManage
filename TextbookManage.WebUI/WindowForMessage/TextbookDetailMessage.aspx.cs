@@ -56,8 +56,8 @@ namespace TextbookManage.WebUI.WindowForMessage
             ctxtPrintingCount.Text = view.PrintCount;    //版次
             ctxtPage.Text = view.PageCount;   //页数
             ctxtType.Text = view.TextbookType;   //教材类型
-            ctxtIsSelfCompile.Text = view.IsSelfCompile;//自编
-            ctxtPublishDate.Text = view.PublishDate.ToLongDateString(); //出版日期
+            ctxtIsSelfCompile.Text = view.IsSelfCompile.ToString();//自编
+            ctxtPublishDate.Text = view.PublishDate; //出版日期
 
         }
         #endregion

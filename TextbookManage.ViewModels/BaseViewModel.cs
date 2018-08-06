@@ -1,9 +1,11 @@
-﻿namespace TextbookManage.ViewModels
+﻿using System;
+
+namespace TextbookManage.ViewModels
 {
 
     using System.Runtime.Serialization;
 
-    [DataContract]
+    [Serializable]
     public class BaseViewModel
     {
 
@@ -12,17 +14,17 @@
         /// <summary>
         /// 获得或设置删除标记 
         /// </summary>
-        [DataMember]
+
         public string DeleteFlag { get; set; }
         /// <summary>
         /// 获得或设置选中状态
         /// </summary>
-        [DataMember]
+
         public bool CheckFlag { get; set; }
         /// <summary>
         /// 获得或设置是否删除
         /// </summary>
-        [DataMember]
+
         public bool IsDelete
         {
             get

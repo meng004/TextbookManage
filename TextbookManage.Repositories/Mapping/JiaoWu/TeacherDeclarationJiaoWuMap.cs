@@ -36,9 +36,9 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
 
 
             //教材：教师用书申报教务，1:N
-            this.HasRequired(t => t.Textbook)
-                .WithMany(t => t.TeacherDeclarationJiaoWus)
-                .HasForeignKey(t => t.Textbook_Id);
+            //this.HasRequired(t => t.Textbook)
+            //    .WithMany(t => t.TeacherDeclarationJiaoWus)
+            //    .HasForeignKey(t => t.Textbook_Id);
             //部门：教务教师用书申报，1：N
             this.HasRequired(t => t.Department)
                 .WithMany(t => t.TeacherDeclarationJiaoWus)

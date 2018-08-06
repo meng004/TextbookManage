@@ -54,7 +54,7 @@
                 var sb = new StringBuilder();
                 for (int i = 0; i < input.Arguments.Count; i++)
                 {
-                    if (input.Arguments[i]!=null)
+                    if (input.Arguments[i] != null)
                     {
                         sb.Append(input.Arguments[i].ToString());
                     }
@@ -80,7 +80,7 @@
         private IMethodReturn CreateMethodReturnForGet(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
         {
             //取拦截目标的方法名称
-            var method = input.MethodBase;
+            
             //根据实现类与方法，构造key
             var key = CreateKey(input);
 
@@ -171,10 +171,14 @@
                 switch (cacheAttribute.Method)
                 {
                     case CacheMethod.Get:
-                        return CreateMethodReturnForGet(input, getNext);
+                       return CreateMethodReturnForGet(input, getNext);
+                      
+
                     case CacheMethod.Remove:
-                        return CreateMethodReturnForRemove(input, getNext);
-                    default: break;
+                      return  CreateMethodReturnForRemove(input, getNext);
+                        
+                    default:
+                        return getNext().Invoke(input, getNext);
                 }
             }
 

@@ -37,9 +37,9 @@ namespace TextbookManage.Repositories.Mapping
                 .WithMany(t => t.Subscriptions)
                 .HasForeignKey(d => d.Feedback_Id);
             //教材：书商订单，1：N
-            this.HasRequired(t => t.Textbook)
-                .WithMany(t => t.Subscriptions)
-                .HasForeignKey(d => d.Textbook_Id);
+            //this.HasRequired(t => t.Textbook)
+            //    .WithMany(t => t.Subscriptions)
+            //    .HasForeignKey(d => d.Textbook_Id);
 
         }
     }

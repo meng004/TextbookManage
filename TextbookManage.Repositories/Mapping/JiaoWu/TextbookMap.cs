@@ -9,7 +9,7 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
         public TextbookMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.TextbookId);
 
             // Properties
             this.Property(t => t.Name)
@@ -24,11 +24,11 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.PublishDate)
-                .HasMaxLength(20);
+            Ignore(t => t.PublishDate);
+            Ignore(t => t.ID);
+            
 
-            this.Property(t => t.Price)
-                .HasMaxLength(20);
+            
 
             this.Property(t => t.Edition)
                 .HasMaxLength(30);
@@ -44,19 +44,19 @@ namespace TextbookManage.Repositories.Mapping.JiaoWu
                 .HasMaxLength(10);
 
             // Table & Column Mappings
-            this.ToTable("V_TextBook", "dbo");
-            this.Property(t => t.ID).HasColumnName("JCID");
-            this.Property(t => t.Name).HasColumnName("JCMC");
+            this.ToTable("Textbook", "dbo");
+            this.Property(t => t.TextbookId).HasColumnName("TextbookID");
+            this.Property(t => t.Name).HasColumnName("TextbookName");
             this.Property(t => t.Isbn).HasColumnName("ISBN");
-            this.Property(t => t.Author).HasColumnName("ZZ");
-            this.Property(t => t.PublishDate).HasColumnName("CBSJ");
-            this.Property(t => t.Price).HasColumnName("DJ");                       
-            this.Property(t => t.Edition).HasColumnName("BB");
-            this.Property(t => t.PrintCount).HasColumnName("BCMC");
-            this.Property(t => t.Press).HasColumnName("CBSMC");             
-            this.Property(t => t.TextbookType).HasColumnName("JCLXMC");
+            this.Property(t => t.Author).HasColumnName("Author");
+            //this.Property(t => t.PublishDate).HasColumnName("CBSJ");
+            this.Property(t => t.Price).HasColumnName("RetailPrice");                       
+            this.Property(t => t.Edition).HasColumnName("Edition");
+            this.Property(t => t.PrintCount).HasColumnName("PrintingCount");
+            this.Property(t => t.Press).HasColumnName("Press");             
+            this.Property(t => t.TextbookType).HasColumnName("TextbookType");
+            this.Property(t => t.IsSelfCompile).HasColumnName("IsSelfCompile");
 
-                
         }
     }
 }

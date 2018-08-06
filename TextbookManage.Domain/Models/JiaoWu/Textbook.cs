@@ -10,6 +10,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         {
             //StudentDeclarations = new List<StudentDeclaration>();
             //TeacherDeclarations = new List<TeacherDeclaration>();
+            IsSelfCompile = "0";
             StudentDeclarationJiaoWus = new List<StudentDeclarationJiaoWu>();
             TeacherDeclarationJiaoWus = new List<TeacherDeclarationJiaoWu>();
             Subscriptions = new List<Subscription>();
@@ -21,7 +22,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 教材ID
         /// </summary>
-        //public Guid TextbookId { get; set; }
+        public string TextbookId { get; set; }
         /// <summary>
         /// 教材名称
         /// </summary>
@@ -41,7 +42,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// <summary>
         /// 定价
         /// </summary>
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         /// <summary>
         /// 版本
         /// </summary>
@@ -58,6 +59,11 @@ namespace TextbookManage.Domain.Models.JiaoWu
         /// 教材类型
         /// </summary>
         public string TextbookType { get; set; }
+        /// <summary>
+        /// 是否自编教材
+        /// 是1，否0
+        /// </summary>
+        public string IsSelfCompile { get; set; }
         /// <summary>
         /// 学生用书申报
         /// </summary>
@@ -112,7 +118,7 @@ namespace TextbookManage.Domain.Models.JiaoWu
             get
             {
                 //四舍六入五取偶                
-                return Math.Round(Price.ConvertToDecimal() * Discount, 2, MidpointRounding.ToEven);
+                return Math.Round(Price * Discount, 2, MidpointRounding.ToEven);
             }
         }
 

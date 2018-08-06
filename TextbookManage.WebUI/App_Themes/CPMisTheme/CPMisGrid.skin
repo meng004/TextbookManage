@@ -373,19 +373,20 @@
    
    
     <%--自己设置分页方式和默认的分页数，可以导出。--%>
-    <cp:CPMisGrid  runat="server" SkinID="AutoPages" AutoGenerateColumns="False"
+    <cp:CPMisGrid  runat="server" SkinID="AutoPages" AutoGenerateColumns="False" Height="520"
         AllowAutomaticUpdates="False" AllowMultiRowEdit="True" AllowMultiRowSelection="true"
-        AllowPaging="True" GridLines="Both" PersistPageIndex="0">
+        AllowPaging="True" GridLines="Both" PersistPageIndex="0" >
         <ExportSettings ExportOnlyData="True" IgnorePaging="true" OpenInNewWindow="true">
         </ExportSettings>
         <MasterTableView ShowHeader="true" CommandItemDisplay="Top" EnableNoRecordsTemplate="False"
             GridLines="Both" NoMasterRecordsText="没有数据可以显示" AllowPaging="True"
-            TableLayout="Fixed" AutoGenerateColumns="false">
+            TableLayout="Fixed" AutoGenerateColumns="false" >
             <CommandItemSettings ShowExportToWordButton="true" ShowExportToExcelButton="true"
                 ShowExportToCsvButton="true" ShowExportToPdfButton="true" ShowAddNewRecordButton="False"
                 AddNewRecordText="请选择需要导出的类型" ExportToWordText="导出到Word" RefreshText="刷新"
                  ExportToCsvText="导出到CVS" ExportToExcelText="导出到Excel" ExportToPdfText="导出到PDF">
-                 </CommandItemSettings>
+            </CommandItemSettings>
+            <PagerStyle Position="Bottom" Mode="NextPrev"  PagerTextFormat="{4}第{0}页，共{1}页 共{5}条记录"/>
             <HeaderStyle VerticalAlign="Middle" HorizontalAlign="Center" />
             <ItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />
             <AlternatingItemStyle VerticalAlign="Middle" HorizontalAlign="Center" />

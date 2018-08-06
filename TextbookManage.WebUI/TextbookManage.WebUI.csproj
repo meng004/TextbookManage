@@ -283,11 +283,52 @@
     <Content Include="App_Themes\CPMisTheme\DatePicker.skin" />
     <Content Include="App_Themes\CPMisTheme\OnFileUpdate.skin" />
     <Content Include="App_Themes\CPMisTheme\ReportViewer.skin" />
-    <Content Include="TextbookMaintain\TextbookAdd.aspx" />
-    <Content Include="TextbookMaintain\TextbookApproval.aspx" />
-    <Content Include="TextbookMaintain\TextbookModify.aspx" />
-    <Content Include="TextbookMaintain\TextbookMyQuery.aspx" />
-    <Content Include="TextbookMaintain\TextbookQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_19\AlertAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_19\AlertDelete.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_19\AlertUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_19\EnableAlert.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_1\TextbookAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_1\TextbookQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_20\CourseTypeAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_20\CourseTypeDelete.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_20\CourseTypeUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_21\RecipientAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_21\RecipientDelete.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_21\RecipientUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeDelete.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_2\TermAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_2\TermDelete.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_2\TermUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_3\BooksellerAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_3\BooksellerQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_3\BooksellerUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_4\TextbookStockAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_4\TextbookStockQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_4\TextbookStockUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_5\InventoryAddQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_5\InventoryQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_5\InventoryUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_6\DiscountAdd.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_6\DiscountQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_6\DiscountUpdate.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_6\InventoryQuery.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_7\AddBooksellerStaff.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_7\UpdateBooksellerStaff.aspx" />
+    <Content Include="Tb_Maintain\Tb_Maintain_7\UpdateBooksellerStaffForms.aspx" />
+    <Content Include="Tb_SystemManage\Tb_FunctionManage\FunctionAdd.aspx" />
+    <Content Include="Tb_SystemManage\Tb_FunctionManage\FunctionManage.aspx" />
+    <Content Include="Tb_SystemManage\Tb_FunctionManage\FunctionRoleList.aspx" />
+    <Content Include="Tb_SystemManage\Tb_RoleManage\RoleAdd.aspx" />
+    <Content Include="Tb_SystemManage\Tb_RoleManage\RoleFunction.aspx" />
+    <Content Include="Tb_SystemManage\Tb_RoleManage\RoleFunctionList.aspx" />
+    <Content Include="Tb_SystemManage\Tb_RoleManage\RoleManage.aspx" />
+    <Content Include="Tb_SystemManage\Tb_RoleManage\RoleUserList.aspx" />
+    <Content Include="Tb_SystemManage\Tb_UserManage\SystemUserManage.aspx" />
+    <Content Include="Tb_SystemManage\Tb_UserManage\SystemUserUpdate.aspx" />
+    <Content Include="Tb_SystemManage\Tb_UserManage\UserFunctionList.aspx" />
+    <Content Include="Tb_SystemManage\Tb_UserManage\UserNamePasswordUpdate.aspx" />
     <Content Include="WindowForMessage\ApprovalRecordDetail.aspx" />
     <Content Include="WindowForMessage\DeclarationsForTeachingClass.aspx" />
     <Content Include="WindowForMessage\FeedbackForDeclaration.aspx" />
@@ -479,41 +520,329 @@
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextbookMaintain\TextbookAdd.aspx.cs">
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\AlertAdd.aspx.cs">
+      <DependentUpon>AlertAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\AlertAdd.aspx.designer.cs">
+      <DependentUpon>AlertAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\AlertDelete.aspx.cs">
+      <DependentUpon>AlertDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\AlertDelete.aspx.designer.cs">
+      <DependentUpon>AlertDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\AlertUpdate.aspx.cs">
+      <DependentUpon>AlertUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\AlertUpdate.aspx.designer.cs">
+      <DependentUpon>AlertUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\EnableAlert.aspx.cs">
+      <DependentUpon>EnableAlert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_19\EnableAlert.aspx.designer.cs">
+      <DependentUpon>EnableAlert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_1\TextbookAdd.aspx.cs">
       <DependentUpon>TextbookAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TextbookMaintain\TextbookAdd.aspx.designer.cs">
+    <Compile Include="Tb_Maintain\Tb_Maintain_1\TextbookAdd.aspx.designer.cs">
       <DependentUpon>TextbookAdd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TextbookMaintain\TextbookApproval.aspx.cs">
-      <DependentUpon>TextbookApproval.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookApproval.aspx.designer.cs">
-      <DependentUpon>TextbookApproval.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookModify.aspx.cs">
-      <DependentUpon>TextbookModify.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookModify.aspx.designer.cs">
-      <DependentUpon>TextbookModify.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.cs">
-      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookMyQuery.aspx.designer.cs">
-      <DependentUpon>TextbookMyQuery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TextbookMaintain\TextbookQuery.aspx.cs">
+    <Compile Include="Tb_Maintain\Tb_Maintain_1\TextbookQuery.aspx.cs">
       <DependentUpon>TextbookQuery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TextbookMaintain\TextbookQuery.aspx.designer.cs">
+    <Compile Include="Tb_Maintain\Tb_Maintain_1\TextbookQuery.aspx.designer.cs">
       <DependentUpon>TextbookQuery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_20\CourseTypeAdd.aspx.cs">
+      <DependentUpon>CourseTypeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_20\CourseTypeAdd.aspx.designer.cs">
+      <DependentUpon>CourseTypeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_20\CourseTypeDelete.aspx.cs">
+      <DependentUpon>CourseTypeDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_20\CourseTypeDelete.aspx.designer.cs">
+      <DependentUpon>CourseTypeDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_20\CourseTypeUpdate.aspx.cs">
+      <DependentUpon>CourseTypeUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_20\CourseTypeUpdate.aspx.designer.cs">
+      <DependentUpon>CourseTypeUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_21\RecipientAdd.aspx.cs">
+      <DependentUpon>RecipientAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_21\RecipientAdd.aspx.designer.cs">
+      <DependentUpon>RecipientAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_21\RecipientDelete.aspx.cs">
+      <DependentUpon>RecipientDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_21\RecipientDelete.aspx.designer.cs">
+      <DependentUpon>RecipientDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_21\RecipientUpdate.aspx.cs">
+      <DependentUpon>RecipientUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_21\RecipientUpdate.aspx.designer.cs">
+      <DependentUpon>RecipientUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeAdd.aspx.cs">
+      <DependentUpon>IdentityCardTypeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeAdd.aspx.designer.cs">
+      <DependentUpon>IdentityCardTypeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeDelete.aspx.cs">
+      <DependentUpon>IdentityCardTypeDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeDelete.aspx.designer.cs">
+      <DependentUpon>IdentityCardTypeDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeUpdate.aspx.cs">
+      <DependentUpon>IdentityCardTypeUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_22\IdentityCardTypeUpdate.aspx.designer.cs">
+      <DependentUpon>IdentityCardTypeUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_2\TermAdd.aspx.cs">
+      <DependentUpon>TermAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_2\TermAdd.aspx.designer.cs">
+      <DependentUpon>TermAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_2\TermDelete.aspx.cs">
+      <DependentUpon>TermDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_2\TermDelete.aspx.designer.cs">
+      <DependentUpon>TermDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_2\TermUpdate.aspx.cs">
+      <DependentUpon>TermUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_2\TermUpdate.aspx.designer.cs">
+      <DependentUpon>TermUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_3\BooksellerAdd.aspx.cs">
+      <DependentUpon>BooksellerAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_3\BooksellerAdd.aspx.designer.cs">
+      <DependentUpon>BooksellerAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_3\BooksellerQuery.aspx.cs">
+      <DependentUpon>BooksellerQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_3\BooksellerQuery.aspx.designer.cs">
+      <DependentUpon>BooksellerQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_3\BooksellerUpdate.aspx.cs">
+      <DependentUpon>BooksellerUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_3\BooksellerUpdate.aspx.designer.cs">
+      <DependentUpon>BooksellerUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_4\TextbookStockAdd.aspx.cs">
+      <DependentUpon>TextbookStockAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_4\TextbookStockAdd.aspx.designer.cs">
+      <DependentUpon>TextbookStockAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_4\TextbookStockQuery.aspx.cs">
+      <DependentUpon>TextbookStockQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_4\TextbookStockQuery.aspx.designer.cs">
+      <DependentUpon>TextbookStockQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_4\TextbookStockUpdate.aspx.cs">
+      <DependentUpon>TextbookStockUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_4\TextbookStockUpdate.aspx.designer.cs">
+      <DependentUpon>TextbookStockUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_5\InventoryAddQuery.aspx.cs">
+      <DependentUpon>InventoryAddQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_5\InventoryAddQuery.aspx.designer.cs">
+      <DependentUpon>InventoryAddQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_5\InventoryQuery.aspx.cs">
+      <DependentUpon>InventoryQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_5\InventoryQuery.aspx.designer.cs">
+      <DependentUpon>InventoryQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_5\InventoryUpdate.aspx.cs">
+      <DependentUpon>InventoryUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_5\InventoryUpdate.aspx.designer.cs">
+      <DependentUpon>InventoryUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\DiscountAdd.aspx.cs">
+      <DependentUpon>DiscountAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\DiscountAdd.aspx.designer.cs">
+      <DependentUpon>DiscountAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\DiscountQuery.aspx.cs">
+      <DependentUpon>DiscountQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\DiscountQuery.aspx.designer.cs">
+      <DependentUpon>DiscountQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\DiscountUpdate.aspx.cs">
+      <DependentUpon>DiscountUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\DiscountUpdate.aspx.designer.cs">
+      <DependentUpon>DiscountUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\InventoryQuery.aspx.cs">
+      <DependentUpon>InventoryQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_6\InventoryQuery.aspx.designer.cs">
+      <DependentUpon>InventoryQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_7\AddBooksellerStaff.aspx.cs">
+      <DependentUpon>AddBooksellerStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_7\AddBooksellerStaff.aspx.designer.cs">
+      <DependentUpon>AddBooksellerStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_7\UpdateBooksellerStaff.aspx.cs">
+      <DependentUpon>UpdateBooksellerStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_7\UpdateBooksellerStaff.aspx.designer.cs">
+      <DependentUpon>UpdateBooksellerStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_7\UpdateBooksellerStaffForms.aspx.cs">
+      <DependentUpon>UpdateBooksellerStaffForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_Maintain\Tb_Maintain_7\UpdateBooksellerStaffForms.aspx.designer.cs">
+      <DependentUpon>UpdateBooksellerStaffForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_FunctionManage\FunctionAdd.aspx.cs">
+      <DependentUpon>FunctionAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_FunctionManage\FunctionAdd.aspx.designer.cs">
+      <DependentUpon>FunctionAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_FunctionManage\FunctionManage.aspx.cs">
+      <DependentUpon>FunctionManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_FunctionManage\FunctionManage.aspx.designer.cs">
+      <DependentUpon>FunctionManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_FunctionManage\FunctionRoleList.aspx.cs">
+      <DependentUpon>FunctionRoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_FunctionManage\FunctionRoleList.aspx.designer.cs">
+      <DependentUpon>FunctionRoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleAdd.aspx.cs">
+      <DependentUpon>RoleAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleAdd.aspx.designer.cs">
+      <DependentUpon>RoleAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleFunction.aspx.cs">
+      <DependentUpon>RoleFunction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleFunction.aspx.designer.cs">
+      <DependentUpon>RoleFunction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleFunctionList.aspx.cs">
+      <DependentUpon>RoleFunctionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleFunctionList.aspx.designer.cs">
+      <DependentUpon>RoleFunctionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleManage.aspx.cs">
+      <DependentUpon>RoleManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleManage.aspx.designer.cs">
+      <DependentUpon>RoleManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleUserList.aspx.cs">
+      <DependentUpon>RoleUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_RoleManage\RoleUserList.aspx.designer.cs">
+      <DependentUpon>RoleUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\SystemUserManage.aspx.cs">
+      <DependentUpon>SystemUserManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\SystemUserManage.aspx.designer.cs">
+      <DependentUpon>SystemUserManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\SystemUserUpdate.aspx.cs">
+      <DependentUpon>SystemUserUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\SystemUserUpdate.aspx.designer.cs">
+      <DependentUpon>SystemUserUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\UserFunctionList.aspx.cs">
+      <DependentUpon>UserFunctionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\UserFunctionList.aspx.designer.cs">
+      <DependentUpon>UserFunctionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\UserNamePasswordUpdate.aspx.cs">
+      <DependentUpon>UserNamePasswordUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tb_SystemManage\Tb_UserManage\UserNamePasswordUpdate.aspx.designer.cs">
+      <DependentUpon>UserNamePasswordUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnityBootstrapper.cs" />
     <Compile Include="WindowForMessage\ApprovalRecordDetail.aspx.cs">
       <DependentUpon>ApprovalRecordDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
