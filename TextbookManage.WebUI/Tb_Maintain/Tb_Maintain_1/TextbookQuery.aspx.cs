@@ -92,12 +92,17 @@ namespace TextbookManage.WebUI.Tb_Maintain.Tb_Maintain_1
         protected void GdTextbooks_OnItemCommand(object sender, GridCommandEventArgs e)
         {
             // convert the ParentControl to a CellItem object
-            var key = e.CommandName;
+            
             if (!(e.Item is GridDataItem)) return;
             var dataItem = (GridDataItem) e.Item;
             var id = dataItem["TextbookId"].Text;
             var isNotNull = !string.IsNullOrWhiteSpace(id);
             var isNotEmpty = !string.Equals(id, Guid.Empty.ToString());
+
+            //用索引号取当前数据对象
+            var data = GdTextbooks.GetData<TextbookView>(e.Item.ItemIndex);
+
+            var key = e.CommandName;
 
             if (key.Equals("Show") && isNotNull && isNotEmpty)//显示教材详情
             {

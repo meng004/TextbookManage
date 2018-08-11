@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using AutoMapper;
 using TextbookManage.Domain.Models;
@@ -13,22 +14,20 @@ namespace TextbookManage.Applications.AdapterProfile
     public class ProfessionalClassesConvert : ITypeConverter<IEnumerable<ProfessionalClass>, string>
     {
 
-        public string Convert(ResolutionContext context)
+        public string Convert(IEnumerable<ProfessionalClass> source, string destination, ResolutionContext context)
         {
-            IEnumerable<ProfessionalClass> classes;
-
-            if (context.SourceType == typeof(IEnumerable<ProfessionalClass>))
-                classes = context.SourceValue as IEnumerable<ProfessionalClass>;
-            else
-                classes = new List<ProfessionalClass>();
-
+            var classes = source.ToList();
+            if (!classes.Any()) return "班级列表为空";
+            //
             var name = new StringBuilder();
             foreach (var item in classes)
             {
                 name.Append(item.Name);
                 name.Append(",");
             }
+            //移除末尾的逗号，
             name.Remove(name.Length - 1, 1);
+
             return name.ToString();
         }
     }
