@@ -16,7 +16,7 @@ namespace TextbookManage.Repositories
 
         public System.Collections.Generic.IEnumerable<string> GetGradeBySchoolId(System.Guid schoolId)
         {
-            var grade = _dbSet.AsNoTracking().AsParallel()
+            var grade = DbSet.AsNoTracking().AsParallel()
                 .Where(t => t.School_Id == schoolId)
                 .Select(t => t.Grade)
                 .Distinct()

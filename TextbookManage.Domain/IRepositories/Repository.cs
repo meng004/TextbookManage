@@ -3,9 +3,7 @@
 
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Linq.Expressions;
-    using TextbookManage.Domain.Models;
 
     /// <summary>
     /// 仓储的抽象基类
@@ -15,34 +13,27 @@
         where TAggregateRoot : class,IAggregateRoot
     {
 
-        #region 私有变量
-
-        /// <summary>
-        /// 工作单元，数据上下文
-        /// </summary>
-        private readonly IRepositoryContext _context;
-
-        #endregion
+        #region IDisposable
 
         public void Dispose()
         {
-            _context.Dispose();
+            Context.Dispose();
         }
+
+        #endregion
+
         #region 构造函数
 
-        public Repository(IRepositoryContext context)
+        protected Repository(IRepositoryContext context)
         {
-            this._context = context;
+            Context = context;
         }
-         
+
         #endregion
 
         #region IRepository
 
-        public IRepositoryContext Context
-        {
-            get { return this._context; }
-        }
+        public IRepositoryContext Context { get; }
 
         public abstract IEnumerable<TAggregateRoot> GetAll();
 

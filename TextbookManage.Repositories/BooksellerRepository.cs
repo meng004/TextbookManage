@@ -14,19 +14,15 @@ namespace TextbookManage.Repositories
 
         }
 
-        public System.Collections.Generic.IEnumerable<Subscription> GetSubscriptions(System.Guid booksellerId, SchoolYearTerm schoolYearTerm)
+        public IEnumerable<Subscription> GetSubscriptions(System.Guid booksellerId, SchoolYearTerm schoolYearTerm)
         {
-            var ctx = this.EFContext.Context as TbMisDbContext;
-            if (ctx != null)
-            {
-                var results = ctx.Subscriptions.Where(t => 
-                    t.SchoolYearTerm.Year == schoolYearTerm.Year && 
-                    t.SchoolYearTerm.Term == schoolYearTerm.Term && 
-                    t.Bookseller_Id == booksellerId
-                    );
-                return results.ToList();
-            }
-            return new List<Subscription>();
+            if (!(EfContext.Context is TbMisDbContext ctx)) return new List<Subscription>();
+            var results = ctx.Subscriptions.Where(t => 
+                t.SchoolYearTerm.Year == schoolYearTerm.Year && 
+                t.SchoolYearTerm.Term == schoolYearTerm.Term && 
+                t.Bookseller_Id == booksellerId
+            );
+            return results.ToList();
         }
     }
 }

@@ -19,8 +19,7 @@ namespace TextbookManage.Repositories
 
         public IEnumerable<ProfessionalClass> GetProfessionalClasses(System.Guid declarationId)
         {
-            var ctx = this.EFContext.Context as TbMisDbContext;
-            if (ctx != null)
+            if (EfContext.Context is TbMisDbContext ctx)
             {
                 var declaration = Single(t => t.ID == declarationId).DeclarationJiaoWu;
                 if (declaration != null)
@@ -46,7 +45,7 @@ namespace TextbookManage.Repositories
         public IEnumerable<School> GetSchools(System.Guid declarationId)
         {
             var classes = GetProfessionalClasses(declarationId).ToList();
-            if (classes.Count()>0)
+            if (classes.Any())
             {
                 var schools = classes.Select(t => t.School).Distinct();
                 return schools;

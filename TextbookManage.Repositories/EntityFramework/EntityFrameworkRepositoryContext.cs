@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using System.Threading;
-using System.Collections.Generic;
 using TextbookManage.Domain.IRepositories;
 
 namespace TextbookManage.Repositories.EntityFramework
@@ -11,7 +10,7 @@ namespace TextbookManage.Repositories.EntityFramework
 
         #region 私有变量
 
-        private readonly ThreadLocal<TbMisDbContext> localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
+        private readonly ThreadLocal<TbMisDbContext> _localCtx = new ThreadLocal<TbMisDbContext>(() => new TbMisDbContext());
 
         #endregion
 
@@ -19,19 +18,19 @@ namespace TextbookManage.Repositories.EntityFramework
 
         public override void RegisterDeleted<TAggregateRoot>(TAggregateRoot obj)
         {
-            localCtx.Value.Set<TAggregateRoot>().Remove(obj);
+            _localCtx.Value.Set<TAggregateRoot>().Remove(obj);
             Committed = false;
         }
 
         public override void RegisterModified<TAggregateRoot>(TAggregateRoot obj)
         {
-            localCtx.Value.Entry<TAggregateRoot>(obj).State = System.Data.Entity.EntityState.Modified;
+            _localCtx.Value.Entry(obj).State = EntityState.Modified;
             Committed = false;
         }
 
         public override void RegisterNew<TAggregateRoot>(TAggregateRoot obj)
         {
-            localCtx.Value.Set<TAggregateRoot>().Add(obj);
+            _localCtx.Value.Set<TAggregateRoot>().Add(obj);
             Committed = false;
         }
 
@@ -43,14 +42,15 @@ namespace TextbookManage.Repositories.EntityFramework
         {
             if (!Committed)
             {
-                var validationErrors = localCtx.Value.GetValidationErrors();
-                var count = localCtx.Value.SaveChanges();
+                var validationErrors = _localCtx.Value.GetValidationErrors();
+                var count = _localCtx.Value.SaveChanges();
                 Committed = true;
             }
         }
 
         public override void Rollback()
         {
+            //ClearRegistrations();
             Committed = false;
         }
         #endregion
@@ -63,8 +63,8 @@ namespace TextbookManage.Repositories.EntityFramework
             {
                 if (!Committed)
                     Commit();
-                localCtx.Value.Dispose();
-                localCtx.Dispose();
+                _localCtx.Value.Dispose();
+                _localCtx.Dispose();
                 base.Dispose(disposing);
             }
         }
@@ -74,7 +74,7 @@ namespace TextbookManage.Repositories.EntityFramework
 
         public DbContext Context
         {
-            get { return localCtx.Value; }
+            get { return _localCtx.Value; }
         }
 
         #endregion
