@@ -1,8 +1,10 @@
-﻿namespace TextbookManage.Infrastructure.InterceptionBehaviors
+﻿using Unity.Interception.InterceptionBehaviors;
+using Unity.Interception.PolicyInjection.Pipeline;
+
+namespace TextbookManage.Infrastructure.InterceptionBehaviors
 {
     using System;
     using System.Collections.Generic;
-    using Microsoft.Practices.Unity.InterceptionExtension;
     using TextbookManage.Infrastructure.Logger;
     using TextbookManage.Infrastructure.ServiceLocators;
 

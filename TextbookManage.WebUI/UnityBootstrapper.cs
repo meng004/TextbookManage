@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.InterceptionExtension;
+﻿
 using TextbookManage.Applications.Impl;
 using TextbookManage.Domain;
 using TextbookManage.Domain.IRepositories;
@@ -12,6 +11,11 @@ using TextbookManage.Infrastructure.ServiceLocators;
 using TextbookManage.Infrastructure.TypeAdapter;
 using TextbookManage.Repositories;
 using TextbookManage.Repositories.EntityFramework;
+using Unity;
+using Unity.Injection;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
+using Unity.Lifetime;
 
 namespace TextbookManage.WebUI
 {

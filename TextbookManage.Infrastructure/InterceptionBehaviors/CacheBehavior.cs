@@ -1,7 +1,10 @@
-﻿namespace TextbookManage.Infrastructure.InterceptionBehaviors
+﻿using Unity.Interception.InterceptionBehaviors;
+using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
+using Unity.Interception.PolicyInjection.Pipeline;
+
+namespace TextbookManage.Infrastructure.InterceptionBehaviors
 {
 
-    using Microsoft.Practices.Unity.InterceptionExtension;
     using System;
     using System.Collections.Generic;
     using System.Text;

@@ -16,6 +16,10 @@ using TextbookManage.Infrastructure.Logger;
 using Microsoft.Practices.Unity.InterceptionExtension;
 using TextbookManage.Infrastructure.InterceptionBehaviors;
 using Rhino.Mocks;
+using Unity;
+using Unity.Injection;
+using Unity.Interception.ContainerIntegration;
+using Unity.Lifetime;
 
 namespace TextbookManage.Applications.Test
 {

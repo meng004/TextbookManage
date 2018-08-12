@@ -1,9 +1,10 @@
 ﻿using Microsoft.Practices.ServiceLocation;
-using Microsoft.Practices.Unity;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
+using Unity;
+using Unity.Resolution;
 
 
 namespace TextbookManage.Infrastructure.ServiceLocators

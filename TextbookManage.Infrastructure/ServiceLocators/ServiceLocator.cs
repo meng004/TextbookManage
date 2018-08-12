@@ -1,10 +1,11 @@
 ﻿
+using Unity;
+using Unity.Resolution;
+
 namespace TextbookManage.Infrastructure.ServiceLocators
 {
 
     using Microsoft.Practices.ServiceLocation;
-    using Microsoft.Practices.Unity;
-    using Microsoft.Practices.Unity.Configuration;
     using System;
     using System.Linq;
     using System.Configuration;
