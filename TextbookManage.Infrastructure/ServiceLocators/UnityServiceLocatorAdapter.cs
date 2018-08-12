@@ -1,8 +1,9 @@
-﻿using Microsoft.Practices.ServiceLocation;
+﻿
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
+using CommonServiceLocator;
 using Unity;
 using Unity.Resolution;
 

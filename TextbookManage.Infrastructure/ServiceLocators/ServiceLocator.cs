@@ -1,11 +1,12 @@
 ﻿
+using CommonServiceLocator;
 using Unity;
 using Unity.Resolution;
 
 namespace TextbookManage.Infrastructure.ServiceLocators
 {
 
-    using Microsoft.Practices.ServiceLocation;
+
     using System;
     using System.Linq;
     using System.Configuration;
